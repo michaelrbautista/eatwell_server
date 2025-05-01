@@ -39,7 +39,7 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
     ]
 
     misc = [
-        "David Goggins", "Jordan Peterson", "Jocko Willink", "Phil Jackson"
+        "David Goggins", "Jordan Peterson", "Jocko Willink",
 
         "Aurelius", "Seneca The Younger", "Epitetus", "Cato The Younger", "Zeno of Citium", "Cleanthes", "Hecato of Rhodes", "Gaius Musonius Rufus", "Socrates",
 
