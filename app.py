@@ -50,21 +50,21 @@ async def chat_with_openai(topic: str, user_religion: str):
         case "entrepreneurship":
             topic_list = entrepreneurs
         
-    randomPerson = random.choice(topic_list)
+    random_person = random.choice(topic_list)
 
     if topic == "religion":
         if user_religion == "christianity" or user_religion == "catholicism":
-            randomPerson = religion[0]
+            random_person = religion[0]
         elif user_religion == "judaism":
-            randomPerson = religion[1]
+            random_person = religion[1]
         elif user_religion == "islam":
-            randomPerson = religion[2]
+            random_person = religion[2]
 
     adjectives = [
-        "dedication", "perseverance", "grit", "tenacity", "discipline", "work ethic", "sacrifice", "dedication", "endurance"
+        "discipline", "perseverance", "grit", "tenacity", "work ethic", "sacrifice", "dedication", "endurance"
     ]
 
-    randomAdjective = random.choice(adjectives)
+    random_adjective = random.choice(adjectives)
 
     try:
         completion = client.beta.chat.completions.parse(
@@ -76,7 +76,7 @@ async def chat_with_openai(topic: str, user_religion: str):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a short, inspirational quote from {randomPerson} that highlights {randomAdjective}. Do not include any interpretations."
+                    "content": f"Give me a short, inspirational quote from {random_person} that highlights {random_adjective}. Do not include any interpretations."
                 }
             ],
             temperature=0.9,
