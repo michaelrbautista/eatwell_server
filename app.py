@@ -17,7 +17,7 @@ app = FastAPI()
 
 class ChatResponse(BaseModel):
     quote: str
-    person: str
+    source: str
 
 @app.post("/quote")
 async def chat_with_openai(topic: str):
@@ -58,7 +58,7 @@ async def chat_with_openai(topic: str):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me an inspirational quote from {person} that highlights grit and perseverance. Do not include any interpretations."
+                    "content": f"Give me a short, inspirational quote from {person} that highlights grit and perseverance. Do not include any interpretations."
                 }
             ],
             temperature=0.9,
