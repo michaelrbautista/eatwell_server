@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import random
+from typing import Optional
 
 load_dotenv()
 
@@ -20,7 +21,10 @@ class ChatResponse(BaseModel):
     source: str
 
 @app.post("/quote")
-async def chat_with_openai(topic: str, user_religion: str):
+async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
+    print(topic)
+    print(user_religion)
+
     # Define prompt
     sports = [
         "Kobe Bryant", "Michael Jordan", "LeBron James", "Muhammad Ali", "Tom Brady", "Usain Bolt", "Michael Phelps", "Tiger Woods", "Rafael Nadal", "Roger Federer", "Eliud Kipchoge", "Conor McGregor", "Mike Tyson"
@@ -52,7 +56,7 @@ async def chat_with_openai(topic: str, user_religion: str):
         
     random_person = random.choice(topic_list)
 
-    if topic == "religion":
+    if topic == "religion" and user_religion != None:
         if user_religion == "christianity" or user_religion == "catholicism":
             random_person = religion[0]
         elif user_religion == "judaism":
