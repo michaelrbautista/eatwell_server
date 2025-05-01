@@ -20,14 +20,18 @@ class ChatResponse(BaseModel):
     source: str
 
 @app.post("/quote")
-async def chat_with_openai(topic: str):
+async def chat_with_openai(topic: str, user_religion: str):
     # Define prompt
     sports = [
-        "Kobe Bryant", "Michael Jordan", "LeBron James", "Muhammad Ali", "Tom Brady", "Brian Dawkins", "Usain Bolt", "Michael Phelps", "Tiger Woods", "Rafael Nadal", "Roger Federer", "Eliud Kipchoge", "Conor McGregor", "Mike Tyson"
+        "Kobe Bryant", "Michael Jordan", "LeBron James", "Muhammad Ali", "Tom Brady", "Usain Bolt", "Michael Phelps", "Tiger Woods", "Rafael Nadal", "Roger Federer", "Eliud Kipchoge", "Conor McGregor", "Mike Tyson"
     ]
 
     entrepreneurs = [
         "Steve Jobs", "Naval Ravikant", "Paul Graham", "Elon Musk", "Walt Disney", "Alex Hormozi", "Walt Disney", "Phil Knight", "David Ogilvy"
+    ]
+
+    religion = [
+        "the Bible", "the Tanakh", "the Quran"
     ]
 
     misc = [
@@ -45,8 +49,22 @@ async def chat_with_openai(topic: str):
             topic_list = sports
         case "entrepreneurship":
             topic_list = entrepreneurs
+        
+    randomPerson = random.choice(topic_list)
 
-    person = random.choice(topic_list)
+    if topic == "religion":
+        if user_religion == "christianity" or user_religion == "catholicism":
+            randomPerson = religion[0]
+        elif user_religion == "judaism":
+            randomPerson = religion[1]
+        elif user_religion == "islam":
+            randomPerson = religion[2]
+
+    adjectives = [
+        "dedication", "perseverance", "grit", "tenacity", "discipline", "work ethic", "sacrifice", "dedication", "endurance"
+    ]
+
+    randomAdjective = random.choice(adjectives)
 
     try:
         completion = client.beta.chat.completions.parse(
@@ -58,10 +76,11 @@ async def chat_with_openai(topic: str):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a short, inspirational quote from {person} that highlights grit and perseverance. Do not include any interpretations."
+                    "content": f"Give me a short, inspirational quote from {randomPerson} that highlights {randomAdjective}. Do not include any interpretations."
                 }
             ],
             temperature=0.9,
+            top_p=0.95,
             response_format=ChatResponse
         )
 
