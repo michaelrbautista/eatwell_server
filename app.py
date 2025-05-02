@@ -80,7 +80,7 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a short, inspirational quote from {random_person} that highlights {random_adjective}. Do not include any interpretations."
+                    "content": f"Give me a short, inspirational quote from {random_person} that highlights {random_adjective}. Do not return a quote about war and do not include any interpretations."
                 }
             ],
             temperature=0.9,
