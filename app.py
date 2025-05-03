@@ -87,11 +87,11 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
             messages=[
                 {
                     "role": "developer", 
-                    "content": "You're an expert in successful athletes, entrepreneurs, motivational speakers, and historical figures."
+                    "content": "You're an expert in successful athletes, entrepreneurs, authors, philosophers, public figures, and historical figures."
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a short, {random_first_adjective} quote from {random_person} about self improvement that highlights {random_second_adjective}. Do not return a quote about war and do not include any interpretations."
+                    "content": f"Give me a short, {random_first_adjective} quote from {random_person} about self improvement that highlights {random_second_adjective}. Do not return a quote about war, do not include quotation marks, and do not include any interpretations."
                 }
             ],
             temperature=0.9,
