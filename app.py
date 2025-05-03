@@ -27,11 +27,11 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
 
     # Define prompt
     sports = [
-        "Kobe Bryant", "Michael Jordan", "LeBron James", "Muhammad Ali", "Tom Brady", "Usain Bolt", "Michael Phelps", "Tiger Woods", "Rafael Nadal", "Roger Federer", "Eliud Kipchoge", "Conor McGregor", "Mike Tyson", "Johan Cruyff"
+        "Kobe Bryant", "Michael Jordan", "LeBron James", "Muhammad Ali", "Tom Brady", "Usain Bolt", "Michael Phelps", "Tiger Woods", "Rafael Nadal", "Roger Federer", "Eliud Kipchoge", "Conor McGregor", "Mike Tyson", "Johan Cruyff", "Laird Hamilton", "Willie Mays", "Vince Lombardi", "Bobby Knight", "Wayne Gretzky", "John Wooden", ""
     ]
 
     entrepreneurs = [
-        "Steve Jobs", "Naval Ravikant", "Paul Graham", "Elon Musk", "Walt Disney", "Alex Hormozi", "Walt Disney", "Phil Knight", "David Ogilvy", "Goerge Lucas", "Edwin Catmull", "Thomas Edison", "Phil Jackson", "Jeff Bezos", "James Dyson", "Bill Hewitt", "Peter Thiel", "Levi Strauss", "Edwin Land", "Ray Dalio", "Marc Andreessen", "John Bogle", "Howard Hughes", "Yvon Chouinard", "Malcolm McLean", "Benjamin Franklin", "Henry Kaiser", "Conrad Hilton", "Andrew Carnegie", "Charlie Munger", "Henry Royce", "Thomas J. Watson", "Enzo Ferrari", "Bill Walsh", "Chung Ju-yung", "Billy Durant", "Larry Ellison", "Alexander Graham Bell", "J.P. Morgan", "Bill Gates", "Arnold Schwarzenegger", "Ernest Shackleton", "Milton Hershey", "Sam Colt", "Bill Bowerman", "Andy Grove", "Chuck Yeager", "Isadore Sharp", "Jim Casey", "Michael Dell", "Stephen King", "Michael Bloomberg", "William Rosenberg", "Jay Z", "Kanye West", "Rick Rubin", "Ray Krock", "James Cameron", "Sam Zell", "Jensen Huang", "Jerry Jones", "Akio Morita"
+        "Steve Jobs", "Naval Ravikant", "Paul Graham", "Elon Musk", "Walt Disney", "Alex Hormozi", "Walt Disney", "Phil Knight", "David Ogilvy", "Goerge Lucas", "Edwin Catmull", "Thomas Edison", "Phil Jackson", "Jeff Bezos", "James Dyson", "Bill Hewitt", "Peter Thiel", "Levi Strauss", "Edwin Land", "Ray Dalio", "Marc Andreessen", "John Bogle", "Howard Hughes", "Yvon Chouinard", "Malcolm McLean", "Benjamin Franklin", "Henry Kaiser", "Conrad Hilton", "Andrew Carnegie", "Charlie Munger", "Henry Royce", "Thomas J. Watson", "Enzo Ferrari", "Bill Walsh", "Chung Ju-yung", "Billy Durant", "Larry Ellison", "Alexander Graham Bell", "J.P. Morgan", "Bill Gates", "Arnold Schwarzenegger", "Ernest Shackleton", "Milton Hershey", "Sam Colt", "Bill Bowerman", "Andy Grove", "Chuck Yeager", "Isadore Sharp", "Jim Casey", "Michael Dell", "Stephen King", "Michael Bloomberg", "William Rosenberg", "Jay Z", "Kanye West", "Rick Rubin", "Ray Krock", "James Cameron", "Sam Zell", "Jensen Huang", "Jerry Jones", "Akio Morita", "Charles Kettering",
     ]
 
     religion = [
@@ -42,10 +42,10 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
         "David Goggins", "Jordan Peterson", "Jocko Willink",
 
         # philosophers
-        "Aurelius", "Seneca The Younger", "Epitetus", "Cato The Younger", "Zeno of Citium", "Cleanthes", "Hecato of Rhodes", "Gaius Musonius Rufus", "Socrates", "Confucius", "Plato", "Aristotle", "Friedrich Nietzsche", "Jean-Jacques Rousseau", "Arthur Schopenhauer",
+        "Aurelius", "Seneca The Younger", "Epitetus", "Cato The Younger", "Zeno of Citium", "Cleanthes", "Hecato of Rhodes", "Gaius Musonius Rufus", "Socrates", "Confucius", "Plato", "Aristotle", "Friedrich Nietzsche", "Jean-Jacques Rousseau", "Arthur Schopenhauer", "Lao Tzu",
 
         # authors
-        "Mark Twain", "Ralph Waldo Emerson", "Henry David Thoreau", "Paulo Coehlo", "Haruki Murakami", "James Clear", "Brene Brown", "Robin Sharma", "Og Mandino", "Shakespeare",
+        "Mark Twain", "Ralph Waldo Emerson", "Henry David Thoreau", "Paulo Coehlo", "Haruki Murakami", "James Clear", "Brene Brown", "Robin Sharma", "Og Mandino", "Shakespeare", "Alexander Pope", "William Arthur Ward", 
 
         # military
         "Winston Churchill", "Julius Caesar", "Alexander The Great", "Dwight D. Eisenhower", "Napoleon Bonaparte", "George S. Patton", "Ulysses S. Grant", "Theodore Roosevelt", "John F. Kennedy", "Hannibal"
