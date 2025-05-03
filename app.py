@@ -45,10 +45,10 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
         "Aurelius", "Seneca The Younger", "Epitetus", "Cato The Younger", "Zeno of Citium", "Cleanthes", "Hecato of Rhodes", "Gaius Musonius Rufus", "Socrates", "Confucius", "Plato", "Aristotle", "Friedrich Nietzsche", "Jean-Jacques Rousseau", "Arthur Schopenhauer",
 
         # authors
-        "Mark Twain", "Ralph Waldo Emerson", "Henry David Thoreau", "Paulo Coehlo", "Haruki Murakami", "James Clear", "Brene Brown", "Robin Sharma", "Og Mandino"
+        "Mark Twain", "Ralph Waldo Emerson", "Henry David Thoreau", "Paulo Coehlo", "Haruki Murakami", "James Clear", "Brene Brown", "Robin Sharma", "Og Mandino", "Shakespeare",
 
         # military
-        "Winston Churchill", "Julius Caesar", "Alexander The Great", "Dwight D. Eisenhower", "Napoleon Bonaparte", "George S. Patton", "Ulysses S. Grant", "Theodore Roosevelt", "John F. Kennedy"
+        "Winston Churchill", "Julius Caesar", "Alexander The Great", "Dwight D. Eisenhower", "Napoleon Bonaparte", "George S. Patton", "Ulysses S. Grant", "Theodore Roosevelt", "John F. Kennedy", "Hannibal"
     ]
 
     topic_list = misc
@@ -91,7 +91,7 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a short, {random_first_adjective} quote from {random_person} about self improvement that highlights {random_second_adjective}. Do not return a quote about war, do not include quotation marks, and do not include any interpretations."
+                    "content": f"Give me a short, {random_first_adjective} quote from {random_person} about self improvement that highlights {random_second_adjective}. Do not return a quote about war itself, do not include quotation marks, and do not include any interpretations."
                 }
             ],
             temperature=0.9,
