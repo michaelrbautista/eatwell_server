@@ -21,21 +21,16 @@ class ChatResponse(BaseModel):
     source: str
 
 @app.post("/quote")
-async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
+async def chat_with_openai(topic: str):
     print(topic)
-    print(user_religion)
 
     # Define prompt
     sports = [
-        "Kobe Bryant", "Michael Jordan", "LeBron James", "Muhammad Ali", "Tom Brady", "Usain Bolt", "Michael Phelps", "Tiger Woods", "Rafael Nadal", "Roger Federer", "Eliud Kipchoge", "Conor McGregor", "Mike Tyson", "Johan Cruyff", "Laird Hamilton", "Willie Mays", "Vince Lombardi", "Bobby Knight", "Wayne Gretzky", "John Wooden", ""
+        "Kobe Bryant", "Michael Jordan", "LeBron James", "Muhammad Ali", "Tom Brady", "Usain Bolt", "Michael Phelps", "Tiger Woods", "Rafael Nadal", "Roger Federer", "Eliud Kipchoge", "Conor McGregor", "Mike Tyson", "Johan Cruyff", "Laird Hamilton", "Willie Mays", "Vince Lombardi", "Bobby Knight", "Wayne Gretzky", "John Wooden"
     ]
 
     entrepreneurs = [
         "Steve Jobs", "Naval Ravikant", "Paul Graham", "Elon Musk", "Walt Disney", "Alex Hormozi", "Walt Disney", "Phil Knight", "David Ogilvy", "Goerge Lucas", "Edwin Catmull", "Thomas Edison", "Phil Jackson", "Jeff Bezos", "James Dyson", "Bill Hewitt", "Peter Thiel", "Levi Strauss", "Edwin Land", "Ray Dalio", "Marc Andreessen", "Howard Hughes", "Yvon Chouinard", "Malcolm McLean", "Benjamin Franklin", "Henry Kaiser", "Conrad Hilton", "Andrew Carnegie", "Charlie Munger", "Henry Royce", "Thomas J. Watson", "Enzo Ferrari", "Bill Walsh", "Chung Ju-yung", "Billy Durant", "Larry Ellison", "Alexander Graham Bell", "J.P. Morgan", "Bill Gates", "Arnold Schwarzenegger", "Ernest Shackleton", "Milton Hershey", "Sam Colt", "Bill Bowerman", "Andy Grove", "Chuck Yeager", "Isadore Sharp", "Jim Casey", "Michael Dell", "Stephen King", "Michael Bloomberg", "William Rosenberg", "Rick Rubin", "Ray Krock", "James Cameron", "Sam Zell", "Jensen Huang", "Jerry Jones", "Akio Morita", "Charles Kettering",
-    ]
-
-    religion = [
-        "the Bible", "the Tanakh", "the Quran"
     ]
 
     misc = [
@@ -60,14 +55,6 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
             topic_list = entrepreneurs
         
     random_person = random.choice(topic_list)
-
-    if topic == "religion" and user_religion != None:
-        if user_religion == "christianity" or user_religion == "catholicism":
-            random_person = religion[0]
-        elif user_religion == "judaism":
-            random_person = religion[1]
-        elif user_religion == "islam":
-            random_person = religion[2]
 
     first_adjectives = [
         "motivational", "inspirational", "powerful", "profound"
