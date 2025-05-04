@@ -31,7 +31,7 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
     ]
 
     entrepreneurs = [
-        "Steve Jobs", "Naval Ravikant", "Paul Graham", "Elon Musk", "Walt Disney", "Alex Hormozi", "Walt Disney", "Phil Knight", "David Ogilvy", "Goerge Lucas", "Edwin Catmull", "Thomas Edison", "Phil Jackson", "Jeff Bezos", "James Dyson", "Bill Hewitt", "Peter Thiel", "Levi Strauss", "Edwin Land", "Ray Dalio", "Marc Andreessen", "John Bogle", "Howard Hughes", "Yvon Chouinard", "Malcolm McLean", "Benjamin Franklin", "Henry Kaiser", "Conrad Hilton", "Andrew Carnegie", "Charlie Munger", "Henry Royce", "Thomas J. Watson", "Enzo Ferrari", "Bill Walsh", "Chung Ju-yung", "Billy Durant", "Larry Ellison", "Alexander Graham Bell", "J.P. Morgan", "Bill Gates", "Arnold Schwarzenegger", "Ernest Shackleton", "Milton Hershey", "Sam Colt", "Bill Bowerman", "Andy Grove", "Chuck Yeager", "Isadore Sharp", "Jim Casey", "Michael Dell", "Stephen King", "Michael Bloomberg", "William Rosenberg", "Rick Rubin", "Ray Krock", "James Cameron", "Sam Zell", "Jensen Huang", "Jerry Jones", "Akio Morita", "Charles Kettering",
+        "Steve Jobs", "Naval Ravikant", "Paul Graham", "Elon Musk", "Walt Disney", "Alex Hormozi", "Walt Disney", "Phil Knight", "David Ogilvy", "Goerge Lucas", "Edwin Catmull", "Thomas Edison", "Phil Jackson", "Jeff Bezos", "James Dyson", "Bill Hewitt", "Peter Thiel", "Levi Strauss", "Edwin Land", "Ray Dalio", "Marc Andreessen", "Howard Hughes", "Yvon Chouinard", "Malcolm McLean", "Benjamin Franklin", "Henry Kaiser", "Conrad Hilton", "Andrew Carnegie", "Charlie Munger", "Henry Royce", "Thomas J. Watson", "Enzo Ferrari", "Bill Walsh", "Chung Ju-yung", "Billy Durant", "Larry Ellison", "Alexander Graham Bell", "J.P. Morgan", "Bill Gates", "Arnold Schwarzenegger", "Ernest Shackleton", "Milton Hershey", "Sam Colt", "Bill Bowerman", "Andy Grove", "Chuck Yeager", "Isadore Sharp", "Jim Casey", "Michael Dell", "Stephen King", "Michael Bloomberg", "William Rosenberg", "Rick Rubin", "Ray Krock", "James Cameron", "Sam Zell", "Jensen Huang", "Jerry Jones", "Akio Morita", "Charles Kettering",
     ]
 
     religion = [
@@ -91,7 +91,7 @@ async def chat_with_openai(topic: str, user_religion: Optional[str] = None):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a random, short, {random_first_adjective} quote from {random_person} about life that highlights {random_second_adjective}. Do not return a quote about war itself, do not include quotation marks, and do not include any interpretations."
+                    "content": f"Give me a random, short, {random_first_adjective} quote from {random_person} about life that highlights {random_second_adjective}. Do not quote someone else, return a quote about war, include quotation marks, or include any interpretations."
                 }
             ],
             temperature=0.9,
