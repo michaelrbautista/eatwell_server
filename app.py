@@ -62,12 +62,6 @@ async def chat_with_openai(topic: str):
 
     random_first_adjective = random.choice(first_adjectives)
 
-    second_adjectives = [
-        "discipline", "perseverance", "grit", "dedication", "endurance"
-    ]
-
-    random_second_adjective = random.choice(second_adjectives)
-
     try:
         completion = client.beta.chat.completions.parse(
             model="gpt-4.1-mini",
