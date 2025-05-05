@@ -78,7 +78,7 @@ async def chat_with_openai(topic: str):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a random, short, {random_first_adjective} quote from {random_person} about life that highlights {random_second_adjective}. Do not quote someone else, return a quote about war, include quotation marks, or include any interpretations."
+                    "content": f"Give me a random, short, {random_first_adjective} quote from {random_person} about life. Do not quote someone else, return a quote about war, include quotation marks, or include any interpretations."
                 }
             ],
             temperature=0.9,
