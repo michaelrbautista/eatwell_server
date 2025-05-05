@@ -57,7 +57,7 @@ async def chat_with_openai(topic: str):
     random_person = random.choice(topic_list)
 
     first_adjectives = [
-        "motivational", "inspirational", "powerful", "profound"
+        "motivational", "inspirational"
     ]
 
     random_first_adjective = random.choice(first_adjectives)
