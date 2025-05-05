@@ -34,7 +34,7 @@ async def chat_with_openai(topic: str):
     ]
 
     misc = [
-        "David Goggins", "Jordan Peterson", "Jocko Willink",
+        "David Goggins", "Jordan Peterson", "Jocko Willink", "Virgil Abloh",
 
         # philosophers
         "Aurelius", "Seneca The Younger", "Epitetus", "Cato The Younger", "Zeno of Citium", "Hecato of Rhodes", "Gaius Musonius Rufus", "Socrates", "Confucius", "Plato", "Aristotle", "Friedrich Nietzsche", "Jean-Jacques Rousseau", "Arthur Schopenhauer", "Lao Tzu", "Carl Jung",
