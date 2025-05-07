@@ -37,7 +37,7 @@ async def chat_with_openai(topic: str):
         "David Goggins", "Jordan Peterson", "Jocko Willink", "Virgil Abloh", "Jim Rohn", "Brian Tracy",
 
         # philosophers
-        "Aurelius", "Seneca The Younger", "Epitetus", "Cato The Younger", "Zeno of Citium", "Hecato of Rhodes", "Gaius Musonius Rufus", "Socrates", "Confucius", "Plato", "Aristotle", "Friedrich Nietzsche", "Jean-Jacques Rousseau", "Arthur Schopenhauer", "Lao Tzu", "Carl Jung",
+        "Aurelius", "Seneca The Younger", "Epictetus", "Cato The Younger", "Zeno of Citium", "Hecato of Rhodes", "Gaius Musonius Rufus", "Socrates", "Confucius", "Plato", "Aristotle", "Friedrich Nietzsche", "Jean-Jacques Rousseau", "Arthur Schopenhauer", "Lao Tzu", "Carl Jung",
 
         # authors
         "Mark Twain", "Ralph Waldo Emerson", "Henry David Thoreau", "Paulo Coehlo", "Haruki Murakami", "James Clear", "Brene Brown", "Robin Sharma", "Og Mandino", "Shakespeare", "Alexander Pope", "William Arthur Ward", 
@@ -72,7 +72,7 @@ async def chat_with_openai(topic: str):
                 },
                 {
                     "role": "user", 
-                    "content": f"Give me a random, short, {random_first_adjective} quote from {random_person} about life. Do not quote someone else, do not return a quote about war, do not include quotation marks, and do not include any interpretations."
+                    "content": f"Give me a random, {random_first_adjective} quote from {random_person} about self improvement. Do not quote someone else, do not return a quote about war, do not include quotation marks, and do not include any interpretations."
                 }
             ],
             temperature=0.9,
