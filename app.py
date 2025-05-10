@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import random
-from typing import Optional
+from supabase import create_client, Client
 
 load_dotenv()
 
@@ -14,13 +14,27 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # Create a FastAPI app
 app = FastAPI()
 
+# source venv/bin/activate
 # uvicorn app:app --reload
 
-class ChatResponse(BaseModel):
+supabase: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
+
+class QuoteResponse(BaseModel):
     quote: str
     source: str
 
 @app.post("/quote")
+async def get_quote(topic: str):
+    response = supabase.rpc("get_random_quote").execute()
+    
+    data = response.data
+
+    if not data:
+        return {"error": "Couldn't get response."}
+    
+    return QuoteResponse(**data[0])
+
+@app.post("/gpt")
 async def chat_with_openai(topic: str):
     print(topic)
 
@@ -77,7 +91,7 @@ async def chat_with_openai(topic: str):
             ],
             temperature=0.9,
             top_p=0.95,
-            response_format=ChatResponse
+            response_format=QuoteResponse
         )
 
         return completion.choices[0].message.parsed
