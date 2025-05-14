@@ -1,0 +1,18 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  schedule:
+    - cron: '0 12 * * *'  # 12:00 UTC daily
+  workflow_dispatch:      # allows manual trigger
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make API call
+        run: |
+          curl -X POST https://motive-server-ir1u.onrender.com/quote?topic=entrepreneurship
