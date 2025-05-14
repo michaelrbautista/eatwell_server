@@ -34,6 +34,45 @@ async def get_quote(topic: str):
     
     return QuoteResponse(**data[0])
 
+class EmergencyResponse(BaseModel):
+    content: str
+
+@app.post("/emergency")
+async def chat_with_openai():
+
+    adjectives = [
+        "discipline", "grit", "perseverance"
+    ]
+
+    adjective = random.choice(adjectives)
+
+    try:
+        completion = client.beta.chat.completions.parse(
+            model="gpt-4.1-mini",
+            messages=[
+                {
+                    "role": "developer", 
+                    "content": "You're an expert in motivation and self improvement."
+                },
+                {
+                    "role": "user", 
+                    "content": f"Tell me something about {adjective} so harsh that it will break my heart and also make me attack my goals. Keep it 2-3 sentences."
+                }
+            ],
+            temperature=0.9,
+            top_p=0.95,
+            response_format=EmergencyResponse
+        )
+
+        return completion.choices[0].message.parsed
+
+    except Exception as e:
+        return {"error": str(e)}
+
+
+
+
+
 @app.post("/gpt")
 async def chat_with_openai(topic: str):
     print(topic)
