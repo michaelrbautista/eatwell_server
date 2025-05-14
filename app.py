@@ -19,6 +19,9 @@ app = FastAPI()
 
 supabase: Client = create_client(os.getenv("SUPABASE_URL"), os.getenv("SUPABASE_KEY"))
 
+
+
+
 class QuoteResponse(BaseModel):
     quote: str
     source: str
@@ -33,6 +36,26 @@ async def get_quote(topic: str):
         return {"error": "Couldn't get response."}
     
     return QuoteResponse(**data[0])
+
+
+
+
+class FeedQuotes(BaseModel):
+    quotes: list[QuoteResponse]
+
+@app.post("/feed")
+async def get_quote():
+    response = supabase.rpc("get_five_random_quotes").execute()
+    
+    data = response.data
+
+    if not data:
+        return {"error": "Couldn't get response."}
+    
+    return FeedQuotes(quotes=data)
+
+
+
 
 class EmergencyResponse(BaseModel):
     content: str
@@ -68,7 +91,6 @@ async def chat_with_openai():
 
     except Exception as e:
         return {"error": str(e)}
-
 
 
 
