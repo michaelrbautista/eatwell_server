@@ -64,7 +64,7 @@ class EmergencyResponse(BaseModel):
 async def chat_with_openai():
 
     adjectives = [
-        "discipline", "grit", "perseverance"
+        "discipline", "grit", "perseverance", "self-control", "willpower", "determination", "reslience", "commitment", "consistency", "accountability", "adversity", "sacrifice"
     ]
 
     adjective = random.choice(adjectives)
