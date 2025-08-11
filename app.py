@@ -34,7 +34,10 @@ class IngredientResponse(BaseModel):
 class AnalyzeRequest(BaseModel):
     image_url: str
 
-@app.post("/analyze")
+
+
+# Analyze meal
+@app.post("/meal")
 async def analyze_meal(payload: AnalyzeRequest):
     try:
         vision_completion = client.chat.completions.create(
@@ -53,23 +56,28 @@ async def analyze_meal(payload: AnalyzeRequest):
                                 Analyze this meal image and follow these stepes:
                                 1. Identify each visible food item.
                                 2. Give the meal a short title less than 5 words that describes it's contents (Ground beef bowl, chicken salad).
-                                2. Estimate the quantity of each item (ONLY respond with oz., g, mg, cups, tbsp., tsp., or ser. (number of servings)).
+                                2. Estimate the quantity of each item (ONLY respond with oz., g, mg, cup(s), tbsp., tsp., or ser. (number of servings)).
                                 3. ONLY respond with a JSON object that contains the name and an array of objects following this format exactly:
                                 {
                                     "title": "Chicken salad",
                                     "ingredients": [
                                         {
-                                            "name": "grilled chicken breast",
+                                            "name": "Grilled chicken breast",
                                             "quantity": "4",
                                             "unit": "oz."
                                         },
                                         {
-                                            "name": "sauerkraut",
+                                            "name": "Sauerkraut",
                                             "quantity": "1",
                                             "unit": "ser."
                                         },
                                         ...
                                     ]
+                                }
+                                4. If there are no food items in the image, return this EXACT object:
+                                {
+                                    "title": "Unknown",
+                                    "ingredients": []
                                 }
                                 """
                             },
@@ -81,6 +89,8 @@ async def analyze_meal(payload: AnalyzeRequest):
                 }
             ]
         )
+
+        # print(vision_completion.choices[0].message)
 
         ingredients_response = vision_completion.choices[0].message.content.strip()
         ingredients_string = extract_json_from_code_block(ingredients_response)
@@ -98,13 +108,13 @@ async def analyze_meal(payload: AnalyzeRequest):
             messages=[
                 {
                     "role": "user", 
-                    "content": """
-                    Based on the ingredients in this meal, give me a nutrient analysis. Return the amount of protein in grams, the amount of collagen in grams, the amount of leucine in grams, the amount of carbohydrates in grams, the amount of omega-3s in grams, the amount of fat in grams, the amount of zinc in milligrams, the amount of iron in milligrams, the number of fermented food servings, and the amount of fiber in grams.
-                    """
+                    "content": f"Based on these ingredients, give me a nutrient analysis:\n{ingredients}."
                 }
             ],
             response_format=IngredientResponse
         )
+
+        # print(chat_completion.choices[0].message)
 
         nutrients_response = chat_completion.choices[0].message.content.strip()
         nutrients_string = extract_json_from_code_block(nutrients_response)
@@ -138,17 +148,27 @@ def extract_json_from_code_block(text: str) -> str:
             return '\n'.join(lines[1:-1])  # Remove first and last line
     return text.strip()
 
-@app.post("/edit")
-async def analyze_edited_meal():
+
+
+
+class Ingredient(BaseModel):
+    name: str
+    quantity: str
+    unit: str
+
+class UpdateRequest(BaseModel):
+    ingredients: list[Ingredient]
+
+# Update meal with new ingredients
+@app.post("/ingredients")
+async def analyze_edited_meal(payload: UpdateRequest):
     try:
         chat_completion = client.chat.completions.parse(
             model="gpt-4o",
             messages=[
                 {
                     "role": "user", 
-                    "content": """
-                    Based on the ingredients in this meal, give me a nutrient analysis. Return a list of ingredients with name, amount, and unit of measurement, a title for the meal, the amount of protein in grams, the amount of collagen in grams, the amount of leucine in grams, the amount of carbohydrates in grams, the amount of omega-3s in grams, the amount of fat in grams, the amount of zinc in milligrams, the amount of iron in milligrams, the number of fermented food servings, and the amount of fiber in grams.
-                    """
+                    "content": f"Based on these ingredients, give me a nutrient analysis:\n{payload.ingredients}. 'ser.' is equal to serving(s)."
                 }
             ],
             response_format=IngredientResponse
