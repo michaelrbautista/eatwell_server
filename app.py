@@ -53,9 +53,9 @@ async def analyze_meal(payload: AnalyzeRequest):
                             {
                                 "type": "text",
                                 "text": """
-                                Analyze this meal image and follow these stepes:
+                                Analyze this image and follow these stepes:
                                 1. Identify each visible food item.
-                                2. Give the meal a short title less than 5 words that describes it's contents (Ground beef bowl, chicken salad).
+                                2. Give the meal a short title less than 5 words that describes it's contents (Ground beef bowl, chicken salad, etc). If it's a single food item, return ONLY the name of the food (apple, banana, etc.).
                                 2. Estimate the quantity of each item (ONLY respond with oz., g, mg, cup(s), tbsp., tsp., or ser. (number of servings)).
                                 3. ONLY respond with a JSON object that contains the name and an array of objects following this format exactly:
                                 {
@@ -90,7 +90,7 @@ async def analyze_meal(payload: AnalyzeRequest):
             ]
         )
 
-        print(vision_completion.choices[0].message)
+        # print(vision_completion.choices[0].message)
 
         ingredients_response = vision_completion.choices[0].message.content.strip()
         ingredients_string = extract_json_from_code_block(ingredients_response)
@@ -102,6 +102,8 @@ async def analyze_meal(payload: AnalyzeRequest):
                 "error": f"Failed to parse vision response as JSON: {e}",
                 "raw": ingredients_string
             }
+        
+        print(ingredients)
         
         chat_completion = client.chat.completions.parse(
             model="gpt-4o",
