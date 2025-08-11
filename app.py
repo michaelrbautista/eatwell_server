@@ -104,7 +104,9 @@ async def analyze_meal(payload: AnalyzeRequest):
                 "raw": ingredients_string
             }
         
+        print("INGREDIENTS:")
         print(ingredients)
+        print()
         
         chat_completion = client.chat.completions.parse(
             model="gpt-4o",
@@ -117,7 +119,7 @@ async def analyze_meal(payload: AnalyzeRequest):
             response_format=IngredientResponse
         )
 
-        print(chat_completion.choices[0].message)
+        # print(chat_completion.choices[0].message)
 
         nutrients_response = chat_completion.choices[0].message.content.strip()
         nutrients_string = extract_json_from_code_block(nutrients_response)
@@ -131,7 +133,9 @@ async def analyze_meal(payload: AnalyzeRequest):
                 "raw": nutrients_string
             }
         
+        print("NUTRIENTS:")
         print(nutrients)
+        print()
 
         return {
             "meal_analysis": ingredients,
