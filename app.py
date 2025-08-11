@@ -90,7 +90,7 @@ async def analyze_meal(payload: AnalyzeRequest):
             ]
         )
 
-        # print(vision_completion.choices[0].message)
+        print(vision_completion.choices[0].message)
 
         ingredients_response = vision_completion.choices[0].message.content.strip()
         ingredients_string = extract_json_from_code_block(ingredients_response)
@@ -114,7 +114,7 @@ async def analyze_meal(payload: AnalyzeRequest):
             response_format=IngredientResponse
         )
 
-        # print(chat_completion.choices[0].message)
+        print(chat_completion.choices[0].message)
 
         nutrients_response = chat_completion.choices[0].message.content.strip()
         nutrients_string = extract_json_from_code_block(nutrients_response)
