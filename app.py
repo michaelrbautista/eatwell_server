@@ -109,6 +109,7 @@ async def analyze_meal(payload: AnalyzeRequest):
         print()
 
     except Exception as e:
+        print(str(e))
         return {
             "error": str(e)
         }
@@ -143,6 +144,7 @@ async def analyze_meal(payload: AnalyzeRequest):
         print(nutrients)
         print()
     except Exception as e:
+        print(str(e))
         return {
             "error": str(e)
         }
