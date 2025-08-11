@@ -98,6 +98,7 @@ async def analyze_meal(payload: AnalyzeRequest):
         try:
             ingredients = json.loads(ingredients_string)
         except json.JSONDecodeError as e:
+            print(e)
             return {
                 "error": f"Failed to parse vision response as JSON: {e}",
                 "raw": ingredients_string
@@ -124,10 +125,13 @@ async def analyze_meal(payload: AnalyzeRequest):
         try:
             nutrients = json.loads(nutrients_string)
         except json.JSONDecodeError as e:
+            print(e)
             return {
                 "error": f"Failed to parse chat response as JSON: {e}",
                 "raw": nutrients_string
             }
+        
+        print(nutrients)
 
         return {
             "meal_analysis": ingredients,
