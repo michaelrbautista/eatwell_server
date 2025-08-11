@@ -107,7 +107,13 @@ async def analyze_meal(payload: AnalyzeRequest):
         print("INGREDIENTS:")
         print(ingredients)
         print()
-        
+
+    except Exception as e:
+        return {
+            "error": str(e)
+        }
+    
+    try:
         chat_completion = client.chat.completions.parse(
             model="gpt-4o",
             messages=[
@@ -136,16 +142,15 @@ async def analyze_meal(payload: AnalyzeRequest):
         print("NUTRIENTS:")
         print(nutrients)
         print()
-
-        return {
-            "meal_analysis": ingredients,
-            "nutrients": nutrients
-        }
-
     except Exception as e:
         return {
             "error": str(e)
         }
+    
+    return {
+        "meal_analysis": ingredients,
+        "nutrients": nutrients
+    }
     
 def extract_json_from_code_block(text: str) -> str:
     """
