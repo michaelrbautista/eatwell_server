@@ -108,7 +108,7 @@ async def analyze_meal(payload: AnalyzeRequest):
         print(ingredients)
         print()
         
-        chat_completion = client.chat.completions.parse(
+        chat_completion = client.chat.completions.create(
             model="gpt-4o",
             messages=[
                 {
@@ -175,7 +175,7 @@ class UpdateRequest(BaseModel):
 @app.post("/ingredients")
 async def analyze_edited_meal(payload: UpdateRequest):
     try:
-        chat_completion = client.chat.completions.parse(
+        chat_completion = client.chat.completions.create(
             model="gpt-4o",
             messages=[
                 {
