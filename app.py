@@ -35,8 +35,6 @@ class IngredientResponse(BaseModel):
 class AnalyzeRequest(BaseModel):
     image_url: str
 
-
-
 # Analyze meal
 @app.post("/meal")
 async def analyze_meal(payload: AnalyzeRequest):
@@ -55,12 +53,36 @@ async def analyze_meal(payload: AnalyzeRequest):
                         {
                             "type": "text",
                             "text": """
-                            Analyze this image and follow these steps:
-                            ...
+                            Analyze this image and follow these stepes:
+                            1. Identify each visible food item.
+                            2. Give the meal a short title less than 5 words that describes it's contents (Ground beef bowl, chicken salad, etc). If it's a single food item, return ONLY the name of the food (apple, banana, etc.).
+                            2. Estimate the quantity of each item (ONLY respond with oz., g, mg, cup(s), tbsp., tsp., or ser. (number of servings)).
+                            3. ONLY respond with a JSON object that contains the name and an array of objects following this format exactly:
+                            {
+                                "title": "Chicken salad",
+                                "ingredients": [
+                                    {
+                                        "name": "Grilled chicken breast",
+                                        "quantity": "4",
+                                        "unit": "oz."
+                                    },
+                                    {
+                                        "name": "Sauerkraut",
+                                        "quantity": "1",
+                                        "unit": "ser."
+                                    },
+                                    ...
+                                ]
+                            }
+                            4. If there are no food items in the image, return this EXACT object:
+                            {
+                                "title": "Unknown",
+                                "ingredients": []
+                            }
                             """
                         },
                         {
-                            "type": "image_url",
+                            "type": "image_url", 
                             "image_url": {"url": payload.image_url}
                         },
                     ],
