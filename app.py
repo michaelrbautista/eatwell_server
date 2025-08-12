@@ -108,24 +108,16 @@ async def analyze_meal(payload: AnalyzeRequest):
         print(ingredients)
         print()
         
-        try:
-            chat_completion = client.chat.completions.create(
-                model="gpt-4o",
-                messages=[
-                    {
-                        "role": "user", 
-                        "content": f"Based on these ingredients, give me a nutrient analysis:\n{ingredients}."
-                    }
-                ],
-                response_format=IngredientResponse
-            )
-        except Exception as e:
-            print(str(e))
-            return {
-                "error": str(e)
-            }
-
-        print("HERE")
+        chat_completion = client.beta.chat.completions.parse(
+            model="gpt-4o",
+            messages=[
+                {
+                    "role": "user", 
+                    "content": f"Based on these ingredients, give me a nutrient analysis:\n{ingredients}."
+                }
+            ],
+            response_format=IngredientResponse
+        )
 
         # print(chat_completion.choices[0].message)
 
@@ -182,7 +174,7 @@ class UpdateRequest(BaseModel):
 @app.post("/ingredients")
 async def analyze_edited_meal(payload: UpdateRequest):
     try:
-        chat_completion = client.chat.completions.create(
+        chat_completion = client.beta.chat.completions.parse(
             model="gpt-4o",
             messages=[
                 {
