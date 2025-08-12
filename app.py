@@ -101,8 +101,8 @@ async def analyze_meal(payload: AnalyzeRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
 
-    print("INGREDIENTS:")
-    print(ingredients)
+    # print("INGREDIENTS:")
+    # print(ingredients)
 
     # Step 3: Call chat completion for nutrient analysis
     try:
@@ -128,8 +128,8 @@ async def analyze_meal(payload: AnalyzeRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse nutrient response: {e}")
 
-    print("NUTRIENTS:")
-    print(nutrients)
+    # print("NUTRIENTS:")
+    # print(nutrients)
 
     return {
         "meal_analysis": ingredients,
