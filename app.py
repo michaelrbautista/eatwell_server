@@ -119,6 +119,8 @@ async def analyze_meal(payload: AnalyzeRequest):
             response_format=IngredientResponse
         )
 
+        print("HERE")
+
         # print(chat_completion.choices[0].message)
 
         nutrients_response = chat_completion.choices[0].message.content.strip()
@@ -127,7 +129,7 @@ async def analyze_meal(payload: AnalyzeRequest):
         try:
             nutrients = json.loads(nutrients_string)
         except json.JSONDecodeError as e:
-            print(e)
+            print(str(e))
             return {
                 "error": f"Failed to parse chat response as JSON: {e}",
                 "raw": nutrients_string
