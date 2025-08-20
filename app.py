@@ -18,7 +18,19 @@ app = FastAPI()
 # source venv/bin/activate
 # uvicorn app:app --reload
 
-class IngredientResponse(BaseModel):
+
+
+
+# ---------------------------------------- DEBUG ----------------------------------------
+class AnalyzeRequestTest(BaseModel):
+    image_url: str
+
+class IngredientTest(BaseModel):
+    name: str
+    quantity: str
+    unit: str
+
+class IngredientResponseTest(BaseModel):
     protein_in_grams: int
     collagen_in_grams: int
     leucine_in_grams: int
@@ -29,25 +41,17 @@ class IngredientResponse(BaseModel):
     iron_in_milligrams: int
     fermented_food_servings: int
     fiber_in_grams: int
+    vitamin_c_in_milligrams: int
+    vitamin_a_in_micrograms: int
+    vitamin_e_in_milligrams: int
+    selenium_in_micrograms: int
 
-class AnalyzeRequest(BaseModel):
-    image_url: str
+class UpdateRequestTest(BaseModel):
+    ingredients: list[IngredientTest]
 
-class Ingredient(BaseModel):
-    name: str
-    quantity: str
-    unit: str
-
-class UpdateRequest(BaseModel):
-    ingredients: list[Ingredient]
-
-
-
-
-# DEBUG
 # Analyze meal
 @app.post("/meal-test")
-async def analyze_meal(payload: AnalyzeRequest):
+async def analyze_meal(payload: AnalyzeRequestTest):
     # Step 1: Call vision completion
     try:
         vision_completion = client.chat.completions.create(
@@ -124,7 +128,7 @@ async def analyze_meal(payload: AnalyzeRequest):
                     "content": f"Based on these ingredients, give me a nutrient analysis:\n{ingredients}."
                 }
             ],
-            response_format=IngredientResponse
+            response_format=IngredientResponseTest
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
@@ -147,7 +151,7 @@ async def analyze_meal(payload: AnalyzeRequest):
     }
 
 @app.post("/ingredients-test")
-async def analyze_edited_meal(payload: UpdateRequest):
+async def analyze_edited_meal(payload: UpdateRequestTest):
     # Step 1: Call OpenAI API
     try:
         chat_completion = client.beta.chat.completions.parse(
@@ -158,7 +162,7 @@ async def analyze_edited_meal(payload: UpdateRequest):
                     "content": f"Based on these ingredients, give me a nutrient analysis:\n{payload.ingredients}. 'ser.' is equal to serving(s)."
                 }
             ],
-            response_format=IngredientResponse
+            response_format=IngredientResponseTest
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to call OpenAI API: {str(e)}")
@@ -182,7 +186,34 @@ async def analyze_edited_meal(payload: UpdateRequest):
 
 
 
-# PROD
+
+
+
+
+# ---------------------------------------- PROD ----------------------------------------
+class IngredientResponse(BaseModel):
+    protein_in_grams: int
+    collagen_in_grams: int
+    leucine_in_grams: int
+    carbohydrates_in_grams: int
+    omega3s_in_grams: int
+    fat_in_grams: int
+    zinc_in_milligrams: int
+    iron_in_milligrams: int
+    fermented_food_servings: int
+    fiber_in_grams: int
+
+class AnalyzeRequest(BaseModel):
+    image_url: str
+
+class Ingredient(BaseModel):
+    name: str
+    quantity: str
+    unit: str
+
+class UpdateRequest(BaseModel):
+    ingredients: list[Ingredient]
+
 # Analyze meal
 @app.post("/meal")
 async def analyze_meal(payload: AnalyzeRequest):
