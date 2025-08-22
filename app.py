@@ -202,6 +202,10 @@ class IngredientResponse(BaseModel):
     iron_in_milligrams: int
     fermented_food_servings: int
     fiber_in_grams: int
+    vitamin_c_in_milligrams: int
+    vitamin_a_in_micrograms: int
+    vitamin_e_in_milligrams: int
+    selenium_in_micrograms: int
 
 class AnalyzeRequest(BaseModel):
     image_url: str
