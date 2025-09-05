@@ -16,21 +16,25 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 app = FastAPI()
 
 # source venv/bin/activate
-# uvicorn app:app --reload
+# uvicorn debug:app --reload
+
+# testing name change
 
 
 
 
-@app.post("/get-ingredient")
-async def analyze_meal(foodId: str):
-    print()
+class MealImageUpdated(BaseModel):
+    image_url: str
 
-class IngredientResponse(BaseModel):
+class MealIngredientUpdated(BaseModel):
+    name: str
+    quantity: str
+    unit: str
     protein_in_grams: int
     collagen_in_grams: int
     leucine_in_grams: int
     carbohydrates_in_grams: int
-    omega3s_in_grams: int
+    omega3s_in_milligrams: int
     fat_in_grams: int
     zinc_in_milligrams: int
     iron_in_milligrams: int
@@ -41,21 +45,17 @@ class IngredientResponse(BaseModel):
     vitamin_e_in_milligrams: int
     selenium_in_micrograms: int
 
-class AnalyzeRequest(BaseModel):
-    image_url: str
+class MealAnalysisUpdated(BaseModel):
+    ingredients: list[MealIngredientUpdated]
 
-class Ingredient(BaseModel):
-    name: str
-    quantity: str
-    unit: str
+# 1. Analyze image and get list of ingredients/amounts
+# 2. Search USDA dataset for foods that match ingredients
+# 3. Return ingredients/amounts
+# 4. Getting nutrients for each ingredient will happen client side
 
-class UpdateRequest(BaseModel):
-    ingredients: list[Ingredient]
-
-# NEED TO KEEP - ADD NEW ENDPOINT FOR UPDATED MODEL
 # Analyze meal
-@app.post("/meal")
-async def analyze_meal(payload: AnalyzeRequest):
+@app.post("/meal-updated")
+async def analyze_meal(payload: MealImageUpdated):
     # Step 1: Call vision completion
     try:
         vision_completion = client.chat.completions.create(
@@ -74,20 +74,20 @@ async def analyze_meal(payload: AnalyzeRequest):
                             Analyze this image and follow these stepes:
                             1. Identify each visible food item.
                             2. Give the meal a short name less than 5 words that describes it's contents (Ground beef bowl, chicken salad, etc). If it's a single food item, return ONLY the name of the food (apple, banana, etc.).
-                            2. Estimate the quantity of each item (ONLY respond with oz., g, mg, cup(s), tbsp., tsp., or ser. (number of servings)).
+                            2. Estimate the quantity of each item (use a unit like g, oz., cup(s), tbsp., or tsp.).
                             3. ONLY respond with a JSON object that contains the name and an array of objects following this format exactly:
                             {
                                 "name": "Chicken salad",
                                 "ingredients": [
                                     {
                                         "name": "Grilled chicken breast",
-                                        "quantity": "4",
+                                        "amount": "4",
                                         "unit": "oz."
                                     },
                                     {
                                         "name": "Sauerkraut",
-                                        "quantity": "1",
-                                        "unit": "ser."
+                                        "amount": "0.5",
+                                        "unit": "cup(s)"
                                     },
                                     ...
                                 ]
@@ -117,6 +117,7 @@ async def analyze_meal(payload: AnalyzeRequest):
     try:
         ingredients = json.loads(ingredients_string)
     except json.JSONDecodeError as e:
+        print(e)
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
 
     # print("INGREDIENTS:")
@@ -129,65 +130,32 @@ async def analyze_meal(payload: AnalyzeRequest):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Based on these ingredients, give me a nutrient analysis:\n{ingredients}."
+                    "content": f"Give me a nutrient analysis for each ingredient:\n{ingredients}."
                 }
             ],
-            response_format=IngredientResponse
+            response_format=MealAnalysisUpdated
         )
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
 
     # Step 4: Parse nutrient analysis response
-    nutrients_response = chat_completion.choices[0].message.content.strip()
-    nutrients_string = extract_json_from_code_block(nutrients_response)
+    analysis_response = chat_completion.choices[0].message.content.strip()
+    analysis_string = extract_json_from_code_block(analysis_response)
 
     try:
-        nutrients = json.loads(nutrients_string)
+        analysis = json.loads(analysis_string)
     except json.JSONDecodeError as e:
+        print(e)
         raise HTTPException(status_code=400, detail=f"Failed to parse nutrient response: {e}")
 
     # print("NUTRIENTS:")
     # print(nutrients)
 
     return {
-        "meal_analysis": ingredients,
-        "nutrients": nutrients
+        "name": ingredients["name"],
+        "analysis": analysis
     }
-
-# Update meal with new ingredients
-@app.post("/ingredients")
-async def analyze_edited_meal(payload: UpdateRequest):
-    try:
-        chat_completion = client.beta.chat.completions.parse(
-            model="gpt-4o",
-            messages=[
-                {
-                    "role": "user", 
-                    "content": f"Based on these ingredients, give me a nutrient analysis:\n{payload.ingredients}. 'ser.' is equal to serving(s)."
-                }
-            ],
-            response_format=IngredientResponse
-        )
-
-        nutrients_response = chat_completion.choices[0].message.content.strip()
-        nutrients_string = extract_json_from_code_block(nutrients_response)
-
-        try:
-            nutrients = json.loads(nutrients_string)
-        except json.JSONDecodeError as e:
-            return {
-                "error": f"Failed to parse chat response as JSON: {e}",
-                "raw": nutrients_string
-            }
-
-        return {
-            "nutrients": nutrients
-        }
-
-    except Exception as e:
-        return {
-            "error": str(e)
-        }
 
 # Helper function
 def extract_json_from_code_block(text: str) -> str:
@@ -200,7 +168,7 @@ def extract_json_from_code_block(text: str) -> str:
         if len(lines) >= 3:
             return '\n'.join(lines[1:-1])  # Remove first and last line
     return text.strip()
-    
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 10000))
     uvicorn.run(app, host="0.0.0.0", port=port)
