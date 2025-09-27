@@ -9,7 +9,6 @@ import json
 from fastapi import HTTPException
 
 load_dotenv()
-
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Create a FastAPI app
@@ -20,10 +19,6 @@ app = FastAPI()
 
 
 
-
-@app.post("/get-ingredient")
-async def analyze_meal(foodId: str):
-    print()
 
 class IngredientResponse(BaseModel):
     protein_in_grams: int

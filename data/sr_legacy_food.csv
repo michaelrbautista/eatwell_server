@@ -1,0 +1,1447 @@
+fdc_id,data_type,description,food_category_id,publication_date,fermented_food_serving_size,collagen
+171686,sr_legacy_food,Acerola,9,2019-04-01,,
+171687,sr_legacy_food,Acerola Juice,9,2019-04-01,,
+168384,sr_legacy_food,Alfalfa Seeds,11,2019-04-01,,
+170682,sr_legacy_food,Amaranth Grain (uncooked),20,2019-04-01,,
+168385,sr_legacy_food,Amaranth Leaves,11,2019-04-01,,
+167793,sr_legacy_food,Fuji Apples,9,2019-04-01,,
+168204,sr_legacy_food,Gala Apples,9,2019-04-01,,
+168202,sr_legacy_food,Golden Delicious Apples,9,2019-04-01,,
+168201,sr_legacy_food,Red Delicious Apples,9,2019-04-01,,
+171688,sr_legacy_food,Apples,9,2019-04-01,,
+171689,sr_legacy_food,Apples (without skin),9,2019-04-01,,
+171695,sr_legacy_food,Applesauce,9,2019-04-01,,
+171697,sr_legacy_food,Apricots,9,2019-04-01,,
+169203,sr_legacy_food,Arrowhead,11,2019-04-01,,
+170684,sr_legacy_food,Arrowroot flour,20,2019-04-01,,
+168490,sr_legacy_food,Arrowroot,11,2019-04-01,,
+169205,sr_legacy_food,Artichoke,11,2019-04-01,,
+169387,sr_legacy_food,Arugula,11,2019-04-01,,
+168389,sr_legacy_food,Asparagus,11,2019-04-01,,
+171705,sr_legacy_food,Avocados,9,2019-04-01,,
+172345,sr_legacy_food,Bacon Grease,4,2019-04-01,,
+168382,sr_legacy_food,Bacon,10,2019-04-01,,2
+174592,sr_legacy_food,Turkey Bacon,7,2019-04-01,,3
+169210,sr_legacy_food,Bamboo Shoots,11,2019-04-01,,
+173944,sr_legacy_food,Bananas,9,2019-04-01,,
+169739,sr_legacy_food,Barley Flour,20,2019-04-01,,
+169740,sr_legacy_food,Barley Malt Flour,20,2019-04-01,,
+170283,sr_legacy_food,Barley (hulled),20,2019-04-01,,
+170284,sr_legacy_food,Barley (pearled),20,2019-04-01,,
+172232,sr_legacy_food,Basil,2,2019-04-01,,
+173731,sr_legacy_food,Baked Beans (dry),16,2019-04-01,,
+175186,sr_legacy_food,Black Turtle Beans (dry),16,2019-04-01,,
+173734,sr_legacy_food,Black Beans (dry),16,2019-04-01,,
+175189,sr_legacy_food,Cranberry Beans (dry),16,2019-04-01,,
+168574,sr_legacy_food,Fava Beans (dry),11,2019-04-01,,
+173738,sr_legacy_food,French Beans (dry),16,2019-04-01,,
+175190,sr_legacy_food,Great Northern Beans (dry),16,2019-04-01,,
+175193,sr_legacy_food,Kidney Beans (dry),16,2019-04-01,,
+173745,sr_legacy_food,Navy Beans (dry),16,2019-04-01,,
+173748,sr_legacy_food,Pink Beans (dry),16,2019-04-01,,
+175199,sr_legacy_food,Pinto Beans (dry),16,2019-04-01,,
+173749,sr_legacy_food,Small White Beans (dry),16,2019-04-01,,
+169961,sr_legacy_food,Green Beans (uncooked),11,2019-04-01,,
+169320,sr_legacy_food,Yellow Snap Beans (uncooked),11,2019-04-01,,
+175202,sr_legacy_food,White Beans (uncooked),16,2019-04-01,,
+173751,sr_legacy_food,Yellow Beans (uncooked),16,2019-04-01,,
+173068,sr_legacy_food,"Grass-Fed Ground Beef (85% lean / 15% fat, raw)",13,2019-04-01,,2.1
+173969,sr_legacy_food,Grass-Fed Filet Mignon (uncooked),13,2019-04-01,,1.5
+171733,sr_legacy_food,Grass-Fed New York Strip Steak (uncooked),13,2019-04-01,,1.5
+171739,sr_legacy_food,Grass-Fed Top Sirloin Cap-Off Steak (uncooked),13,2019-04-01,,1.5
+173975,sr_legacy_food,Grass-Fed Ribeye Steak (uncooked),13,2019-04-01,,1.8
+173976,sr_legacy_food,Grass-Fed Bottom Round Steak (uncooked),13,2019-04-01,,3
+173977,sr_legacy_food,Grass-Fed Top Round Cap-Off Steak (uncooked),13,2019-04-01,,3
+171740,sr_legacy_food,Wagyu Small End Rib Steak (uncooked),13,2019-04-01,,1.8
+168118,sr_legacy_food,Bologna,7,2019-04-01,,2
+169558,sr_legacy_food,Beef Bottom Sirloin (tri-tip),13,2019-04-01,,2.5
+168734,sr_legacy_food,"Beef Bottom Sirloin (tri-tip, raw)",13,2019-04-01,,2.2
+168714,sr_legacy_food,"Beef Brisket (flat half, 0"" fat, raw)",13,2019-04-01,,4.5
+170613,sr_legacy_food,"Beef Brisket (flat half, 0"" fat)",13,2019-04-01,,5
+169488,sr_legacy_food,"Beef Brisket (flat half, 1/8"" fat)",13,2019-04-01,,5
+168666,sr_legacy_food,"Beef Brisket (flat half, 1/8"" fat, raw)",13,2019-04-01,,4.5
+170211,sr_legacy_food,"Beef Brisket (point half, 0"" fat)",13,2019-04-01,,5
+169490,sr_legacy_food,"Beef Brisket (point half, 1/8"" fat)",13,2019-04-01,,5
+169489,sr_legacy_food,"Beef Brisket (point half, 1/8"" fat, raw)",13,2019-04-01,,4.5
+170611,sr_legacy_food,"Beef Brisket (whole, 0"" fat)",13,2019-04-01,,5
+168665,sr_legacy_food,"Beef Brisket (whole, 1/8"" fat)",13,2019-04-01,,5
+168664,sr_legacy_food,"Beef Brisket (whole, 1/8"" fat, raw)",13,2019-04-01,,4.5
+171228,sr_legacy_food,Chuck Eye Steak,13,2019-04-01,,3.5
+171231,sr_legacy_food,Chuck Eye Steak (raw),13,2019-04-01,,3.2
+171203,sr_legacy_food,Beef Stew Meat,13,2019-04-01,,4
+171206,sr_legacy_food,Beef Stew Meat (raw),13,2019-04-01,,3.5
+168667,sr_legacy_food,Arm Pot Roast,13,2019-04-01,,4
+169491,sr_legacy_food,Arm Pot Roast (raw),13,2019-04-01,,3.5
+169494,sr_legacy_food,Blade Roast,13,2019-04-01,,4
+169493,sr_legacy_food,Blade Roast (raw),13,2019-04-01,,3.5
+174027,sr_legacy_food,Clod Roast (roasted),13,2019-04-01,,3.5
+171222,sr_legacy_food,Boneless Short Ribs,13,2019-04-01,,4.5
+170826,sr_legacy_food,Boneless Short Ribs (raw),13,2019-04-01,,4
+173366,sr_legacy_food,Shoulder Tender Medallions,13,2019-04-01,,2.5
+173365,sr_legacy_food,Shoulder Tender Medallions (raw),13,2019-04-01,,2.2
+172133,sr_legacy_food,Shoulder Center Steak,13,2019-04-01,,3
+172132,sr_legacy_food,Shoulder Center Steak (raw),13,2019-04-01,,2.8
+173368,sr_legacy_food,Top Blade Steak,13,2019-04-01,,3.5
+172134,sr_legacy_food,Top Blade Steak (raw),13,2019-04-01,,3.2
+174026,sr_legacy_food,Top Blade Steak (broiled),13,2019-04-01,,3.8
+170816,sr_legacy_food,Denver Steak,13,2019-04-01,,3
+171213,sr_legacy_food,Denver Steak (raw),13,2019-04-01,,2.8
+170813,sr_legacy_food,Under Blade Steak (raw),13,2019-04-01,,3.2
+171208,sr_legacy_food,Under Blade Pot Roast,13,2019-04-01,,4
+171217,sr_legacy_food,Under Blade Steak,13,2019-04-01,,3.5
+170198,sr_legacy_food,Beef Bacon,13,2019-04-01,,2.5
+170197,sr_legacy_food,Beef Bacon (raw),13,2019-04-01,,2.2
+170200,sr_legacy_food,Corned Beef,13,2019-04-01,,2.5
+170199,sr_legacy_food,Corned Beef (raw),13,2019-04-01,,2.2
+167536,sr_legacy_food,Beef Jerky,7,2019-04-01,,6
+170204,sr_legacy_food,Pastrami,7,2019-04-01,,3
+168733,sr_legacy_food,Flank Steak,13,2019-04-01,,3.5
+169563,sr_legacy_food,Flank Steak (raw),13,2019-04-01,,3.2
+168608,sr_legacy_food,Grass-Fed Ground Beef (raw),13,2019-04-01,,2
+169473,sr_legacy_food,Ground Beef (70% lean / 30% fat),13,2019-04-01,,3
+168652,sr_legacy_food,"Ground Beef (70% lean / 30% fat, raw)",13,2019-04-01,,2.5
+174040,sr_legacy_food,Ground Beef (75% lean / 25% fat),13,2019-04-01,,2.8
+174037,sr_legacy_food,"Ground Beef (75% lean / 25% fat, raw)",13,2019-04-01,,2.3
+171799,sr_legacy_food,Ground Beef (80% lean / 20% fat),13,2019-04-01,,2.5
+174036,sr_legacy_food,"Ground Beef (80% lean / 20% fat, raw)",13,2019-04-01,,2
+174034,sr_legacy_food,Ground Beef (85% lean / 15% fat),13,2019-04-01,,2.2
+171796,sr_legacy_food,"Ground Beef (85% lean / 15% fat, raw)",13,2019-04-01,,1.8
+171794,sr_legacy_food,Ground Beef (90% lean / 10% fat),13,2019-04-01,,1.6
+174030,sr_legacy_food,"Ground Beef (90% lean / 10% fat, raw)",13,2019-04-01,,1.2
+174755,sr_legacy_food,Ground Beef (93% lean / 7% fat),13,2019-04-01,,1.4
+173110,sr_legacy_food,"Ground Beef (93% lean / 7% fat, raw)",13,2019-04-01,,1
+174028,sr_legacy_food,Ground Beef (95% lean / 5% fat),13,2019-04-01,,1
+171790,sr_legacy_food,"Ground Beef (95% lean / 5% fat, raw)",13,2019-04-01,,0.7
+174756,sr_legacy_food,Ground Beef (97% lean / 3% fat),13,2019-04-01,,0.7
+173111,sr_legacy_food,"Ground Beef (97% lean / 3% fat, raw)",13,2019-04-01,,0.5
+172161,sr_legacy_food,Ground Beef,13,2019-04-01,,2
+174024,sr_legacy_food,Tri-Tip Steak,13,2019-04-01,,3
+173991,sr_legacy_food,Beef Tenderloin Roast (roasted),13,2019-04-01,,1.8
+173987,sr_legacy_food,Beef Tenderloin Roast (raw),13,2019-04-01,,1.5
+170237,sr_legacy_food,Beef Tenderloin Steak,13,2019-04-01,,1.8
+173988,sr_legacy_food,Beef Tenderloin Steak (raw),13,2019-04-01,,1.5
+170239,sr_legacy_food,"Strip Steak (boneless, lip off)",13,2019-04-01,,1.5
+171750,sr_legacy_food,"Strip Steak (boneless, lip off, raw)",13,2019-04-01,,1.5
+174714,sr_legacy_food,"Strip Steak (boneless, lip on)",13,2019-04-01,,1.8
+171775,sr_legacy_food,"Strip Steak (boneless, lip on, raw)",13,2019-04-01,,1.8
+169539,sr_legacy_food,Strip Steak,13,2019-04-01,,1.8
+173061,sr_legacy_food,Top Sirloin Cap Steak,13,2019-04-01,,1.8
+174706,sr_legacy_food,Top Sirloin Cap Steak (raw),13,2019-04-01,,1.8
+174728,sr_legacy_food,Beef Liver,13,2019-04-01,,0.5
+173081,sr_legacy_food,Beef Heart,13,2019-04-01,,2.5
+174723,sr_legacy_food,Beef Heart (raw),13,2019-04-01,,2.5
+173084,sr_legacy_food,Beef Kidney,13,2019-04-01,,0.5
+174727,sr_legacy_food,Beef Kidney (raw),13,2019-04-01,,0.5
+174729,sr_legacy_food,Beef Liver (raw),13,2019-04-01,,0.5
+174737,sr_legacy_food,Beef Tongue,13,2019-04-01,,5
+174738,sr_legacy_food,Beef Tongue (raw),13,2019-04-01,,4.5
+173095,sr_legacy_food,Beef Tripe,13,2019-04-01,,1
+173096,sr_legacy_food,Beef Tripe (raw),13,2019-04-01,,1
+173395,sr_legacy_food,Inside Skirt Steak,13,2019-04-01,,3.5
+172158,sr_legacy_food,Inside Skirt Steak (raw),13,2019-04-01,,3.2
+173397,sr_legacy_food,Outside Skirt Steak,13,2019-04-01,,3.5
+173400,sr_legacy_food,Outside Skirt Steak (raw),13,2019-04-01,,3.2
+171787,sr_legacy_food,Inside Skirt Steak (broiled),13,2019-04-01,,3.8
+171788,sr_legacy_food,Outside Skirt Steak (broiled),13,2019-04-01,,3.8
+172150,sr_legacy_food,"Ribeye Roast (bone-in, roasted)",13,2019-04-01,,2.5
+172153,sr_legacy_food,"Ribeye Roast (boneless, roasted)",13,2019-04-01,,2.5
+173387,sr_legacy_food,Ribeye Steak (bone-in),13,2019-04-01,,2.5
+173402,sr_legacy_food,"Ribeye Steak (boneless, raw)",13,2019-04-01,,2.2
+173392,sr_legacy_food,Ribeye Steak,13,2019-04-01,,2.5
+172151,sr_legacy_food,"Ribeye Steak/Roast (bone-in, raw)",13,2019-04-01,,2.2
+172156,sr_legacy_food,"Ribeye Steak/Roast (boneless, raw)",13,2019-04-01,,2.2
+172166,sr_legacy_food,Beef Back Ribs,13,2019-04-01,,4.5
+172169,sr_legacy_food,Beef Back Ribs (raw),13,2019-04-01,,4.2
+168612,sr_legacy_food,"Ribeye (small end, raw)",13,2019-04-01,,2.2
+168681,sr_legacy_food,Rib Roast,13,2019-04-01,,2.5
+168682,sr_legacy_food,"Rib Roast (large end, roasted)",13,2019-04-01,,2.5
+168680,sr_legacy_food,"Rib Roast (large end, raw)",13,2019-04-01,,2.2
+168613,sr_legacy_food,Beef Short Ribs,13,2019-04-01,,4.5
+169439,sr_legacy_food,Beef Short Ribs (raw),13,2019-04-01,,4.2
+169510,sr_legacy_food,Ribeye (small end),13,2019-04-01,,2.5
+169511,sr_legacy_food,Ribeye Roast (small end),13,2019-04-01,,2.5
+169509,sr_legacy_food,"Ribeye Roast (small end, raw)",13,2019-04-01,,2.2
+169499,sr_legacy_food,Prime Rib,13,2019-04-01,,2.5
+169500,sr_legacy_food,"Prime Rib (whole rib, roasted)",13,2019-04-01,,2.5
+169498,sr_legacy_food,"Prime Rib (whole rib, raw)",13,2019-04-01,,2.2
+170222,sr_legacy_food,"Bottom Round Roast (roasted, lean)",13,2019-04-01,,3
+168696,sr_legacy_food,Bottom Round Roast,13,2019-04-01,,3
+170626,sr_legacy_food,"Bottom Round Steak (braised, lean)",13,2019-04-01,,3.5
+169520,sr_legacy_food,"Bottom Round Steak (braised, trimmed)",13,2019-04-01,,3.5
+169519,sr_legacy_food,Bottom Round Steak (raw),13,2019-04-01,,3
+170228,sr_legacy_food,Eye Of Round Roast (roasted),13,2019-04-01,,3
+171745,sr_legacy_food,Eye Of Round Roast (raw),13,2019-04-01,,2.8
+173993,sr_legacy_food,Eye Of Round Steak,13,2019-04-01,,3
+173984,sr_legacy_food,Eye Of Round Steak (raw),13,2019-04-01,,2.8
+169524,sr_legacy_food,"Eye Of Round Roast (roasted, trimmed)",13,2019-04-01,,3
+169523,sr_legacy_food,"Eye Of Round Roast (raw, trimmed)",13,2019-04-01,,2.8
+173370,sr_legacy_food,Tip Center Steak,13,2019-04-01,,3
+173369,sr_legacy_food,Tip Center Steak (raw),13,2019-04-01,,2.8
+172131,sr_legacy_food,Tip Side Steak,13,2019-04-01,,3
+173367,sr_legacy_food,Tip Side Steak (raw),13,2019-04-01,,2.8
+172135,sr_legacy_food,Outside Round Steak,13,2019-04-01,,3
+173371,sr_legacy_food,Outside Round Steak (raw),13,2019-04-01,,2.8
+170230,sr_legacy_food,Tip Roast,13,2019-04-01,,3
+169470,sr_legacy_food,Tip Roast (raw),13,2019-04-01,,2.8
+169526,sr_legacy_food,Tip Roast (trimmed),13,2019-04-01,,3
+169525,sr_legacy_food,"Tip Roast (raw, trimmed)",13,2019-04-01,,2.8
+171755,sr_legacy_food,Top Round Roast (roasted),13,2019-04-01,,3
+173982,sr_legacy_food,Top Round Roast (raw),13,2019-04-01,,2.8
+169560,sr_legacy_food,Top Round Steak,13,2019-04-01,,3
+171743,sr_legacy_food,Top Round Steak (raw),13,2019-04-01,,2.8
+169531,sr_legacy_food,Top Round Steak (broiled),13,2019-04-01,,3.2
+170638,sr_legacy_food,"Top Round Steak (braised, lean)",13,2019-04-01,,3.5
+169530,sr_legacy_food,"Top Round Steak (braised, trimmed)",13,2019-04-01,,3.5
+169529,sr_legacy_food,Top Round Steak (raw),13,2019-04-01,,2.8
+169459,sr_legacy_food,Porterhouse Steak (broiled),13,2019-04-01,,2.5
+172115,sr_legacy_food,Porterhouse Steak,13,2019-04-01,,2.5
+173350,sr_legacy_food,Porterhouse Steak (raw),13,2019-04-01,,2.2
+169464,sr_legacy_food,T-Bone Steak (broiled),13,2019-04-01,,2.5
+173351,sr_legacy_food,T-Bone Steak,13,2019-04-01,,2.5
+172118,sr_legacy_food,T-Bone Steak (raw),13,2019-04-01,,2.2
+169541,sr_legacy_food,Top Loin Steak,13,2019-04-01,,2
+169538,sr_legacy_food,Top Loin Steak (raw),13,2019-04-01,,1.8
+173349,sr_legacy_food,Shoulder Pot Roast (raw),13,2019-04-01,,4
+171224,sr_legacy_food,Shoulder Pot Roast,13,2019-04-01,,4.5
+171789,sr_legacy_food,Shoulder Steak,13,2019-04-01,,4
+169479,sr_legacy_food,Flat Iron Steak,13,2019-04-01,,3.5
+168693,sr_legacy_food,Flat Iron Steak (raw),13,2019-04-01,,3.2
+169544,sr_legacy_food,Beef Tenderloin Roast,13,2019-04-01,,1.8
+169547,sr_legacy_food,Beef Tenderloin (raw),13,2019-04-01,,1.5
+169543,sr_legacy_food,Beef Tenderloin Steak,13,2019-04-01,,1.8
+169542,sr_legacy_food,Beef Tenderloin Steak (raw),13,2019-04-01,,1.5
+173063,sr_legacy_food,Strip Steak File,13,2019-04-01,,1.8
+174711,sr_legacy_food,"Strip Roast (petite filet, raw)",13,2019-04-01,,1.5
+169457,sr_legacy_food,"Top Sirloin Steak (broiled, lean)",13,2019-04-01,,2
+168727,sr_legacy_food,"Top Sirloin Steak (broiled, trimmed)",13,2019-04-01,,2
+168726,sr_legacy_food,Top Sirloin Steak (raw),13,2019-04-01,,1.8
+175296,sr_legacy_food,Beefalo (raw),17,2019-04-01,,2.2
+169146,sr_legacy_food,Beets (cooked),11,2019-04-01,,
+169145,sr_legacy_food,Beets,11,2019-04-01,,
+173847,sr_legacy_food,Grass-Fed Ground Bison,17,2019-04-01,,2
+175293,sr_legacy_food,Grass-Fed Ground Bison (raw),17,2019-04-01,,2
+173946,sr_legacy_food,Blackberries,9,2019-04-01,,
+171710,sr_legacy_food,Blackberries (frozen),9,2019-04-01,,
+171618,sr_legacy_food,Blood sausage,7,2019-04-01,,
+173950,sr_legacy_food,Blueberries (frozen),9,2019-04-01,,
+171711,sr_legacy_food,Blueberries,9,2019-04-01,,
+173949,sr_legacy_food,Wild Blueberries (frozen),9,2019-04-01,,
+175298,sr_legacy_food,Boar,17,2019-04-01,,
+175297,sr_legacy_food,Boar (raw),17,2019-04-01,,
+170482,sr_legacy_food,Borage,11,2019-04-01,,
+170481,sr_legacy_food,Borage (raw),11,2019-04-01,,
+171713,sr_legacy_food,Boysenberries (frozen),9,2019-04-01,,
+171714,sr_legacy_food,Breadfruit,9,2019-04-01,,
+170379,sr_legacy_food,Broccoli,11,2019-04-01,,
+169971,sr_legacy_food,Brussels Sprouts,11,2019-04-01,,
+170383,sr_legacy_food,Brussels Sprouts (uncooked),11,2019-04-01,,
+170286,sr_legacy_food,Buckwheat,20,2019-04-01,,
+170687,sr_legacy_food,Buckwheat Flour (whole-groat),20,2019-04-01,,
+175300,sr_legacy_food,Buffalo,17,2019-04-01,,2.5
+175299,sr_legacy_food,Buffalo (raw),17,2019-04-01,,2.2
+170287,sr_legacy_food,Bulgur,20,2019-04-01,,
+170688,sr_legacy_food,Bulgur (dry),20,2019-04-01,,
+170384,sr_legacy_food,Burdock Root,11,2019-04-01,,
+169974,sr_legacy_food,Burdock Root (uncooked),11,2019-04-01,,
+171314,sr_legacy_food,Ghee,1,2019-04-01,,
+173410,sr_legacy_food,Salted Butter,1,2019-04-01,,
+173430,sr_legacy_food,Unsalted Butter,1,2019-04-01,,
+170391,sr_legacy_food,Bok Choi (cooked),11,2019-04-01,,
+170390,sr_legacy_food,Bok Choi,11,2019-04-01,,
+169890,sr_legacy_food,Pickled Cabbage (japanese style),11,2019-04-01,30,
+170392,sr_legacy_food,Kimchi,11,2019-04-01,30,
+169891,sr_legacy_food,Mustard Cabbage,11,2019-04-01,,
+168572,sr_legacy_food,Napa Cabbage,11,2019-04-01,,
+169975,sr_legacy_food,Cabbage,11,2019-04-01,,
+169978,sr_legacy_food,Red Cabbage (cooked),11,2019-04-01,,
+169977,sr_legacy_food,Red Cabbage,11,2019-04-01,,
+170389,sr_legacy_food,Savoy Cabbage (cooked),11,2019-04-01,,
+170388,sr_legacy_food,Savoy Cabbage,11,2019-04-01,,
+167869,sr_legacy_food,Canadian Bacon,10,2019-04-01,,
+171715,sr_legacy_food,Starfruit,9,2019-04-01,,
+169982,sr_legacy_food,Cardoon (cooked),11,2019-04-01,,
+169981,sr_legacy_food,Cardoon,11,2019-04-01,,
+173952,sr_legacy_food,Carissa (natal-plum),9,2019-04-01,,
+170491,sr_legacy_food,Carrot Juice,11,2019-04-01,,
+168568,sr_legacy_food,Baby Carrots,11,2019-04-01,,
+170394,sr_legacy_food,Carrots (cooked),11,2019-04-01,,
+170393,sr_legacy_food,Carrots,11,2019-04-01,,
+169985,sr_legacy_food,Cassava,11,2019-04-01,,
+169986,sr_legacy_food,Cauliflower,11,2019-04-01,,
+169987,sr_legacy_food,Celeriac (cooked),11,2019-04-01,,
+170401,sr_legacy_food,Swiss Chard (cooked),11,2019-04-01,,
+169991,sr_legacy_food,Swiss Chard,11,2019-04-01,,
+170403,sr_legacy_food,Chayote Fruit (cooked),11,2019-04-01,,
+170402,sr_legacy_food,Chayote Fruit,11,2019-04-01,,
+169901,sr_legacy_food,American Cheese,1,2019-04-01,,
+170863,sr_legacy_food,American Cheese (nonfat),1,2019-04-01,,
+172175,sr_legacy_food,Blue Cheese,1,2019-04-01,,
+172176,sr_legacy_food,Brick Cheese,1,2019-04-01,,
+172177,sr_legacy_food,Brie Cheese,1,2019-04-01,,
+172178,sr_legacy_food,Camembert Cheese,1,2019-04-01,,
+173413,sr_legacy_food,Caraway Cheese,1,2019-04-01,,
+173414,sr_legacy_food,Cheddar Cheese,1,2019-04-01,,
+171295,sr_legacy_food,Cheddar Cheese (nonfat),1,2019-04-01,,
+171292,sr_legacy_food,Cheddar Cheese (lowfat),1,2019-04-01,,
+170899,sr_legacy_food,Sharp Cheddar Cheese,1,2019-04-01,,
+173415,sr_legacy_food,Cheshire Cheese,1,2019-04-01,,
+173416,sr_legacy_food,Colby Cheese,1,2019-04-01,,
+172179,sr_legacy_food,Cottage Cheese,1,2019-04-01,,
+173417,sr_legacy_food,Cottage Cheese (1% lowfat),1,2019-04-01,,
+172182,sr_legacy_food,Cheese (2% lowfat),1,2019-04-01,,
+172181,sr_legacy_food,Cottage Cheese (nonfat),1,2019-04-01,,
+173418,sr_legacy_food,Cream Cheese,1,2019-04-01,,
+172207,sr_legacy_food,Cream Cheese (fat free),1,2019-04-01,,
+169079,sr_legacy_food,Cream Cheese (lowfat),1,2019-04-01,,
+172222,sr_legacy_food,Queso Seco,1,2019-04-01,,
+173419,sr_legacy_food,Edam Cheese,1,2019-04-01,,
+173420,sr_legacy_food,Feta Cheese,1,2019-04-01,,
+170843,sr_legacy_food,Fontina Cheese,1,2019-04-01,,
+172223,sr_legacy_food,Queso Fresco,1,2019-04-01,,
+172197,sr_legacy_food,Goat Cheese (hard),1,2019-04-01,,
+173433,sr_legacy_food,Goat Cheese (semisoft),1,2019-04-01,,
+173435,sr_legacy_food,Goat Cheese (soft),1,2019-04-01,,
+171241,sr_legacy_food,Gouda Cheese,1,2019-04-01,,
+171242,sr_legacy_food,Gruyere Cheese,1,2019-04-01,,
+171288,sr_legacy_food,Cheese (Mexican blend),1,2019-04-01,,
+172201,sr_legacy_food,Queso Anejo,1,2019-04-01,,
+173437,sr_legacy_food,Queso Asadero,1,2019-04-01,,
+173438,sr_legacy_food,Queso Chihuahua,1,2019-04-01,,
+170898,sr_legacy_food,Queso Cojita,1,2019-04-01,,
+170844,sr_legacy_food,Monterey Cheese,1,2019-04-01,,
+168098,sr_legacy_food,Monterey Cheese (lowfat),1,2019-04-01,,
+169051,sr_legacy_food,Mossarella Cheese (nonfat),1,2019-04-01,,
+170847,sr_legacy_food,Mossarella Cheese (lowfat),1,2019-04-01,,
+170845,sr_legacy_food,Mossarella Cheese (whole milk),1,2019-04-01,,
+170846,sr_legacy_food,"Mossarella Cheese (whole milk, low moisture)",1,2019-04-01,,
+171245,sr_legacy_food,Muenster Cheese,1,2019-04-01,,
+171246,sr_legacy_food,Neufchatel Cheese,1,2019-04-01,,
+171247,sr_legacy_food,Parmesan Cheese (grated),1,2019-04-01,,
+170848,sr_legacy_food,Parmesan Cheese,1,2019-04-01,,
+170849,sr_legacy_food,Port de Salut Cheese,1,2019-04-01,,
+170850,sr_legacy_food,Provolone Cheese,1,2019-04-01,,
+172215,sr_legacy_food,Provolone Cheese (lowfat),1,2019-04-01,,
+171248,sr_legacy_food,Ricotta Cheese (skim milk),1,2019-04-01,,
+170851,sr_legacy_food,Ricotta Cheese (whole milk),1,2019-04-01,,
+171249,sr_legacy_food,Romano Cheese,1,2019-04-01,,
+171250,sr_legacy_food,Roquefort Cheese,1,2019-04-01,,
+171251,sr_legacy_food,Swiss Cheese,1,2019-04-01,,
+170852,sr_legacy_food,Tilsit Cheese,1,2019-04-01,,
+172224,sr_legacy_food,Queso Blanco,1,2019-04-01,,
+173953,sr_legacy_food,Cherimoya,9,2019-04-01,,
+171718,sr_legacy_food,Sour Red Cherries (frozen),9,2019-04-01,,
+173954,sr_legacy_food,Sour Red Cherries,9,2019-04-01,,
+171719,sr_legacy_food,Sweet Cherries,9,2019-04-01,,
+167807,sr_legacy_food,Tart Cherry Juice,9,2019-04-01,,
+171071,sr_legacy_food,Chicken Back (with skin),5,2019-04-01,,3.5
+171469,sr_legacy_food,"Chicken Back (with skin, raw)",5,2019-04-01,,3
+171474,sr_legacy_food,"Chicken Breast (with skin, raw)",5,2019-04-01,,1.5
+171534,sr_legacy_food,Chicken Breast,5,2019-04-01,,1.8
+174498,sr_legacy_food,"Chicken Thigh (with skin, braised)",5,2019-04-01,,3.5
+173627,sr_legacy_food,Chicken Thigh (raw),5,2019-04-01,,3
+173612,sr_legacy_food,Chicken Drumstick,5,2019-04-01,,3
+173613,sr_legacy_food,"Chicken Drumstick (with skin, stewed)",5,2019-04-01,,3.5
+172373,sr_legacy_food,"Chicken Drumstick (with skin, raw)",5,2019-04-01,,3
+171455,sr_legacy_food,Chicken Giblets,5,2019-04-01,,2
+171057,sr_legacy_food,Chicken Giblets (raw),5,2019-04-01,,2
+173617,sr_legacy_food,"Chicken Leg (with skin, roasted)",5,2019-04-01,,2
+172378,sr_legacy_food,"Chicken Leg (with skin, raw)",5,2019-04-01,,3.5
+172380,sr_legacy_food,Chicken Leg,5,2019-04-01,,3
+173619,sr_legacy_food,Chicken Leg (raw),5,2019-04-01,,3
+173622,sr_legacy_food,"Chicken Neck (with skin, simmered)",5,2019-04-01,,3
+172382,sr_legacy_food,"Chicken Neck (with skin, raw)",5,2019-04-01,,4
+172384,sr_legacy_food,Chicken Neck (simmered),5,2019-04-01,,3.5
+173623,sr_legacy_food,Chicken Neck (raw),5,2019-04-01,,4
+173625,sr_legacy_food,"Chicken Thigh (with skin, roasted)",5,2019-04-01,,2.8
+173626,sr_legacy_food,"Chicken Thigh (with skin, stewed)",5,2019-04-01,,2.8
+172385,sr_legacy_food,"Chicken Thigh (with skin, raw)",5,2019-04-01,,2
+172388,sr_legacy_food,Chicken Thigh,5,2019-04-01,,3
+172389,sr_legacy_food,Chicken Thigh (stewed),5,2019-04-01,,3
+173630,sr_legacy_food,"Chicken Wing (with skin, roasted)",5,2019-04-01,,3.5
+173631,sr_legacy_food,"Chicken Wing (with skin, stewed)",5,2019-04-01,,3.5
+172390,sr_legacy_food,"Chicken Wing (with skin, raw)",5,2019-04-01,,3
+172392,sr_legacy_food,Chicken Wing,5,2019-04-01,,3
+172393,sr_legacy_food,"Chicken Wing (without skin, stewed)",5,2019-04-01,,3
+173632,sr_legacy_food,"Chicken Wing (without skin, raw)",5,2019-04-01,,2.8
+171119,sr_legacy_food,Chicken Feet (boiled),5,2019-04-01,,8
+171457,sr_legacy_food,Chicken Gizzard (cooked),5,2019-04-01,,3.5
+171456,sr_legacy_food,Chicken Gizzard (raw),5,2019-04-01,,3
+171117,sr_legacy_food,Ground Chicken,5,2019-04-01,,2
+171116,sr_legacy_food,Ground Chicken (raw),5,2019-04-01,,2
+171059,sr_legacy_food,Chicken Heart,5,2019-04-01,,2.5
+171458,sr_legacy_food,Chicken Heart (raw),5,2019-04-01,,2.5
+171061,sr_legacy_food,Chicken Liver,5,2019-04-01,,0.5
+171060,sr_legacy_food,Chicken Liver (raw),5,2019-04-01,,0.5
+174288,sr_legacy_food,Chickpea Flour (besan),16,2019-04-01,,
+173756,sr_legacy_food,Chickpeas (garbanzo beans),16,2019-04-01,,
+169992,sr_legacy_food,Chicory greens,11,2019-04-01,,
+169993,sr_legacy_food,Chicory root,11,2019-04-01,,
+170404,sr_legacy_food,Chicory (witloof),11,2019-04-01,,
+169994,sr_legacy_food,Chives,11,2019-04-01,,
+170405,sr_legacy_food,"Chrysanthemum (garland, cooked)",11,2019-04-01,,
+169995,sr_legacy_food,"Chrysanthemum (garland, raw)",11,2019-04-01,,
+168195,sr_legacy_food,Clementines,9,2019-04-01,,
+170407,sr_legacy_food,Collards (cooked),11,2019-04-01,,
+170406,sr_legacy_food,Collards (uncooked),11,2019-04-01,,
+169997,sr_legacy_food,Cilantro,11,2019-04-01,,
+169696,sr_legacy_food,Masa Harina,20,2019-04-01,,
+168921,sr_legacy_food,Masa Harina (blue),20,2019-04-01,,
+169748,sr_legacy_food,Masa Harina (white),20,2019-04-01,,
+170290,sr_legacy_food,Masa Harina (yellow),20,2019-04-01,,
+169998,sr_legacy_food,"Sweet Corn (yellow, uncooked)",11,2019-04-01,,
+169750,sr_legacy_food,Cornmeal (white),20,2019-04-01,,
+169697,sr_legacy_food,Cornmeal (yellow),20,2019-04-01,,
+169698,sr_legacy_food,Cornstarch,20,2019-04-01,,
+169700,sr_legacy_food,Couscous (cooked),20,2019-04-01,,
+169699,sr_legacy_food,Couscous (dry),20,2019-04-01,,
+173759,sr_legacy_food,Black-Eyed Peas,16,2019-04-01,,
+173758,sr_legacy_food,Black-Eyed Peas (dry),16,2019-04-01,,
+174205,sr_legacy_food,Blue Crab (cooked),15,2019-04-01,,2
+174204,sr_legacy_food,Blue Crab (raw),15,2019-04-01,,1.8
+172007,sr_legacy_food,Dungeness Crab,15,2019-04-01,,2
+171968,sr_legacy_food,Dungeness Crab (raw),15,2019-04-01,,1.8
+172008,sr_legacy_food,Queen Crab (cooked),15,2019-04-01,,2
+171969,sr_legacy_food,Queen Crab (raw),15,2019-04-01,,1.8
+174209,sr_legacy_food,Lobster,15,2019-04-01,,2
+174208,sr_legacy_food,Lobster (raw),15,2019-04-01,,1.8
+175180,sr_legacy_food,Shrimp,15,2019-04-01,,2
+175179,sr_legacy_food,Shrimp (raw),15,2019-04-01,,1.8
+169225,sr_legacy_food,Cucumber (peeled),11,2019-04-01,,
+168409,sr_legacy_food,Cucumber,11,2019-04-01,,
+169226,sr_legacy_food,Dandelion Greens,11,2019-04-01,,
+171726,sr_legacy_food,Deglet Noor Dates,9,2019-04-01,,
+168191,sr_legacy_food,Medjool Dates,9,2019-04-01,,
+172233,sr_legacy_food,Dill Weed,2,2019-04-01,,
+174467,sr_legacy_food,Duck Liver,5,2019-04-01,,0.5
+174468,sr_legacy_food,Duck (uncooked),5,2019-04-01,,2
+173461,sr_legacy_food,Dulce de Leche,1,2019-04-01,,
+168192,sr_legacy_food,Durian,9,2019-04-01,,
+168411,sr_legacy_food,Edamame,11,2019-04-01,,
+172189,sr_legacy_food,Duck Eggs,1,2019-04-01,,
+172190,sr_legacy_food,Goose Eggs,1,2019-04-01,,
+172191,sr_legacy_food,Quail Eggs,1,2019-04-01,,
+172192,sr_legacy_food,Turkey Eggs,1,2019-04-01,,
+172183,sr_legacy_food,Egg Whites,1,2019-04-01,,
+171287,sr_legacy_food,Eggs,1,2019-04-01,,
+172184,sr_legacy_food,Egg Yolks,1,2019-04-01,,
+171258,sr_legacy_food,Eggnog,1,2019-04-01,,
+169229,sr_legacy_food,Eggplant (cooked),11,2019-04-01,,
+169892,sr_legacy_food,Pickled Eggplant,11,2019-04-01,30,
+169228,sr_legacy_food,Eggplant (uncooked),11,2019-04-01,,
+171727,sr_legacy_food,Elderberries,9,2019-04-01,,
+175302,sr_legacy_food,Elk,17,2019-04-01,,2.5
+175301,sr_legacy_food,Elk (raw),17,2019-04-01,,2.2
+168412,sr_legacy_food,Endive,11,2019-04-01,,
+169398,sr_legacy_food,Epazote,11,2019-04-01,,
+170078,sr_legacy_food,Eppaw,11,2019-04-01,,
+168413,sr_legacy_food,Escarole,11,2019-04-01,,
+172455,sr_legacy_food,Falafel,16,2019-04-01,,
+171400,sr_legacy_food,Beef Tallow,4,2019-04-01,,
+173564,sr_legacy_food,Chicken Fat,4,2019-04-01,,
+173572,sr_legacy_food,Goose Fat,4,2019-04-01,,
+173571,sr_legacy_food,Turkey Fat,4,2019-04-01,,
+168176,sr_legacy_food,Feijoa,9,2019-04-01,,
+169385,sr_legacy_food,Fennel,11,2019-04-01,,
+174665,sr_legacy_food,Figs (dried),9,2019-04-01,,
+173021,sr_legacy_food,Figs,9,2019-04-01,,
+171606,sr_legacy_food,Fish Broth,6,2019-04-01,,1.2
+174182,sr_legacy_food,Anchovies,15,2019-04-01,,2.5
+174184,sr_legacy_food,"Striped Bass (fresh water, raw)",15,2019-04-01,,1.5
+171989,sr_legacy_food,Striped Bass,15,2019-04-01,,1.8
+174228,sr_legacy_food,Striped Bass (cooked),15,2019-04-01,,1.8
+171948,sr_legacy_food,Striped Bass (raw),15,2019-04-01,,1.5
+174185,sr_legacy_food,Carp,15,2019-04-01,,1.8
+171952,sr_legacy_food,Carp (raw),15,2019-04-01,,1.5
+173714,sr_legacy_food,Catfish,15,2019-04-01,,1.8
+174186,sr_legacy_food,Catfish (raw),15,2019-04-01,,1.5
+174188,sr_legacy_food,Caviar (black and red),15,2019-04-01,,0.5
+171956,sr_legacy_food,Cod (Atlantic),15,2019-04-01,,1.2
+171955,sr_legacy_food,"Cod (Atlantic, raw)",15,2019-04-01,,1
+175178,sr_legacy_food,Cod (Pacific),15,2019-04-01,,1.2
+174191,sr_legacy_food,"Cod (Pacific, raw)",15,2019-04-01,,1
+174194,sr_legacy_food,Eel,15,2019-04-01,,3
+174193,sr_legacy_food,Eel (raw),15,2019-04-01,,2.5
+174198,sr_legacy_food,Haddock,15,2019-04-01,,1.2
+171964,sr_legacy_food,Haddock (raw),15,2019-04-01,,1
+174199,sr_legacy_food,Haddock (smoked),15,2019-04-01,,1.3
+174201,sr_legacy_food,Halibut (Atlantic/Pacific),15,2019-04-01,,1.5
+174200,sr_legacy_food,"Halibut (Atlantic/Pacific, raw)",15,2019-04-01,,1.2
+174232,sr_legacy_food,Halibut (Greenland),15,2019-04-01,,1.5
+171965,sr_legacy_food,"Halibut (Greenland, raw)",15,2019-04-01,,1.2
+171994,sr_legacy_food,Mackerel,15,2019-04-01,,2
+173672,sr_legacy_food,Mackerel (raw),15,2019-04-01,,1.8
+173674,sr_legacy_food,Mackerel (spanish),15,2019-04-01,,2
+173673,sr_legacy_food,"Mackerel (spanish, raw)",15,2019-04-01,,1.8
+171992,sr_legacy_food,Mahi-mahi,15,2019-04-01,,1.5
+171959,sr_legacy_food,Mahi-mahi (raw),15,2019-04-01,,1.2
+175168,sr_legacy_food,Atlantic Salmon (farmed),15,2019-04-01,,2
+175167,sr_legacy_food,"Atlantic Salmon (farmed, raw)",15,2019-04-01,,1.8
+171998,sr_legacy_food,Atlantic Salmon (wild),15,2019-04-01,,2
+173686,sr_legacy_food,"Atlantic Salmon (wild, raw)",15,2019-04-01,,1.8
+173716,sr_legacy_food,Coho Salmon (farmed),15,2019-04-01,,2
+173715,sr_legacy_food,"Coho Salmon (farmed, raw)",15,2019-04-01,,1.8
+175137,sr_legacy_food,Coho Salmon (wild),15,2019-04-01,,2
+175136,sr_legacy_food,"Coho Salmon (wild, raw)",15,2019-04-01,,1.8
+172001,sr_legacy_food,Pink Salmon,15,2019-04-01,,2
+175138,sr_legacy_food,Pink Salmon (raw),15,2019-04-01,,1.8
+173692,sr_legacy_food,Sockeye Salmon,15,2019-04-01,,2
+173691,sr_legacy_food,Sockeye Salmon (raw),15,2019-04-01,,1.8
+171985,sr_legacy_food,Smoked Salmon,15,2019-04-01,,2.2
+173694,sr_legacy_food,Sea Bass,15,2019-04-01,,1.5
+175142,sr_legacy_food,Sea Bass (raw),15,2019-04-01,,1.2
+173697,sr_legacy_food,Shark (raw),15,2019-04-01,,3.5
+173702,sr_legacy_food,Surimi,15,2019-04-01,,1.5
+173704,sr_legacy_food,Swordfish,15,2019-04-01,,1.5
+173703,sr_legacy_food,Swordfish (raw),15,2019-04-01,,1.2
+175177,sr_legacy_food,Tilapia,15,2019-04-01,,1.5
+175176,sr_legacy_food,Tilapia (raw),15,2019-04-01,,1.2
+175152,sr_legacy_food,Tilefish,15,2019-04-01,,1.5
+173705,sr_legacy_food,Tilefish (raw),15,2019-04-01,,1.2
+172004,sr_legacy_food,Trout,15,2019-04-01,,1.8
+175153,sr_legacy_food,Trout (raw),15,2019-04-01,,1.5
+175155,sr_legacy_food,Rainbow Trout (wild),15,2019-04-01,,1.8
+175154,sr_legacy_food,"Rainbow Trout (wild, raw)",15,2019-04-01,,1.5
+173707,sr_legacy_food,Bluefin Tuna,15,2019-04-01,,1.5
+173706,sr_legacy_food,Bluefin Tuna (raw),15,2019-04-01,,1.2
+175156,sr_legacy_food,Skipjack Tuna (raw),15,2019-04-01,,1.2
+175159,sr_legacy_food,Yellowfish Tuna (raw),15,2019-04-01,,1.2
+172005,sr_legacy_food,Skipjack Tuna,15,2019-04-01,,1.5
+172006,sr_legacy_food,Yellowfin Tuna,15,2019-04-01,,1.5
+174246,sr_legacy_food,White fish,15,2019-04-01,,1.2
+173711,sr_legacy_food,White fish (raw),15,2019-04-01,,1
+173712,sr_legacy_food,White fish,15,2019-04-01,,1.2
+175161,sr_legacy_food,Whiting,15,2019-04-01,,1.2
+173713,sr_legacy_food,Whiting (raw),15,2019-04-01,,1
+174247,sr_legacy_food,Wolffish (Atlantic),15,2019-04-01,,1.5
+175162,sr_legacy_food,"Wolffish (Atlantic, raw)",15,2019-04-01,,1.2
+174248,sr_legacy_food,Yellowtail,15,2019-04-01,,1.8
+175163,sr_legacy_food,Yellowtail (raw),15,2019-04-01,,1.5
+173862,sr_legacy_food,Beef Sausage,7,2019-04-01,,2
+171624,sr_legacy_food,Chicken Sausage,7,2019-04-01,,2
+172964,sr_legacy_food,Pork Sausage,7,2019-04-01,,2
+171625,sr_legacy_food,Turkey Sausage,7,2019-04-01,,2
+168148,sr_legacy_food,Frog Leg (raw),15,2019-04-01,,2
+174421,sr_legacy_food,Ground Bison (raw),17,2019-04-01,,2
+173844,sr_legacy_food,Antelope,17,2019-04-01,,2.5
+175292,sr_legacy_food,Antelope (raw),17,2019-04-01,,2
+174422,sr_legacy_food,Ground Bison,17,2019-04-01,,2
+173854,sr_legacy_food,Ground Caribou (cooked),17,2019-04-01,,2.5
+173853,sr_legacy_food,Ground Caribou (raw),17,2019-04-01,,2.2
+175085,sr_legacy_food,Deer (cooked),17,2019-04-01,,2.5
+172603,sr_legacy_food,Ground Deer,17,2019-04-01,,2.2
+172602,sr_legacy_food,Ground Deer (raw),17,2019-04-01,,2
+173855,sr_legacy_food,Deer (raw),17,2019-04-01,,2
+174426,sr_legacy_food,Ground Elk,17,2019-04-01,,2.2
+174425,sr_legacy_food,Ground Elk (raw),17,2019-04-01,,2
+174345,sr_legacy_food,Moose,17,2019-04-01,,2.5
+174344,sr_legacy_food,Moose (raw),17,2019-04-01,,2.2
+174348,sr_legacy_food,Rabbit,17,2019-04-01,,2
+174347,sr_legacy_food,Rabbit (raw),17,2019-04-01,,1.8
+169230,sr_legacy_food,Garlic,11,2019-04-01,,
+169231,sr_legacy_food,Ginger Root,11,2019-04-01,,
+175304,sr_legacy_food,Goat,17,2019-04-01,,3
+175303,sr_legacy_food,Goat (raw),17,2019-04-01,,2.5
+173032,sr_legacy_food,Goji Berries (dried),9,2019-04-01,,
+172414,sr_legacy_food,Goose,5,2019-04-01,,
+172413,sr_legacy_food,Goose (uncooked),5,2019-04-01,,
+172415,sr_legacy_food,Goose Liver (uncooked),5,2019-04-01,,
+173030,sr_legacy_food,Gooseberries,9,2019-04-01,,
+173042,sr_legacy_food,Grape Juice,9,2019-04-01,,
+173039,sr_legacy_food,Grapefruit Juice,9,2019-04-01,,
+174676,sr_legacy_food,Grapefruit,9,2019-04-01,,
+173040,sr_legacy_food,Muscadine Grapes,9,2019-04-01,,
+174683,sr_legacy_food,Grapes (red or green),9,2019-04-01,,
+171598,sr_legacy_food,Gravy,6,2019-04-01,,
+173043,sr_legacy_food,Groundcherries (cape-gooseberries or poha),9,2019-04-01,,
+173044,sr_legacy_food,Guava,9,2019-04-01,,
+173045,sr_legacy_food,Guava (strawberry),9,2019-04-01,,
+174611,sr_legacy_food,Honey Ham,7,2019-04-01,,
+173865,sr_legacy_food,Ham,7,2019-04-01,,
+173864,sr_legacy_food,Sliced Ham,7,2019-04-01,,
+167714,sr_legacy_food,Hearts of Palm,11,2019-04-01,,
+167791,sr_legacy_food,Horned Melon (Kiwano),9,2019-04-01,,
+173472,sr_legacy_food,Horseradish,2,2019-04-01,,
+172454,sr_legacy_food,Hummus,16,2019-04-01,,
+175211,sr_legacy_food,Hyacinth Beans,16,2019-04-01,,
+175210,sr_legacy_food,Hyacinth Beans (dry),16,2019-04-01,,
+172227,sr_legacy_food,Ice Cream Cookie Sandwich,1,2019-04-01,,
+172226,sr_legacy_food,Ice Cream Sandwich,1,2019-04-01,,
+173465,sr_legacy_food,Chocolate Ice Cream,1,2019-04-01,,
+174687,sr_legacy_food,Jackfruit,9,2019-04-01,,
+168150,sr_legacy_food,Java-plum,9,2019-04-01,,
+168152,sr_legacy_food,Jujube (dried),9,2019-04-01,,
+168151,sr_legacy_food,Jujube,9,2019-04-01,,
+169238,sr_legacy_food,Kale (cooked),11,2019-04-01,,
+168421,sr_legacy_food,Kale,11,2019-04-01,,
+170904,sr_legacy_food,Kefir (lowfat),1,2019-04-01,170,
+173877,sr_legacy_food,Kielbasa,7,2019-04-01,,
+168153,sr_legacy_food,Kiwi,9,2019-04-01,,
+168211,sr_legacy_food,Kiwi (gold),9,2019-04-01,,
+173867,sr_legacy_food,Knackwurst,7,2019-04-01,,
+168425,sr_legacy_food,Kohlrabi (cooked),11,2019-04-01,,
+168424,sr_legacy_food,Kohlrabi,11,2019-04-01,,
+168154,sr_legacy_food,Kumquats,9,2019-04-01,,
+172608,sr_legacy_food,"Ground Lamb (85% lean / 15% fat, uncooked)",17,2019-04-01,,2.1
+172658,sr_legacy_food,"Lamb Leg Roast (bottom, boneless)",17,2019-04-01,,3
+172659,sr_legacy_food,"Lamb Leg Roast (bottom, boneless, raw)",17,2019-04-01,,2.8
+174411,sr_legacy_food,Lamb Leg Steak (center slice),17,2019-04-01,,3
+174410,sr_legacy_food,"Lamb Leg Steak (center slice, raw)",17,2019-04-01,,2.8
+174893,sr_legacy_food,Lamb Shank (hindshank),17,2019-04-01,,4.5
+174894,sr_legacy_food,"Lamb Shank (hindshank, raw)",17,2019-04-01,,4.2
+172579,sr_legacy_food,Lamb Leg Roast (shank half),17,2019-04-01,,3.5
+172578,sr_legacy_food,"Lamb Leg Roast (shank half, raw)",17,2019-04-01,,3.2
+172583,sr_legacy_food,Lamb Sirloin Chop,17,2019-04-01,,2
+172582,sr_legacy_food,Lamb Sirloin Chop (raw),17,2019-04-01,,1.8
+174407,sr_legacy_food,Lamb Sirloin Roast,17,2019-04-01,,2
+174406,sr_legacy_food,Lamb Sirloin Roast (raw),17,2019-04-01,,"1,8"
+174895,sr_legacy_food,Lamb Leg Roast (trotter off),17,2019-04-01,,3
+174896,sr_legacy_food,"Lamb Leg Roast (trotter off, raw)",17,2019-04-01,,2.8
+174404,sr_legacy_food,Lamb Whole Leg Roast (with shank & sirloin),17,2019-04-01,,3.5
+174403,sr_legacy_food,"Lamb Whole Leg Roast (with shank & sirloin, raw)",17,2019-04-01,,3.2
+172587,sr_legacy_food,Lamb Loin Chop,17,2019-04-01,,1.8
+172586,sr_legacy_food,Lamb Loin Chop (raw),17,2019-04-01,,1.5
+172663,sr_legacy_food,Rack of Lamb (frenched),17,2019-04-01,,2
+172662,sr_legacy_food,"Rack of Lamb (frenched, trimmed, roasted)",17,2019-04-01,,2.2
+174415,sr_legacy_food,Lamb Rib Chop (frenched),17,2019-04-01,,2
+174898,sr_legacy_food,"Lamb Rib Chop (frenched, trimmed, grilled)",17,2019-04-01,,2.2
+174414,sr_legacy_food,"Rack of Lamb / Rib Chop (frenched, raw)",17,2019-04-01,,1.8
+174418,sr_legacy_food,Lamb Shoulder (arm),17,2019-04-01,,4
+174417,sr_legacy_food,"Lamb Shoulder (arm, raw)",17,2019-04-01,,3.8
+172595,sr_legacy_food,Lamb Shoulder Chop (blade),17,2019-04-01,,4
+172594,sr_legacy_food,"Lamb Shoulder Chop (blade, raw)",17,2019-04-01,,3.8
+172591,sr_legacy_food,Lamb Whole Shoulder Roast (arm & blade),17,2019-04-01,,4.2
+172590,sr_legacy_food,"Lamb Whole Shoulder Roast (arm & blade, raw)",17,2019-04-01,,4
+174897,sr_legacy_food,Lamb Tenderloin,17,2019-04-01,,1.5
+172660,sr_legacy_food,Lamb Tenderloin (raw),17,2019-04-01,,1.5
+172544,sr_legacy_food,Ground Lamb,17,2019-04-01,,2
+174370,sr_legacy_food,Ground Lamb (raw),17,2019-04-01,,2
+174312,sr_legacy_food,"Lamb Leg (1/4"" fat)",17,2019-04-01,,3
+174311,sr_legacy_food,"Lamb Leg (1/4"" fat, raw)",17,2019-04-01,,2.8
+174373,sr_legacy_food,"Lamb Leg (1/8"" fat)",17,2019-04-01,,3
+174372,sr_legacy_food,"Lamb Leg (1/8"" fat, raw)",17,2019-04-01,,2.8
+172490,sr_legacy_food,"Lamb Loin (1/4"" fat)",17,2019-04-01,,1.8
+174319,sr_legacy_food,"Lamb Loin (1/4"" fat, raw)",17,2019-04-01,,1.5
+174376,sr_legacy_food,"Lamb Loin (1/8"" fat)",17,2019-04-01,,1.8
+172551,sr_legacy_food,"Lamb Loin (1/8"" fat, raw)",17,2019-04-01,,1.5
+172630,sr_legacy_food,Lamb Flap (bonesless),17,2019-04-01,,3
+172631,sr_legacy_food,"Lamb Flap (bonesless, raw)",17,2019-04-01,,2.8
+172514,sr_legacy_food,Lamb Fore-Shank,17,2019-04-01,,4.5
+172513,sr_legacy_food,Lamb Fore-Shank (raw),17,2019-04-01,,4.2
+174443,sr_legacy_food,Lamb Heart,17,2019-04-01,,2.5
+174444,sr_legacy_food,Lamb Heart (raw),17,2019-04-01,,2.5
+174442,sr_legacy_food,Lamb Kidney (raw),17,2019-04-01,,0.5
+174342,sr_legacy_food,Leg Chop/Steak (raw),17,2019-04-01,,2.8
+172615,sr_legacy_food,Lamb Liver (raw),17,2019-04-01,,0.5
+172517,sr_legacy_food,Lamb Loin Chop (raw),17,2019-04-01,,1.5
+174462,sr_legacy_food,Lamb Loin Saddle roast,17,2019-04-01,,2
+174463,sr_legacy_food,Lamb Loin Saddle roast (raw),17,2019-04-01,,1.8
+172634,sr_legacy_food,Lamb Loin Roast (boneless),17,2019-04-01,,2
+172635,sr_legacy_food,"Lamb Loin Roast (boneless, raw)",17,2019-04-01,,1.8
+172636,sr_legacy_food,Lamb Neck Chops,17,2019-04-01,,4
+172637,sr_legacy_food,Lamb Neck Chops (raw),17,2019-04-01,,3.8
+172638,sr_legacy_food,"Lamb Shoulder Roast (rolled, boneless)",17,2019-04-01,,4.2
+174464,sr_legacy_food,"Lamb Shoulder Roast (rolled, boneless, raw)",17,2019-04-01,,4
+172640,sr_legacy_food,Rack of Lamb (fully frenched),17,2019-04-01,,2
+172641,sr_legacy_food,"Rack of Lamb (fully frenched, raw)",17,2019-04-01,,1.8
+173813,sr_legacy_food,Rack of Lamb (partially frenched),17,2019-04-01,,2
+173812,sr_legacy_food,"Rack of Lamb (partially frenched, raw)",17,2019-04-01,,1.8
+174874,sr_legacy_food,Lamb Shoulder Chop (square-cut),17,2019-04-01,,4
+174875,sr_legacy_food,"Lamb Shoulder Chop (square-cut, raw)",17,2019-04-01,,3.8
+174876,sr_legacy_food,Lamb Shoulder Roast (square-cut),17,2019-04-01,,4.2
+175262,sr_legacy_food,"Lamb Shoulder Roast (square-cut, raw)",17,2019-04-01,,4
+174445,sr_legacy_food,Lamb Sweetbread,17,2019-04-01,,1.5
+174446,sr_legacy_food,Lamb Sweetbread (raw),17,2019-04-01,,1.5
+174878,sr_legacy_food,Lamb Tenderloin (raw),17,2019-04-01,,1.5
+172619,sr_legacy_food,Lamb Testes (raw),17,2019-04-01,,1
+172620,sr_legacy_food,Lamb Tongue,17,2019-04-01,,5
+172621,sr_legacy_food,Lamb Tongue (raw),17,2019-04-01,,4.5
+174323,sr_legacy_food,"Lamb Rib (1/4"" fat)",17,2019-04-01,,2
+174321,sr_legacy_food,"Lamb Rib (1/4"" fat, raw)",17,2019-04-01,,1.8
+172552,sr_legacy_food,"Lamb Rib (1/8"" fat)",17,2019-04-01,,2
+174377,sr_legacy_food,"Lamb Rib (1/8"" fat, raw)",17,2019-04-01,,1.8
+174329,sr_legacy_food,"Lamb Shoulder (arm, 1/4"" fat)",17,2019-04-01,,4
+172500,sr_legacy_food,"Lamb Shoulder (arm, 1/4"" fat, raw)",17,2019-04-01,,3.8
+174380,sr_legacy_food,"Lamb Shoulder (arm, 1/8"" fat, raw)",17,2019-04-01,,3.8
+174383,sr_legacy_food,"Lamb Shoulder (arm, 1/8"" fat)",17,2019-04-01,,4
+174333,sr_legacy_food,"Lamb Shoulder (blade, 1/4"" fat)",17,2019-04-01,,4
+172504,sr_legacy_food,"Lamb Shoulder (blade, 1/4"" fat, raw)",17,2019-04-01,,3.8
+172559,sr_legacy_food,"Lamb Shoulder (blade, 1/8"" fat)",17,2019-04-01,,4
+172556,sr_legacy_food,"Lamb Shoulder (blade, 1/8"" fat, raw)",17,2019-04-01,,3.8
+174325,sr_legacy_food,"Lamb Shoulder (1/4"" fat)",17,2019-04-01,,4
+172496,sr_legacy_food,"Lamb Shoulder (1/4"" fat, raw)",17,2019-04-01,,3.8
+174379,sr_legacy_food,"Lamb Shoulder (1/8"" fat)",17,2019-04-01,,4
+172553,sr_legacy_food,"Lamb Shoulder (1/8"" fat, raw)",17,2019-04-01,,3.8
+171401,sr_legacy_food,Lard,4,2019-04-01,,
+168426,sr_legacy_food,Leek (cooked),11,2019-04-01,,
+169246,sr_legacy_food,Leek,11,2019-04-01,,
+168573,sr_legacy_food,"Lemon Grass (citronella),",11,2019-04-01,,
+167747,sr_legacy_food,Lemon Juice,9,2019-04-01,,
+167749,sr_legacy_food,Lemon Peel,9,2019-04-01,,
+167746,sr_legacy_food,Lemon (without peel),9,2019-04-01,,
+172421,sr_legacy_food,Lentils (cooked),16,2019-04-01,,
+174284,sr_legacy_food,Lentils (pink or red),16,2019-04-01,,
+172420,sr_legacy_food,Lentils,16,2019-04-01,,
+168429,sr_legacy_food,Butterhead Lettuce,11,2019-04-01,,
+169247,sr_legacy_food,Romain Lettuce,11,2019-04-01,,
+169249,sr_legacy_food,Lettuce (green leaf),11,2019-04-01,,
+169248,sr_legacy_food,Iceberg Lettuce,11,2019-04-01,,
+168431,sr_legacy_food,Lettuce (red leaf),11,2019-04-01,,
+174253,sr_legacy_food,Lima Beans (cooked),16,2019-04-01,,
+174252,sr_legacy_food,Lima Beans,16,2019-04-01,,
+168156,sr_legacy_food,Lime Juice,9,2019-04-01,,
+168155,sr_legacy_food,Lime,9,2019-04-01,,
+169087,sr_legacy_food,Litchis (dried),9,2019-04-01,,
+169086,sr_legacy_food,Litchis,9,2019-04-01,,
+173870,sr_legacy_food,Liverwurst,7,2019-04-01,,
+169088,sr_legacy_food,Loganberries (frozen),9,2019-04-01,,
+169907,sr_legacy_food,Longans (dried),9,2019-04-01,,
+169089,sr_legacy_food,Longans,9,2019-04-01,,
+169908,sr_legacy_food,Loquats,9,2019-04-01,,
+168430,sr_legacy_food,Lotus Root (cooked),11,2019-04-01,,
+169250,sr_legacy_food,Lotus Root,11,2019-04-01,,
+169909,sr_legacy_food,Mammy-Apple,9,2019-04-01,,
+169910,sr_legacy_food,Mangoes,9,2019-04-01,,
+171443,sr_legacy_food,Mayonnaise,4,2019-04-01,,
+169093,sr_legacy_food,Casaba Melon,9,2019-04-01,,
+169911,sr_legacy_food,Honeydew,9,2019-04-01,,
+170883,sr_legacy_food,Chocolate Milkshake,1,2019-04-01,,
+170884,sr_legacy_food,Vanilla Milkshake,1,2019-04-01,,
+170874,sr_legacy_food,Buttermilk (lowfat),1,2019-04-01,,
+167697,sr_legacy_food,Buttermilk (reduced fat),1,2019-04-01,,
+172225,sr_legacy_food,Buttermilk,1,2019-04-01,,
+170878,sr_legacy_food,Evaporated Milk (nonfat),1,2019-04-01,,
+172194,sr_legacy_food,Evaporated Milk,1,2019-04-01,,
+171277,sr_legacy_food,Hot Chocolate,1,2019-04-01,,
+171303,sr_legacy_food,Chocolate Milk (nonfat),1,2019-04-01,,
+173450,sr_legacy_food,Chocolate Milk (lowfat),1,2019-04-01,,
+170880,sr_legacy_food,Chocolate Milk (lowfat),1,2019-04-01,,
+170879,sr_legacy_food,Chocolate Milk,1,2019-04-01,,
+171302,sr_legacy_food,Milk (2%),1,2019-04-01,,
+173441,sr_legacy_food,Milk (1%),1,2019-04-01,,
+169868,sr_legacy_food,Milk (nonfat),1,2019-04-01,,
+171278,sr_legacy_food,Goat Milk,1,2019-04-01,,
+171279,sr_legacy_food,Breast Milk,1,2019-04-01,,
+170882,sr_legacy_food,Sheeps Milk,1,2019-04-01,,
+172023,sr_legacy_food,Millet Flour,20,2019-04-01,,
+168871,sr_legacy_food,Millet,20,2019-04-01,,
+169702,sr_legacy_food,Millet (uncooked),20,2019-04-01,,
+172442,sr_legacy_food,Miso,16,2019-04-01,30,
+174212,sr_legacy_food,Abalone,15,2019-04-01,,3
+171975,sr_legacy_food,Clams,15,2019-04-01,,1.5
+174214,sr_legacy_food,Clams (uncooked),15,2019-04-01,,1.2
+174217,sr_legacy_food,Mussels,15,2019-04-01,,2
+174216,sr_legacy_food,Mussels (uncooked),15,2019-04-01,,1.8
+174249,sr_legacy_food,Octopus,15,2019-04-01,,3.5
+174218,sr_legacy_food,Octopus (uncooked),15,2019-04-01,,3
+171978,sr_legacy_food,Oysters,15,2019-04-01,,0.8
+174220,sr_legacy_food,Scallops,15,2019-04-01,,1
+167744,sr_legacy_food,Snails,15,2019-04-01,,2.5
+174223,sr_legacy_food,Squid,15,2019-04-01,,2.5
+174573,sr_legacy_food,Mortadella,7,2019-04-01,,
+168433,sr_legacy_food,"Mountain Yam (hawaii, cooked)",11,2019-04-01,,
+168432,sr_legacy_food,Mountain Yam (hawaii),11,2019-04-01,,
+169913,sr_legacy_food,Mulberries,9,2019-04-01,,
+174257,sr_legacy_food,Mungo Beans (cooked),16,2019-04-01,,
+174256,sr_legacy_food,Mung Beans,16,2019-04-01,,
+172427,sr_legacy_food,Mungo Beans (cooked),16,2019-04-01,,
+174259,sr_legacy_food,Mungo beans,16,2019-04-01,,
+168434,sr_legacy_food,Mushrooms,11,2019-04-01,,
+168422,sr_legacy_food,Chanterelle Mushrooms,11,2019-04-01,,
+169382,sr_legacy_food,Enoki Mushrooms,11,2019-04-01,,
+169403,sr_legacy_food,Maitake Mushrooms,11,2019-04-01,,
+168423,sr_legacy_food,Morel Mushrooms,11,2019-04-01,,
+168580,sr_legacy_food,Oyster Mushrooms,11,2019-04-01,,
+169243,sr_legacy_food,Portabella Mushrooms (cooked),11,2019-04-01,,
+169255,sr_legacy_food,Portabella Mushrooms,11,2019-04-01,,
+168437,sr_legacy_food,Shiitake Mushrooms (cooked),11,2019-04-01,,
+169242,sr_legacy_food,Shiitake Mushrooms,11,2019-04-01,,
+169252,sr_legacy_food,White Mushrooms (cooked),11,2019-04-01,,
+169251,sr_legacy_food,White Mushrooms,11,2019-04-01,,
+169257,sr_legacy_food,Mustard Greens (cooked),11,2019-04-01,,
+169256,sr_legacy_food,Mustard Greens,11,2019-04-01,,
+168439,sr_legacy_food,"Mustard Spinach (tendergreen, cooked)",11,2019-04-01,,
+168438,sr_legacy_food,Mustard Spinach (tendergreen),11,2019-04-01,,
+172234,sr_legacy_food,Yellow Mustard,2,2019-04-01,,
+172443,sr_legacy_food,Natto,16,2019-04-01,30,
+169914,sr_legacy_food,Nectarines,9,2019-04-01,,
+168905,sr_legacy_food,Chow Mein,20,2019-04-01,,
+169755,sr_legacy_food,Egg Noodles (dry),20,2019-04-01,,
+168926,sr_legacy_food,Egg Noodles,20,2019-04-01,,
+168907,sr_legacy_food,Soba Noodles,20,2019-04-01,,
+168906,sr_legacy_food,Soba Noodles (dry),20,2019-04-01,,
+168909,sr_legacy_food,Somen Noodes,20,2019-04-01,,
+168908,sr_legacy_food,Somen Noodles (dry),20,2019-04-01,,
+169388,sr_legacy_food,Nopales (cooked),11,2019-04-01,,
+168571,sr_legacy_food,Nopales (uncooked),11,2019-04-01,,
+170565,sr_legacy_food,Acorns (dried),12,2019-04-01,,
+170157,sr_legacy_food,Acorns,12,2019-04-01,,
+168588,sr_legacy_food,Almond Butter,12,2019-04-01,,
+170567,sr_legacy_food,Almonds,12,2019-04-01,,
+170568,sr_legacy_food,Almonds (blanched),12,2019-04-01,,
+170158,sr_legacy_food,Almonds (dry roasted),12,2019-04-01,,
+170161,sr_legacy_food,Beechnuts,12,2019-04-01,,
+170569,sr_legacy_food,Brazilnuts,12,2019-04-01,,
+170570,sr_legacy_food,Butternuts (dried),12,2019-04-01,,
+170163,sr_legacy_food,Cashew Butter,12,2019-04-01,,
+170571,sr_legacy_food,Dry Roasted Cashews,12,2019-04-01,,
+170162,sr_legacy_food,Cashews,12,2019-04-01,,
+170166,sr_legacy_food,"Chestnuts (chinese, boiled)",12,2019-04-01,,
+170165,sr_legacy_food,"Chestnuts (chinese, dried)",12,2019-04-01,,
+170164,sr_legacy_food,"Chestnuts (chinese, raw)",12,2019-04-01,,
+170573,sr_legacy_food,"Chestnuts (chinese, roasted)",12,2019-04-01,,
+170168,sr_legacy_food,"Chestnuts (european, boiled)",12,2019-04-01,,
+170167,sr_legacy_food,"Chestnuts (european, dried)",12,2019-04-01,,
+170575,sr_legacy_food,"Chestnuts (european, raw)",12,2019-04-01,,
+170190,sr_legacy_food,"Chestnuts (european, roasted)",12,2019-04-01,,
+168589,sr_legacy_food,"Chestnuts (japanese, boiled)",12,2019-04-01,,
+169408,sr_legacy_food,"Chestnuts (japanese, dried)",12,2019-04-01,,
+169413,sr_legacy_food,Chestnuts,12,2019-04-01,,
+168590,sr_legacy_food,"Chestnuts (japanese, roasted)",12,2019-04-01,,
+170580,sr_legacy_food,Coconut Cream,12,2019-04-01,,
+170170,sr_legacy_food,Coconut Flakes (unsweetened),12,2019-04-01,,
+170169,sr_legacy_food,Coconut,12,2019-04-01,,
+170172,sr_legacy_food,Coconut Milk,12,2019-04-01,,
+170174,sr_legacy_food,Coconut Water,12,2019-04-01,,
+170175,sr_legacy_food,Ginkgo Nuts (dried),12,2019-04-01,,
+170584,sr_legacy_food,Ginkgo Nuts,12,2019-04-01,,
+170581,sr_legacy_food,Hazelnuts,12,2019-04-01,,
+170582,sr_legacy_food,Hazelnuts (blanched),12,2019-04-01,,
+170583,sr_legacy_food,Hazelnuts (dry roasted),12,2019-04-01,,
+170177,sr_legacy_food,Hickorynuts (dried),12,2019-04-01,,
+170179,sr_legacy_food,Macadamia Nuts (dry roasted),12,2019-04-01,,
+170178,sr_legacy_food,Macadamia Nuts,12,2019-04-01,,
+170182,sr_legacy_food,Pecans,12,2019-04-01,,
+170183,sr_legacy_food,Pecans (dry roasted),12,2019-04-01,,
+170590,sr_legacy_food,Pilinuts,12,2019-04-01,,
+170591,sr_legacy_food,Pine Nuts,12,2019-04-01,,
+170592,sr_legacy_food,Pine Nuts (dried),12,2019-04-01,,
+170185,sr_legacy_food,Pistachios (dry roasted),12,2019-04-01,,
+170184,sr_legacy_food,Pistachios,12,2019-04-01,,
+170186,sr_legacy_food,Black Walnuts,12,2019-04-01,,
+170187,sr_legacy_food,Walnuts,12,2019-04-01,,
+168873,sr_legacy_food,Oat Bran,20,2019-04-01,,
+168872,sr_legacy_food,Oat Bran (uncooked),20,2019-04-01,,
+169741,sr_legacy_food,Oat Flour,20,2019-04-01,,
+173905,sr_legacy_food,Oatmeal,8,2019-04-01,,
+169705,sr_legacy_food,Oats,20,2019-04-01,,
+169915,sr_legacy_food,Oheloberries,9,2019-04-01,,
+173573,sr_legacy_food,Avocado Oil,4,2019-04-01,,
+171412,sr_legacy_food,Coconut Oil,4,2019-04-01,,
+171413,sr_legacy_food,Olive Oil,4,2019-04-01,,
+172452,sr_legacy_food,Okara,16,2019-04-01,,
+169260,sr_legacy_food,Okra,11,2019-04-01,,
+170000,sr_legacy_food,Onions,11,2019-04-01,,
+170005,sr_legacy_food,Scallions (spring onion),11,2019-04-01,,
+170008,sr_legacy_food,Sweet Onions,11,2019-04-01,,
+170007,sr_legacy_food,Welsh Onions,11,2019-04-01,,
+169098,sr_legacy_food,Orange Juice,9,2019-04-01,,
+169103,sr_legacy_food,Orange Peel,9,2019-04-01,,
+169097,sr_legacy_food,Oranges,9,2019-04-01,,
+169916,sr_legacy_food,Valencia Oranges,9,2019-04-01,,
+169918,sr_legacy_food,Florida Oranges,9,2019-04-01,,
+169917,sr_legacy_food,Navel Oranges,9,2019-04-01,,
+168106,sr_legacy_food,Papad,16,2019-04-01,,
+169926,sr_legacy_food,Papaya,9,2019-04-01,,
+170416,sr_legacy_food,Parsley,11,2019-04-01,,
+170009,sr_legacy_food,Parsnips (cooked),11,2019-04-01,,
+170417,sr_legacy_food,Parsnips (uncooked),11,2019-04-01,,
+169109,sr_legacy_food,Passion Fruit Juice (purple),9,2019-04-01,,
+169108,sr_legacy_food,Passion Fruit,9,2019-04-01,,
+168928,sr_legacy_food,Pasta,20,2019-04-01,,
+168927,sr_legacy_food,Pasta (dry),20,2019-04-01,,
+169729,sr_legacy_food,Spinach Pasta,20,2019-04-01,,
+168910,sr_legacy_food,Whole-Wheat Pasta,20,2019-04-01,,
+169738,sr_legacy_food,Whole-Wheat Pasta (dry),20,2019-04-01,,
+172959,sr_legacy_food,Pastrami,7,2019-04-01,,
+169928,sr_legacy_food,Yellow Peaches,9,2019-04-01,,
+172469,sr_legacy_food,Peanut Butter (chunky),16,2019-04-01,,
+174294,sr_legacy_food,Peanut Butter,16,2019-04-01,,
+173806,sr_legacy_food,Dry-Roasted Peanuts,16,2019-04-01,,
+172430,sr_legacy_food,Peanuts,16,2019-04-01,,
+174263,sr_legacy_food,Spanish Peanuts,16,2019-04-01,,
+172432,sr_legacy_food,Valencia Peanuts,16,2019-04-01,,
+172434,sr_legacy_food,Virginia Peanuts,16,2019-04-01,,
+168177,sr_legacy_food,Asian Pear,9,2019-04-01,,
+169118,sr_legacy_food,Pears,9,2019-04-01,,
+167776,sr_legacy_food,Bartlett Pears,9,2019-04-01,,
+167778,sr_legacy_food,Bosc Pears,9,2019-04-01,,
+167779,sr_legacy_food,Green Anjou Pears,9,2019-04-01,,
+167777,sr_legacy_food,Red Anjou Pears,9,2019-04-01,,
+170420,sr_legacy_food,Peas,11,2019-04-01,,
+173474,sr_legacy_food,Peppermint,2,2019-04-01,,
+174575,sr_legacy_food,Pepperonis,7,2019-04-01,,
+169396,sr_legacy_food,Dried Ancho Peppers,11,2019-04-01,,
+168570,sr_legacy_food,Sun-Dried Hot Chile Peppers,11,2019-04-01,,
+170497,sr_legacy_food,Hot Chili Peppers (green),11,2019-04-01,,
+170106,sr_legacy_food,Hot Chili Peppers (red),11,2019-04-01,,
+168578,sr_legacy_food,Hungarian Peppers,11,2019-04-01,,
+168576,sr_legacy_food,Jalapenos,11,2019-04-01,,
+168579,sr_legacy_food,Pasilla Peppers,11,2019-04-01,,
+169395,sr_legacy_food,Serrano Peppers,11,2019-04-01,,
+170428,sr_legacy_food,"Bell Peppers (green, cooked)",11,2019-04-01,,
+170427,sr_legacy_food,"Bell Peppers (green, uncooked)",11,2019-04-01,,
+170110,sr_legacy_food,"Bell Peppers (red, cooked)",11,2019-04-01,,
+170108,sr_legacy_food,"Bell Peppers (red, uncooked)",11,2019-04-01,,
+169383,sr_legacy_food,"Bell Peppers (yellow, uncooked)",11,2019-04-01,,
+169941,sr_legacy_food,Persimmons (japanese),9,2019-04-01,,
+169943,sr_legacy_food,Persimmons,9,2019-04-01,,
+168561,sr_legacy_food,Pickle Relish,11,2019-04-01,30,
+168558,sr_legacy_food,Pickles,11,2019-04-01,30,
+169124,sr_legacy_food,Pineapple,9,2019-04-01,,
+169129,sr_legacy_food,Pitanga,9,2019-04-01,,
+168216,sr_legacy_food,"Plantain (green, boiled)",9,2019-04-01,,
+168215,sr_legacy_food,"Plantain (green, uncooked)",9,2019-04-01,,
+169131,sr_legacy_food,"Plantain (yellow, baked)",9,2019-04-01,,
+169130,sr_legacy_food,"Plantain (yellow, uncooked)",9,2019-04-01,,
+168162,sr_legacy_food,Prunes,9,2019-04-01,,
+169949,sr_legacy_food,Plums,9,2019-04-01,,
+170431,sr_legacy_food,Poi,11,2019-04-01,,
+174577,sr_legacy_food,Polish Sausage,7,2019-04-01,,
+167787,sr_legacy_food,Pomegranate Juice,9,2019-04-01,,
+169134,sr_legacy_food,Pomegranates,9,2019-04-01,,
+172934,sr_legacy_food,Pork Sausage (link/patty),7,2019-04-01,,2
+167914,sr_legacy_food,Bacon (baked),10,2019-04-01,,2.5
+168277,sr_legacy_food,Bacon (raw),10,2019-04-01,,2
+167870,sr_legacy_food,Pickled Pigs Feet,10,2019-04-01,30,8
+168283,sr_legacy_food,Ham (center slice),10,2019-04-01,,3
+168357,sr_legacy_food,"Ham Shank (bone-in, roasted)",10,2019-04-01,,5
+168358,sr_legacy_food,Ham Shank (bone-in),10,2019-04-01,,5
+168359,sr_legacy_food,"Ham Slice (bone-in, cooked)",10,2019-04-01,,3.5
+168287,sr_legacy_food,"Pork (cured, raw)",10,2019-04-01,,2
+167879,sr_legacy_food,"Ham Shoulder (arm picnic, roasted)",10,2019-04-01,,4
+168300,sr_legacy_food,Baby Back Ribs,10,2019-04-01,,5
+168299,sr_legacy_food,Baby Back Ribs (raw),10,2019-04-01,,4.5
+167812,sr_legacy_food,Pork Belly (raw),10,2019-04-01,,3.5
+168380,sr_legacy_food,Pork Blade Chop (cooked),10,2019-04-01,,4
+167903,sr_legacy_food,Ground Pork,10,2019-04-01,,2
+167902,sr_legacy_food,Ground Pork (uncooked),10,2019-04-01,,2
+167815,sr_legacy_food,Pork Leg (rump),10,2019-04-01,,3
+167814,sr_legacy_food,"Pork Leg (rump, raw)",10,2019-04-01,,2.5
+168227,sr_legacy_food,Pork Leg (shank),10,2019-04-01,,4.5
+168226,sr_legacy_food,"Pork Leg (shank, raw)",10,2019-04-01,,4.2
+168223,sr_legacy_food,Pork Leg,10,2019-04-01,,3.5
+168222,sr_legacy_food,Pork Leg (raw),10,2019-04-01,,3
+167822,sr_legacy_food,Pork Blade Chops/Roast (raw),10,2019-04-01,,3.5
+167823,sr_legacy_food,Pork Blade Chop (braised),10,2019-04-01,,4
+167824,sr_legacy_food,Pork Blade Chop,10,2019-04-01,,4
+167825,sr_legacy_food,Roast Pork Blade (bone-in),10,2019-04-01,,4
+169198,sr_legacy_food,Roast Pork Blade (boneless),10,2019-04-01,,3.8
+167826,sr_legacy_food,"Pork Loin Chop (bone-in, braised)",10,2019-04-01,,2
+167827,sr_legacy_food,Pork Loin Chop (bone-in),10,2019-04-01,,2
+168238,sr_legacy_food,"Pork Loin Chop (bone-in, raw)",10,2019-04-01,,1.8
+168298,sr_legacy_food,Pork Chop,10,2019-04-01,,2
+168286,sr_legacy_food,"Pork Loin Chop (boneless, raw)",10,2019-04-01,,1.8
+167828,sr_legacy_food,"Pork Loin (roast, bone-in)",10,2019-04-01,,2
+167830,sr_legacy_food,"Pork Rib Chop (bone-in, braised)",10,2019-04-01,,3.5
+167831,sr_legacy_food,Pork Rib Chop (bone-in),10,2019-04-01,,3
+167890,sr_legacy_food,"Pork Rib Chop (boneless, braised)",10,2019-04-01,,3
+167891,sr_legacy_food,Pork Rib Chop (boneless),10,2019-04-01,,2.8
+167832,sr_legacy_food,Pork Rib Roast (bone-in),10,2019-04-01,,3
+168301,sr_legacy_food,Pork Rib Roast (boneless),10,2019-04-01,,2.8
+167897,sr_legacy_food,Pork Ribs (bone-in),10,2019-04-01,,3.5
+167896,sr_legacy_food,Pork Ribs,10,2019-04-01,,3
+167895,sr_legacy_food,Pork Ribs (raw),10,2019-04-01,,3
+168246,sr_legacy_food,"Pork Sirloin Chop (bone-in, raw)",10,2019-04-01,,2.5
+168308,sr_legacy_food,"Pork Sirloin Chop (boneless, raw)",10,2019-04-01,,2.3
+167834,sr_legacy_food,"Pork Sirloin Chop (bone-in, braised)",10,2019-04-01,,2.8
+167835,sr_legacy_food,Pork Sirloin Chop (bone-in),10,2019-04-01,,2.5
+167898,sr_legacy_food,"Pork Sirloin Chop (boneless, braised)",10,2019-04-01,,2.5
+167899,sr_legacy_food,Pork Sirloin Chop (boneless),10,2019-04-01,,2.3
+167836,sr_legacy_food,"Pork Sirloin Roast (bone-in, roasted)",10,2019-04-01,,2.8
+167900,sr_legacy_food,Pork Sirloin Roast (boneless),10,2019-04-01,,2.5
+167904,sr_legacy_food,Pork Tenderloin,10,2019-04-01,,1.5
+167905,sr_legacy_food,Pork Tenderloin (roasted),10,2019-04-01,,1.8
+168312,sr_legacy_food,Pork Tenderloin (raw),10,2019-04-01,,1.5
+167840,sr_legacy_food,"Pork Loin Chop (boneless, braised)",10,2019-04-01,,2
+167841,sr_legacy_food,"Pork Loin Roast (top loin, boneless)",10,2019-04-01,,2
+167839,sr_legacy_food,"Pork Loin Roast (top loin, boneless, raw)",10,2019-04-01,,1.8
+167842,sr_legacy_food,Pork Loin Roast (top loin),10,2019-04-01,,2
+168314,sr_legacy_food,"Pork Loin Roast (top loin, raw)",10,2019-04-01,,1.8
+167819,sr_legacy_food,Pork Loin (braised),10,2019-04-01,,2
+167820,sr_legacy_food,Pork Loin,10,2019-04-01,,2
+167821,sr_legacy_food,Pork Loin (roasted),10,2019-04-01,,2
+167818,sr_legacy_food,Pork Loin (raw),10,2019-04-01,,1.8
+167850,sr_legacy_food,Pork Shoulder Blade Steak,10,2019-04-01,,4
+167849,sr_legacy_food,Pork Shoulder Blade Steak (raw),10,2019-04-01,,3.8
+168259,sr_legacy_food,Pork Blade Steak (roasted),10,2019-04-01,,4
+167851,sr_legacy_food,Pork Blade Steak,10,2019-04-01,,4
+167844,sr_legacy_food,Pork Shoulder,10,2019-04-01,,4
+167843,sr_legacy_food,Pork Shoulder (raw),10,2019-04-01,,3.8
+167854,sr_legacy_food,Pork Spare Ribs (braised),10,2019-04-01,,5
+169178,sr_legacy_food,Pork Spare Ribs,10,2019-04-01,,4.5
+167853,sr_legacy_food,Pork Spare Ribs (raw),10,2019-04-01,,4.2
+167856,sr_legacy_food,Pork Chitterlings,10,2019-04-01,,1.5
+168266,sr_legacy_food,Pork Chitterlings (raw),10,2019-04-01,,1.2
+168290,sr_legacy_food,Pigs Feet,10,2019-04-01,,8
+167859,sr_legacy_food,Pigs Feet (raw),10,2019-04-01,,7.5
+168268,sr_legacy_food,Pork Heart,10,2019-04-01,,2.5
+168267,sr_legacy_food,Pork Heart (raw),10,2019-04-01,,2.5
+168269,sr_legacy_food,Pork Jowl (raw),10,2019-04-01,,3.5
+167860,sr_legacy_food,Pork Kidney,10,2019-04-01,,0.5
+168270,sr_legacy_food,Pork Kidney (raw),10,2019-04-01,,0.5
+167863,sr_legacy_food,Pork Liver,10,2019-04-01,,0.5
+167862,sr_legacy_food,Pork Liver (raw),10,2019-04-01,,0.5
+168271,sr_legacy_food,Pork Lungs,10,2019-04-01,,0.8
+167864,sr_legacy_food,Pork Lungs (raw),10,2019-04-01,,0.8
+168274,sr_legacy_food,Pork Pancreas,10,2019-04-01,,1
+168273,sr_legacy_food,Pork Pancreas (raw),10,2019-04-01,,1
+167866,sr_legacy_food,Pork Spleen,10,2019-04-01,,1.2
+167865,sr_legacy_food,Pork Spleen (raw),10,2019-04-01,,1.2
+168323,sr_legacy_food,Pork Stomach,10,2019-04-01,,2
+167867,sr_legacy_food,Pork Stomach (raw),10,2019-04-01,,1.8
+167881,sr_legacy_food,Pork Tail,10,2019-04-01,,5
+168291,sr_legacy_food,Pork Tail (raw),10,2019-04-01,,4.5
+168276,sr_legacy_food,Pork Tongue,10,2019-04-01,,5
+168275,sr_legacy_food,Pork Tongue (raw),10,2019-04-01,,4.5
+168373,sr_legacy_food,Ground Pork (72% lean / 28% fat),10,2019-04-01,,2
+168374,sr_legacy_food,Ground Pork (84% lean / 16% fat),10,2019-04-01,,2.7
+168372,sr_legacy_food,"Ground Pork (84% lean / 16% fat, raw)",10,2019-04-01,,2.2
+168375,sr_legacy_food,Ground Pork (96% lean / 4% fat),10,2019-04-01,,1.8
+169190,sr_legacy_food,"Ground Pork (96% lean / 4% fat, raw)",10,2019-04-01,,1.5
+168446,sr_legacy_food,Potato Flour,11,2019-04-01,,
+170033,sr_legacy_food,"Potatoes (baked, without skin)",11,2019-04-01,,
+170034,sr_legacy_food,Potatoes,11,2019-04-01,,
+170440,sr_legacy_food,"Potatoes (boiled, without skin)",11,2019-04-01,,
+170032,sr_legacy_food,Potatoes (uncooked),11,2019-04-01,,
+170435,sr_legacy_food,Red Potatoes,11,2019-04-01,,
+170029,sr_legacy_food,Red Potatoes (uncooked),11,2019-04-01,,
+170030,sr_legacy_food,Russet Potatoes,11,2019-04-01,,
+170027,sr_legacy_food,Russet Potatoes (uncooked),11,2019-04-01,,
+170434,sr_legacy_food,White Potatoes,11,2019-04-01,,
+170028,sr_legacy_food,White Potatoes (uncooked),11,2019-04-01,,
+167750,sr_legacy_food,Prickly Pears,9,2019-04-01,,
+168160,sr_legacy_food,Prunes (dehydrated),9,2019-04-01,,
+167754,sr_legacy_food,Pummelo,9,2019-04-01,,
+169273,sr_legacy_food,Pumpkin Pie Mix,11,2019-04-01,,
+168449,sr_legacy_food,Pumpkin,11,2019-04-01,,
+168448,sr_legacy_food,Pumpkin (uncooked),11,2019-04-01,,
+169275,sr_legacy_food,Purslane,11,2019-04-01,,
+169274,sr_legacy_food,Purslane (uncooked),11,2019-04-01,,
+168163,sr_legacy_food,Quinces,9,2019-04-01,,
+168917,sr_legacy_food,Quinoa,20,2019-04-01,,
+168874,sr_legacy_food,Quinoa (uncooked),20,2019-04-01,,
+168564,sr_legacy_food,Radicchio,11,2019-04-01,,
+169276,sr_legacy_food,Radishes (uncooked),11,2019-04-01,,
+170081,sr_legacy_food,"Radishes (white icicle, uncooked)",11,2019-04-01,,
+168165,sr_legacy_food,"Raisins (dark, seedless)",9,2019-04-01,,
+168164,sr_legacy_food,"Raisins (golden, seedless)",9,2019-04-01,,
+168166,sr_legacy_food,Raisins (seeded),9,2019-04-01,,
+168209,sr_legacy_food,Raspberries (frozen),9,2019-04-01,,
+167755,sr_legacy_food,Raspberries,9,2019-04-01,,
+172438,sr_legacy_food,Refried Beans,16,2019-04-01,,
+167758,sr_legacy_food,Rhubarb,9,2019-04-01,,
+168898,sr_legacy_food,Rice Flour (brown),20,2019-04-01,,
+169714,sr_legacy_food,Rice Flour,20,2019-04-01,,
+168914,sr_legacy_food,Rice Noodles,20,2019-04-01,,
+169742,sr_legacy_food,Rice Noodles (dry),20,2019-04-01,,
+169704,sr_legacy_food,Brown Rice (long-grain),20,2019-04-01,,
+169703,sr_legacy_food,"Brown Rice (long-grain, dry)",20,2019-04-01,,
+168875,sr_legacy_food,Brown Rice (medium-grain),20,2019-04-01,,
+169706,sr_legacy_food,"Brown Rice (medium-grain, dry)",20,2019-04-01,,
+169711,sr_legacy_food,Glutinous Rice (cooked),20,2019-04-01,,
+168883,sr_legacy_food,Glutinous Rice (uncooked),20,2019-04-01,,
+169756,sr_legacy_food,"White Rice (long-grain, dry)",20,2019-04-01,,
+169757,sr_legacy_food,White Rice (long-grain),20,2019-04-01,,
+168879,sr_legacy_food,White Rice,20,2019-04-01,,
+169760,sr_legacy_food,"White Rice (medium-grain, dry)",20,2019-04-01,,
+168932,sr_legacy_food,White Rice (short-grain),20,2019-04-01,,
+168931,sr_legacy_food,"White Rice (short-grain, uncooked)",20,2019-04-01,,
+174570,sr_legacy_food,Roast Beef (sliced),7,2019-04-01,,3.5
+168171,sr_legacy_food,Rose-Apples,9,2019-04-01,,
+168170,sr_legacy_food,Roselle,9,2019-04-01,,
+173473,sr_legacy_food,Rosemary,2,2019-04-01,,
+167783,sr_legacy_food,Rowal,9,2019-04-01,,
+168455,sr_legacy_food,Rutabagas (cooked),11,2019-04-01,,
+168454,sr_legacy_food,Rutabagas,11,2019-04-01,,
+168885,sr_legacy_food,Rye Flour (dark),20,2019-04-01,,
+168887,sr_legacy_food,Rye Flour (light),20,2019-04-01,,
+168886,sr_legacy_food,Rye Flour (medium),20,2019-04-01,,
+168884,sr_legacy_food,Rye Grain,20,2019-04-01,,
+173562,sr_legacy_food,Blue Cheese Salad Dressing,4,2019-04-01,,
+169055,sr_legacy_food,Caesar Dressing,4,2019-04-01,,
+169056,sr_legacy_food,Coleslaw,4,2019-04-01,,
+171416,sr_legacy_food,French Salad Dressing,4,2019-04-01,,
+171417,sr_legacy_food,Salad Dressing (vinegar and oil),4,2019-04-01,,
+171043,sr_legacy_food,Honey Mustard,4,2019-04-01,,
+171019,sr_legacy_food,Italian Salad Dressing,4,2019-04-01,,
+173594,sr_legacy_food,Mayonnaise,4,2019-04-01,,
+168093,sr_legacy_food,Peppercorn Dressing,4,2019-04-01,,
+173592,sr_legacy_food,Ranch Dressing,4,2019-04-01,,
+169875,sr_legacy_food,Sweet and Sour Salad Dressing,4,2019-04-01,,
+171402,sr_legacy_food,Thousand Island Salad Dressing,4,2019-04-01,,
+174603,sr_legacy_food,Salami,7,2019-04-01,,
+173468,sr_legacy_food,Salt,2,2019-04-01,,
+167759,sr_legacy_food,Sapodilla,9,2019-04-01,,
+174523,sr_legacy_food,Barbecue Sauce,6,2019-04-01,,
+174067,sr_legacy_food,Cocktail sauce,6,2019-04-01,,
+171823,sr_legacy_food,Duck Sauce,6,2019-04-01,,
+174074,sr_legacy_food,Red Enchilada Sauce,6,2019-04-01,,
+174531,sr_legacy_food,Fish Sauce,6,2019-04-01,,
+172886,sr_legacy_food,Hoisin Sauce,6,2019-04-01,,
+171833,sr_legacy_food,Horseradish,6,2019-04-01,,
+171186,sr_legacy_food,Sriracha,6,2019-04-01,,
+174529,sr_legacy_food,Oyster Sauce,6,2019-04-01,,
+171192,sr_legacy_food,Marinara Sauce,6,2019-04-01,,
+174070,sr_legacy_food,Peanut Sauce,6,2019-04-01,,
+171579,sr_legacy_food,Pesto,6,2019-04-01,,
+172879,sr_legacy_food,Plum Sauce,6,2019-04-01,,
+174527,sr_legacy_food,Hot Sauce,6,2019-04-01,,
+174524,sr_legacy_food,Salsa,6,2019-04-01,,
+171824,sr_legacy_food,Salsa Verde,6,2019-04-01,,
+171174,sr_legacy_food,Sofrito Sauce,6,2019-04-01,,
+171825,sr_legacy_food,Steak Sauce,6,2019-04-01,,
+174066,sr_legacy_food,Sweet and Sour Sauce,6,2019-04-01,,
+171826,sr_legacy_food,Tartar Sauce,6,2019-04-01,,
+171167,sr_legacy_food,Teriyaki Sauce,6,2019-04-01,,
+171610,sr_legacy_food,Worcestershire Sauce,6,2019-04-01,,
+169279,sr_legacy_food,Sauerkraut,11,2019-04-01,30,
+174618,sr_legacy_food,Sausage,7,2019-04-01,,2
+174616,sr_legacy_food,"Breakfast Sausage (beef, cooked)",7,2019-04-01,,2.5
+174605,sr_legacy_food,"Sausage (chicken, beef, pork)",7,2019-04-01,,2
+171631,sr_legacy_food,"Italian Sausage (pork, uncooked)",7,2019-04-01,,2
+172952,sr_legacy_food,Italian Sausage (sweet),7,2019-04-01,,2
+174604,sr_legacy_food,"Italian Sausage (turkey, smoked)",7,2019-04-01,,2
+172953,sr_legacy_food,Polish Sausage (beef/chicken),7,2019-04-01,,2
+172954,sr_legacy_food,Polish Sausage (pork/beef),7,2019-04-01,,2
+171632,sr_legacy_food,"Sausage (pork/turkey, cooked)",7,2019-04-01,,2.5
+173859,sr_legacy_food,"Sausage (chorizo, uncooked)",7,2019-04-01,,2
+173883,sr_legacy_food,"Sausage (pork, turkey, beef)",7,2019-04-01,,2
+174584,sr_legacy_food,Smoked Sausage (pork),7,2019-04-01,,2.5
+174585,sr_legacy_food,Smoked Sausage (pork/beef),7,2019-04-01,,2.5
+172939,sr_legacy_food,Smoked Sausage (pork/beef),7,2019-04-01,,2.5
+174600,sr_legacy_food,"Turkey Breakfast Sausage (links, uncooked)",7,2019-04-01,,2
+173871,sr_legacy_food,Turkey Sausage (cooked),7,2019-04-01,,2.5
+168457,sr_legacy_food,Seaweed (kelp),11,2019-04-01,,
+168458,sr_legacy_food,Seaweed,11,2019-04-01,,
+170495,sr_legacy_food,Seaweed (spirulina),11,2019-04-01,,
+170554,sr_legacy_food,Chia Seeds (dry),12,2019-04-01,,
+169414,sr_legacy_food,Flaxseeds,12,2019-04-01,,
+170148,sr_legacy_food,Hemp Seeds,12,2019-04-01,,
+170556,sr_legacy_food,Pumpkin Seeds (dried),12,2019-04-01,,
+170557,sr_legacy_food,Pumpkin Seeds,12,2019-04-01,,
+170189,sr_legacy_food,Tahini,12,2019-04-01,,
+170150,sr_legacy_food,Sesame Seeds (dried),12,2019-04-01,,
+170151,sr_legacy_food,Sesame Seeds,12,2019-04-01,,
+170155,sr_legacy_food,Sunflower Seed Butter,12,2019-04-01,,
+170562,sr_legacy_food,Sunflower Seeds (dried),12,2019-04-01,,
+170563,sr_legacy_food,Sunflower Seeds,12,2019-04-01,,
+170154,sr_legacy_food,Sunflower Seeds (toasted),12,2019-04-01,,
+169407,sr_legacy_food,Dried Watermelon Seeds,12,2019-04-01,,
+169715,sr_legacy_food,Semolina (enriched),20,2019-04-01,,
+168933,sr_legacy_food,Semolina (unenriched),20,2019-04-01,,
+169281,sr_legacy_food,Sesbania Flower (cooked),11,2019-04-01,,
+168459,sr_legacy_food,Sesbania Flower (uncooked),11,2019-04-01,,
+170499,sr_legacy_food,Shallots,11,2019-04-01,,
+173262,sr_legacy_food,"Sorghum Flour (refined, unenriched)",20,2019-04-01,,
+168943,sr_legacy_food,Sorghum Flour (whole-grain),20,2019-04-01,,
+169716,sr_legacy_food,Sorghum,20,2019-04-01,,
+174073,sr_legacy_food,Beef Barley Soup,6,2019-04-01,,
+174807,sr_legacy_food,Egg Drop Soup,6,2019-04-01,,
+174808,sr_legacy_food,Hot and Sour Soup,6,2019-04-01,,
+174568,sr_legacy_food,Onion Soup,6,2019-04-01,,
+171592,sr_legacy_food,Pea Soup,6,2019-04-01,,
+174532,sr_legacy_food,Shark Fin Soup,6,2019-04-01,,1.5
+172883,sr_legacy_food,Beef Stock,6,2019-04-01,,1.2
+172884,sr_legacy_food,Chicken Stock,6,2019-04-01,,1
+172885,sr_legacy_food,Fish Stock,6,2019-04-01,,
+171591,sr_legacy_food,Tomato Soup,6,2019-04-01,,
+171583,sr_legacy_food,Vegetable Broth,6,2019-04-01,,
+171821,sr_legacy_food,Wonton Soup,6,2019-04-01,,
+173442,sr_legacy_food,Sour Cream (reduced fat),1,2019-04-01,,
+167761,sr_legacy_food,Soursop,9,2019-04-01,,
+174275,sr_legacy_food,Soy Flour (defatted),16,2019-04-01,,
+174273,sr_legacy_food,"Soy Flour (full-fat, uncooked)",16,2019-04-01,,
+174274,sr_legacy_food,"Soy Flour (full-fat, roasted)",16,2019-04-01,,
+172444,sr_legacy_food,Soy Flour (low-fat),16,2019-04-01,,
+174276,sr_legacy_food,Soy Protein Isolate,16,2019-04-01,,
+174278,sr_legacy_food,Soy Sauce,16,2019-04-01,,
+174277,sr_legacy_food,Soy Sauce (shoyu),16,2019-04-01,,
+172473,sr_legacy_food,"Soy Sauce (shoyu, low sodium)",16,2019-04-01,,
+172474,sr_legacy_food,Soy Sauce (reduced sodium),16,2019-04-01,,
+169283,sr_legacy_food,"Soybeans (green, cooked)",11,2019-04-01,,
+169282,sr_legacy_food,"Soybeans (green, uncooked)",11,2019-04-01,,
+174271,sr_legacy_food,Soybeans,16,2019-04-01,,
+172441,sr_legacy_food,Soybeans (roasted),16,2019-04-01,,
+174270,sr_legacy_food,Soybeans (uncooked),16,2019-04-01,,
+175216,sr_legacy_food,Soymilk (nonfat),16,2019-04-01,,
+175215,sr_legacy_food,Soymilk,16,2019-04-01,,
+172239,sr_legacy_food,Spearmint (dried),2,2019-04-01,,
+173475,sr_legacy_food,Spearmint (fresh),2,2019-04-01,,
+169746,sr_legacy_food,Spelt (cooked),20,2019-04-01,,
+169745,sr_legacy_food,Spelt (uncooked),20,2019-04-01,,
+168463,sr_legacy_food,Spinach (cooked),11,2019-04-01,,
+168462,sr_legacy_food,Spinach,11,2019-04-01,,
+170488,sr_legacy_food,"Squash (summer, cooked)",11,2019-04-01,,
+170487,sr_legacy_food,Squash (summer),11,2019-04-01,,
+169290,sr_legacy_food,Scallop Squash (cooked),11,2019-04-01,,
+169289,sr_legacy_food,Scallop Squash,11,2019-04-01,,
+169292,sr_legacy_food,Zucchini (cooked),11,2019-04-01,,
+169291,sr_legacy_food,Zucchini,11,2019-04-01,,
+169293,sr_legacy_food,Acorn Squash (cooked),11,2019-04-01,,
+168472,sr_legacy_food,Acorn Squash,11,2019-04-01,,
+170490,sr_legacy_food,"Squash (winter, cooked)",11,2019-04-01,,
+170489,sr_legacy_food,Squash (winter),11,2019-04-01,,
+169296,sr_legacy_food,Butternut Squash (cooked),11,2019-04-01,,
+169295,sr_legacy_food,Butternut Squash,11,2019-04-01,,
+169299,sr_legacy_food,Spaghetti Squash (cooked),11,2019-04-01,,
+169298,sr_legacy_food,Spaghetti Squash,11,2019-04-01,,
+168565,sr_legacy_food,Zucchini,11,2019-04-01,,
+167762,sr_legacy_food,Strawberries,9,2019-04-01,,
+168483,sr_legacy_food,Sweet Potatoes,11,2019-04-01,,
+168484,sr_legacy_food,Sweet Potatoes (without skin),11,2019-04-01,,
+168482,sr_legacy_food,Sweet Potatoes (uncooked),11,2019-04-01,,
+167763,sr_legacy_food,Tamarinds,9,2019-04-01,,
+169925,sr_legacy_food,Tangerine Juice,9,2019-04-01,,
+169105,sr_legacy_food,Tangerine (manderine orange),9,2019-04-01,,
+169717,sr_legacy_food,Tapioca Pearls (dry),20,2019-04-01,,
+168486,sr_legacy_food,Taro (cooked),11,2019-04-01,,
+169308,sr_legacy_food,Taro (raw),11,2019-04-01,,
+170455,sr_legacy_food,"Taro (tahitian, cooked)",11,2019-04-01,,
+169310,sr_legacy_food,"Taro (tahitian, uncooked)",11,2019-04-01,,
+174272,sr_legacy_food,Tempeh,16,2019-04-01,30,
+172467,sr_legacy_food,Tempeh (cooked),16,2019-04-01,30,
+173470,sr_legacy_food,Thyme,2,2019-04-01,,
+172448,sr_legacy_food,Tofu,16,2019-04-01,,
+168566,sr_legacy_food,Tomatillos,11,2019-04-01,,
+170456,sr_legacy_food,Tomatoes (green),11,2019-04-01,,
+170502,sr_legacy_food,Tomatoes (orange),11,2019-04-01,,
+170457,sr_legacy_food,Tomatoes,11,2019-04-01,,
+168567,sr_legacy_food,Sun-Dried Tomatoes,11,2019-04-01,,
+170096,sr_legacy_food,Yellow Tomatoes,11,2019-04-01,,
+172941,sr_legacy_food,Sliced Turkey Breast,7,2019-04-01,,1.2
+171483,sr_legacy_food,Turkey Gizzard,5,2019-04-01,,3.5
+171485,sr_legacy_food,Turkey Heart,5,2019-04-01,,2
+171484,sr_legacy_food,Turkey Heart (raw),5,2019-04-01,,2
+171491,sr_legacy_food,Turkey (light meat),5,2019-04-01,,1.2
+171487,sr_legacy_food,Turkey Liver,5,2019-04-01,,0.5
+171486,sr_legacy_food,Turkey Liver (raw),5,2019-04-01,,0.5
+171488,sr_legacy_food,"Turkey (dark meat, raw)",5,2019-04-01,,1.5
+167710,sr_legacy_food,Turkey Drumstick (smoked),5,2019-04-01,,3
+171085,sr_legacy_food,Turkey Gizzard (raw),5,2019-04-01,,3.5
+174494,sr_legacy_food,Ground Turkey (85% lean / 15% fat),5,2019-04-01,,1.8
+174493,sr_legacy_food,"Ground Turkey (85% lean / 15% fat, raw)",5,2019-04-01,,1.5
+172851,sr_legacy_food,Ground Turkey (93% lean / 7% fat),5,2019-04-01,,1.2
+172850,sr_legacy_food,"Ground Turkey (93% lean / 7% fat, raw)",5,2019-04-01,,1
+172848,sr_legacy_food,Ground Turkey (fat free),5,2019-04-01,,1
+172849,sr_legacy_food,Ground Turkey Patty (fat free),5,2019-04-01,,2.2
+172847,sr_legacy_food,"Ground Turkey (fat free, raw)",5,2019-04-01,,0.8
+171505,sr_legacy_food,Ground Turkey (raw),5,2019-04-01,,2
+167713,sr_legacy_food,"Turkey (light/dark meat, without skin)",5,2019-04-01,,1.5
+168120,sr_legacy_food,"Turkey (light/dark meat, with skin)",5,2019-04-01,,1.8
+171529,sr_legacy_food,Turkey Breast (with skin),5,2019-04-01,,1.5
+171528,sr_legacy_food,"Turkey Breast (with skin, raw)",5,2019-04-01,,1.3
+174516,sr_legacy_food,Turkey Breast (without skin),5,2019-04-01,,1.2
+174515,sr_legacy_food,"Turkey Breast (without skin, raw)",5,2019-04-01,,1.1
+171135,sr_legacy_food,Turkey Drumstick (with skin),5,2019-04-01,,3
+171134,sr_legacy_food,"Turkey Drumstick (with skin, raw)",5,2019-04-01,,2.5
+172878,sr_legacy_food,Turkey Drumstick (without skin),5,2019-04-01,,2.5
+172875,sr_legacy_food,"Turkey Drumstick (without skin, raw)",5,2019-04-01,,2.3
+171137,sr_legacy_food,Turkey Thigh (with skin),5,2019-04-01,,2.8
+171533,sr_legacy_food,"Turkey Thigh (with skin, raw)",5,2019-04-01,,2.5
+172877,sr_legacy_food,Turkey Thigh (without skin),5,2019-04-01,,2.5
+174518,sr_legacy_food,"Turkey Thigh (without skin, raw)",5,2019-04-01,,2.3
+171133,sr_legacy_food,Turkey Wing (with skin),5,2019-04-01,,3.2
+171132,sr_legacy_food,"Turkey Wing (with skin, raw)",5,2019-04-01,,2.8
+172872,sr_legacy_food,Turkey Wing (without skin),5,2019-04-01,,2.5
+174517,sr_legacy_food,"Turkey Wing (without skin, raw)",5,2019-04-01,,2.3
+174613,sr_legacy_food,"Turkey (deli cut, white meat)",7,2019-04-01,,1.2
+171481,sr_legacy_food,Turkey,5,2019-04-01,,1.5
+171480,sr_legacy_food,Turkey (raw),5,2019-04-01,,1.3
+171087,sr_legacy_food,Turkey Neck,5,2019-04-01,,4
+171086,sr_legacy_food,Turkey Neck (raw),5,2019-04-01,,3.5
+171498,sr_legacy_food,Turkey Wing (meat only),5,2019-04-01,,2.5
+171497,sr_legacy_food,"Turkey Wing (meat only, raw)",5,2019-04-01,,2.3
+167709,sr_legacy_food,"Turkey Wing (smoked, with skin, without bone)",5,2019-04-01,,3
+170466,sr_legacy_food,Turnip Greens (cooked),11,2019-04-01,,
+170061,sr_legacy_food,Turnip Greens (uncooked),11,2019-04-01,,
+170465,sr_legacy_food,Turnips,11,2019-04-01,,
+173471,sr_legacy_food,Vanilla extract,2,2019-04-01,,
+173850,sr_legacy_food,Veal Rib Roast (raw),17,2019-04-01,,1.8
+174433,sr_legacy_food,"Veal Shank (fore, bone in, raw)",17,2019-04-01,,4.5
+172607,sr_legacy_food,"Veal Shank (hind, bone in, raw)",17,2019-04-01,,4.2
+174395,sr_legacy_food,Veal Breast (point half),17,2019-04-01,,5
+174393,sr_legacy_food,Veal Breast,17,2019-04-01,,5
+174392,sr_legacy_food,Veal Breast (raw),17,2019-04-01,,4.5
+175291,sr_legacy_food,Ground Veal,17,2019-04-01,,2.5
+175290,sr_legacy_food,Ground Veal (raw),17,2019-04-01,,2
+173818,sr_legacy_food,"Veal Leg (top round, braised)",17,2019-04-01,,3.5
+173821,sr_legacy_food,Veal Leg (top round),17,2019-04-01,,3.5
+175268,sr_legacy_food,"Veal Leg (top round, raw)",17,2019-04-01,,3
+174880,sr_legacy_food,"Veal Leg (top round, cap off)",17,2019-04-01,,3.3
+172643,sr_legacy_food,"Veal Leg (top round, cap off, raw)",17,2019-04-01,,3
+172650,sr_legacy_food,Veal Loin Chop,17,2019-04-01,,1.6
+173824,sr_legacy_food,Veal Loin (braised),17,2019-04-01,,1.8
+173825,sr_legacy_food,Veal Loin (roasted),17,2019-04-01,,1.8
+173823,sr_legacy_food,Veal Loin (raw),17,2019-04-01,,1.5
+175276,sr_legacy_food,Veal Rib (braised),17,2019-04-01,,2
+173827,sr_legacy_food,Veal Rib,17,2019-04-01,,2
+175275,sr_legacy_food,Veal Rib (raw),17,2019-04-01,,1.8
+172569,sr_legacy_food,Veal Shank (fore and hind),17,2019-04-01,,4.3
+172568,sr_legacy_food,"Veal Shank (fore and hind, raw)",17,2019-04-01,,4.2
+172648,sr_legacy_food,Veal Shank (raw),17,2019-04-01,,4.3
+173834,sr_legacy_food,"Veal Shoulder (arm, braised)",17,2019-04-01,,3.8
+175281,sr_legacy_food,Veal Shoulder (arm),17,2019-04-01,,3.8
+173833,sr_legacy_food,"Veal Shoulder (arm, raw)",17,2019-04-01,,3.5
+172651,sr_legacy_food,Veal Shoulder (blade chop),17,2019-04-01,,4
+173835,sr_legacy_food,"Veal Shoulder (blade chop, raw)",17,2019-04-01,,3.8
+173836,sr_legacy_food,"Veal Shoulder (blade, braised)",17,2019-04-01,,4.2
+173837,sr_legacy_food,"Veal Shoulder (blade, roasted)",17,2019-04-01,,4.2
+175279,sr_legacy_food,Veal Shoulder,17,2019-04-01,,4
+175277,sr_legacy_food,Veal Shoulder (raw),17,2019-04-01,,3.8
+175287,sr_legacy_food,Veal Sirloin (braised),17,2019-04-01,,1.8
+175288,sr_legacy_food,Veal Sirloin,17,2019-04-01,,1.8
+175286,sr_legacy_food,Veal Sirloin (raw),17,2019-04-01,,1.6
+172529,sr_legacy_food,Veal Heart (raw),17,2019-04-01,,2.5
+174356,sr_legacy_food,Veal Kidneys (raw),17,2019-04-01,,0.5
+172534,sr_legacy_food,Veal Liver (raw),17,2019-04-01,,0.5
+174361,sr_legacy_food,Veal Lungs (raw),17,2019-04-01,,0.8
+174362,sr_legacy_food,Veal Pancreas (raw),17,2019-04-01,,1
+172540,sr_legacy_food,Veal Spleen (raw),17,2019-04-01,,1.2
+172542,sr_legacy_food,Veal Thymus (raw),17,2019-04-01,,2
+174368,sr_legacy_food,Veal Tongue (raw),17,2019-04-01,,1.5
+169884,sr_legacy_food,Vermicelli,16,2019-04-01,,
+172241,sr_legacy_food,Balsamic Vinegar,2,2019-04-01,,
+173469,sr_legacy_food,Apple Cider Vinegar,2,2019-04-01,,
+172237,sr_legacy_food,Distilled Vinegar,2,2019-04-01,,
+172240,sr_legacy_food,Red Wine Vinegar,2,2019-04-01,,
+171831,sr_legacy_food,Wasabi,6,2019-04-01,,
+168583,sr_legacy_food,Wasabi (root),11,2019-04-01,,
+170066,sr_legacy_food,Waterchestnuts,11,2019-04-01,,
+170068,sr_legacy_food,Watercress,11,2019-04-01,,
+167765,sr_legacy_food,Watermelon,9,2019-04-01,,
+170069,sr_legacy_food,Waxgourd,11,2019-04-01,,
+169722,sr_legacy_food,Wheat Bran,20,2019-04-01,,
+169761,sr_legacy_food,All-Purpose Flour,20,2019-04-01,,
+168896,sr_legacy_food,Bread Flour,20,2019-04-01,,
+169723,sr_legacy_food,Cake Flour,20,2019-04-01,,
+168893,sr_legacy_food,Whole Grain Flour,20,2019-04-01,,
+168913,sr_legacy_food,Wheat Flour (bread),20,2019-04-01,,
+168897,sr_legacy_food,Wild Rice,20,2019-04-01,,
+169726,sr_legacy_food,Wild Rice (raw),20,2019-04-01,,
+170072,sr_legacy_food,Yams,11,2019-04-01,,
+170071,sr_legacy_food,Yams (raw),11,2019-04-01,,
+170073,sr_legacy_food,Jicama,11,2019-04-01,,
+170903,sr_legacy_food,Greek Yogurt (lowfat),1,2019-04-01,170,
+170894,sr_legacy_food,Greek Yogurt (nonfat),1,2019-04-01,170,
+171304,sr_legacy_food,Greek Yogurt,1,2019-04-01,170,
+170886,sr_legacy_food,Yogurt (low fat),1,2019-04-01,170,
+170887,sr_legacy_food,Yogurt (skim milk),1,2019-04-01,170,
+171284,sr_legacy_food,Yogurt,1,2019-04-01,170,
+167575,sr_legacy_food,Vanilla Ice Cream,19,2019-04-01,,
+167587,sr_legacy_food,Milk Chocolate,19,2019-04-01,,
+168809,sr_legacy_food,Chocolate Ice Cream,19,2019-04-01,,
+168810,sr_legacy_food,Strawberry Ice Cream,19,2019-04-01,,
+168815,sr_legacy_food,Vanilla Frozen Yogurt,19,2019-04-01,,
+168833,sr_legacy_food,Brown Sugar,19,2019-04-01,,
+168848,sr_legacy_food,Chocolate Frozen Yogurt,19,2019-04-01,,
+169593,sr_legacy_food,Cocoa Powder,19,2019-04-01,,
+169640,sr_legacy_food,Honey,19,2019-04-01,,
+169655,sr_legacy_food,Sugar,19,2019-04-01,,
+169656,sr_legacy_food,Powdered Sugar,19,2019-04-01,,
+170273,sr_legacy_food,Dark Chocolate,19,2019-04-01,,
+170276,sr_legacy_food,Maple Syrup,19,2019-04-01,,
+170277,sr_legacy_food,Agave,19,2019-04-01,,
+175051,sr_legacy_food,Bagel,18,2019-04-01,,
+172664,sr_legacy_food,Cinnamon-Raisin Bagel,18,2019-04-01,,
+174901,sr_legacy_food,Egg Bagel,18,2019-04-01,,
+171852,sr_legacy_food,Multigrain Bagel,18,2019-04-01,,
+172670,sr_legacy_food,Biscuits,18,2019-04-01,,
+167929,sr_legacy_food,Blueberry Muffin,18,2019-04-01,,
+174928,sr_legacy_food,Breadcrumbs,18,2019-04-01,,
+172673,sr_legacy_food,Egg Bread,18,2019-04-01,,
+172675,sr_legacy_food,Sourdough Bread,18,2019-04-01,,
+174912,sr_legacy_food,Irish Soda Bread,18,2019-04-01,,
+174913,sr_legacy_food,Italian Bread,18,2019-04-01,,
+172676,sr_legacy_food,Oat Bran Bread,18,2019-04-01,,
+172678,sr_legacy_food,Oatmeal Bread,18,2019-04-01,,
+172816,sr_legacy_food,Pita Bread,18,2019-04-01,,
+174918,sr_legacy_food,"Bread, pumpernickel",18,2019-04-01,,
+172817,sr_legacy_food,Raisin Bread,18,2019-04-01,,
+172684,sr_legacy_food,Rye Bread,18,2019-04-01,,
+174929,sr_legacy_food,Breadsticks,18,2019-04-01,,
+172686,sr_legacy_food,Wheat Bread,18,2019-04-01,,
+174927,sr_legacy_food,White Bread,18,2019-04-01,,
+172690,sr_legacy_food,Whole-Wheat Bread,18,2019-04-01,,
+174990,sr_legacy_food,Cake Doughnut,18,2019-04-01,,
+172694,sr_legacy_food,Angelfood Cake,18,2019-04-01,,
+172711,sr_legacy_food,Cheesecake,18,2019-04-01,,
+174934,sr_legacy_food,Chocolate Cake,18,2019-04-01,,
+171849,sr_legacy_food,Cinnamon Bread,18,2019-04-01,,
+167940,sr_legacy_food,Cinnamon Buns,18,2019-04-01,,
+171847,sr_legacy_food,Coconut Macaroon Cookies,18,2019-04-01,,
+175052,sr_legacy_food,Coffee Cake,18,2019-04-01,,
+174949,sr_legacy_food,Brownies,18,2019-04-01,,
+172808,sr_legacy_food,Chocolate Chip Cookies,18,2019-04-01,,
+174910,sr_legacy_food,Cornbread,18,2019-04-01,,
+175058,sr_legacy_food,Crackers,18,2019-04-01,,
+172749,sr_legacy_food,Whole-Wheat Crackers,18,2019-04-01,,
+174987,sr_legacy_food,Croissant,18,2019-04-01,,
+172751,sr_legacy_food,Croutons,18,2019-04-01,,
+175062,sr_legacy_food,Doughnuts,18,2019-04-01,,
+175063,sr_legacy_food,English Muffins,18,2019-04-01,,
+167535,sr_legacy_food,Flour Tortillas,18,2019-04-01,,
+167945,sr_legacy_food,Focaccia,18,2019-04-01,,
+174998,sr_legacy_food,French Toast,18,2019-04-01,,
+175000,sr_legacy_food,Ice Cream Cone (cake),18,2019-04-01,,
+175001,sr_legacy_food,Ice Cream Cone (sugar),18,2019-04-01,,
+172768,sr_legacy_food,Blueberry Muffins,18,2019-04-01,,
+172764,sr_legacy_food,Muffins,18,2019-04-01,,
+171838,sr_legacy_food,Multigran Crackers,18,2019-04-01,,
+171845,sr_legacy_food,Naan Bread,18,2019-04-01,,
+175047,sr_legacy_food,Buttermilk Pancakes,18,2019-04-01,,
+172773,sr_legacy_food,Blueberry Pancakes,18,2019-04-01,,
+175009,sr_legacy_food,Pancakes,18,2019-04-01,,
+175012,sr_legacy_food,Apple Pie,18,2019-04-01,,
+172777,sr_legacy_food,Banana Cream Pie,18,2019-04-01,,
+172779,sr_legacy_food,Blueberry Pie,18,2019-04-01,,
+172781,sr_legacy_food,Cherry Pie,18,2019-04-01,,
+175018,sr_legacy_food,Lemon Meringue Pie,18,2019-04-01,,
+175019,sr_legacy_food,Mince Pie,18,2019-04-01,,
+175020,sr_legacy_food,Peach Pie,18,2019-04-01,,
+172786,sr_legacy_food,Pecan Pie,18,2019-04-01,,
+172788,sr_legacy_food,Pumpkin Pie,18,2019-04-01,,
+167943,sr_legacy_food,Potato Bread,18,2019-04-01,,
+175053,sr_legacy_food,Pound Cake,18,2019-04-01,,
+172810,sr_legacy_food,Dinner Rolls,18,2019-04-01,,
+172795,sr_legacy_food,French Rolls,18,2019-04-01,,
+172796,sr_legacy_food,Hamburger or Hot Dog Bun,18,2019-04-01,,
+171844,sr_legacy_food,Roti Bread,18,2019-04-01,,
+175056,sr_legacy_food,Saltine Crackers,18,2019-04-01,,
+175032,sr_legacy_food,Apple Strudel,18,2019-04-01,,
+175067,sr_legacy_food,Taco Shells,18,2019-04-01,,
+175036,sr_legacy_food,Corn Tortillas,18,2019-04-01,,
+167525,sr_legacy_food,Tostada Shells,18,2019-04-01,,
+175039,sr_legacy_food,Waffles,18,2019-04-01,,
+167533,sr_legacy_food,Wheat Bagels,18,2019-04-01,,
+174985,sr_legacy_food,Wheat Crackers,18,2019-04-01,,
+175059,sr_legacy_food,Wheat Crackers,18,2019-04-01,,
+167532,sr_legacy_food,White Bread,18,2019-04-01,,
+168013,sr_legacy_food,Whole-Grain Bread,18,2019-04-01,,
+169859,sr_legacy_food,Honey Bunches of Oats Cereal,8,2019-04-01,,
+171642,sr_legacy_food,Cap'n Crunch Cereal,8,2019-04-01,,
+171645,sr_legacy_food,Fruity Pebbles Cereal,8,2019-04-01,,
+171646,sr_legacy_food,Granola,8,2019-04-01,,
+171650,sr_legacy_food,Raisin Bran Cereal,8,2019-04-01,,
+171655,sr_legacy_food,Grits,8,2019-04-01,,
+171668,sr_legacy_food,Cream of Wheat,8,2019-04-01,,
+173884,sr_legacy_food,Cheerios Cereal,8,2019-04-01,,
+173885,sr_legacy_food,Cocoa Pebbles Cereal,8,2019-04-01,,
+173912,sr_legacy_food,Rice Krispies Cereal,8,2019-04-01,,
+173914,sr_legacy_food,Cream of Rice,8,2019-04-01,,
+173918,sr_legacy_food,Frosted Mini Wheats Cereal,8,2019-04-01,,
+172990,sr_legacy_food,Frosted Flakes Cereal,8,2019-04-01,,
+173888,sr_legacy_food,Cereal Flakes,8,2019-04-01,,
+167542,sr_legacy_food,Granola Bars,23,2019-04-01,,
+167555,sr_legacy_food,Pretzels,23,2019-04-01,,
+167557,sr_legacy_food,Rice Cakes,23,2019-04-01,,
+167558,sr_legacy_food,Tortilla Chips,23,2019-04-01,,
+167561,sr_legacy_food,Trail Mix,23,2019-04-01,,
+167959,sr_legacy_food,Popcorn,23,2019-04-01,,
+168849,sr_legacy_food,Banana Chips,23,2019-04-01,,
+168850,sr_legacy_food,Beef Sticks,23,2019-04-01,,2
+168853,sr_legacy_food,Potato Chips,23,2019-04-01,,
+169064,sr_legacy_food,Soft Pretzel,23,2019-04-01,,
+169636,sr_legacy_food,Fruit Leather,23,2019-04-01,,
+173147,sr_legacy_food,Pita Chips,23,2019-04-01,,
+173161,sr_legacy_food,Rice crackers,23,2019-04-01,,
+174796,sr_legacy_food,Vegetable Chips,23,2019-04-01,,
