@@ -40,11 +40,6 @@ def search_food(term: str, quantity: float):
 
     food_data = dict(zip(colnames, food_row))
 
-    print({
-        "food": food_data["description"],
-        "similarity": round(float(best["similarity"]), 2)
-    })
-
     # return {
     #     "food": food_data["description"],
     #     "similarity": round(float(best["similarity"]), 2)

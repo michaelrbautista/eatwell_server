@@ -31,7 +31,12 @@ class AnalysisIngredient(BaseModel):
     nutrients: AllNutrients
 
 class AnalysisMeal(BaseModel):
+    id: str = ""
+    created_at: str = ""
+    user_id: str = ""
     name: str
+    image_path: str = ""
+
     ingredients: list[AnalysisIngredient]
 
     protein_float: float

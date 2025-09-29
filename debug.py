@@ -101,31 +101,35 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     valid_results = []
     invalid_results = []
     for food in ingredients:
+        print(food["name"])
         result = search_food(food["name"], food["quantity_in_grams"])
         if isinstance(result, AnalysisIngredient):
             valid_results.append(result)
         else:
             invalid_results.append(result)
 
-    # Create custom foods for foods not in database
-    try:
-        chat_completion = client.beta.chat.completions.parse(
-            model="gpt-4o",
-            messages=[
-                {
-                    "role": "user",
-                    "content": "For each food in this list, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of that food."
-                }
-            ],
-            response_format=InvalidIngredients
-        )
-    except Exception as e:
-        print(e)
-        raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
-    
-    custom_foods: InvalidIngredients  = chat_completion.choices[0].message.parsed
+    custom_foods: InvalidIngredients = InvalidIngredients(ingredients=[])
 
-    database_results = valid_results + custom_foods
+    if len(invalid_results) > 0:
+        # Create custom foods for foods not in database
+        try:
+            chat_completion = client.beta.chat.completions.parse(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": f"Given this list: {invalid_results}, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for each food with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of that food."
+                    }
+                ],
+                response_format=InvalidIngredients
+            )
+        except Exception as e:
+            print(e)
+            raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
+        
+        custom_foods = chat_completion.choices[0].message.parsed
+
+    database_results = valid_results + custom_foods.ingredients
 
     return AnalysisMeal(
         name=meal_name,
