@@ -3,8 +3,9 @@ import json
 from db.search_service import get_candidates, rerank_with_embeddings
 from helper import get_nutrients, map_nutrients, get_portions, map_portions
 from models.meal_analysis import AnalysisIngredient
+import os
 
-DB_PATH = "food.db"
+DB_PATH = os.getenv("DB_PATH", "food.db")
 
 def search_food(term: str, quantity: float):
     conn = sqlite3.connect(DB_PATH)
@@ -19,9 +20,10 @@ def search_food(term: str, quantity: float):
     best = top_candidates[0]  # first = closest match
     if best["similarity"] < 0.6:
         return {
-        "food": "None",
-        "similarity": 0.0
-    }
+            "is_valid": False,
+            "name": term,
+            "quantity_in_grams": quantity
+        }
 
     cursor = conn.cursor()
     cursor.execute("""
@@ -37,6 +39,11 @@ def search_food(term: str, quantity: float):
         return None
 
     food_data = dict(zip(colnames, food_row))
+
+    print({
+        "food": food_data["description"],
+        "similarity": round(float(best["similarity"]), 2)
+    })
 
     # return {
     #     "food": food_data["description"],
@@ -78,18 +85,37 @@ test_vision_response = {
     "name": "Chicken salad",
     "ingredients": [
         {
-            "name": "Yogurt",
+            "name": "Steak",
             "quantity_in_grams": 150.0
         },
         {
-            "name": "Kiwi",
-            "quantity_in_grams": 50.0
+            "name": "Eggs",
+            "quantity_in_grams": 100.0
+        },
+        {
+            "name": "Coffee",
+            "quantity_in_grams": 100.0
         }
     ]
 }
 
 if __name__ == "__main__":
-    food = search_food("greek yogurt", 100.0)
-    # print(json.dumps(food, indent=4))
-    # print(json.dumps(results, indent=4))
-    print(food.model_dump_json(indent=4))
+    valid_results = []
+    invalid_results = []
+    for food in test_vision_response["ingredients"]:
+        result = search_food(food["name"], food["quantity_in_grams"])
+        if isinstance(result, AnalysisIngredient):
+            valid_results.append(result)
+        else:
+            invalid_results.append(result)
+
+    print("\n---- VALID ----")
+    for r in valid_results:
+        print(r.model_dump_json(indent=4))
+
+    print("\n---- INVALID ----")
+    for r in invalid_results:
+        print(json.dumps(r, indent=4))
+    # print(json.dumps(valid_results, indent=4))
+    # print(json.dumps(invalid_results, indent=4))
+    # print(food.model_dump_json(indent=4))

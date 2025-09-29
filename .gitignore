@@ -29,3 +29,6 @@ dist/
 # Secrets and environment variables
 *.env
 .env
+
+# Database
+*.db

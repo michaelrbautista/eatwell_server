@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
 from fastapi import HTTPException
-from db.search_service import preprocess_query, fts_search, fuzzy_search
+from db.search_service import fts_search, fuzzy_search
 from query import search_food
-from helper import get_nutrients, map_nutrients, get_portions, map_portions
-from models.meal_analysis import AnalysisIngredient
+from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium
+from models.meal_analysis import AnalysisIngredient, InvalidIngredients, AnalysisMeal
 import sqlite3
 
 load_dotenv()
@@ -20,6 +20,9 @@ app = FastAPI()
 
 # source venv/bin/activate
 # uvicorn debug:app --reload
+
+
+
 
 # --------------------------------------------------------------------------------
 # Analyze image (updated)
@@ -95,188 +98,53 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     meal_name = analysis["name"]
     ingredients = analysis["ingredients"]
 
-    database_results = []
-    for ingredient in ingredients:
-        query = preprocess_query(ingredient["name"])
-        amount = ingredient["quantity_in_grams"]
-        food = search_food(query, amount)
-        database_results.append(food)
+    valid_results = []
+    invalid_results = []
+    for food in ingredients:
+        result = search_food(food["name"], food["quantity_in_grams"])
+        if isinstance(result, AnalysisIngredient):
+            valid_results.append(result)
+        else:
+            invalid_results.append(result)
 
-    # Return ingredients
-    return {
-        "name": meal_name,
-        "foods": database_results
-    }
-
-# --------------------------------------------------------------------------------
-# Analyze image (old)
-# --------------------------------------------------------------------------------
-
-class IngredientResponse(BaseModel):
-    protein_in_grams: int
-    collagen_in_grams: int
-    leucine_in_grams: int
-    carbohydrates_in_grams: int
-    omega3s_in_grams: int
-    fat_in_grams: int
-    zinc_in_milligrams: int
-    iron_in_milligrams: int
-    fermented_food_servings: int
-    fiber_in_grams: int
-    vitamin_c_in_milligrams: int
-    vitamin_a_in_micrograms: int
-    vitamin_e_in_milligrams: int
-    selenium_in_micrograms: int
-
-class AnalyzeRequest(BaseModel):
-    image_url: str
-
-class Ingredient(BaseModel):
-    name: str
-    quantity: str
-    unit: str
-
-class UpdateRequest(BaseModel):
-    ingredients: list[Ingredient]
-
-# 1. Analyze image and get list of ingredients/amounts
-# 2. Search USDA dataset for foods that match ingredients
-# 3. Return ingredients/amounts
-
-@app.post("/meal")
-async def analyze_meal(payload: AnalyzeRequest):
-    # Step 1: Call vision completion
-    try:
-        vision_completion = client.chat.completions.create(
-            model="gpt-4o",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a nutrition expert and computer vision assistant."
-                },
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "text",
-                            "text": """
-                            Analyze this image and follow these stepes:
-                            1. Identify each visible food item.
-                            2. Give the meal a short name less than 5 words that describes it's contents (Ground beef bowl, chicken salad, etc). If it's a single food item, return ONLY the name of the food (apple, banana, etc.).
-                            2. Estimate the quantity of each item (ONLY respond with oz., g, mg, cup(s), tbsp., tsp., or ser. (number of servings)).
-                            3. ONLY respond with a JSON object that contains the name and an array of objects following this format exactly:
-                            {
-                                "name": "Chicken salad",
-                                "ingredients": [
-                                    {
-                                        "name": "Grilled chicken breast",
-                                        "quantity": "4",
-                                        "unit": "oz."
-                                    },
-                                    {
-                                        "name": "Sauerkraut",
-                                        "quantity": "1",
-                                        "unit": "ser."
-                                    },
-                                    ...
-                                ]
-                            }
-                            4. If there are no food items in the image, return this EXACT object:
-                            {
-                                "name": "Unknown",
-                                "ingredients": []
-                            }
-                            """
-                        },
-                        {
-                            "type": "image_url", 
-                            "image_url": {"url": payload.image_url}
-                        },
-                    ],
-                }
-            ]
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Vision API call failed: {str(e)}")
-
-    # Step 2: Parse JSON from vision completion
-    ingredients_response = vision_completion.choices[0].message.content.strip()
-    ingredients_string = extract_json_from_code_block(ingredients_response)
-
-    try:
-        ingredients = json.loads(ingredients_string)
-    except json.JSONDecodeError as e:
-        raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
-
-    # print("INGREDIENTS:")
-    # print(ingredients)
-
-    # Step 3: Call chat completion for nutrient analysis
+    # Create custom foods for foods not in database
     try:
         chat_completion = client.beta.chat.completions.parse(
             model="gpt-4o",
             messages=[
                 {
                     "role": "user",
-                    "content": f"Based on these ingredients, give me a nutrient analysis:\n{ingredients}."
+                    "content": "For each food in this list, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of that food."
                 }
             ],
-            response_format=IngredientResponse
+            response_format=InvalidIngredients
         )
     except Exception as e:
+        print(e)
         raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
+    
+    custom_foods: InvalidIngredients  = chat_completion.choices[0].message.parsed
 
-    # Step 4: Parse nutrient analysis response
-    nutrients_response = chat_completion.choices[0].message.content.strip()
-    nutrients_string = extract_json_from_code_block(nutrients_response)
+    database_results = valid_results + custom_foods
 
-    try:
-        nutrients = json.loads(nutrients_string)
-    except json.JSONDecodeError as e:
-        raise HTTPException(status_code=400, detail=f"Failed to parse nutrient response: {e}")
-
-    # print("NUTRIENTS:")
-    # print(nutrients)
-
-    return {
-        "meal_analysis": ingredients,
-        "nutrients": nutrients
-    }
-
-# Update meal with new ingredients
-@app.post("/ingredients")
-async def analyze_edited_meal(payload: UpdateRequest):
-    try:
-        chat_completion = client.beta.chat.completions.parse(
-            model="gpt-4o",
-            messages=[
-                {
-                    "role": "user", 
-                    "content": f"Based on these ingredients, give me a nutrient analysis:\n{payload.ingredients}. 'ser.' is equal to serving(s)."
-                }
-            ],
-            response_format=IngredientResponse
-        )
-
-        nutrients_response = chat_completion.choices[0].message.content.strip()
-        nutrients_string = extract_json_from_code_block(nutrients_response)
-
-        try:
-            nutrients = json.loads(nutrients_string)
-        except json.JSONDecodeError as e:
-            return {
-                "error": f"Failed to parse chat response as JSON: {e}",
-                "raw": nutrients_string
-            }
-
-        return {
-            "nutrients": nutrients
-        }
-
-    except Exception as e:
-        return {
-            "error": str(e)
-        }
+    return AnalysisMeal(
+        name=meal_name,
+        ingredients=database_results,
+        protein_float=calculate_protein(database_results),
+        leucine_float=calculate_leucine(database_results),
+        carbohydrates_float=calculate_carbohydrates(database_results),
+        omega3s_float=calculate_omega3s(database_results),
+        fat_float=calculate_fat(database_results),
+        iron_float=calculate_iron(database_results),
+        zinc_float=calculate_zinc(database_results),
+        fermented_food_servings_float=calculate_fermented_food_servings(database_results),
+        fiber_float=calculate_fiber(database_results),
+        collagen_float=calculate_collagen(database_results),
+        vitamin_c_float=calculate_vitamin_c(database_results),
+        vitamin_a_float=calculate_vitamin_a(database_results),
+        vitamin_e_float=calculate_vitamin_e(database_results),
+        selenium_float=calculate_selenium(database_results)
+    )
 
 # Helper function
 def extract_json_from_code_block(text: str) -> str:
@@ -294,36 +162,6 @@ def extract_json_from_code_block(text: str) -> str:
 # Custom food
 # --------------------------------------------------------------------------------
 
-class CustomIngredientPortion(BaseModel):
-    id: int
-    gram_weight: float
-    amount: float
-    modifier: str
-
-class CustomIngredientNutrients(BaseModel):
-    protein_in_grams: float
-    collagen_in_grams: float
-    leucine_in_grams: float
-    carbohydrates_in_grams: float
-    omega3s_in_grams: float
-    fat_in_grams: float
-    zinc_in_milligrams: float
-    iron_in_milligrams: float
-    fermented_food_servings: float
-    fiber_in_grams: float
-    vitamin_c_in_milligrams: float
-    vitamin_a_in_micrograms: float
-    vitamin_e_in_milligrams: float
-    selenium_in_micrograms: float
-
-class CustomIngredient(BaseModel):
-    fdc_id: int = 1
-    description: str
-    amount: float = 1.0
-    selected_portion_id: int = 1
-    portions: list[CustomIngredientPortion]
-    nutrients: CustomIngredientNutrients
-
 @app.post("/custom-food")
 async def custom_food(name: str, amount: float, modifier: str):
     try:
@@ -332,25 +170,16 @@ async def custom_food(name: str, amount: float, modifier: str):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Give me a food object for '{name}' like the USDA Food Central database. Set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams."
+                    "content": f"Give me a food object for {name} like the USDA Food Central database. Set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of {name}."
                 }
             ],
-            response_format=CustomIngredient
+            response_format=AnalysisIngredient
         )
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
     
-    custom_food_response = chat_completion.choices[0].message.content.strip()
-    custom_food_string = extract_json_from_code_block(custom_food_response)
-
-    try:
-        custom_food = json.loads(custom_food_string)
-    except json.JSONDecodeError as e:
-        print(e)
-        raise HTTPException(status_code=400, detail=f"Failed to parse nutrient response: {e}")
-    
-    return custom_food
+    return chat_completion.choices[0].message.parsed
 
 # --------------------------------------------------------------------------------
 # Get food details
@@ -358,7 +187,8 @@ async def custom_food(name: str, amount: float, modifier: str):
 
 @app.get("/food/{fdc_id}")
 async def food_details(fdc_id: int):
-    DB_PATH = "food.db"
+    DB_PATH = os.getenv("DB_PATH", "food.db")
+
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("""
@@ -412,7 +242,8 @@ async def food_details(fdc_id: int):
 
 @app.post("/search-foods")
 async def search_foods(term: str):
-    DB_PATH = "food.db"
+    DB_PATH = os.getenv("DB_PATH", "food.db")
+    
     conn = sqlite3.connect(DB_PATH)
     fts_results = fts_search(term, conn, limit=10)
     fuzzy_results = fuzzy_search(term, conn, limit=10)

@@ -6,30 +6,10 @@ import numpy as np
 import json
 import re
 
-DB_PATH = "../food.db"
+DB_PATH = os.getenv("DB_PATH", "../food.db")
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
-# --------------------------------------------------------------------------------
-# Preprocess ingredient
-# --------------------------------------------------------------------------------
-
-def preprocess_query(query):
-    # Convert to lowercase
-    query = query.lower()
-    
-    # Remove cooking methods and descriptors
-    cooking_methods = ['grilled', 'baked', 'fried', 'roasted', 'steamed', 
-                      'boiled', 'hard boiled', 'sauteed', 'broiled', 'pan-fried']
-    
-    for method in cooking_methods:
-        query = re.sub(rf'\b{method}\b', '', query)
-    
-    # Remove extra whitespace
-    query = ' '.join(query.split())
-    
-    return query
 
 # --------------------------------------------------------------------------------
 # Rank based on embeddings
@@ -150,3 +130,23 @@ def fts_search(term, conn, limit=10):
         ORDER BY fts_results.score;
     """, (term, limit))
     return cursor.fetchall()
+
+# --------------------------------------------------------------------------------
+# Preprocess ingredient
+# --------------------------------------------------------------------------------
+
+def preprocess_query(query):
+    # Convert to lowercase
+    query = query.lower()
+    
+    # Remove cooking methods and descriptors
+    cooking_methods = ['grilled', 'baked', 'fried', 'roasted', 'steamed', 
+                      'boiled', 'hard boiled', 'sauteed', 'broiled', 'pan-fried']
+    
+    for method in cooking_methods:
+        query = re.sub(rf'\b{method}\b', '', query)
+    
+    # Remove extra whitespace
+    query = ' '.join(query.split())
+    
+    return query
