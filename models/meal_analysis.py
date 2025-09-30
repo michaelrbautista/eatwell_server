@@ -37,7 +37,7 @@ class AnalysisMeal(BaseModel):
     name: str
     image_path: str = ""
 
-    ingredients: list[AnalysisIngredient]
+    ingredients_new: list[AnalysisIngredient]
 
     protein_float: float
     leucine_float: float

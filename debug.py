@@ -133,7 +133,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
 
     return AnalysisMeal(
         name=meal_name,
-        ingredients=database_results,
+        ingredients_new=database_results,
         protein_float=calculate_protein(database_results),
         leucine_float=calculate_leucine(database_results),
         carbohydrates_float=calculate_carbohydrates(database_results),
