@@ -50,9 +50,10 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             "text": """
                             Analyze this image and follow these stepes:
                             1. Identify each visible food item.
-                            2. Give the meal a short name that describes it's contents (Ground beef bowl, Chicken and rice, etc). If it's a single food item, return ONLY the name of the food (apple, banana, etc.).
-                            2. Estimate the quantity of each item in grams as a float.
-                            3. Return a name of the meal and list of ingredients in this exact format:
+                            2. Give the meal a short name that describes it's contents (Ground beef bowl, Chicken and rice, etc). If it's a single food item, return the name of the food (apple, banana, etc.).
+                            3. Include cooking method if applicable (boiled eggs, grilled chicken, etc).
+                            4. Estimate the quantity of each item in grams as a float.
+                            5. Return a name of the meal and list of ingredients in this exact format:
                             {
                                 "name": "Chicken salad",
                                 "ingredients": [
@@ -67,7 +68,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                     ...
                                 ]
                             }
-                            4. If there are no food items in the image, return this EXACT object:
+                            6. If there are no food items in the image, return this EXACT object:
                             {
                                 "name": "Unknown",
                                 "ingredients": []
@@ -101,7 +102,6 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     valid_results = []
     invalid_results = []
     for food in ingredients:
-        print(food["name"])
         result = search_food(food["name"], food["quantity_in_grams"])
         if isinstance(result, AnalysisIngredient):
             valid_results.append(result)

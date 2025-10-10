@@ -164,10 +164,8 @@ def map_portions(portion_list: list[dict]) -> list[FoodPortion]:
 def get_portions(conn, fdc_id: str):
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT fp.id, fp.gram_weight, fp.amount, fp.modifier,
-               mu.id, mu.name
+        SELECT fp.id, fp.gram_weight, fp.amount, fp.modifier
         FROM sr_legacy_food_portion fp
-        LEFT JOIN sr_legacy_measure_unit mu ON fp.measure_unit_id = mu.id
         WHERE fp.fdc_id = ?
     """, (fdc_id,))
     portions = []

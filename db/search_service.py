@@ -49,8 +49,10 @@ def rerank_with_embeddings(term, candidates, conn, top_k=5):
             sim = cosine_similarity(query_emb, emb)
 
             # Word-overlap boost: +0.05 per matching word
-            desc_lower = c["description"].lower()
-            overlap = sum(1 for w in term.lower().split() if w in desc_lower)
+            # desc_lower = c["description"].lower()
+            # overlap = sum(1 for w in term.lower().split() if w in desc_lower)
+            desc_lower = c["description"]  # already normalized
+            overlap = sum(1 for w in term.split() if w in desc_lower)
             sim += 0.05 * overlap
 
             scored.append({
@@ -72,8 +74,8 @@ def rerank_with_embeddings(term, candidates, conn, top_k=5):
 # --------------------------------------------------------------------------------
 
 def get_candidates(term, conn):
-    fts_results = fts_search(term, conn, limit=10)
-    fuzzy_results = fuzzy_search(term, conn, limit=10)
+    fts_results = fts_search(term, conn, limit=20)
+    fuzzy_results = fuzzy_search(term, conn, limit=20)
 
     seen = set()
     candidates = []
@@ -88,9 +90,10 @@ def get_candidates(term, conn):
 # Fuzzy search
 # --------------------------------------------------------------------------------
 
-def fuzzy_search(term, conn, limit=10):
+def fuzzy_search(term, conn, limit=20):
     cursor = conn.cursor()
-    cursor.execute("SELECT fdc_id, description, 'sr_legacy_food' AS data_type FROM sr_legacy_food WHERE description IS NOT NULL")
+    # cursor.execute("SELECT fdc_id, description, 'sr_legacy_food' AS data_type FROM sr_legacy_food WHERE description IS NOT NULL")
+    cursor.execute("SELECT fdc_id, normalized_description, 'sr_legacy_food' AS data_type FROM sr_legacy_food WHERE normalized_description IS NOT NULL")
     sr_legacy_rows = cursor.fetchall()
 
     all_rows = sr_legacy_rows
@@ -112,14 +115,28 @@ def fuzzy_search(term, conn, limit=10):
 # Full text search
 # ----------------------------------------
 
-def fts_search(term, conn, limit=10):
+def fts_search(term, conn, limit=20):
     cursor = conn.cursor()
+    # cursor.execute("""
+    #     WITH fts_results AS (
+    #         SELECT rowid AS fdc_id, bm25(food_search) AS score
+    #         FROM food_search
+    #         WHERE food_search MATCH ?
+    #         ORDER BY bm25(food_search)
+    #         LIMIT ?
+    #     )
+    #     SELECT fts_results.fdc_id, f.data_type, f.description
+    #     FROM fts_results
+    #     JOIN (
+    #         SELECT fdc_id, 'sr_legacy_food' AS data_type, description FROM sr_legacy_food
+    #     ) AS f ON f.fdc_id = fts_results.fdc_id
+    #     ORDER BY fts_results.score;
+    # """, (term, limit))
     cursor.execute("""
         WITH fts_results AS (
             SELECT rowid AS fdc_id, bm25(food_search) AS score
             FROM food_search
             WHERE food_search MATCH ?
-            ORDER BY bm25(food_search)
             LIMIT ?
         )
         SELECT fts_results.fdc_id, f.data_type, f.description
@@ -130,23 +147,3 @@ def fts_search(term, conn, limit=10):
         ORDER BY fts_results.score;
     """, (term, limit))
     return cursor.fetchall()
-
-# --------------------------------------------------------------------------------
-# Preprocess ingredient
-# --------------------------------------------------------------------------------
-
-def preprocess_query(query):
-    # Convert to lowercase
-    query = query.lower()
-    
-    # Remove cooking methods and descriptors
-    cooking_methods = ['grilled', 'baked', 'fried', 'roasted', 'steamed', 
-                      'boiled', 'hard boiled', 'sauteed', 'broiled', 'pan-fried']
-    
-    for method in cooking_methods:
-        query = re.sub(rf'\b{method}\b', '', query)
-    
-    # Remove extra whitespace
-    query = ' '.join(query.split())
-    
-    return query

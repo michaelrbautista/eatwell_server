@@ -2,8 +2,18 @@ import pandas as pd
 import sqlite3
 import glob
 import os
+import re
 
 DB_PATH = "../food.db"
+
+# --- Normalization helper ---
+def normalize(text: str) -> str:
+    if not isinstance(text, str):
+        return ""
+    text = text.lower()
+    text = re.sub(r'[^a-z0-9\s]', '', text)
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
 
 # Remove old DB if you want a fresh build
 if os.path.exists(DB_PATH):
@@ -30,6 +40,25 @@ for csv_file in csv_files:
 # --- Create FTS5 virtual table for Food descriptions ---
 print("Creating FTS5 index...")
 
+# Add normalized_description column
+cursor.execute("ALTER TABLE sr_legacy_food ADD COLUMN normalized_description TEXT;")
+
+def normalize_text(text):
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
+cursor.execute("SELECT fdc_id, description FROM sr_legacy_food WHERE description IS NOT NULL;")
+rows = cursor.fetchall()
+
+for fdc_id, desc in rows:
+    norm = normalize_text(desc)
+    cursor.execute(
+        "UPDATE sr_legacy_food SET normalized_description = ? WHERE fdc_id = ?",
+        (norm, fdc_id)
+    )
+
 # Drop if exists (for rebuilds)
 cursor.execute("DROP TABLE IF EXISTS food_search;")
 
@@ -39,21 +68,25 @@ cursor.execute("""
     USING fts5(description, data_type, content='');
 """)
 
-# Insert Foundation foods
 # cursor.execute("""
 #     INSERT INTO food_search(rowid, description, data_type)
-#     SELECT fdc_id, description, 'foundation_food'
-#     FROM foundation_food
+#     SELECT fdc_id, description, 'sr_legacy_food'
+#     FROM sr_legacy_food
 #     WHERE description IS NOT NULL;
 # """)
 
-# Insert SR Legacy foods
 cursor.execute("""
     INSERT INTO food_search(rowid, description, data_type)
-    SELECT fdc_id, description, 'sr_legacy_food'
+    SELECT fdc_id, normalized_description, 'sr_legacy_food'
     FROM sr_legacy_food
-    WHERE description IS NOT NULL;
+    WHERE normalized_description IS NOT NULL;
 """)
+
+# print("First 5 rows of sr_legacy_food:")
+# cursor.execute("SELECT * FROM sr_legacy_food LIMIT 5;")
+# rows = cursor.fetchall()
+# for row in rows:
+#     print(row)
 
 conn.commit()
 conn.close()

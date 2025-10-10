@@ -4,21 +4,36 @@ from db.search_service import get_candidates, rerank_with_embeddings
 from helper import get_nutrients, map_nutrients, get_portions, map_portions
 from models.meal_analysis import AnalysisIngredient
 import os
+import re
 
 DB_PATH = os.getenv("DB_PATH", "food.db")
 
+def normalize_text(text):
+    text = text.lower()
+    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
 def search_food(term: str, quantity: float):
     conn = sqlite3.connect(DB_PATH)
-    candidates = get_candidates(term, conn)
-    top_candidates = rerank_with_embeddings(term, candidates, conn, top_k=5)
+    normalized_term = normalize_text(term)
+    candidates = get_candidates(normalized_term, conn)
+    top_candidates = rerank_with_embeddings(normalized_term, candidates, conn, top_k=5)
 
-    # Fetch full row data for the top-ranked candidate only
     if not top_candidates:
         conn.close()
         return None  # No match found
+    
+    # for f in top_candidates:
+    #     print({
+    #         "fdc_id": f["fdc_id"],
+    #         "food": f["description"],
+    #         "similarity": f["similarity"]
+    #     })
+    # print()
 
     best = top_candidates[0]  # first = closest match
-    if best["similarity"] < 0.6:
+    if best["similarity"] < 0.5:
         return {
             "is_valid": False,
             "name": term,
@@ -39,11 +54,6 @@ def search_food(term: str, quantity: float):
         return None
 
     food_data = dict(zip(colnames, food_row))
-
-    # return {
-    #     "food": food_data["description"],
-    #     "similarity": round(float(best["similarity"]), 2)
-    # }
 
     # Get nutrient data
     nutrients = get_nutrients(conn, food_data["fdc_id"])
@@ -73,44 +83,28 @@ def search_food(term: str, quantity: float):
 
     return ingredient
 
-with open("test_data.json", "r") as f:
-    data = json.load(f)
-
-test_vision_response = {
-    "name": "Chicken salad",
-    "ingredients": [
-        {
-            "name": "Steak",
-            "quantity_in_grams": 150.0
-        },
-        {
-            "name": "Eggs",
-            "quantity_in_grams": 100.0
-        },
-        {
-            "name": "Coffee",
-            "quantity_in_grams": 100.0
-        }
-    ]
-}
-
 if __name__ == "__main__":
+    ingredients = [
+        "turkey bacon",
+        "fried eggs",
+        "grilled chicken breast",
+        "carrots",
+        "cottage cheese"
+    ]
+
     valid_results = []
     invalid_results = []
-    for food in test_vision_response["ingredients"]:
-        result = search_food(food["name"], food["quantity_in_grams"])
+    for ingredient in ingredients:
+        result = search_food(ingredient, 100.0)
         if isinstance(result, AnalysisIngredient):
             valid_results.append(result)
         else:
             invalid_results.append(result)
+            
+    for result in valid_results:
+        print()
+        print(result.description)
+        print(result.fdc_id)
 
-    print("\n---- VALID ----")
-    for r in valid_results:
-        print(r.model_dump_json(indent=4))
-
-    print("\n---- INVALID ----")
-    for r in invalid_results:
-        print(json.dumps(r, indent=4))
     # print(json.dumps(valid_results, indent=4))
-    # print(json.dumps(invalid_results, indent=4))
     # print(food.model_dump_json(indent=4))
