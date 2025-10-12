@@ -6,6 +6,8 @@ from models.meal_analysis import AnalysisIngredient
 import os
 import re
 
+# source venv/bin/activate
+
 DB_PATH = os.getenv("DB_PATH", "food.db")
 
 def normalize_text(text):
@@ -85,11 +87,9 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "turkey bacon",
-        "fried eggs",
-        "grilled chicken breast",
-        "carrots",
-        "cottage cheese"
+        "Boiled egg",
+        "Apple",
+        "Cucumber"
     ]
 
     valid_results = []
@@ -101,10 +101,10 @@ if __name__ == "__main__":
         else:
             invalid_results.append(result)
             
-    for result in valid_results:
-        print()
-        print(result.description)
-        print(result.fdc_id)
+    # for result in valid_results:
+    #     print()
+    #     print(result.description)
+    #     print(result.fdc_id)
 
     # print(json.dumps(valid_results, indent=4))
     # print(food.model_dump_json(indent=4))

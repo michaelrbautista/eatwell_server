@@ -7,14 +7,14 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 172177,sr_legacy_food,Brie,1,2019-04-01,,
 172178,sr_legacy_food,Camembert,1,2019-04-01,,
 173413,sr_legacy_food,Caraway cheese,1,2019-04-01,,
-170899,sr_legacy_food,Sharp cheddar cheese (sliced),1,2019-04-01,,
+170899,sr_legacy_food,"Cheese, sharp cheddar, sliced",1,2019-04-01,,
 173414,sr_legacy_food,"Cheese, cheddar",1,2019-04-01,,
 173415,sr_legacy_food,Cheshire cheese,1,2019-04-01,,
 173416,sr_legacy_food,Colby cheese,1,2019-04-01,,
 172179,sr_legacy_food,Cottage cheese,1,2019-04-01,,
-173417,sr_legacy_food,Low-fat cottage cheese (1%),1,2019-04-01,,
-172182,sr_legacy_food,Low-fat cottage cheese (2%),1,2019-04-01,,
-172181,sr_legacy_food,Nonfat dry cottage cheese,1,2019-04-01,,
+173417,sr_legacy_food,"Cottage cheese, low-fat, 1%",1,2019-04-01,,
+172182,sr_legacy_food,"Cottage cheese, low-fat, 2%",1,2019-04-01,,
+172181,sr_legacy_food,"Cottage cheese, nonfat, dry",1,2019-04-01,,
 173418,sr_legacy_food,Cream cheese,1,2019-04-01,,
 172207,sr_legacy_food,"Cream cheese, fat-free",1,2019-04-01,,
 169079,sr_legacy_food,"Cream cheese, low-fat",1,2019-04-01,,
@@ -24,9 +24,9 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170843,sr_legacy_food,Fontina cheese,1,2019-04-01,,
 172223,sr_legacy_food,Queso fresco,1,2019-04-01,,
 171240,sr_legacy_food,Gjetost,1,2019-04-01,,
-172197,sr_legacy_food,Hard goat cheese,1,2019-04-01,,
-173433,sr_legacy_food,Semi-soft goat cheese,1,2019-04-01,,
-173435,sr_legacy_food,Soft goat cheese,1,2019-04-01,,
+172197,sr_legacy_food,"Goat cheese, hard",1,2019-04-01,,
+173433,sr_legacy_food,"Goat cheese, semi-soft",1,2019-04-01,,
+173435,sr_legacy_food,"Goat cheese, soft",1,2019-04-01,,
 171241,sr_legacy_food,Gouda cheese,1,2019-04-01,,
 171242,sr_legacy_food,Gruyère cheese,1,2019-04-01,,
 171243,sr_legacy_food,Limburger cheese,1,2019-04-01,,
@@ -36,8 +36,8 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 173438,sr_legacy_food,Queso chihuahua,1,2019-04-01,,
 170898,sr_legacy_food,Queso cotija,1,2019-04-01,,
 170844,sr_legacy_food,Monterey Jack cheese,1,2019-04-01,,
-168098,sr_legacy_food,Low-fat Monterey Jack cheese,1,2019-04-01,,
-171244,sr_legacy_food,Part-skim mozzarella,1,2019-04-01,,
+168098,sr_legacy_food,"Monterey Jack cheese, low-fat",1,2019-04-01,,
+171244,sr_legacy_food,"Mozzarella cheese, part-skim",1,2019-04-01,,
 170900,sr_legacy_food,"Mozzarella cheese, shredded",1,2019-04-01,,
 167735,sr_legacy_food,"Mozzarella cheese, low-sodium",1,2019-04-01,,
 169051,sr_legacy_food,"Mozzarella cheese, fat-free",1,2019-04-01,,
@@ -66,21 +66,21 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170852,sr_legacy_food,Tilsit cheese,1,2019-04-01,,
 172224,sr_legacy_food,Queso blanco,1,2019-04-01,,
 171255,sr_legacy_food,Half and half,1,2019-04-01,,
-170859,sr_legacy_food,Heavy whipping cream,1,2019-04-01,,
-170857,sr_legacy_food,Light cream,1,2019-04-01,,
-170858,sr_legacy_food,Light whipping cream,1,2019-04-01,,
+170859,sr_legacy_food,"Cream, heavy whipping",1,2019-04-01,,
+170857,sr_legacy_food,"Cream, light",1,2019-04-01,,
+170858,sr_legacy_food,"Cream, light whipping",1,2019-04-01,,
 172212,sr_legacy_food,"Half and half, fat-free",1,2019-04-01,,
 171308,sr_legacy_food,"Half and half, low-fat",1,2019-04-01,,
 171257,sr_legacy_food,Sour cream,1,2019-04-01,,
 171256,sr_legacy_food,"Sour cream, reduced fat",1,2019-04-01,,
 170860,sr_legacy_food,Whipped cream,1,2019-04-01,,
-172189,sr_legacy_food,Duck egg,1,2019-04-01,,
-172190,sr_legacy_food,Goose egg,1,2019-04-01,,
-172191,sr_legacy_food,Quail egg,1,2019-04-01,,
-172192,sr_legacy_food,Turkey egg,1,2019-04-01,,
+172189,sr_legacy_food,"Egg, duck",1,2019-04-01,,
+172190,sr_legacy_food,"Egg, goose",1,2019-04-01,,
+172191,sr_legacy_food,"Egg, quail",1,2019-04-01,,
+172192,sr_legacy_food,"Egg, turkey",1,2019-04-01,,
 172183,sr_legacy_food,Egg whites,1,2019-04-01,,
 173423,sr_legacy_food,"Eggs, fried",1,2019-04-01,,
-173424,sr_legacy_food,"Eggs, hard-boiled",1,2019-04-01,,
+173424,sr_legacy_food,"Eggs, boiled",1,2019-04-01,,
 172185,sr_legacy_food,Omelet,1,2019-04-01,,
 172186,sr_legacy_food,"Eggs, poached",1,2019-04-01,,
 172187,sr_legacy_food,"Eggs, scrambled",1,2019-04-01,,
@@ -97,20 +97,20 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170874,sr_legacy_food,"Buttermilk, low-fat",1,2019-04-01,,
 167697,sr_legacy_food,"Buttermilk, reduced-fat",1,2019-04-01,,
 172225,sr_legacy_food,"Buttermilk, whole",1,2019-04-01,,
-171275,sr_legacy_food,Sweetened condensed milk,1,2019-04-01,,
-172194,sr_legacy_food,Evaporated milk,1,2019-04-01,,
+171275,sr_legacy_food,"Milk, sweetened condensed",1,2019-04-01,,
+172194,sr_legacy_food,"Milk, evaporated",1,2019-04-01,,
 171277,sr_legacy_food,Hot cocoa,1,2019-04-01,,
 171303,sr_legacy_food,"Chocolate milk, fat-free",1,2019-04-01,,
 170880,sr_legacy_food,"Chocolate milk, reduced-fat",1,2019-04-01,,
 170879,sr_legacy_food,"Chocolate milk, whole",1,2019-04-01,,
-171302,sr_legacy_food,2% evaporated milk,1,2019-04-01,,
-171278,sr_legacy_food,Goat milk,1,2019-04-01,,
-171279,sr_legacy_food,Breast milk,1,2019-04-01,,
-170872,sr_legacy_food,1% milk,1,2019-04-01,,
-173432,sr_legacy_food,Skim milk,1,2019-04-01,,
-172205,sr_legacy_food,2% milk,1,2019-04-01,,
-170882,sr_legacy_food,Sheep milk,1,2019-04-01,,
-172217,sr_legacy_food,Whole milk,1,2019-04-01,,
+171302,sr_legacy_food,"Milk, evaporated, 2%",1,2019-04-01,,
+171278,sr_legacy_food,"Milk, goat",1,2019-04-01,,
+171279,sr_legacy_food,"Milk, breast",1,2019-04-01,,
+170872,sr_legacy_food,"Milk, 1%",1,2019-04-01,,
+173432,sr_legacy_food,"Milk, skim",1,2019-04-01,,
+172205,sr_legacy_food,"Milk, 2%",1,2019-04-01,,
+170882,sr_legacy_food,"Milk, sheep",1,2019-04-01,,
+172217,sr_legacy_food,"Milk, whole",1,2019-04-01,,
 173444,sr_legacy_food,"Sour cream, fat-free",1,2019-04-01,,
 173443,sr_legacy_food,"Sour cream, light",1,2019-04-01,,
 173442,sr_legacy_food,"Sour cream, low-fat",1,2019-04-01,,
@@ -129,37 +129,37 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170906,sr_legacy_food,"Yogurt, vanilla, nonfat",1,2019-04-01,170,
 172232,sr_legacy_food,Fresh basil,2,2019-04-01,,
 172238,sr_legacy_food,Capers,2,2019-04-01,,
-172233,sr_legacy_food,Fresh dill,2,2019-04-01,,
-173472,sr_legacy_food,Prepared horseradish,2,2019-04-01,,
-172234,sr_legacy_food,Yellow mustard,2,2019-04-01,,
-173474,sr_legacy_food,Fresh peppermint,2,2019-04-01,,
-173473,sr_legacy_food,Fresh rosemary,2,2019-04-01,,
+172233,sr_legacy_food,"Dill, fresh",2,2019-04-01,,
+173472,sr_legacy_food,Horseradish,2,2019-04-01,,
+172234,sr_legacy_food,"Mustard, yellow",2,2019-04-01,,
+173474,sr_legacy_food,"Peppermint, fresh",2,2019-04-01,,
+173473,sr_legacy_food,"Rosemary, fresh",2,2019-04-01,,
 173468,sr_legacy_food,Salt,2,2019-04-01,,
-172239,sr_legacy_food,Dried spearmint,2,2019-04-01,,
-173475,sr_legacy_food,Fresh spearmint,2,2019-04-01,,
+172239,sr_legacy_food,"Spearmint, dried",2,2019-04-01,,
+173475,sr_legacy_food,"Spearmint, fresh",2,2019-04-01,,
 171315,sr_legacy_food,Ground allspice,2,2019-04-01,,
 171316,sr_legacy_food,Anise seed,2,2019-04-01,,
-171317,sr_legacy_food,Dried basil,2,2019-04-01,,
+171317,sr_legacy_food,"Basil, dried",2,2019-04-01,,
 170917,sr_legacy_food,Bay leaf,2,2019-04-01,,
 170918,sr_legacy_food,Caraway seed,2,2019-04-01,,
 170919,sr_legacy_food,Cardamom,2,2019-04-01,,
 170920,sr_legacy_food,Celery seed,2,2019-04-01,,
-171318,sr_legacy_food,Dried chervil,2,2019-04-01,,
+171318,sr_legacy_food,"Chervil, dried",2,2019-04-01,,
 171319,sr_legacy_food,Chili powder,2,2019-04-01,,
 171320,sr_legacy_food,Cinnamon,2,2019-04-01,,
 171321,sr_legacy_food,Ground cloves,2,2019-04-01,,
-170921,sr_legacy_food,Dried cilantro,2,2019-04-01,,
+170921,sr_legacy_food,"Cilantro, dried",2,2019-04-01,,
 170922,sr_legacy_food,Coriander seed,2,2019-04-01,,
 170923,sr_legacy_food,Cumin seed,2,2019-04-01,,
 170924,sr_legacy_food,Curry powder,2,2019-04-01,,
 170925,sr_legacy_food,Dill seed,2,2019-04-01,,
-171322,sr_legacy_food,Dried dill,2,2019-04-01,,
+171322,sr_legacy_food,"Dill, dried",2,2019-04-01,,
 171323,sr_legacy_food,Fennel seed,2,2019-04-01,,
 171324,sr_legacy_food,Fenugreek seed,2,2019-04-01,,
 171325,sr_legacy_food,Garlic powder,2,2019-04-01,,
 170926,sr_legacy_food,Ground ginger,2,2019-04-01,,
 170927,sr_legacy_food,Ground mace,2,2019-04-01,,
-170928,sr_legacy_food,Dried marjoram,2,2019-04-01,,
+170928,sr_legacy_food,"Marjoram, dried",2,2019-04-01,,
 170929,sr_legacy_food,Ground mustard,2,2019-04-01,,
 171326,sr_legacy_food,Ground nutmeg,2,2019-04-01,,
 171327,sr_legacy_food,Onion powder,2,2019-04-01,,
@@ -172,19 +172,19 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 171330,sr_legacy_food,Poppy seed,2,2019-04-01,,
 171331,sr_legacy_food,Poultry seasoning,2,2019-04-01,,
 171332,sr_legacy_food,Pumpkin pie spice,2,2019-04-01,,
-171333,sr_legacy_food,Dried rosemary,2,2019-04-01,,
+171333,sr_legacy_food,"Rosemary, dried",2,2019-04-01,,
 170934,sr_legacy_food,Saffron,2,2019-04-01,,
 170935,sr_legacy_food,Ground sage,2,2019-04-01,,
 170936,sr_legacy_food,Ground savory,2,2019-04-01,,
-170937,sr_legacy_food,Dried tarragon,2,2019-04-01,,
-170938,sr_legacy_food,Dried thyme,2,2019-04-01,,
+170937,sr_legacy_food,"Tarragon, dried",2,2019-04-01,,
+170938,sr_legacy_food,"Thyme, dried",2,2019-04-01,,
 172231,sr_legacy_food,Ground turmeric,2,2019-04-01,,
-173470,sr_legacy_food,Fresh thyme,2,2019-04-01,,
+173470,sr_legacy_food,"Thyme, fresh",2,2019-04-01,,
 173471,sr_legacy_food,Vanilla extract,2,2019-04-01,,
-172241,sr_legacy_food,Apple cider vinegar,2,2019-04-01,,
+172241,sr_legacy_food,"Vinegar, apple cider",2,2019-04-01,,
 173469,sr_legacy_food,"Vinegar, cider",2,2019-04-01,,
-172237,sr_legacy_food,White vinegar,2,2019-04-01,,
-172240,sr_legacy_food,Red wine vinegar,2,2019-04-01,,
+172237,sr_legacy_food,"Vinegar, white",2,2019-04-01,,
+172240,sr_legacy_food,"Vinegar, red wine",2,2019-04-01,,
 172345,sr_legacy_food,Bacon grease,4,2019-04-01,,
 171400,sr_legacy_food,Beef tallow,4,2019-04-01,,
 173564,sr_legacy_food,Chicken fat,4,2019-04-01,,
@@ -573,97 +573,97 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170604,sr_legacy_food,Dried beef,7,2019-04-01,,2.2
 170202,sr_legacy_food,Canned jellied beef,7,2019-04-01,,3
 170204,sr_legacy_food,Pastrami,7,2019-04-01,,2.8
-171616,sr_legacy_food,Pork beerwurst,7,2019-04-01,,2.4
-172961,sr_legacy_food,Pork and beef beerwurst,7,2019-04-01,,2.6
-171618,sr_legacy_food,Blood sausage,7,2019-04-01,,2.1
-171619,sr_legacy_food,Pork and veal bockwurst,7,2019-04-01,,2.3
-172012,sr_legacy_food,Beef bologna,7,2019-04-01,,2.2
-172013,sr_legacy_food,Beef and pork bologna,7,2019-04-01,,2.4
-173873,sr_legacy_food,Chicken and pork bologna,7,2019-04-01,,2.1
-171637,sr_legacy_food,Mixed bologna,7,2019-04-01,,2.3
-173856,sr_legacy_food,Pork bologna,7,2019-04-01,,2.5
-173857,sr_legacy_food,Turkey bologna,7,2019-04-01,,2
-172956,sr_legacy_food,Smoked beef and pork bratwurst,7,2019-04-01,,2.6
-172957,sr_legacy_food,Cooked chicken bratwurst,7,2019-04-01,,2
-171622,sr_legacy_food,Pork and beef bratwurst,7,2019-04-01,,2.5
-171620,sr_legacy_food,Cooked pork bratwurst,7,2019-04-01,,2.5
-174595,sr_legacy_food,Cooked veal bratwurst,7,2019-04-01,,2.2
+171616,sr_legacy_food,"Beerwurst, pork",7,2019-04-01,,2.4
+172961,sr_legacy_food,"Beerwurst, pork and beef",7,2019-04-01,,2.6
+171618,sr_legacy_food,"Sausage, blood",7,2019-04-01,,2.1
+171619,sr_legacy_food,"Bockwurst, pork and veal",7,2019-04-01,,2.3
+172012,sr_legacy_food,"Bologna, beef",7,2019-04-01,,2.2
+172013,sr_legacy_food,"Bologna, beef and pork",7,2019-04-01,,2.4
+173873,sr_legacy_food,"Bologna, chicken and pork",7,2019-04-01,,2.1
+171637,sr_legacy_food,"Bologna, mixed",7,2019-04-01,,2.3
+173856,sr_legacy_food,"Bologna, pork",7,2019-04-01,,2.5
+173857,sr_legacy_food,"Bologna, turkey",7,2019-04-01,,2
+172956,sr_legacy_food,"Bratwurst, smoked beef and pork",7,2019-04-01,,2.6
+172957,sr_legacy_food,"Bratwurst, chicken",7,2019-04-01,,2
+171622,sr_legacy_food,"Bratwurst, pork and beef",7,2019-04-01,,2.5
+171620,sr_legacy_food,"Bratwurst, pork",7,2019-04-01,,2.5
+174595,sr_legacy_food,"Bratwurst, veal",7,2019-04-01,,2.2
 171621,sr_legacy_food,"Pork braunschweiger, liver sausage",7,2019-04-01,,2
 171623,sr_legacy_food,"Cheese smokie, pork and beef",7,2019-04-01,,2.8
 173874,sr_legacy_food,"Deli chicken breast, rotisserie seasoned, sliced",7,2019-04-01,,1.3
-172962,sr_legacy_food,"Fat-free chicken breast, sliced",7,2019-04-01,,1
-174614,sr_legacy_food,Beef hot dog,7,2019-04-01,,2.5
-173862,sr_legacy_food,"Beef hot dog, unheated",7,2019-04-01,,2.6
-171624,sr_legacy_food,Chicken hot dog,7,2019-04-01,,1.9
-171633,sr_legacy_food,Boiled meat and poultry hot dog,7,2019-04-01,,2.1
-171634,sr_legacy_food,Grilled meat and poultry hot dog,7,2019-04-01,,2.2
-173875,sr_legacy_food,Meat and poultry hot dog,7,2019-04-01,,2.2
-172964,sr_legacy_food,Pork hot dog,7,2019-04-01,,2.4
-171625,sr_legacy_food,Turkey hot dog,7,2019-04-01,,1.8
-171627,sr_legacy_food,Chopped ham,7,2019-04-01,,2
-174611,sr_legacy_food,Honey smoked ham,7,2019-04-01,,2
-173865,sr_legacy_food,Minced ham,7,2019-04-01,,2.1
-173863,sr_legacy_food,"Sliced ham, low-fat, deli",7,2019-04-01,,1.5
-173864,sr_legacy_food,Sliced ham,7,2019-04-01,,1.8
-168092,sr_legacy_food,"Extra lean turkey ham, sliced",7,2019-04-01,,1.3
+172962,sr_legacy_food,"Sliced chicken breast, fat-free",7,2019-04-01,,1
+174614,sr_legacy_food,"Hot dog, beef",7,2019-04-01,,2.5
+173862,sr_legacy_food,"Hot dog, beef, unheated",7,2019-04-01,,2.6
+171624,sr_legacy_food,"Hot dog, chicken",7,2019-04-01,,1.9
+171633,sr_legacy_food,"Hot dog, beef and poultry, boiled",7,2019-04-01,,2.1
+171634,sr_legacy_food,"Hot dog, beef and poultry, grilled",7,2019-04-01,,2.2
+173875,sr_legacy_food,"Hot dog, beef and poultry",7,2019-04-01,,2.2
+172964,sr_legacy_food,"Hot dog, pork",7,2019-04-01,,2.4
+171625,sr_legacy_food,"Hot dog, turkey",7,2019-04-01,,1.8
+171627,sr_legacy_food,"Ham, chopped",7,2019-04-01,,2
+174611,sr_legacy_food,"Ham, honey smoked",7,2019-04-01,,2
+173865,sr_legacy_food,"Ham, minced",7,2019-04-01,,2.1
+173863,sr_legacy_food,"Ham, sliced, low-fat, deli",7,2019-04-01,,1.5
+173864,sr_legacy_food,"Ham, sliced",7,2019-04-01,,1.8
+168092,sr_legacy_food,"turkey ham, extra lean, sliced",7,2019-04-01,,1.3
 171630,sr_legacy_food,Pork headcheese,7,2019-04-01,,4
 172943,sr_legacy_food,Beef honey roll sausage,7,2019-04-01,,2.5
-173877,sr_legacy_food,Grilled kielbasa,7,2019-04-01,,2.8
-173878,sr_legacy_food,Pan-fried kielbasa,7,2019-04-01,,2.8
+173877,sr_legacy_food,"Kielbasa, grilled",7,2019-04-01,,2.8
+173878,sr_legacy_food,"Kielbasa, pan-fried",7,2019-04-01,,2.8
 173879,sr_legacy_food,Kielbasa,7,2019-04-01,,2.7
-174607,sr_legacy_food,Smoked turkey and beef kielbasa,7,2019-04-01,,2.4
-173867,sr_legacy_food,Pork and beef knackwurst,7,2019-04-01,,2.5
-173868,sr_legacy_food,Lebanon beef bologna,7,2019-04-01,,2.3
+174607,sr_legacy_food,"Kielbasa, smoked turkey and beef",7,2019-04-01,,2.4
+173867,sr_legacy_food,"Knackwurst, pork and beef",7,2019-04-01,,2.5
+173868,sr_legacy_food,"Bologna, Lebanon beef",7,2019-04-01,,2.3
 173869,sr_legacy_food,Pork liver cheese,7,2019-04-01,,2.1
 173870,sr_legacy_food,Pork liverwurst,7,2019-04-01,,2
-171638,sr_legacy_food,Frozen Italian meatballs,7,2019-04-01,,2.6
-174573,sr_legacy_food,Beef and pork mortadella,7,2019-04-01,,2.5
-172959,sr_legacy_food,Lean beef pastrami,7,2019-04-01,,2.5
-172927,sr_legacy_food,Turkey pastrami,7,2019-04-01,,1.9
-172928,sr_legacy_food,Canned chicken liver pâté,7,2019-04-01,,1.8
-172929,sr_legacy_food,Canned smoked goose liver pâté,7,2019-04-01,,2
-172930,sr_legacy_food,Canned liver pâté,7,2019-04-01,,1.9
-172967,sr_legacy_food,Truffle pâté,7,2019-04-01,,1.8
-174575,sr_legacy_food,Sliced pepperoni,7,2019-04-01,,2.8
-174577,sr_legacy_food,Pork Polish sausage,7,2019-04-01,,2.6
-167698,sr_legacy_food,Cooked pork sausage rice links,7,2019-04-01,,2.5
-174578,sr_legacy_food,Pan-fried pork sausage,7,2019-04-01,,2.7
-172971,sr_legacy_food,Microwaved pork sausage,7,2019-04-01,,2.6
-173876,sr_legacy_food,Cooked pork sausage,7,2019-04-01,,2.5
+171638,sr_legacy_food,"Meatballs, Italian, frozen",7,2019-04-01,,2.6
+174573,sr_legacy_food,"Mortadella, beef and pork",7,2019-04-01,,2.5
+172959,sr_legacy_food,"Pastrami, beef",7,2019-04-01,,2.5
+172927,sr_legacy_food,"Pastrami, turkey",7,2019-04-01,,1.9
+172928,sr_legacy_food,"Pâté, chicken liver, canned",7,2019-04-01,,1.8
+172929,sr_legacy_food,"Pâté, smoked goose liver, canned",7,2019-04-01,,2
+172930,sr_legacy_food,"Pâté, liver, canned",7,2019-04-01,,1.9
+172967,sr_legacy_food,"Pâté, truffle",7,2019-04-01,,1.8
+174575,sr_legacy_food,"Pepperoni, sliced",7,2019-04-01,,2.8
+174577,sr_legacy_food,"Sausage, pork Polish",7,2019-04-01,,2.6
+167698,sr_legacy_food,"Sausage rice links, pork",7,2019-04-01,,2.5
+174578,sr_legacy_food,"Sausage, pork, pan-fried",7,2019-04-01,,2.7
+172971,sr_legacy_food,"Sausage, pork, microwaved",7,2019-04-01,,2.6
+173876,sr_legacy_food,"Sausage, pork",7,2019-04-01,,2.5
 174570,sr_legacy_food,"Roast beef, deli, sliced",7,2019-04-01,,1.7
-172935,sr_legacy_food,Cooked beef salami,7,2019-04-01,,2.5
-172936,sr_legacy_food,Cooked beef and pork salami,7,2019-04-01,,2.6
-172937,sr_legacy_food,Cooked turkey salami,7,2019-04-01,,2
-172938,sr_legacy_food,Dry pork salami,7,2019-04-01,,2.9
-174582,sr_legacy_food,Dry pork and beef salami,7,2019-04-01,,3
-174603,sr_legacy_food,Italian pork salami,7,2019-04-01,,2.8
-170606,sr_legacy_food,Smoked cured beef sausage,7,2019-04-01,,2.6
-174618,sr_legacy_food,Beef sausage,7,2019-04-01,,2.6
+172935,sr_legacy_food,"Salami, beef",7,2019-04-01,,2.5
+172936,sr_legacy_food,"Salami, beef and pork",7,2019-04-01,,2.6
+172937,sr_legacy_food,"Salami, turkey",7,2019-04-01,,2
+172938,sr_legacy_food,"Salami, pork, dry",7,2019-04-01,,2.9
+174582,sr_legacy_food,"Salami, pork and beef, dry",7,2019-04-01,,3
+174603,sr_legacy_food,"Salami, Italian pork",7,2019-04-01,,2.8
+170606,sr_legacy_food,"Sausage, smoked cured beef",7,2019-04-01,,2.6
+174618,sr_legacy_food,"Sausage, beef",7,2019-04-01,,2.6
 171617,sr_legacy_food,"Berliner sausage, pork/beef",7,2019-04-01,,2.6
-174616,sr_legacy_food,Beef breakfast sausage,7,2019-04-01,,2.4
-174586,sr_legacy_food,Mild Italian pork sausage,7,2019-04-01,,2.5
-171631,sr_legacy_food,Raw mild Italian pork sausage,7,2019-04-01,,2.6
-172952,sr_legacy_food,Sweet Italian sausage,7,2019-04-01,,2.5
-174604,sr_legacy_food,Smoked Italian turkey sausage,7,2019-04-01,,2.1
+174616,sr_legacy_food,"Breakfast sausage, beef",7,2019-04-01,,2.4
+174586,sr_legacy_food,"Sausage, mild Italian pork",7,2019-04-01,,2.5
+171631,sr_legacy_food,"Sausage, mild Italian pork, raw",7,2019-04-01,,2.6
+172952,sr_legacy_food,"Sausage, sweet Italian",7,2019-04-01,,2.5
+174604,sr_legacy_food,"Sausage, smoked Italian turkey",7,2019-04-01,,2.1
 174588,sr_legacy_food,"New England sausage, pork/beef",7,2019-04-01,,2.5
 172953,sr_legacy_food,"Spicy Polish sausage, beef/chicken",7,2019-04-01,,2.3
-172954,sr_legacy_food,Smoked pork and beef Polish sausage,7,2019-04-01,,2.6
-174579,sr_legacy_food,Pork and beef sausage,7,2019-04-01,,2.5
-171632,sr_legacy_food,Pork and turkey sausage,7,2019-04-01,,2.3
+172954,sr_legacy_food,"Polish sausage, smoked pork and beef",7,2019-04-01,,2.6
+174579,sr_legacy_food,"Sausage, pork and beef",7,2019-04-01,,2.5
+171632,sr_legacy_food,"Sausage, pork and turkey",7,2019-04-01,,2.3
 173859,sr_legacy_food,"Pork chorizo, raw",7,2019-04-01,,2.7
-174584,sr_legacy_food,Smoked pork sausage,7,2019-04-01,,2.6
-174585,sr_legacy_food,Smoked pork and beef sausage,7,2019-04-01,,2.7
-167694,sr_legacy_food,Turkey and pork sausage,7,2019-04-01,,2.3
-174600,sr_legacy_food,"Mild turkey breakfast sausage, raw",7,2019-04-01,,2.1
-173871,sr_legacy_food,Turkey sausage,7,2019-04-01,,2.1
-174617,sr_legacy_food,"Turkey sausage, raw",7,2019-04-01,,2.2
-174606,sr_legacy_food,Smoked spicy turkey sausage,7,2019-04-01,,2.2
-172942,sr_legacy_food,"Canned Vienna sausage, chicken/beef/pork",7,2019-04-01,,2.3
+174584,sr_legacy_food,"Sausage, smoked pork",7,2019-04-01,,2.6
+174585,sr_legacy_food,"Sausage, smoked pork and beef",7,2019-04-01,,2.7
+167694,sr_legacy_food,"Sausage, turkey adn pork",7,2019-04-01,,2.3
+174600,sr_legacy_food,"Breakfast sausage, mild turkey, raw",7,2019-04-01,,2.1
+173871,sr_legacy_food,"Sausage, turkey",7,2019-04-01,,2.1
+174617,sr_legacy_food,"Sausage, turkey, raw",7,2019-04-01,,2.2
+174606,sr_legacy_food,"Sausage, smoked spicy turkey",7,2019-04-01,,2.2
+172942,sr_legacy_food,"Vienna sausage, chicken/beef/pork, canned",7,2019-04-01,,2.3
 172969,sr_legacy_food,Pork scrapple,7,2019-04-01,,2.8
-174601,sr_legacy_food,"Smoked Swisswurst, pork, beef, cheese",7,2019-04-01,,2.7
+174601,sr_legacy_food,"Swisswurst, smoked pork, beef and cheese",7,2019-04-01,,2.7
 172940,sr_legacy_food,"Thuringer summer sausage, beef/pork",7,2019-04-01,,2.8
-174572,sr_legacy_food,Deli turkey breast,7,2019-04-01,,1.2
-172941,sr_legacy_food,Sliced deli turkey breast,7,2019-04-01,,1.2
+174572,sr_legacy_food,"Turkey breast, deli",7,2019-04-01,,1.2
+172941,sr_legacy_food,"Sliced turkey breast, deli",7,2019-04-01,,1.2
 174613,sr_legacy_food,"Rotisserie white turkey, deli sliced",7,2019-04-01,,1.3
 173884,sr_legacy_food,"General Mills, Cheerios",8,2019-04-01,,
 171646,sr_legacy_food,Granola,8,2019-04-01,,
@@ -699,82 +699,82 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 171668,sr_legacy_food,Whole Wheat Hot Cereal,8,2019-04-01,,
 167724,sr_legacy_food,Puffed Millet,8,2019-04-01,,
 167782,sr_legacy_food,Abiyuch,9,2019-04-01,,
-171687,sr_legacy_food,Acerola juice,9,2019-04-01,,
+171687,sr_legacy_food,"Juice, acerola",9,2019-04-01,,
 171686,sr_legacy_food,Acerola,9,2019-04-01,,
-173933,sr_legacy_food,Apple juice,9,2019-04-01,,
-171690,sr_legacy_food,Stewed dehydrated apples,9,2019-04-01,,
-173931,sr_legacy_food,Dehydrated apples,9,2019-04-01,,
-171692,sr_legacy_food,Stewed dried apples,9,2019-04-01,,
-171691,sr_legacy_food,Dried apples,9,2019-04-01,,
-167793,sr_legacy_food,Fuji apple,9,2019-04-01,,
-168204,sr_legacy_food,Gala apple,9,2019-04-01,,
-168202,sr_legacy_food,Golden delicious apple,9,2019-04-01,,
-168203,sr_legacy_food,Granny smith apple,9,2019-04-01,,
-168201,sr_legacy_food,Red delicious apple,9,2019-04-01,,
+173933,sr_legacy_food,"Juice, apple",9,2019-04-01,,
+171690,sr_legacy_food,"Apples, stewed, dehydrated",9,2019-04-01,,
+173931,sr_legacy_food,"Apples, dehydrated",9,2019-04-01,,
+171692,sr_legacy_food,"Apples, stewed, dried",9,2019-04-01,,
+171691,sr_legacy_food,"Apples, dried",9,2019-04-01,,
+167793,sr_legacy_food,"Apple, fuji",9,2019-04-01,,
+168204,sr_legacy_food,"Apple, gala",9,2019-04-01,,
+168202,sr_legacy_food,"Apple, golden delicious",9,2019-04-01,,
+168203,sr_legacy_food,"Apple, granny smith",9,2019-04-01,,
+168201,sr_legacy_food,"Apple, red delicious",9,2019-04-01,,
 171688,sr_legacy_food,Apple,9,2019-04-01,,
 171689,sr_legacy_food,"Apple, peeled",9,2019-04-01,,
 173928,sr_legacy_food,"Apple, boiled, peeled",9,2019-04-01,,
 171695,sr_legacy_food,"Applesauce, unsweetened",9,2019-04-01,,
-171704,sr_legacy_food,Apricot nectar,9,2019-04-01,,
-173940,sr_legacy_food,Stewed dehydrated apricots,9,2019-04-01,,
-171702,sr_legacy_food,Dehydrated apricots,9,2019-04-01,,
-173942,sr_legacy_food,Stewed dried apricots,9,2019-04-01,,
-173941,sr_legacy_food,Dried apricots,9,2019-04-01,,
+171704,sr_legacy_food,"Nectar, apricot",9,2019-04-01,,
+173940,sr_legacy_food,"Apricots, stewed, dehydrated",9,2019-04-01,,
+171702,sr_legacy_food,"Apricots, dehydrated",9,2019-04-01,,
+173942,sr_legacy_food,"Apricots, stewed, dried",9,2019-04-01,,
+173941,sr_legacy_food,"Apricots, dried",9,2019-04-01,,
 171697,sr_legacy_food,Apricot,9,2019-04-01,,
 171705,sr_legacy_food,Avocado,9,2019-04-01,,
-173945,sr_legacy_food,Banana powder,9,2019-04-01,,
+173945,sr_legacy_food,"Powder, banana",9,2019-04-01,,
 173944,sr_legacy_food,Banana,9,2019-04-01,,
-167806,sr_legacy_food,Baobab powder,9,2019-04-01,,
-171710,sr_legacy_food,Frozen blackberries,9,2019-04-01,,
+167806,sr_legacy_food,"Powder, baobab",9,2019-04-01,,
+171710,sr_legacy_food,"Blackberries, frozen",9,2019-04-01,,
 173946,sr_legacy_food,Blackberries,9,2019-04-01,,
-173947,sr_legacy_food,Blackberry juice,9,2019-04-01,,
-173950,sr_legacy_food,Frozen blueberries,9,2019-04-01,,
+173947,sr_legacy_food,"Juice, blackberry",9,2019-04-01,,
+173950,sr_legacy_food,"Blueberries, frozen",9,2019-04-01,,
 171711,sr_legacy_food,Blueberries,9,2019-04-01,,
-173949,sr_legacy_food,Wild blueberries,9,2019-04-01,,
-171713,sr_legacy_food,Frozen boysenberries,9,2019-04-01,,
+173949,sr_legacy_food,"Blueberries, wild",9,2019-04-01,,
+171713,sr_legacy_food,"Boysenberries, frozen",9,2019-04-01,,
 171714,sr_legacy_food,Breadfruit,9,2019-04-01,,
 171715,sr_legacy_food,Starfruit,9,2019-04-01,,
-173952,sr_legacy_food,Natal plum,9,2019-04-01,,
+173952,sr_legacy_food,"Plum, natal",9,2019-04-01,,
 173953,sr_legacy_food,Cherimoya,9,2019-04-01,,
-171718,sr_legacy_food,Frozen sour cherries,9,2019-04-01,,
-173954,sr_legacy_food,Sour cherries,9,2019-04-01,,
-171719,sr_legacy_food,Sweet cherries,9,2019-04-01,,
-167807,sr_legacy_food,Tart cherry juice,9,2019-04-01,,
+171718,sr_legacy_food,"Cherries, sour, frozen",9,2019-04-01,,
+173954,sr_legacy_food,"Cherries, sour",9,2019-04-01,,
+171719,sr_legacy_food,"Cherries, sweet",9,2019-04-01,,
+167807,sr_legacy_food,"Juice, tart cherry",9,2019-04-01,,
 168195,sr_legacy_food,Clementines,9,2019-04-01,,
 171721,sr_legacy_food,Crabapples,9,2019-04-01,,
 171722,sr_legacy_food,Cranberries,9,2019-04-01,,
-168117,sr_legacy_food,Cranberry juice,9,2019-04-01,,
-173963,sr_legacy_food,Black currants,9,2019-04-01,,
+168117,sr_legacy_food,"Juice, cranberry",9,2019-04-01,,
+173963,sr_legacy_food,"Currants, black",9,2019-04-01,,
 173964,sr_legacy_food,"Currants, red or white",9,2019-04-01,,
-171724,sr_legacy_food,Zante currants,9,2019-04-01,,
-171725,sr_legacy_food,Custard apple,9,2019-04-01,,
+171724,sr_legacy_food,"Currants, zante",9,2019-04-01,,
+171725,sr_legacy_food,"Apple, custard",9,2019-04-01,,
 171726,sr_legacy_food,"Dates, deglet noor",9,2019-04-01,,
 168191,sr_legacy_food,"Dates, medjool",9,2019-04-01,,
 168192,sr_legacy_food,Durian,9,2019-04-01,,
 171727,sr_legacy_food,Elderberries,9,2019-04-01,,
 168176,sr_legacy_food,Feijoa,9,2019-04-01,,
-174666,sr_legacy_food,Stewed dried figs,9,2019-04-01,,
-174665,sr_legacy_food,Dried figs,9,2019-04-01,,
+174666,sr_legacy_food,"Figs, stewed, dried",9,2019-04-01,,
+174665,sr_legacy_food,"Figs, dried",9,2019-04-01,,
 173021,sr_legacy_food,Figs,9,2019-04-01,,
-173032,sr_legacy_food,Dried goji berries,9,2019-04-01,,
+173032,sr_legacy_food,"Goji berries, dried",9,2019-04-01,,
 173030,sr_legacy_food,Gooseberries,9,2019-04-01,,
-173042,sr_legacy_food,Grape juice,9,2019-04-01,,
-167774,sr_legacy_food,Pink grapefruit juice,9,2019-04-01,,
-173039,sr_legacy_food,White grapefruit juice,9,2019-04-01,,
+173042,sr_legacy_food,"Juice, grape",9,2019-04-01,,
+167774,sr_legacy_food,"Juice, pink grapefruit",9,2019-04-01,,
+173039,sr_legacy_food,"Juice, white grapefruit",9,2019-04-01,,
 173033,sr_legacy_food,Grapefruit,9,2019-04-01,,
-174673,sr_legacy_food,Pink grapefruit,9,2019-04-01,,
-174676,sr_legacy_food,White grapefruit,9,2019-04-01,,
-174682,sr_legacy_food,American grapes,9,2019-04-01,,
-173040,sr_legacy_food,Muscadine grapes,9,2019-04-01,,
-174683,sr_legacy_food,Red or green grapes,9,2019-04-01,,
+174673,sr_legacy_food,"Grapefruit, pink",9,2019-04-01,,
+174676,sr_legacy_food,"Grapefruit, white",9,2019-04-01,,
+174682,sr_legacy_food,"Grapes, American",9,2019-04-01,,
+173040,sr_legacy_food,"Grapes, muscadine",9,2019-04-01,,
+174683,sr_legacy_food,"Grapes, red or green",9,2019-04-01,,
 173043,sr_legacy_food,Groundcherries,9,2019-04-01,,
-174686,sr_legacy_food,Guava sauce,9,2019-04-01,,
+174686,sr_legacy_food,"Sauce, guava",9,2019-04-01,,
 173044,sr_legacy_food,Guava,9,2019-04-01,,
-173045,sr_legacy_food,Strawberry guava,9,2019-04-01,,
-167791,sr_legacy_food,Horned melon,9,2019-04-01,,
+173045,sr_legacy_food,"Guava, strawberry",9,2019-04-01,,
+167791,sr_legacy_food,"Melon, horned",9,2019-04-01,,
 174687,sr_legacy_food,Jackfruit,9,2019-04-01,,
 168150,sr_legacy_food,Java plum,9,2019-04-01,,
-168152,sr_legacy_food,Dried jujube,9,2019-04-01,,
+168152,sr_legacy_food,"Jujube, dried",9,2019-04-01,,
 168151,sr_legacy_food,Jujube,9,2019-04-01,,
 168153,sr_legacy_food,"Kiwi, green",9,2019-04-01,,
 168211,sr_legacy_food,"Kiwi, SunGold",9,2019-04-01,,
@@ -782,89 +782,89 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 167747,sr_legacy_food,Lemon juice,9,2019-04-01,,
 167749,sr_legacy_food,Lemon peel,9,2019-04-01,,
 167746,sr_legacy_food,"Lemon, peeled",9,2019-04-01,,
-168156,sr_legacy_food,Lime juice,9,2019-04-01,,
+168156,sr_legacy_food,"Juice, lime",9,2019-04-01,,
 168155,sr_legacy_food,Lime,9,2019-04-01,,
-169087,sr_legacy_food,Dried litchis,9,2019-04-01,,
+169087,sr_legacy_food,"Litchis, dried",9,2019-04-01,,
 169086,sr_legacy_food,Litchis,9,2019-04-01,,
-169088,sr_legacy_food,Frozen loganberries,9,2019-04-01,,
-169907,sr_legacy_food,Dried longans,9,2019-04-01,,
+169088,sr_legacy_food,"Loganberries, frozen",9,2019-04-01,,
+169907,sr_legacy_food,"Longans, dried",9,2019-04-01,,
 169089,sr_legacy_food,Longans,9,2019-04-01,,
 169908,sr_legacy_food,Loquats,9,2019-04-01,,
 169909,sr_legacy_food,Mamey,9,2019-04-01,,
-167785,sr_legacy_food,Mango nectar,9,2019-04-01,,
+167785,sr_legacy_food,"Nectar, mango",9,2019-04-01,,
 169910,sr_legacy_food,Mango,9,2019-04-01,,
 167766,sr_legacy_food,Maraschino cherries,9,2019-04-01,,
 169092,sr_legacy_food,Cantaloupe,9,2019-04-01,,
-169093,sr_legacy_food,Casaba melon,9,2019-04-01,,
-169911,sr_legacy_food,Honeydew melon,9,2019-04-01,,
+169093,sr_legacy_food,"Melon, casaba",9,2019-04-01,,
+169911,sr_legacy_food,"Melon, honeydew",9,2019-04-01,,
 169913,sr_legacy_food,Mulberries,9,2019-04-01,,
-167789,sr_legacy_food,Frozen nance,9,2019-04-01,,
-167790,sr_legacy_food,Frozen lulo pulp,9,2019-04-01,,
+167789,sr_legacy_food,"Nance, frozen",9,2019-04-01,,
+167790,sr_legacy_food,"Lulo pulp, frozen",9,2019-04-01,,
 169914,sr_legacy_food,Nectarines,9,2019-04-01,,
 169915,sr_legacy_food,Oheloberries,9,2019-04-01,,
-169096,sr_legacy_food,Green olives,9,2019-04-01,,
-169094,sr_legacy_food,Ripe olives,9,2019-04-01,,
-169098,sr_legacy_food,Orange juice,9,2019-04-01,,
-169103,sr_legacy_food,Orange peel,9,2019-04-01,,
-167792,sr_legacy_food,Orange pineapple juice,9,2019-04-01,,
-169104,sr_legacy_food,Orange grapefruit juice,9,2019-04-01,,
-169097,sr_legacy_food,Oranges,9,2019-04-01,,
-169916,sr_legacy_food,Valencia oranges,9,2019-04-01,,
-169918,sr_legacy_food,Florida oranges,9,2019-04-01,,
-169917,sr_legacy_food,Navel oranges,9,2019-04-01,,
-169919,sr_legacy_food,Whole oranges,9,2019-04-01,,
-169107,sr_legacy_food,Papaya nectar,9,2019-04-01,,
+169096,sr_legacy_food,"Olives, green",9,2019-04-01,,
+169094,sr_legacy_food,"Olives, ripe",9,2019-04-01,,
+169098,sr_legacy_food,"Juice, orange",9,2019-04-01,,
+169103,sr_legacy_food,"Orange, peel",9,2019-04-01,,
+167792,sr_legacy_food,"Juice, orange pineapple",9,2019-04-01,,
+169104,sr_legacy_food,"Juice, orange grapefruit",9,2019-04-01,,
+169097,sr_legacy_food,Orange,9,2019-04-01,,
+169916,sr_legacy_food,"Orange, Valencia",9,2019-04-01,,
+169918,sr_legacy_food,"Orange, Florida",9,2019-04-01,,
+169917,sr_legacy_food,"Orange, navel",9,2019-04-01,,
+169919,sr_legacy_food,"Orange, whole",9,2019-04-01,,
+169107,sr_legacy_food,"Nectar, papaya",9,2019-04-01,,
 169926,sr_legacy_food,Papaya,9,2019-04-01,,
-169109,sr_legacy_food,Purple passion fruit juice,9,2019-04-01,,
-169110,sr_legacy_food,Yellow passion fruit juice,9,2019-04-01,,
-169108,sr_legacy_food,Purple passion fruit,9,2019-04-01,,
-169933,sr_legacy_food,Stewed dehydrated peaches,9,2019-04-01,,
-169932,sr_legacy_food,Dehydrated peaches,9,2019-04-01,,
-169935,sr_legacy_food,Stewed dried peaches,9,2019-04-01,,
-169934,sr_legacy_food,Dried peaches,9,2019-04-01,,
-169928,sr_legacy_food,Yellow peaches,9,2019-04-01,,
-169940,sr_legacy_food,Pear nectar,9,2019-04-01,,
-168177,sr_legacy_food,Asian pears,9,2019-04-01,,
-169122,sr_legacy_food,Stewed dried pears,9,2019-04-01,,
-169121,sr_legacy_food,Dried pears,9,2019-04-01,,
-169118,sr_legacy_food,Pears,9,2019-04-01,,
-167776,sr_legacy_food,Bartlett pears,9,2019-04-01,,
-167778,sr_legacy_food,Bosc pears,9,2019-04-01,,
-167779,sr_legacy_food,Green Anjou pears,9,2019-04-01,,
-167777,sr_legacy_food,Red Anjou pears,9,2019-04-01,,
-169942,sr_legacy_food,Dried Japanese persimmons,9,2019-04-01,,
-169941,sr_legacy_food,Japanese persimmons,9,2019-04-01,,
-169943,sr_legacy_food,Persimmons,9,2019-04-01,,
-169947,sr_legacy_food,Pineapple juice,9,2019-04-01,,
+169109,sr_legacy_food,"Juice, purple passion fruit",9,2019-04-01,,
+169110,sr_legacy_food,"Juice, yellow passion fruit",9,2019-04-01,,
+169108,sr_legacy_food,"Passion fruit, purple",9,2019-04-01,,
+169933,sr_legacy_food,"Peaches, stewed, dehydrated",9,2019-04-01,,
+169932,sr_legacy_food,"Peaches, dehydrated",9,2019-04-01,,
+169935,sr_legacy_food,"Peaches, stewed, dried",9,2019-04-01,,
+169934,sr_legacy_food,Peaches. dried,9,2019-04-01,,
+169928,sr_legacy_food,"Peach, yellow",9,2019-04-01,,
+169940,sr_legacy_food,"Nectar, peach",9,2019-04-01,,
+168177,sr_legacy_food,"Pear, Asian",9,2019-04-01,,
+169122,sr_legacy_food,"Pears, stewed, dried",9,2019-04-01,,
+169121,sr_legacy_food,"Pear, dried",9,2019-04-01,,
+169118,sr_legacy_food,Pear,9,2019-04-01,,
+167776,sr_legacy_food,"Pears, bartlett",9,2019-04-01,,
+167778,sr_legacy_food,"Pear, bosc",9,2019-04-01,,
+167779,sr_legacy_food,"Pear, green anjou",9,2019-04-01,,
+167777,sr_legacy_food,"Pear, red anjou",9,2019-04-01,,
+169942,sr_legacy_food,"Persimmon, japanese, dried",9,2019-04-01,,
+169941,sr_legacy_food,"Persimmon, japanese",9,2019-04-01,,
+169943,sr_legacy_food,Persimmon,9,2019-04-01,,
+169947,sr_legacy_food,"Juice, pineapple",9,2019-04-01,,
 169124,sr_legacy_food,Pineapple,9,2019-04-01,,
-168193,sr_legacy_food,Traditional pineapple,9,2019-04-01,,
+168193,sr_legacy_food,"Pineapple, traditional",9,2019-04-01,,
 169129,sr_legacy_food,Pitanga,9,2019-04-01,,
-168216,sr_legacy_food,Boiled green plantains,9,2019-04-01,,
-168199,sr_legacy_food,Fried green plantains,9,2019-04-01,,
-168215,sr_legacy_food,Green plantains,9,2019-04-01,,
-169131,sr_legacy_food,Baked yellow plantains,9,2019-04-01,,
-168200,sr_legacy_food,Fried yellow plantains,9,2019-04-01,,
-169130,sr_legacy_food,Yellow plantains,9,2019-04-01,,
-167751,sr_legacy_food,Stewed prunes,9,2019-04-01,,
-168162,sr_legacy_food,Dried prunes,9,2019-04-01,,
+168216,sr_legacy_food,"Plantain, green, boiled",9,2019-04-01,,
+168199,sr_legacy_food,"Plantain, green, fried",9,2019-04-01,,
+168215,sr_legacy_food,"Plantain, green",9,2019-04-01,,
+169131,sr_legacy_food,"Plantain, yellow, baked",9,2019-04-01,,
+168200,sr_legacy_food,"Plantain, yellow, fried",9,2019-04-01,,
+169130,sr_legacy_food,"Plantain, yellow",9,2019-04-01,,
+167751,sr_legacy_food,"Prunes, stewed",9,2019-04-01,,
+168162,sr_legacy_food,"Prunes, dried",9,2019-04-01,,
 169949,sr_legacy_food,Plums,9,2019-04-01,,
-167787,sr_legacy_food,Pomegranate juice,9,2019-04-01,,
+167787,sr_legacy_food,"Juice, pomegranate",9,2019-04-01,,
 169134,sr_legacy_food,Pomegranates,9,2019-04-01,,
-167750,sr_legacy_food,Prickly pears,9,2019-04-01,,
-167753,sr_legacy_food,Prune juice,9,2019-04-01,,
-167780,sr_legacy_food,Prune puree,9,2019-04-01,,
-168161,sr_legacy_food,Stewed prunes,9,2019-04-01,,
-168160,sr_legacy_food,Dried prunes,9,2019-04-01,,
+167750,sr_legacy_food,"Pear, prickly",9,2019-04-01,,
+167753,sr_legacy_food,"Juice, prune",9,2019-04-01,,
+167780,sr_legacy_food,"Puree, prune",9,2019-04-01,,
+168161,sr_legacy_food,"Prunes, stewed",9,2019-04-01,,
+168160,sr_legacy_food,"Prunes, dried",9,2019-04-01,,
 167754,sr_legacy_food,Pummelo,9,2019-04-01,,
 168163,sr_legacy_food,Quince,9,2019-04-01,,
-168165,sr_legacy_food,Dark seedless raisins,9,2019-04-01,,
-168164,sr_legacy_food,Golden raisins,9,2019-04-01,,
-168166,sr_legacy_food,Raisins with seeds,9,2019-04-01,,
-168209,sr_legacy_food,Frozen raspberries,9,2019-04-01,,
-167808,sr_legacy_food,Seedless raspberry puree,9,2019-04-01,,
-167809,sr_legacy_food,Raspberry puree,9,2019-04-01,,
+168165,sr_legacy_food,"Raisins, dark seedless",9,2019-04-01,,
+168164,sr_legacy_food,"Raisins, golden",9,2019-04-01,,
+168166,sr_legacy_food,"Raisins, with seeds",9,2019-04-01,,
+168209,sr_legacy_food,"Raspberries, frozen",9,2019-04-01,,
+167808,sr_legacy_food,"Puree, seedless raspberry",9,2019-04-01,,
+167809,sr_legacy_food,"Puree, raspberry",9,2019-04-01,,
 167755,sr_legacy_food,Raspberries,9,2019-04-01,,
-168168,sr_legacy_food,Frozen rhubarb,9,2019-04-01,,
+168168,sr_legacy_food,"Ehubarb, frozen",9,2019-04-01,,
 167758,sr_legacy_food,Rhubarb,9,2019-04-01,,
 168171,sr_legacy_food,Rose-apple,9,2019-04-01,,
 168170,sr_legacy_food,Roselle,9,2019-04-01,,
@@ -872,12 +872,12 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 167759,sr_legacy_food,Sapodilla,9,2019-04-01,,
 167760,sr_legacy_food,Mamey sapote,9,2019-04-01,,
 167761,sr_legacy_food,Soursop,9,2019-04-01,,
-168173,sr_legacy_food,Frozen strawberries,9,2019-04-01,,
+168173,sr_legacy_food,"Strawberries, frozen",9,2019-04-01,,
 167762,sr_legacy_food,Strawberries,9,2019-04-01,,
 168175,sr_legacy_food,Sugar-apple,9,2019-04-01,,
-167786,sr_legacy_food,Tamarind nectar,9,2019-04-01,,
+167786,sr_legacy_food,"Nectar, tamarind",9,2019-04-01,,
 167763,sr_legacy_food,Tamarinds,9,2019-04-01,,
-169925,sr_legacy_food,Tangerine juice,9,2019-04-01,,
+169925,sr_legacy_food,"Juice, tangerine",9,2019-04-01,,
 169105,sr_legacy_food,Tangerines (mandarin oranges),9,2019-04-01,,
 167765,sr_legacy_food,Watermelon,9,2019-04-01,,
 168383,sr_legacy_food,Canadian bacon,10,2019-04-01,,2.1
@@ -888,14 +888,14 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 168322,sr_legacy_food,Bacon,10,2019-04-01,,2.7
 168277,sr_legacy_food,"Bacon, uncooked",10,2019-04-01,,2.4
 168278,sr_legacy_food,"Breakfast strips, uncooked",10,2019-04-01,,2.2
-167870,sr_legacy_food,Pickled pig’s feet,10,2019-04-01,,6.5
+167870,sr_legacy_food,"Pig’s feet, pickled",10,2019-04-01,,6.5
 167872,sr_legacy_food,"Ham, roasted",10,2019-04-01,,2.2
 168282,sr_legacy_food,"Ham slice, raw",10,2019-04-01,,2
 168283,sr_legacy_food,"Ham slice, unheated",10,2019-04-01,,2.1
 168356,sr_legacy_food,"Ham rump, roasted",10,2019-04-01,,2.3
 168357,sr_legacy_food,"Ham shank, roasted",10,2019-04-01,,2.6
 168359,sr_legacy_food,"Ham slice, pan-fried",10,2019-04-01,,2.4
-168284,sr_legacy_food,"Whole ham, roasted",10,2019-04-01,,2.3
+168284,sr_legacy_food,"Ham, whole roasted",10,2019-04-01,,2.3
 168287,sr_legacy_food,Salt pork,10,2019-04-01,,2.7
 167878,sr_legacy_food,"Ham fat, roasted",10,2019-04-01,,1
 167877,sr_legacy_food,"Ham fat, raw",10,2019-04-01,,0.8
@@ -939,12 +939,12 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 167892,sr_legacy_food,"Pork center rib chop, boneless, pan-fried",10,2019-04-01,,2.2
 167832,sr_legacy_food,"Pork center rib roast, roasted",10,2019-04-01,,2.3
 168301,sr_legacy_food,"Pork center rib roast, boneless, roasted",10,2019-04-01,,2.2
-169200,sr_legacy_food,"Country-style ribs, bone-in, broiled",10,2019-04-01,,3.6
-167897,sr_legacy_food,"Country-style ribs, bone-in, roasted",10,2019-04-01,,3.8
-169199,sr_legacy_food,"Country-style ribs, boneless, broiled",10,2019-04-01,,3.2
-169201,sr_legacy_food,"Country-style ribs, boneless, roasted",10,2019-04-01,,3.4
-167896,sr_legacy_food,"Country-style ribs, braised",10,2019-04-01,,3.5
-167895,sr_legacy_food,"Country-style ribs, raw",10,2019-04-01,,3
+169200,sr_legacy_food,"Ribs, pork, country-style, bone-in, broiled",10,2019-04-01,,3.6
+167897,sr_legacy_food,"Ribs, pork, country-style, bone-in, roasted",10,2019-04-01,,3.8
+169199,sr_legacy_food,"Ribs, pork, country-style, boneless, broiled",10,2019-04-01,,3.2
+169201,sr_legacy_food,"Ribs, pork, country-style, boneless, roasted",10,2019-04-01,,3.4
+167896,sr_legacy_food,"Ribs, pork, country-style, braised",10,2019-04-01,,3.5
+167895,sr_legacy_food,"Ribs, pork, country-style, raw",10,2019-04-01,,3
 168246,sr_legacy_food,"Pork sirloin, raw",10,2019-04-01,,2
 168308,sr_legacy_food,"Pork sirloin, boneless, raw",10,2019-04-01,,1.9
 167834,sr_legacy_food,"Pork sirloin chop, braised",10,2019-04-01,,2.3
@@ -1002,7 +1002,7 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 168370,sr_legacy_food,"Pork sirloin tip roast, braised",10,2019-04-01,,2.3
 168371,sr_legacy_food,"Pork sirloin tip roast, raw",10,2019-04-01,,2
 168368,sr_legacy_food,"Pork leg cap steak, broiled",10,2019-04-01,,2.2
-169157,sr_legacy_food,Pickled pork hocks,10,2019-04-01,,6.2
+169157,sr_legacy_food,"Pork hocks, pickled",10,2019-04-01,,6.2
 169188,sr_legacy_food,"Shoulder breast, broiled",10,2019-04-01,,2.5
 169187,sr_legacy_food,"Shoulder breast, raw",10,2019-04-01,,2.2
 168369,sr_legacy_food,"Petite tender, raw",10,2019-04-01,,1.8
@@ -1499,7 +1499,7 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 173976,sr_legacy_food,"Brisket whole, grass-fed, raw",13,2019-04-01,,3.5
 173977,sr_legacy_food,"Steak, top round, grass-fed, raw",13,2019-04-01,,2
 171729,sr_legacy_food,"Seam fat, grass-fed, raw",13,2019-04-01,,0.5
-171730,sr_legacy_food,"Wagyu beef fat, raw",13,2019-04-01,,0.5
+171730,sr_legacy_food,"Beef fat, wagyu, raw",13,2019-04-01,,0.5
 171732,sr_legacy_food,"Steak, wagyu tenderloin, raw",13,2019-04-01,,1.5
 173978,sr_legacy_food,"Steak, wagyu top loin, raw",13,2019-04-01,,1.6
 171740,sr_legacy_food,"Steak, wagyu ribeye, raw",13,2019-04-01,,1.7
@@ -1598,17 +1598,17 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 172151,sr_legacy_food,"Steak/roast, ribeye, bone-in, lip-on, raw",13,2019-04-01,,1.8
 172156,sr_legacy_food,"Steak/roast, ribeye, boneless, lip-on, raw",13,2019-04-01,,1.7
 169557,sr_legacy_food,"Ribeye small end, ribs 10–12",13,2019-04-01,,3.8
-172166,sr_legacy_food,Back ribs,13,2019-04-01,,4
-172169,sr_legacy_food,Back ribs (raw),13,2019-04-01,,3.5
-168681,sr_legacy_food,"Rib large end, ribs 6–9, broiled",13,2019-04-01,,4
-168682,sr_legacy_food,"Rib large end, ribs 6–9",13,2019-04-01,,4
-168680,sr_legacy_food,"Rib large end, ribs 6–9, raw",13,2019-04-01,,3.5
-169510,sr_legacy_food,"Rib small end, ribs 10–12, broiled",13,2019-04-01,,3.8
-169511,sr_legacy_food,"Rib small end, ribs 10–12",13,2019-04-01,,3.8
-169509,sr_legacy_food,"Rib small end, ribs 10–12, raw",13,2019-04-01,,3.5
-169499,sr_legacy_food,"Rib whole, ribs 6–12, broiled",13,2019-04-01,,4
-169500,sr_legacy_food,"Rib whole, ribs 6–12",13,2019-04-01,,4
-169498,sr_legacy_food,"Rib whole, ribs 6–12, raw",13,2019-04-01,,3.6
+172166,sr_legacy_food,"Back ribs, beef",13,2019-04-01,,4
+172169,sr_legacy_food,"Back ribs, beef, raw",13,2019-04-01,,3.5
+168681,sr_legacy_food,"Beef ribs, large end, 6–9, broiled",13,2019-04-01,,4
+168682,sr_legacy_food,"Beef ribs, large end, 6–9",13,2019-04-01,,4
+168680,sr_legacy_food,"Beef ribs, large end, 6–9, raw",13,2019-04-01,,3.5
+169510,sr_legacy_food,"Beef ribs, small end, 10–12, broiled",13,2019-04-01,,3.8
+169511,sr_legacy_food,"Beef ribs, small end, 10–12",13,2019-04-01,,3.8
+169509,sr_legacy_food,"Beef ribs, small end, 10–12, raw",13,2019-04-01,,3.5
+169499,sr_legacy_food,"Beef ribs, whole, 6–12, broiled",13,2019-04-01,,4
+169500,sr_legacy_food,"Beef ribs, whole, 6–12",13,2019-04-01,,4
+169498,sr_legacy_food,"Beef ribs, whole, 6–12, raw",13,2019-04-01,,3.6
 168696,sr_legacy_food,Bottom round roast,13,2019-04-01,,2.3
 169520,sr_legacy_food,"Steak, bottom round",13,2019-04-01,,2.3
 169519,sr_legacy_food,"Steak, bottom round, raw",13,2019-04-01,,2
@@ -2299,8 +2299,8 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 175030,sr_legacy_food,"Dinner roll, wheat",18,2019-04-01,,
 172794,sr_legacy_food,"Dinner roll, whole wheat",18,2019-04-01,,
 172795,sr_legacy_food,French roll,18,2019-04-01,,
-174090,sr_legacy_food,Whole wheat hamburger or hot dog roll,18,2019-04-01,,
-172796,sr_legacy_food,Hamburger or hot dog roll,18,2019-04-01,,
+174090,sr_legacy_food,"Bun, hamburger or hot dog, whole wheat",18,2019-04-01,,
+172796,sr_legacy_food,"Bun, hamburger ot hot dog",18,2019-04-01,,
 172800,sr_legacy_food,"Taco shells, baked",18,2019-04-01,,
 175067,sr_legacy_food,Unsalted baked taco shells,18,2019-04-01,,
 175036,sr_legacy_food,"Tortillas, corn",18,2019-04-01,,
@@ -2316,12 +2316,9 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 167562,sr_legacy_food,Almond Joy candy bar,19,2019-04-01,,
 167972,sr_legacy_food,Butterscotch candy,19,2019-04-01,,
 167974,sr_legacy_food,Caramel candy,19,2019-04-01,,
-167566,sr_legacy_food,Chocolate caramel roll,19,2019-04-01,,
 167986,sr_legacy_food,Fondant candy,19,2019-04-01,,
 167987,sr_legacy_food,Chocolate fudge,19,2019-04-01,,
 167988,sr_legacy_food,Chocolate fudge,19,2019-04-01,,
-167578,sr_legacy_food,Peanut butter fudge,19,2019-04-01,,
-167580,sr_legacy_food,Vanilla fudge with nuts,19,2019-04-01,,
 167579,sr_legacy_food,Vanilla fudge,19,2019-04-01,,
 168801,sr_legacy_food,Heath Bites candy,19,2019-04-01,,
 169629,sr_legacy_food,Kit Kat Big Kat bar,19,2019-04-01,,
@@ -2350,12 +2347,6 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 168768,sr_legacy_food,Twix,19,2019-04-01,,
 167995,sr_legacy_food,Marshmallows,19,2019-04-01,,
 167587,sr_legacy_food,Milk chocolate,19,2019-04-01,,
-169637,sr_legacy_food,Chocolate-covered coffee beans,19,2019-04-01,,
-168001,sr_legacy_food,Chocolate-covered peanuts,19,2019-04-01,,
-169576,sr_legacy_food,Chocolate-covered raisins,19,2019-04-01,,
-168754,sr_legacy_food,Milk chocolate with almonds,19,2019-04-01,,
-168755,sr_legacy_food,Milk chocolate with rice cereal,19,2019-04-01,,
-169060,sr_legacy_food,Almond nougat candy,19,2019-04-01,,
 169585,sr_legacy_food,Peanut bar,19,2019-04-01,,
 169586,sr_legacy_food,Peanut brittle,19,2019-04-01,,
 168791,sr_legacy_food,Praline candy,19,2019-04-01,,
@@ -2365,42 +2356,32 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170658,sr_legacy_food,Soft fruit and nut squares,19,2019-04-01,,
 170656,sr_legacy_food,Sugar-coated almonds,19,2019-04-01,,
 167977,sr_legacy_food,Sweet chocolate,19,2019-04-01,,
-167978,sr_legacy_food,Chocolate-covered fondant,19,2019-04-01,,
 169671,sr_legacy_food,Toffee,19,2019-04-01,,
 169580,sr_legacy_food,Truffles,19,2019-04-01,,
 167571,sr_legacy_food,White chocolate,19,2019-04-01,,
-168771,sr_legacy_food,Chewing gum,19,2019-04-01,,
-169882,sr_legacy_food,"Chewing gum, sugar-free",19,2019-04-01,,
 168000,sr_legacy_food,Chocolate hazelnut spread,19,2019-04-01,,
 170271,sr_legacy_food,"Dark chocolate, 45–59% cacao",19,2019-04-01,,
 170272,sr_legacy_food,"Dark chocolate, 60–69% cacao",19,2019-04-01,,
 170273,sr_legacy_food,"Dark chocolate, 70–85% cacao",19,2019-04-01,,
 169593,sr_legacy_food,Cocoa powder (unsweetened),19,2019-04-01,,
 168774,sr_legacy_food,"Cocoa powder, Hershey’s European Style",19,2019-04-01,,
-169601,sr_legacy_food,Apple crisp,19,2019-04-01,,
-169595,sr_legacy_food,Baked egg custard,19,2019-04-01,,
-167574,sr_legacy_food,Flan,19,2019-04-01,,
 168777,sr_legacy_food,Chocolate mousse,19,2019-04-01,,
-168794,sr_legacy_food,Rennin dessert tablets,19,2019-04-01,,
 168104,sr_legacy_food,"Frozen yogurt, chocolate",19,2019-04-01,,
 168103,sr_legacy_food,"Frozen yogurt, chocolate, nonfat",19,2019-04-01,,
 168848,sr_legacy_food,"Soft-serve, chocolate",19,2019-04-01,,
 168815,sr_legacy_food,"Soft-serve, vanilla",19,2019-04-01,,
-168816,sr_legacy_food,Apple butter,19,2019-04-01,,
-167953,sr_legacy_food,Fruit syrup,19,2019-04-01,,
 169640,sr_legacy_food,Honey,19,2019-04-01,,
 167981,sr_legacy_food,"Soft-serve, french vanilla",19,2019-04-01,,
 168810,sr_legacy_food,"Ice cream, strawberry",19,2019-04-01,,
 167575,sr_legacy_food,"Ice cream, vanilla",19,2019-04-01,,
 169641,sr_legacy_food,Jam or preserves,19,2019-04-01,,
-170645,sr_legacy_food,Apricot jam or preserves,19,2019-04-01,,
+170645,sr_legacy_food,"Jam or preserves, apricot",19,2019-04-01,,
 168820,sr_legacy_food,Molasses,19,2019-04-01,,
-167541,sr_legacy_food,Fruit leather (rolls),19,2019-04-01,,
-170674,sr_legacy_food,Turbinado sugar,19,2019-04-01,,
-168833,sr_legacy_food,Brown sugar,19,2019-04-01,,
-169655,sr_legacy_food,Granulated sugar,19,2019-04-01,,
-169658,sr_legacy_food,Maple sugar,19,2019-04-01,,
-169656,sr_legacy_food,Powdered sugar,19,2019-04-01,,
+170674,sr_legacy_food,"Sugar, turbinado",19,2019-04-01,,
+168833,sr_legacy_food,"Sugar, brown",19,2019-04-01,,
+169655,sr_legacy_food,Sugar,19,2019-04-01,,
+169658,sr_legacy_food,"Sugar, maple",19,2019-04-01,,
+169656,sr_legacy_food,"Sugar, powdered",19,2019-04-01,,
 167743,sr_legacy_food,Cane syrup,19,2019-04-01,,
 170276,sr_legacy_food,"Syrup, maple",19,2019-04-01,,
 168835,sr_legacy_food,"Syrup, chocolate",19,2019-04-01,,
@@ -2459,19 +2440,19 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 169705,sr_legacy_food,Oats,20,2019-04-01,,
 168928,sr_legacy_food,Pasta,20,2019-04-01,,
 168927,sr_legacy_food,"Pasta, dry",20,2019-04-01,,
-169727,sr_legacy_food,"Fresh pasta, uncooked",20,2019-04-01,,
-169728,sr_legacy_food,Fresh pasta,20,2019-04-01,,
-169729,sr_legacy_food,"Fresh pasta, spinach, uncooked",20,2019-04-01,,
-169730,sr_legacy_food,"Fresh pasta, spinach",20,2019-04-01,,
-173265,sr_legacy_food,"Gluten-free pasta, corn/rice flour",20,2019-04-01,,
-168900,sr_legacy_food,"Gluten-free pasta, corn",20,2019-04-01,,
-168899,sr_legacy_food,"Gluten-free pasta, corn, dry",20,2019-04-01,,
-168901,sr_legacy_food,Homemade pasta,20,2019-04-01,,
-168902,sr_legacy_food,"Homemade pasta, without egg",20,2019-04-01,,
-168916,sr_legacy_food,Whole-grain pasta,20,2019-04-01,,
-168915,sr_legacy_food,"Whole-grain pasta, dry",20,2019-04-01,,
-168910,sr_legacy_food,Whole-wheat pasta,20,2019-04-01,,
-169738,sr_legacy_food,"Whole-wheat pasta, dry",20,2019-04-01,,
+169727,sr_legacy_food,"Pasta, fresh, uncooked",20,2019-04-01,,
+169728,sr_legacy_food,"Pasta, fresh",20,2019-04-01,,
+169729,sr_legacy_food,"Pasta, fresh, spinach, uncooked",20,2019-04-01,,
+169730,sr_legacy_food,"Pasta, fresh, spinach",20,2019-04-01,,
+173265,sr_legacy_food,"Pasta, gluten-free, corn/rice flour",20,2019-04-01,,
+168900,sr_legacy_food,"Pasta, gluten-free, corn",20,2019-04-01,,
+168899,sr_legacy_food,"Pasta, gluten-free, corn, dry",20,2019-04-01,,
+168901,sr_legacy_food,"Pasta, homemade",20,2019-04-01,,
+168902,sr_legacy_food,"Pasta, homemade, without egg",20,2019-04-01,,
+168916,sr_legacy_food,"Pasta, whole-grain",20,2019-04-01,,
+168915,sr_legacy_food,"Pasta, whole-grain, dry",20,2019-04-01,,
+168910,sr_legacy_food,"Pasta, whole-wheat",20,2019-04-01,,
+169738,sr_legacy_food,"Pasta, whole-wheat, dry",20,2019-04-01,,
 168917,sr_legacy_food,Quinoa,20,2019-04-01,,
 168874,sr_legacy_food,"Quinoa, uncooked",20,2019-04-01,,
 169713,sr_legacy_food,Rice bran,20,2019-04-01,,
@@ -2509,18 +2490,18 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 168888,sr_legacy_food,Whole-grain triticale flour,20,2019-04-01,,
 168147,sr_legacy_food,Vital wheat gluten,20,2019-04-01,,
 169722,sr_legacy_food,Wheat bran,20,2019-04-01,,
-169761,sr_legacy_food,All-purpose white flour,20,2019-04-01,,
+169761,sr_legacy_food,All-purpose flour,20,2019-04-01,,
 168893,sr_legacy_food,Whole-wheat flour,20,2019-04-01,,
 168944,sr_legacy_food,"Wheat flour, whole-grain, soft wheat",20,2019-04-01,,
 168913,sr_legacy_food,Bread flour,20,2019-04-01,,
 168892,sr_legacy_food,Wheat germ,20,2019-04-01,,
-169721,sr_legacy_food,Durum wheat,20,2019-04-01,,
-168889,sr_legacy_food,Hard red spring wheat,20,2019-04-01,,
-168890,sr_legacy_food,Hard red winter wheat,20,2019-04-01,,
-169719,sr_legacy_food,Hard white wheat,20,2019-04-01,,
-168891,sr_legacy_food,Soft red winter wheat,20,2019-04-01,,
-169720,sr_legacy_food,Soft white wheat,20,2019-04-01,,
-169725,sr_legacy_food,Sprouted wheat,20,2019-04-01,,
+169721,sr_legacy_food,"Wheat, durum",20,2019-04-01,,
+168889,sr_legacy_food,"Wheat, hard red spring",20,2019-04-01,,
+168890,sr_legacy_food,"Wheat, hard red winter",20,2019-04-01,,
+169719,sr_legacy_food,"Wheat, hard white",20,2019-04-01,,
+168891,sr_legacy_food,"Wheat, soft red winter",20,2019-04-01,,
+169720,sr_legacy_food,"Wheat, soft white",20,2019-04-01,,
+169725,sr_legacy_food,"Wheat, sprouted",20,2019-04-01,,
 168897,sr_legacy_food,Wild rice,20,2019-04-01,,
 169726,sr_legacy_food,"Wild rice, raw",20,2019-04-01,,
 174790,sr_legacy_food,Soft pretzel,23,2019-04-01,,

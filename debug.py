@@ -49,30 +49,50 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             "type": "text",
                             "text": """
                             Analyze this image and follow these stepes:
-                            1. Identify each visible food item.
-                            2. Give the meal a short name that describes it's contents (Ground beef bowl, Chicken and rice, etc). If it's a single food item, return the name of the food (apple, banana, etc.).
-                            3. Include cooking method if applicable (boiled eggs, grilled chicken, etc).
-                            4. Estimate the quantity of each item in grams as a float.
-                            5. Return a name of the meal and list of ingredients in this exact format:
-                            {
-                                "name": "Chicken salad",
-                                "ingredients": [
-                                    {
-                                        "name": "Chicken thigh",
-                                        "quantity_in_grams": 100.0
-                                    },
-                                    {
-                                        "name": "Rice",
-                                        "quantity_in_grams": 80.0
-                                    },
-                                    ...
-                                ]
-                            }
-                            6. If there are no food items in the image, return this EXACT object:
+                            1. Identify the visible food items.
+                                - If the meal is composed of distinct, separable foods (grilled chicken, white rice, broccoli, etc.), treat each as an ingredient.
+                                - If it's a single, blended, or composite food (pizza, muffin, burger, sandwich, smoothie, soup, etc.), treat it as one unified meal and do not list ingredients.
+                            2. Give the meal a short descriptive name, including cooking methods if applicable (grilled chicken, boiled eggs, etc.).
+                            3. Decide the output format based on the meal type:
+                                - If the meal has distinct ingredients, return an object like this:
+                                {
+                                    "name": "Chicken and rice",
+                                    "ingredients": [
+                                        {
+                                            "name": "Grilled chicken thigh",
+                                            "quantity_in_grams": 100.0
+                                        },
+                                        {
+                                            "name": "White rice",
+                                            "quantity_in_grams": 80.0
+                                        },
+                                        ...
+                                    ]
+                                }
+                                - If the meal is a composite food, return an object like this instead:
+                                {
+                                    "name": "Chicken and rice",
+                                    "protein_in_grams": 23.0
+                                    "leucine_in_grams": 0.6
+                                    "carbohydrates_in_grams": 34.0
+                                    "omega3s_in_grams": 0.3
+                                    "fat_in_grams": 28.0
+                                    "iron_in_milligrams": 9.0
+                                    "zinc_in_milligrams": 10.0
+                                    "fermented_food_servings": 0.3
+                                    "fiber_in_grams": 5.0
+                                    "collagen_in_grams": 4.0
+                                    "vitamin_c_in_milligrams": 32.0
+                                    "vitamin_a_in_micrograms": 237.0
+                                    "vitamin_e_in_milligrams": 6.0
+                                    "selenium_in_micrograms": 31.0
+                                }
+                            4. If no food is visible, return this exact object:
                             {
                                 "name": "Unknown",
                                 "ingredients": []
                             }
+                            5. All numeric values must be floats. Return only valid JSON - no extra text or explanations.
                             """
                         },
                         {
@@ -95,60 +115,85 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
     
-    # Query database
+    # return analysis
+    
     meal_name = analysis["name"]
-    ingredients = analysis["ingredients"]
 
-    valid_results = []
-    invalid_results = []
-    for food in ingredients:
-        result = search_food(food["name"], food["quantity_in_grams"])
-        if isinstance(result, AnalysisIngredient):
-            valid_results.append(result)
-        else:
-            invalid_results.append(result)
+    is_composite = "protein_in_grams" in analysis
 
-    custom_foods: InvalidIngredients = InvalidIngredients(ingredients=[])
+    if is_composite:
+        return AnalysisMeal(
+            name=meal_name,
+            ingredients_new=[],
+            protein_float=analysis["protein_in_grams"],
+            leucine_float=analysis["leucine_in_grams"],
+            carbohydrates_float=analysis["carbohydrates_in_grams"],
+            omega3s_float=analysis["omega3s_in_grams"],
+            fat_float=analysis["fat_in_grams"],
+            iron_float=analysis["iron_in_milligrams"],
+            zinc_float=analysis["zinc_in_milligrams"],
+            fermented_food_servings_float=analysis["fermented_food_servings"],
+            fiber_float=analysis["fiber_in_grams"],
+            collagen_float=analysis["collagen_in_grams"],
+            vitamin_c_float=analysis["vitamin_c_in_milligrams"],
+            vitamin_a_float=analysis["vitamin_a_in_micrograms"],
+            vitamin_e_float=analysis["vitamin_e_in_milligrams"],
+            selenium_float=analysis["selenium_in_micrograms"]
+        )
+    else:
+        # Query database
+        ingredients = analysis["ingredients"]
 
-    if len(invalid_results) > 0:
-        # Create custom foods for foods not in database
-        try:
-            chat_completion = client.beta.chat.completions.parse(
-                model="gpt-4o",
-                messages=[
-                    {
-                        "role": "user",
-                        "content": f"Given this list: {invalid_results}, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for each food with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of that food."
-                    }
-                ],
-                response_format=InvalidIngredients
-            )
-        except Exception as e:
-            print(e)
-            raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
-        
-        custom_foods = chat_completion.choices[0].message.parsed
+        valid_results = []
+        invalid_results = []
+        for food in ingredients:
+            result = search_food(food["name"], food["quantity_in_grams"])
+            if isinstance(result, AnalysisIngredient):
+                valid_results.append(result)
+            else:
+                invalid_results.append(result)
 
-    database_results = valid_results + custom_foods.ingredients
+        custom_foods: InvalidIngredients = InvalidIngredients(ingredients=[])
 
-    return AnalysisMeal(
-        name=meal_name,
-        ingredients_new=database_results,
-        protein_float=calculate_protein(database_results),
-        leucine_float=calculate_leucine(database_results),
-        carbohydrates_float=calculate_carbohydrates(database_results),
-        omega3s_float=calculate_omega3s(database_results),
-        fat_float=calculate_fat(database_results),
-        iron_float=calculate_iron(database_results),
-        zinc_float=calculate_zinc(database_results),
-        fermented_food_servings_float=calculate_fermented_food_servings(database_results),
-        fiber_float=calculate_fiber(database_results),
-        collagen_float=calculate_collagen(database_results),
-        vitamin_c_float=calculate_vitamin_c(database_results),
-        vitamin_a_float=calculate_vitamin_a(database_results),
-        vitamin_e_float=calculate_vitamin_e(database_results),
-        selenium_float=calculate_selenium(database_results)
-    )
+        if len(invalid_results) > 0:
+            # Create custom foods for foods not in database
+            try:
+                chat_completion = client.beta.chat.completions.parse(
+                    model="gpt-4o",
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": f"Given this list: {invalid_results}, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for each food with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of that food."
+                        }
+                    ],
+                    response_format=InvalidIngredients
+                )
+            except Exception as e:
+                print(e)
+                raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
+            
+            custom_foods = chat_completion.choices[0].message.parsed
+
+        database_results = valid_results + custom_foods.ingredients
+
+        return AnalysisMeal(
+            name=meal_name,
+            ingredients_new=database_results,
+            protein_float=calculate_protein(database_results),
+            leucine_float=calculate_leucine(database_results),
+            carbohydrates_float=calculate_carbohydrates(database_results),
+            omega3s_float=calculate_omega3s(database_results),
+            fat_float=calculate_fat(database_results),
+            iron_float=calculate_iron(database_results),
+            zinc_float=calculate_zinc(database_results),
+            fermented_food_servings_float=calculate_fermented_food_servings(database_results),
+            fiber_float=calculate_fiber(database_results),
+            collagen_float=calculate_collagen(database_results),
+            vitamin_c_float=calculate_vitamin_c(database_results),
+            vitamin_a_float=calculate_vitamin_a(database_results),
+            vitamin_e_float=calculate_vitamin_e(database_results),
+            selenium_float=calculate_selenium(database_results)
+        )
 
 # Helper function
 def extract_json_from_code_block(text: str) -> str:

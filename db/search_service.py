@@ -48,9 +48,6 @@ def rerank_with_embeddings(term, candidates, conn, top_k=5):
             emb = load_embedding(row[0])
             sim = cosine_similarity(query_emb, emb)
 
-            # Word-overlap boost: +0.05 per matching word
-            # desc_lower = c["description"].lower()
-            # overlap = sum(1 for w in term.lower().split() if w in desc_lower)
             desc_lower = c["description"]  # already normalized
             overlap = sum(1 for w in term.split() if w in desc_lower)
             sim += 0.05 * overlap
@@ -74,6 +71,22 @@ def rerank_with_embeddings(term, candidates, conn, top_k=5):
 # --------------------------------------------------------------------------------
 
 def get_candidates(term, conn):
+    cursor = conn.cursor()
+    term_norm = term.lower().strip()
+
+    # Step 1: exact or prefix matches (highest priority)
+    exact_prefix_matches = cursor.execute("""
+        SELECT fdc_id, 'sr_legacy_food' AS data_type, description
+        FROM sr_legacy_food
+        WHERE LOWER(description) = ?
+           OR LOWER(description) LIKE ? || '%'
+        LIMIT 10
+    """, (term_norm, term_norm)).fetchall()
+
+    if exact_prefix_matches:
+        return [{"fdc_id": r[0], "data_type": r[1], "description": r[2]} for r in exact_prefix_matches]
+
+    # Step 2: fallback to FTS + fuzzy
     fts_results = fts_search(term, conn, limit=20)
     fuzzy_results = fuzzy_search(term, conn, limit=20)
 
@@ -117,21 +130,6 @@ def fuzzy_search(term, conn, limit=20):
 
 def fts_search(term, conn, limit=20):
     cursor = conn.cursor()
-    # cursor.execute("""
-    #     WITH fts_results AS (
-    #         SELECT rowid AS fdc_id, bm25(food_search) AS score
-    #         FROM food_search
-    #         WHERE food_search MATCH ?
-    #         ORDER BY bm25(food_search)
-    #         LIMIT ?
-    #     )
-    #     SELECT fts_results.fdc_id, f.data_type, f.description
-    #     FROM fts_results
-    #     JOIN (
-    #         SELECT fdc_id, 'sr_legacy_food' AS data_type, description FROM sr_legacy_food
-    #     ) AS f ON f.fdc_id = fts_results.fdc_id
-    #     ORDER BY fts_results.score;
-    # """, (term, limit))
     cursor.execute("""
         WITH fts_results AS (
             SELECT rowid AS fdc_id, bm25(food_search) AS score

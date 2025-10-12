@@ -6,6 +6,10 @@ import re
 
 DB_PATH = "../food.db"
 
+# Upload food.db to Render
+# cd /var/data
+# curl -L -o food.db "https://dropboxlink.com"
+
 # --- Normalization helper ---
 def normalize(text: str) -> str:
     if not isinstance(text, str):

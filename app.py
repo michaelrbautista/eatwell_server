@@ -56,14 +56,14 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             4. Estimate the quantity of each item in grams as a float.
                             5. Return a name of the meal and list of ingredients in this exact format:
                             {
-                                "name": "Chicken salad",
+                                "name": "Chicken and rice",
                                 "ingredients": [
                                     {
-                                        "name": "Chicken thigh",
+                                        "name": "Grilled chicken thigh",
                                         "quantity_in_grams": 100.0
                                     },
                                     {
-                                        "name": "Rice",
+                                        "name": "White rice",
                                         "quantity_in_grams": 80.0
                                     },
                                     ...
