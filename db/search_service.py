@@ -48,15 +48,16 @@ def rerank_with_embeddings(term, candidates, conn, top_k=5):
             emb = load_embedding(row[0])
             sim = cosine_similarity(query_emb, emb)
 
-            desc_lower = c["description"]  # already normalized
-            overlap = sum(1 for w in term.split() if w in desc_lower)
-            sim += 0.05 * overlap
+            desc = c["description"].lower()
+
+            # 🔻 Penalize "raw" foods if user didn't ask for "raw"
+            raw_penalty = -0.15 if "raw" in desc and "raw" not in term else 0.0
 
             scored.append({
                 "fdc_id": c["fdc_id"],
                 "data_type": c["data_type"],
                 "description": c["description"],
-                "similarity": sim
+                "similarity": sim + raw_penalty
             })
         else:
             # fallback if no embedding stored

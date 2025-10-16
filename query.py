@@ -26,13 +26,13 @@ def search_food(term: str, quantity: float):
         conn.close()
         return None  # No match found
     
-    # for f in top_candidates:
-    #     print({
-    #         "fdc_id": f["fdc_id"],
-    #         "food": f["description"],
-    #         "similarity": f["similarity"]
-    #     })
-    # print()
+    for f in top_candidates:
+        print({
+            "fdc_id": f["fdc_id"],
+            "food": f["description"],
+            "similarity": f["similarity"]
+        })
+    print()
 
     best = top_candidates[0]  # first = closest match
     if best["similarity"] < 0.5:
@@ -87,9 +87,7 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "Boiled egg",
-        "Apple",
-        "Cucumber"
+        "carrots"
     ]
 
     valid_results = []
