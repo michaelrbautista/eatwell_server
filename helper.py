@@ -146,16 +146,16 @@ def map_ingredients(ingredient_list: list[dict]) -> list[AnalysisIngredient]:
 
     return ingredients
 
-def map_portions(portion_list: list[dict]) -> list[FoodPortion]:
+def map_portions(portion_list: list[FoodPortion]) -> list[FoodPortion]:
     portions = []
 
     for p in portion_list:
         portions.append(
             FoodPortion(
-                id = p["id"],
-                gram_weight = p["gram_weight"],
-                amount = p["amount"],
-                modifier = p["modifier"]
+                id = p.id,
+                gram_weight = p.gram_weight,
+                amount = p.amount,
+                modifier = p.modifier
             )
         )
 
@@ -168,22 +168,34 @@ def get_portions(conn, fdc_id: str):
         FROM sr_legacy_food_portion fp
         WHERE fp.fdc_id = ?
     """, (fdc_id,))
-    portions = []
-    for row in cursor.fetchall():
-        portions.append({
-            "id": row[0],
-            "gram_weight": row[1],
-            "amount": row[2],
-            "modifier": row[3]
-        })
+    portions = [
+        FoodPortion(
+            id = 0,
+            gram_weight = 1.0,
+            amount = 1.0,
+            modifier = "grams"
+        )
+    ]
 
-    if len(portions) < 1:
-        portions = [{
-            "id": 1,
-            "gram_weight": 100.0,
-            "amount": 100.0,
-            "modifier": "grams"
-        }]
+    for row in cursor.fetchall():
+        portions.append(
+            FoodPortion(
+                id = row[0],
+                gram_weight = row[1],
+                amount = row[2],
+                modifier = row[3]
+            )
+        )
+
+    # if len(portions) < 1:
+    #     portions = [
+    #         FoodPortion(
+    #             id = 1,
+    #             gram_weight = 100.0,
+    #             amount = 100.0,
+    #             modifier = "grams"
+    #         )
+    #     ]
 
     return portions
 

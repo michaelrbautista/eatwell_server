@@ -1,6 +1,6 @@
 import sqlite3
 import json
-from db.search_service import get_candidates, rerank_with_embeddings
+from db.search_service import get_candidates, rerank_with_embeddings, fuzzy_search, fts_search
 from helper import get_nutrients, map_nutrients, get_portions, map_portions
 from models.meal_analysis import AnalysisIngredient
 import os
@@ -26,13 +26,13 @@ def search_food(term: str, quantity: float):
         conn.close()
         return None  # No match found
     
-    for f in top_candidates:
-        print({
-            "fdc_id": f["fdc_id"],
-            "food": f["description"],
-            "similarity": f["similarity"]
-        })
-    print()
+    # for f in top_candidates:
+    #     print({
+    #         "fdc_id": f["fdc_id"],
+    #         "food": f["description"],
+    #         "similarity": f["similarity"]
+    #     })
+    # print()
 
     best = top_candidates[0]  # first = closest match
     if best["similarity"] < 0.5:
@@ -63,21 +63,18 @@ def search_food(term: str, quantity: float):
 
     # Get portion data
     portions = get_portions(conn, food_data["fdc_id"])
-    mapped_portions = map_portions(portions)
+    # mapped_portions = map_portions(portions)
 
     # Get first portion
-    selected_portion_id = 1
-    selected_gram_weight = 100
-    if len(mapped_portions) > 0:
-        selected_portion_id = mapped_portions[0].id
-        selected_gram_weight = mapped_portions[0].gram_weight
+    selected_portion_id = 0
+    selected_gram_weight = 1.0
 
     ingredient = AnalysisIngredient(
         fdc_id=food_data["fdc_id"],
         description=food_data["description"],
         amount=round(quantity / selected_gram_weight, 2),
         selected_portion_id=selected_portion_id,
-        portions=mapped_portions,
+        portions=portions,
         nutrients=mapped_nutrients
     )
 
@@ -87,7 +84,7 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "carrots"
+        "sausage pieces"
     ]
 
     valid_results = []

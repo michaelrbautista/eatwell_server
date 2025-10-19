@@ -106,7 +106,6 @@ def get_candidates(term, conn):
 
 def fuzzy_search(term, conn, limit=20):
     cursor = conn.cursor()
-    # cursor.execute("SELECT fdc_id, description, 'sr_legacy_food' AS data_type FROM sr_legacy_food WHERE description IS NOT NULL")
     cursor.execute("SELECT fdc_id, normalized_description, 'sr_legacy_food' AS data_type FROM sr_legacy_food WHERE normalized_description IS NOT NULL")
     sr_legacy_rows = cursor.fetchall()
 

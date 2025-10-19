@@ -53,8 +53,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             1. Identify the visible food items.
                                 - If the meal is composed of distinct, separable foods (grilled chicken, white rice, broccoli, etc.), treat each as an ingredient.
                                 - If it's a single, blended, or composite food (pizza, muffin, burger, sandwich, smoothie, soup, etc.), treat it as one unified meal and do not list ingredients.
-                            2. Give the meal a short descriptive name, including cooking methods if applicable (grilled chicken, boiled eggs, etc.).
-                            3. Decide the output format based on the meal type:
+                            2. Decide the output format based on the meal type:
                                 - If the meal has distinct ingredients, return an object like this:
                                 {
                                     "name": "Chicken and rice",
@@ -88,7 +87,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                     "vitamin_e_in_milligrams": 6.0
                                     "selenium_in_micrograms": 31.0
                                 }
-                            4. If no food is visible, return this exact object:
+                            3. If no food is visible, return this exact object:
                             {
                                 "name": "Unknown",
                                 "ingredients": []
@@ -117,7 +116,6 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
     
     # return analysis
-    
     meal_name = analysis["name"]
 
     is_composite = "protein_in_grams" in analysis
