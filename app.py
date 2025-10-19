@@ -115,6 +115,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
     
+    print(analysis)
+    
     # return analysis
     meal_name = analysis["name"]
 
