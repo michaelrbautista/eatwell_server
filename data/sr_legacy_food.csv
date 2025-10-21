@@ -35,9 +35,9 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 172191,sr_legacy_food,"Egg, quail",1,2019-04-01,,
 172192,sr_legacy_food,"Egg, turkey",1,2019-04-01,,
 171258,sr_legacy_food,Eggnog,1,2019-04-01,,
+172186,sr_legacy_food,Eggs,1,2019-04-01,,
 173424,sr_legacy_food,"Eggs, boiled",1,2019-04-01,,
 173423,sr_legacy_food,"Eggs, fried",1,2019-04-01,,
-172186,sr_legacy_food,Eggs,1,2019-04-01,,
 171287,sr_legacy_food,"Eggs, raw",1,2019-04-01,,
 172187,sr_legacy_food,"Eggs, scrambled",1,2019-04-01,,
 173420,sr_legacy_food,Feta cheese,1,2019-04-01,,
@@ -1140,6 +1140,7 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 169995,sr_legacy_food,Garland chrysanthemum,11,2019-04-01,,
 169230,sr_legacy_food,Garlic,11,2019-04-01,,
 169231,sr_legacy_food,Ginger root,11,2019-04-01,,
+169765,sr_legacy_food,"Ginger, pickled",11,2019-04-01,30,
 169393,sr_legacy_food,"Grape leaves, canned",11,2019-04-01,,
 168575,sr_legacy_food,"Grape leaves, raw",11,2019-04-01,,
 169965,sr_legacy_food,Green beans,11,2019-04-01,,
@@ -1157,6 +1158,7 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 167714,sr_legacy_food,"Hearts of palm, raw",11,2019-04-01,,
 168570,sr_legacy_food,"Hot chili pepper, sun-dried",11,2019-04-01,,
 168560,sr_legacy_food,Hot dog relish,11,2019-04-01,,
+169766,sr_legacy_food,"Hot peppers, pickled",11,2019-04-01,30,
 168476,sr_legacy_food,Hubbard squash,11,2019-04-01,,
 168475,sr_legacy_food,"Hubbard squash, raw",11,2019-04-01,,
 168578,sr_legacy_food,Hungarian pepper,11,2019-04-01,,
@@ -1236,9 +1238,6 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170417,sr_legacy_food,"Parsnips, raw",11,2019-04-01,,
 168579,sr_legacy_food,"Pasilla pepper, dried",11,2019-04-01,,
 168418,sr_legacy_food,"Pepeao, dried",11,2019-04-01,,
-169765,sr_legacy_food,"Ginger, pickled",11,2019-04-01,30,
-169766,sr_legacy_food,"Hot peppers, pickled",11,2019-04-01,30,
-169889,sr_legacy_food,"Radish, pickled",11,2019-04-01,30,
 170430,sr_legacy_food,Pigeon peas,11,2019-04-01,,
 170025,sr_legacy_food,"Pigeon peas, raw",11,2019-04-01,,
 168559,sr_legacy_food,"Pimento, canned",11,2019-04-01,,
@@ -1268,6 +1267,7 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 169274,sr_legacy_food,"Purslane, raw",11,2019-04-01,,
 168564,sr_legacy_food,"Radicchio, raw",11,2019-04-01,,
 170095,sr_legacy_food,"Radish seeds, sprouted, raw",11,2019-04-01,,
+169889,sr_legacy_food,"Radish, pickled",11,2019-04-01,30,
 169276,sr_legacy_food,Radishes,11,2019-04-01,,
 168452,sr_legacy_food,"Radishes, oriental",11,2019-04-01,,
 168453,sr_legacy_food,"Radishes, oriental, dried",11,2019-04-01,,
@@ -1490,6 +1490,14 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 168626,sr_legacy_food,"Beef liver, braised",13,2019-04-01,,1
 168627,sr_legacy_food,"Beef liver, pan-fried",13,2019-04-01,,1
 169451,sr_legacy_food,"Beef liver, raw",13,2019-04-01,,0.9
+168650,sr_legacy_food,"Beef patty, 70/30",13,2019-04-01,,2.6
+174039,sr_legacy_food,"Beef patty, 75/25",13,2019-04-01,,2.4
+171798,sr_legacy_food,"Beef patty, 80/20",13,2019-04-01,,2.2
+174033,sr_legacy_food,"Beef patty, 85/15",13,2019-04-01,,2
+171793,sr_legacy_food,"Beef patty, 90/10",13,2019-04-01,,1.7
+174753,sr_legacy_food,"Beef patty, 93/7",13,2019-04-01,,1.5
+171792,sr_legacy_food,"Beef patty, 95/5",13,2019-04-01,,1.3
+173113,sr_legacy_food,"Beef patty, 97/3",13,2019-04-01,,1.1
 168682,sr_legacy_food,"Beef ribs, large end, 6–9",13,2019-04-01,,4
 168681,sr_legacy_food,"Beef ribs, large end, 6–9, broiled",13,2019-04-01,,4
 168680,sr_legacy_food,"Beef ribs, large end, 6–9, raw",13,2019-04-01,,3.5
@@ -1534,6 +1542,7 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 174036,sr_legacy_food,"Ground beef, 80/20, raw",13,2019-04-01,,2
 174034,sr_legacy_food,"Ground beef, 85/15",13,2019-04-01,,2
 174035,sr_legacy_food,"Ground beef, 85/15, baked",13,2019-04-01,,1.9
+173068,sr_legacy_food,"Ground beef, 85/15, grass-fed, raw",13,2019-04-01,,2.2
 171796,sr_legacy_food,"Ground beef, 85/15, raw",13,2019-04-01,,1.8
 171794,sr_legacy_food,"Ground beef, 90/10",13,2019-04-01,,1.7
 171795,sr_legacy_food,"Ground beef, 90/10, baked",13,2019-04-01,,1.6
@@ -1547,7 +1556,6 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 174756,sr_legacy_food,"Ground beef, 97/3",13,2019-04-01,,1.1
 173114,sr_legacy_food,"Ground beef, 97/3, baked",13,2019-04-01,,1.1
 173111,sr_legacy_food,"Ground beef, 97/3, raw",13,2019-04-01,,1
-173068,sr_legacy_food,"Ground beef, grass-fed, 85/15, raw",13,2019-04-01,,2.2
 168608,sr_legacy_food,"Ground beef, grass-fed, raw",13,2019-04-01,,2.2
 171208,sr_legacy_food,"Pot roast, under blade",13,2019-04-01,,3.2
 170813,sr_legacy_food,"Pot roast/steak, under blade, raw",13,2019-04-01,,2.8
@@ -2210,6 +2218,7 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 174092,sr_legacy_food,"Bagel, whole grain white",18,2019-04-01,,
 172670,sr_legacy_food,"Biscuit, buttermilk",18,2019-04-01,,
 174078,sr_legacy_food,Bolillo roll,18,2019-04-01,,
+174927,sr_legacy_food,Bread,18,2019-04-01,,
 174928,sr_legacy_food,Bread crumbs,18,2019-04-01,,
 172672,sr_legacy_food,"Bread, cracked wheat",18,2019-04-01,,
 174913,sr_legacy_food,"Bread, Italian",18,2019-04-01,,
@@ -2219,7 +2228,6 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 172675,sr_legacy_food,"Bread, sourdough",18,2019-04-01,,
 171850,sr_legacy_food,"Bread, sprouted wheat",18,2019-04-01,,
 172686,sr_legacy_food,"Bread, wheat",18,2019-04-01,,
-174927,sr_legacy_food,"Bread, white",18,2019-04-01,,
 167532,sr_legacy_food,"Bread, white wheat",18,2019-04-01,,
 172690,sr_legacy_food,"Bread, whole wheat",18,2019-04-01,,
 174929,sr_legacy_food,Breadsticks,18,2019-04-01,,
@@ -2438,16 +2446,8 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 169738,sr_legacy_food,"Pasta, whole-wheat, dry",20,2019-04-01,,
 168917,sr_legacy_food,Quinoa,20,2019-04-01,,
 168874,sr_legacy_food,"Quinoa, uncooked",20,2019-04-01,,
-168935,sr_legacy_food,Rice,20,2019-04-01,,
-168877,sr_legacy_food,"Rice, dry",20,2019-04-01,,
 169711,sr_legacy_food,"Rice, glutinous",20,2019-04-01,,
 168883,sr_legacy_food,"Rice, glutinous, uncooked",20,2019-04-01,,
-168930,sr_legacy_food,"Rice, medium-grain",20,2019-04-01,,
-169760,sr_legacy_food,"Rice, medium-grain, dry",20,2019-04-01,,
-168932,sr_legacy_food,"Rice, short-grain",20,2019-04-01,,
-168931,sr_legacy_food,"Rice, short-grain, dry",20,2019-04-01,,
-168897,sr_legacy_food,"Rice, wild",20,2019-04-01,,
-169726,sr_legacy_food,"Rice, wild, raw",20,2019-04-01,,
 168884,sr_legacy_food,Rye grain,20,2019-04-01,,
 168933,sr_legacy_food,Semolina,20,2019-04-01,,
 168907,sr_legacy_food,Soba noodles,20,2019-04-01,,
@@ -2475,6 +2475,14 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 168891,sr_legacy_food,"Wheat, soft red winter",20,2019-04-01,,
 169720,sr_legacy_food,"Wheat, soft white",20,2019-04-01,,
 169725,sr_legacy_food,"Wheat, sprouted",20,2019-04-01,,
+168935,sr_legacy_food,White rice,20,2019-04-01,,
+168877,sr_legacy_food,"White rice, dry",20,2019-04-01,,
+168930,sr_legacy_food,"White rice, medium-grain",20,2019-04-01,,
+169760,sr_legacy_food,"White rice, medium-grain, dry",20,2019-04-01,,
+168932,sr_legacy_food,"White rice, short-grain",20,2019-04-01,,
+168931,sr_legacy_food,"White rice, short-grain, dry",20,2019-04-01,,
+168897,sr_legacy_food,"White rice, wild",20,2019-04-01,,
+169726,sr_legacy_food,"White rice, wild, raw",20,2019-04-01,,
 167536,sr_legacy_food,Beef jerky,23,2019-04-01,,
 168850,sr_legacy_food,Beef sticks,23,2019-04-01,,
 173150,sr_legacy_food,"Chips, bagel",23,2019-04-01,,

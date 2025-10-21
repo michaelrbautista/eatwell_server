@@ -114,6 +114,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
     
+    return analysis
+    
     # return analysis
     meal_name = analysis["name"]
 
@@ -161,7 +163,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                     messages=[
                         {
                             "role": "user",
-                            "content": f"Given this list: {invalid_results}, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for each food with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of that food."
+                            "content": f"Given this list: {invalid_results}, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to the provided quantity_in_grams. Create one portion where the id is 0, gram_weight is 1.0, amount is 1.0, and the modifier is 'grams'. Provide nutrient values per 100 grams of that food."
                         }
                     ],
                     response_format=InvalidIngredients

@@ -81,7 +81,7 @@ def get_candidates(term, conn):
         FROM sr_legacy_food
         WHERE LOWER(description) = ?
            OR LOWER(description) LIKE ? || '%'
-        LIMIT 10
+        LIMIT 20
     """, (term_norm, term_norm)).fetchall()
 
     if exact_prefix_matches:
@@ -98,6 +98,7 @@ def get_candidates(term, conn):
         if key not in seen:
             candidates.append({"fdc_id": fdc_id, "data_type": data_type, "description": description})
             seen.add(key)
+
     return candidates
 
 # --------------------------------------------------------------------------------
@@ -122,6 +123,7 @@ def fuzzy_search(term, conn, limit=20):
         row = cursor.fetchone()
         if row:
             output.append(row)
+
     return output
 
 # ----------------------------------------

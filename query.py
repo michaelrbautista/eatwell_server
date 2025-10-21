@@ -1,7 +1,7 @@
 import sqlite3
 import json
 from db.search_service import get_candidates, rerank_with_embeddings, fuzzy_search, fts_search
-from helper import get_nutrients, map_nutrients, get_portions, map_portions
+from helper import get_nutrients, map_nutrients, get_portions
 from models.meal_analysis import AnalysisIngredient
 import os
 import re
@@ -12,20 +12,46 @@ DB_PATH = os.getenv("DB_PATH", "food.db")
 
 def normalize_text(text):
     text = text.lower()
-    text = re.sub(r"[^a-z0-9\s-]", "", text)
+    text = text.replace("-", " ")  # 🔹 convert hyphens to spaces
+    text = re.sub(r"[^a-z0-9\s]", "", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
+def reorder_modifiers(term: str) -> str:
+    modifiers = {
+        "grilled", "fried", "baked", "roasted", "boiled", "steamed", "shredded", "smoked", "poached", "seared", "broiled", "sliced", "minced", "chopped", "pulled", "scrambled"
+    }
+
+    words = term.lower().replace(",", "").split()
+
+    # Find which words are modifiers
+    mod_words = [w for w in words if w in modifiers]
+    base_words = [w for w in words if w not in modifiers]
+
+    if not base_words:
+        return term.lower().strip()
+
+    # Format to match USDA naming: "food, modifier"
+    reordered = " ".join(base_words)
+    if mod_words:
+        reordered += ", " + " ".join(mod_words)
+
+    return reordered.strip()
+
 def search_food(term: str, quantity: float):
     conn = sqlite3.connect(DB_PATH)
-    normalized_term = normalize_text(term)
+    reordered_term = reorder_modifiers(term)
+    normalized_term = normalize_text(reordered_term)
+    print(normalized_term)
     candidates = get_candidates(normalized_term, conn)
+
     top_candidates = rerank_with_embeddings(normalized_term, candidates, conn, top_k=5)
 
     if not top_candidates:
         conn.close()
         return None  # No match found
     
+    # print()
     # for f in top_candidates:
     #     print({
     #         "fdc_id": f["fdc_id"],
@@ -84,7 +110,9 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "Sweet potatoes"
+        "Ground beef",
+        "White rice",
+        "Fried egg"
     ]
 
     valid_results = []
@@ -96,10 +124,16 @@ if __name__ == "__main__":
         else:
             invalid_results.append(result)
             
-    # for result in valid_results:
-    #     print()
-    #     print(result.description)
-    #     print(result.fdc_id)
+    print("-------------------- VALID --------------------")
+    for result in valid_results:
+        print(result.description)
+        print(result.fdc_id)
+    print()
+
+    print("-------------------- INVALID --------------------")
+    for result in invalid_results:
+        print(result)
+    print()
 
     # print(json.dumps(valid_results, indent=4))
     # print(food.model_dump_json(indent=4))
