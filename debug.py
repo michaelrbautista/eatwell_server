@@ -163,7 +163,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                     messages=[
                         {
                             "role": "user",
-                            "content": f"Given this list: {invalid_results}, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to the provided quantity_in_grams. Create one portion where the id is 0, gram_weight is 1.0, amount is 1.0, and the modifier is 'grams'. Provide nutrient values per 100 grams of that food."
+                            "content": f"Given these foods: {food}, give me a list of foods like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to the provided quantity_in_grams. Include one portion where id = 0, gram_weight = 1.0, amount is 1.0, and modifier = 'grams'. Set the ingredient amount to the food's quantity_in_grams. Provide nutrient values per 100 grams of that food."
                         }
                     ],
                     response_format=InvalidIngredients
@@ -194,6 +194,27 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             vitamin_e_float=calculate_vitamin_e(database_results),
             selenium_float=calculate_selenium(database_results)
         )
+    
+@app.post("/test-invalid")
+async def test_invalid_food(food: str, quantity_in_grams: float):
+    try:
+        chat_completion = client.beta.chat.completions.parse(
+            model="gpt-4o",
+            messages=[
+                {
+                    "role": "user",
+                    "content": f"Given this food: {food}, give me a food object like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to the provided quantity_in_grams. Only include one portion where the id is 0, gram_weight is 1.0, amount is 1.0, and the modifier is 'grams'. Set the ingredient amount to {quantity_in_grams}. Provide nutrient values per 100 grams of that food."
+                }
+            ],
+            response_format=InvalidIngredients
+        )
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
+    
+    custom_foods = chat_completion.choices[0].message.parsed
+
+    return custom_foods
 
 # Helper function
 def extract_json_from_code_block(text: str) -> str:

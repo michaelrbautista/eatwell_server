@@ -42,7 +42,6 @@ def search_food(term: str, quantity: float):
     conn = sqlite3.connect(DB_PATH)
     reordered_term = reorder_modifiers(term)
     normalized_term = normalize_text(reordered_term)
-    print(normalized_term)
     candidates = get_candidates(normalized_term, conn)
 
     top_candidates = rerank_with_embeddings(normalized_term, candidates, conn, top_k=5)
