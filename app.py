@@ -116,6 +116,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
     
     # return analysis
+    
+    # return analysis
     meal_name = analysis["name"]
 
     is_composite = "protein_in_grams" in analysis
