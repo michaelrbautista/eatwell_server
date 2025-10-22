@@ -49,10 +49,11 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                         {
                             "type": "text",
                             "text": """
-                            Analyze this image and follow these stepes:
-                            1. Identify the visible food items.
+                            Analyze this image and follow these steps:
+                            1. Identify the visible foods.
                                 - If the meal is composed of distinct, separable foods (grilled chicken, white rice, broccoli, etc.), treat each as an ingredient.
-                                - If it's a single, blended, or composite food (pizza, muffin, burger, sandwich, smoothie, soup, etc.), treat it as one unified meal and do not list ingredients.
+                                - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
+                                - If the food is a single, blended, or composite dish (e.g. pizza, muffin, burger, sandwich, smoothie, soup, casserole, omelet, burrito, stew), treat it as **one unified meal** and do not list separate ingredients.
                             2. Decide the output format based on the meal type:
                                 - If the meal has distinct ingredients, return an object like this:
                                 {
@@ -65,26 +66,25 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                         {
                                             "name": "White rice",
                                             "quantity_in_grams": 80.0
-                                        },
-                                        ...
+                                        }
                                     ]
                                 }
-                                - If the meal is a composite food, return an object like this instead:
+                                - If the meal is a composite food, return an object exactly like this:
                                 {
-                                    "name": "Chicken and rice",
-                                    "protein_in_grams": 23.0
-                                    "leucine_in_grams": 0.6
-                                    "carbohydrates_in_grams": 34.0
-                                    "omega3s_in_grams": 0.3
-                                    "fat_in_grams": 28.0
-                                    "iron_in_milligrams": 9.0
-                                    "zinc_in_milligrams": 10.0
-                                    "fermented_food_servings": 0.3
-                                    "fiber_in_grams": 5.0
-                                    "collagen_in_grams": 4.0
-                                    "vitamin_c_in_milligrams": 32.0
-                                    "vitamin_a_in_micrograms": 237.0
-                                    "vitamin_e_in_milligrams": 6.0
+                                    "name": "Pizza",
+                                    "protein_in_grams": 23.0,
+                                    "leucine_in_grams": 0.6,
+                                    "carbohydrates_in_grams": 34.0,
+                                    "omega3s_in_grams": 0.3,
+                                    "fat_in_grams": 28.0,
+                                    "iron_in_milligrams": 9.0,
+                                    "zinc_in_milligrams": 10.0,
+                                    "fermented_food_servings": 0.3,
+                                    "fiber_in_grams": 5.0,
+                                    "collagen_in_grams": 4.0,
+                                    "vitamin_c_in_milligrams": 32.0,
+                                    "vitamin_a_in_micrograms": 237.0,
+                                    "vitamin_e_in_milligrams": 6.0,
                                     "selenium_in_micrograms": 31.0
                                 }
                             3. If no food is visible, return this exact object:
@@ -92,7 +92,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                 "name": "Unknown",
                                 "ingredients": []
                             }
-                            5. All numeric values must be floats. Return only valid JSON - no extra text or explanations.
+                            4. All numeric values must be floats. Return only valid JSON — no extra text or explanations.
                             """
                         },
                         {

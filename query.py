@@ -109,9 +109,7 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "Ground beef",
-        "White rice",
-        "Fried egg"
+        "Toast"
     ]
 
     valid_results = []
