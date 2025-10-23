@@ -156,6 +156,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
         custom_foods: InvalidIngredients = InvalidIngredients(ingredients=[])
 
         if len(invalid_results) > 0:
+            print(invalid_results)
             # Create custom foods for foods not in database
             try:
                 chat_completion = client.beta.chat.completions.parse(
@@ -163,7 +164,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                     messages=[
                         {
                             "role": "user",
-                            "content": f"Given these foods: {food}, give me a list of foods like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to the provided quantity_in_grams. Include one portion where id = 0, gram_weight = 1.0, amount is 1.0, and modifier = 'grams'. Set the ingredient amount to the food's quantity_in_grams. Provide nutrient values per 100 grams of that food."
+                            "content": f"Given these foods: {invalid_results}, give me a list of foods like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to the provided quantity_in_grams. Include one portion where id = 0, gram_weight = 1.0, amount is 1.0, and modifier = 'grams'. Set the ingredient amount to the food's quantity_in_grams. Provide nutrient values per 100 grams of that food."
                         }
                     ],
                     response_format=InvalidIngredients
