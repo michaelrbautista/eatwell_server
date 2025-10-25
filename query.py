@@ -50,14 +50,14 @@ def search_food(term: str, quantity: float):
         conn.close()
         return None  # No match found
     
-    # print()
-    # for f in top_candidates:
-    #     print({
-    #         "fdc_id": f["fdc_id"],
-    #         "food": f["description"],
-    #         "similarity": f["similarity"]
-    #     })
-    # print()
+    print()
+    for f in top_candidates:
+        print({
+            "fdc_id": f["fdc_id"],
+            "food": f["description"],
+            "similarity": f["similarity"]
+        })
+    print()
 
     best = top_candidates[0]  # first = closest match
     if best["similarity"] < 0.5:
@@ -109,7 +109,7 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "Toast"
+        "Blueberry pancakes"
     ]
 
     valid_results = []
@@ -121,16 +121,16 @@ if __name__ == "__main__":
         else:
             invalid_results.append(result)
             
-    print("-------------------- VALID --------------------")
-    for result in valid_results:
-        print(result.description)
-        print(result.fdc_id)
-    print()
+    # print("-------------------- VALID --------------------")
+    # for result in valid_results:
+    #     print(result.description)
+    #     print(result.fdc_id)
+    # print()
 
-    print("-------------------- INVALID --------------------")
-    for result in invalid_results:
-        print(result)
-    print()
+    # print("-------------------- INVALID --------------------")
+    # for result in invalid_results:
+    #     print(result)
+    # print()
 
     # print(json.dumps(valid_results, indent=4))
     # print(food.model_dump_json(indent=4))

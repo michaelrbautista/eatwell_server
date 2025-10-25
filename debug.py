@@ -49,49 +49,43 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             "type": "text",
                             "text": """
                             Analyze this image and follow these steps:
-                            1. Identify the visible foods.
-                                - If the meal is composed of distinct, separable foods (grilled chicken, white rice, broccoli, etc.), treat each as an ingredient.
+                            1. Identify all visible foods in the image.
+                            2. If one of the identified foods is a processed or composite food made of multiple ingredients (e.g. muffin, pizza, burger, sandwich, smoothie, soup, burrito, etc), ignore all other foods and return only that food’s **name** and **nutrients** in the format below.
+                            3. If no composite food is visible, and the meal is composed of **distinct, separable foods** (grilled chicken, white rice, broccoli, etc.), treat each as an ingredient.
                                 - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
-                                - If the food is a single, blended, or composite dish (e.g. pizza, muffin, burger, sandwich, smoothie, soup, casserole, omelet, burrito, stew), treat it as **one unified meal** and do not list separate ingredients.
-                            2. Decide the output format based on the meal type:
-                                - If the meal has distinct ingredients, return an object like this:
+                            4. Output format:
+                                - **If the meal has distinct ingredients:**
                                 {
                                     "name": "Chicken and rice",
                                     "ingredients": [
-                                        {
-                                            "name": "Grilled chicken thigh",
-                                            "quantity_in_grams": 100.0
-                                        },
-                                        {
-                                            "name": "White rice",
-                                            "quantity_in_grams": 80.0
-                                        }
+                                        {"name": "Grilled chicken thigh", "quantity_in_grams": 100.0},
+                                        {"name": "White rice", "quantity_in_grams": 80.0}
                                     ]
                                 }
-                                - If the meal is a composite food, return an object exactly like this:
+                                - **If the meal contains a processed/composite food (only return this):**
                                 {
-                                    "name": "Pizza",
-                                    "protein_in_grams": 23.0,
-                                    "leucine_in_grams": 0.6,
-                                    "carbohydrates_in_grams": 34.0,
-                                    "omega3s_in_grams": 0.3,
-                                    "fat_in_grams": 28.0,
-                                    "iron_in_milligrams": 9.0,
-                                    "zinc_in_milligrams": 10.0,
-                                    "fermented_food_servings": 0.3,
-                                    "fiber_in_grams": 5.0,
-                                    "collagen_in_grams": 4.0,
-                                    "vitamin_c_in_milligrams": 32.0,
-                                    "vitamin_a_in_micrograms": 237.0,
-                                    "vitamin_e_in_milligrams": 6.0,
-                                    "selenium_in_micrograms": 31.0
+                                    "name": "Muffin",
+                                    "protein_in_grams": 7.2,
+                                    "leucine_in_grams": 0.4,
+                                    "carbohydrates_in_grams": 42.5,
+                                    "omega3s_in_grams": 0.1,
+                                    "fat_in_grams": 12.4,
+                                    "iron_in_milligrams": 1.3,
+                                    "zinc_in_milligrams": 0.8,
+                                    "fermented_food_servings": 0.0,
+                                    "fiber_in_grams": 2.8,
+                                    "collagen_in_grams": 0.0,
+                                    "vitamin_c_in_milligrams": 0.0,
+                                    "vitamin_a_in_micrograms": 21.0,
+                                    "vitamin_e_in_milligrams": 0.5,
+                                    "selenium_in_micrograms": 9.0
                                 }
-                            3. If no food is visible, return this exact object:
-                            {
-                                "name": "Unknown",
-                                "ingredients": []
-                            }
-                            4. All numeric values must be floats. Return only valid JSON — no extra text or explanations.
+                            5. If no food is visible, return exactly:
+                                {
+                                    "name": "Unknown",
+                                    "ingredients": []
+                                }
+                            6. All numeric values must be floats. Return only valid JSON — no extra text or explanations.
                             """
                         },
                         {
@@ -114,7 +108,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
     
-    # return analysis
+    return analysis
     
     # return analysis
     meal_name = analysis["name"]
