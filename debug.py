@@ -111,7 +111,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     for food in analysis["ingredients"]:
         print(food)
 
-    return analysis
+    # return analysis
     
     # return analysis
     meal_name = analysis["name"]
