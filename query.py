@@ -109,7 +109,7 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "Blueberry pancakes"
+        "Tomatoes cherry"
     ]
 
     valid_results = []

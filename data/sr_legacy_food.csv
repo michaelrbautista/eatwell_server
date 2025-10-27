@@ -1457,10 +1457,10 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 170594,sr_legacy_food,"Walnuts, dry roasted",12,2019-04-01,,
 170593,sr_legacy_food,"Walnuts, glazed",12,2019-04-01,,
 169407,sr_legacy_food,Watermelon seeds,12,2019-04-01,,
-168667,sr_legacy_food,Arm pot roast,13,2019-04-01,,3
-169491,sr_legacy_food,"Arm pot roast, raw",13,2019-04-01,,2.6
-172166,sr_legacy_food,"Back ribs, beef",13,2019-04-01,,4
-172169,sr_legacy_food,"Back ribs, beef, raw",13,2019-04-01,,3.5
+168667,sr_legacy_food,"Beef, arm pot roast",13,2019-04-01,,3
+169491,sr_legacy_food,"Beef, arm pot roast, raw",13,2019-04-01,,2.6
+172166,sr_legacy_food,"Beef, back ribs",13,2019-04-01,,4
+172169,sr_legacy_food,"Beef, back ribs, raw",13,2019-04-01,,3.5
 170198,sr_legacy_food,Beef bacon,13,2019-04-01,,2.4
 170197,sr_legacy_food,"Beef bacon, raw",13,2019-04-01,,2.2
 174026,sr_legacy_food,"Beef chuck, top blade",13,2019-04-01,,2.5
@@ -1481,38 +1481,38 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 174753,sr_legacy_food,"Beef patty, 93/7",13,2019-04-01,,1.5
 171792,sr_legacy_food,"Beef patty, 95/5",13,2019-04-01,,1.3
 173113,sr_legacy_food,"Beef patty, 97/3",13,2019-04-01,,1.1
-168682,sr_legacy_food,"Beef ribs, large end, 6–9",13,2019-04-01,,4
-168681,sr_legacy_food,"Beef ribs, large end, 6–9, broiled",13,2019-04-01,,4
-168680,sr_legacy_food,"Beef ribs, large end, 6–9, raw",13,2019-04-01,,3.5
-169511,sr_legacy_food,"Beef ribs, small end, 10–12",13,2019-04-01,,3.8
-169510,sr_legacy_food,"Beef ribs, small end, 10–12, broiled",13,2019-04-01,,3.8
-169509,sr_legacy_food,"Beef ribs, small end, 10–12, raw",13,2019-04-01,,3.5
-169500,sr_legacy_food,"Beef ribs, whole, 6–12",13,2019-04-01,,4
-169499,sr_legacy_food,"Beef ribs, whole, 6–12, broiled",13,2019-04-01,,4
-169498,sr_legacy_food,"Beef ribs, whole, 6–12, raw",13,2019-04-01,,3.6
+168682,sr_legacy_food,"Beef, ribs, large end, 6–9",13,2019-04-01,,4
+168681,sr_legacy_food,"Beef, ribs, large end, 6–9, broiled",13,2019-04-01,,4
+168680,sr_legacy_food,"Beef, ribs, large end, 6–9, raw",13,2019-04-01,,3.5
+169511,sr_legacy_food,"Beef, ribs, small end, 10–12",13,2019-04-01,,3.8
+169510,sr_legacy_food,"Beef, ribs, small end, 10–12, broiled",13,2019-04-01,,3.8
+169509,sr_legacy_food,"Beef, ribs, small end, 10–12, raw",13,2019-04-01,,3.5
+169500,sr_legacy_food,"Beef, ribs, whole, 6–12",13,2019-04-01,,4
+169499,sr_legacy_food,"Beef, ribs, whole, 6–12, broiled",13,2019-04-01,,4
+169498,sr_legacy_food,"Beef, ribs, whole, 6–12, raw",13,2019-04-01,,3.6
 170196,sr_legacy_food,"Beef tongue, raw",13,2019-04-01,,6
 170598,sr_legacy_food,"Beef tongue, simmered",13,2019-04-01,,7
 170599,sr_legacy_food,"Beef tripe, raw",13,2019-04-01,,4.5
 174769,sr_legacy_food,"Beef tripe, simmered",13,2019-04-01,,5.5
-169494,sr_legacy_food,Blade roast,13,2019-04-01,,3
-169493,sr_legacy_food,"Blade roast, raw",13,2019-04-01,,2.6
-168696,sr_legacy_food,Bottom round roast,13,2019-04-01,,2.3
-168665,sr_legacy_food,Brisket,13,2019-04-01,,3.9
-169488,sr_legacy_food,Brisket flat,13,2019-04-01,,3.8
-168666,sr_legacy_food,"Brisket flat, raw",13,2019-04-01,,3.2
-169490,sr_legacy_food,Brisket point,13,2019-04-01,,4
-169489,sr_legacy_food,"Brisket point, raw",13,2019-04-01,,3.4
-173976,sr_legacy_food,"Brisket, grass-fed, raw",13,2019-04-01,,3.5
-168664,sr_legacy_food,"Brisket, raw",13,2019-04-01,,3.5
-171227,sr_legacy_food,Chuck eye country-style ribs,13,2019-04-01,,3.2
-170831,sr_legacy_food,"Chuck eye country-style ribs, raw",13,2019-04-01,,2.8
-170820,sr_legacy_food,Chuck eye roast,13,2019-04-01,,2.8
-168660,sr_legacy_food,"Chuck eye roast, raw",13,2019-04-01,,2.4
-174027,sr_legacy_food,"Clod roast, roasted",13,2019-04-01,,2.8
+169494,sr_legacy_food,"Beef, blade roast",13,2019-04-01,,3
+169493,sr_legacy_food,"Beef, blade roast, raw",13,2019-04-01,,2.6
+168696,sr_legacy_food,"Beef, bottom round roast",13,2019-04-01,,2.3
+168665,sr_legacy_food,Beef brisket,13,2019-04-01,,3.9
+169488,sr_legacy_food,Beef brisket flat,13,2019-04-01,,3.8
+168666,sr_legacy_food,"Beef brisket flat, raw",13,2019-04-01,,3.2
+169490,sr_legacy_food,Beef brisket point,13,2019-04-01,,4
+169489,sr_legacy_food,"Beef brisket point, raw",13,2019-04-01,,3.4
+173976,sr_legacy_food,"Beef brisket, grass-fed, raw",13,2019-04-01,,3.5
+168664,sr_legacy_food,"Beef brisket, raw",13,2019-04-01,,3.5
+171227,sr_legacy_food,"Beef, chuck eye country-style ribs",13,2019-04-01,,3.2
+170831,sr_legacy_food,"Beef, chuck eye country-style ribs, raw",13,2019-04-01,,2.8
+170820,sr_legacy_food,"Beef, chuck eye roast",13,2019-04-01,,2.8
+168660,sr_legacy_food,"Beef, chuck eye roast, raw",13,2019-04-01,,2.4
+174027,sr_legacy_food,"Beef, clod roast, roasted",13,2019-04-01,,2.8
 170200,sr_legacy_food,Corned beef brisket,13,2019-04-01,,3.5
 170199,sr_legacy_food,"Corned beef brisket, raw",13,2019-04-01,,3.2
-169524,sr_legacy_food,Eye of round roast,13,2019-04-01,,2.2
-169523,sr_legacy_food,"Eye of round roast, raw",13,2019-04-01,,2
+169524,sr_legacy_food,"Beef, eye of round roast",13,2019-04-01,,2.2
+169523,sr_legacy_food,"Beef, eye of round roast, raw",13,2019-04-01,,2
 172161,sr_legacy_food,Ground beef,13,2019-04-01,,2.2
 169473,sr_legacy_food,"Ground beef, 70/30",13,2019-04-01,,2.6
 169474,sr_legacy_food,"Ground beef, 70/30, baked",13,2019-04-01,,2.5
@@ -1541,99 +1541,99 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 173111,sr_legacy_food,"Ground beef, 97/3, raw",13,2019-04-01,,1
 168608,sr_legacy_food,"Ground beef, grass-fed, raw",13,2019-04-01,,2.2
 171208,sr_legacy_food,"Pot roast, under blade",13,2019-04-01,,3.2
-170813,sr_legacy_food,"Pot roast/steak, under blade, raw",13,2019-04-01,,2.8
-172150,sr_legacy_food,"Ribeye roast, bone-in, lip-on",13,2019-04-01,,2
-172153,sr_legacy_food,"Ribeye roast, boneless, lip-on",13,2019-04-01,,2
-169557,sr_legacy_food,"Ribeye small end, ribs 10–12",13,2019-04-01,,3.8
+170813,sr_legacy_food,"Beef, pot roast/steak, under blade, raw",13,2019-04-01,,2.8
+172150,sr_legacy_food,"Beef, ribeye roast, bone-in, lip-on",13,2019-04-01,,2
+172153,sr_legacy_food,"Beef, ribeye roast, boneless, lip-on",13,2019-04-01,,2
+169557,sr_legacy_food,"Beef, ribs, ribeye small end",13,2019-04-01,,3.8
 170600,sr_legacy_food,"Sandwich steak, chopped, raw",13,2019-04-01,,2
 171729,sr_legacy_food,"Seam fat, grass-fed, raw",13,2019-04-01,,0.5
-171222,sr_legacy_food,"Short ribs, boneless",13,2019-04-01,,4.5
-170826,sr_legacy_food,"Short ribs, boneless, raw",13,2019-04-01,,3.8
-171224,sr_legacy_food,Shoulder pot roast,13,2019-04-01,,2.8
-173349,sr_legacy_food,"Shoulder pot roast or steak, raw",13,2019-04-01,,2.5
-173366,sr_legacy_food,Shoulder tender (petite tender) medallions,13,2019-04-01,,2.2
-173365,sr_legacy_food,"Shoulder tender (petite tender) medallions, raw",13,2019-04-01,,2
-168727,sr_legacy_food,Steak,13,2019-04-01,,1.8
-169520,sr_legacy_food,"Steak, bottom round",13,2019-04-01,,2.3
-169519,sr_legacy_food,"Steak, bottom round, raw",13,2019-04-01,,2
-171228,sr_legacy_food,"Steak, chuck eye",13,2019-04-01,,2.5
-171231,sr_legacy_food,"Steak, chuck eye, raw",13,2019-04-01,,2.2
-170816,sr_legacy_food,"Steak, denver",13,2019-04-01,,2.3
-171213,sr_legacy_food,"Steak, denver, raw",13,2019-04-01,,2
-173993,sr_legacy_food,"Steak, eye of round",13,2019-04-01,,2.2
-173984,sr_legacy_food,"Steak, eye of round, raw",13,2019-04-01,,2
-168733,sr_legacy_food,"Steak, flank",13,2019-04-01,,2
-169563,sr_legacy_food,"Steak, flank, raw",13,2019-04-01,,1.8
-173368,sr_legacy_food,"Steak, flat iron",13,2019-04-01,,2.5
-172134,sr_legacy_food,"Steak, flat iron, raw",13,2019-04-01,,2.2
-173395,sr_legacy_food,"Steak, inside skirt",13,2019-04-01,,2.8
-171787,sr_legacy_food,"Steak, inside skirt, broiled",13,2019-04-01,,2.8
-172158,sr_legacy_food,"Steak, inside skirt, raw",13,2019-04-01,,2.4
-173370,sr_legacy_food,"Steak, knuckle tip center",13,2019-04-01,,2.1
-173369,sr_legacy_food,"Steak, knuckle tip center, raw",13,2019-04-01,,2
-172131,sr_legacy_food,"Steak, knuckle tip side",13,2019-04-01,,2.1
-173367,sr_legacy_food,"Steak, knuckle tip side, raw",13,2019-04-01,,2
-170821,sr_legacy_food,"Steak, mock tender",13,2019-04-01,,2.2
-174025,sr_legacy_food,"Steak, mock tender",13,2019-04-01,,2.2
-170824,sr_legacy_food,"Steak, mock tender, raw",13,2019-04-01,,2
-172135,sr_legacy_food,"Steak, outside round",13,2019-04-01,,2.2
-173371,sr_legacy_food,"Steak, outside round, raw",13,2019-04-01,,2
-173397,sr_legacy_food,"Steak, outside skirt",13,2019-04-01,,2.8
-171788,sr_legacy_food,"Steak, outside skirt, broiled",13,2019-04-01,,2.8
-173400,sr_legacy_food,"Steak, outside skirt, raw",13,2019-04-01,,2.4
-169550,sr_legacy_food,"Steak, pan-fried",13,2019-04-01,,1.8
-172115,sr_legacy_food,"Steak, porterhouse",13,2019-04-01,,1.8
-173350,sr_legacy_food,"Steak, porterhouse, raw",13,2019-04-01,,1.7
-168726,sr_legacy_food,"Steak, raw",13,2019-04-01,,1.7
-172164,sr_legacy_food,"Steak, ribeye, bone-in, lip-off",13,2019-04-01,,1.8
-173402,sr_legacy_food,"Steak, ribeye, bone-in, lip-off, raw",13,2019-04-01,,1.7
-173387,sr_legacy_food,"Steak, ribeye, bone-in, lip-on",13,2019-04-01,,2
-173392,sr_legacy_food,"Steak, ribeye, boneless, lip-on",13,2019-04-01,,2
-173975,sr_legacy_food,"Steak, ribeye, grass-fed, raw",13,2019-04-01,,1.8
-171789,sr_legacy_food,"Steak, shoulder",13,2019-04-01,,2.4
-169479,sr_legacy_food,"Steak, shoulder top blade",13,2019-04-01,,2.5
-168693,sr_legacy_food,"Steak, shoulder top blade, raw",13,2019-04-01,,2.2
-172133,sr_legacy_food,"Steak, shoulder top/center",13,2019-04-01,,2.3
-172132,sr_legacy_food,"Steak, shoulder top/center, raw",13,2019-04-01,,2
-173351,sr_legacy_food,"Steak, t-bone",13,2019-04-01,,1.8
-172118,sr_legacy_food,"Steak, t-bone, raw",13,2019-04-01,,1.7
-169543,sr_legacy_food,"Steak, tenderloin",13,2019-04-01,,1.6
-170237,sr_legacy_food,"Steak, tenderloin",13,2019-04-01,,1.6
-173969,sr_legacy_food,"Steak, tenderloin, grass-fed, raw",13,2019-04-01,,1.5
-169542,sr_legacy_food,"Steak, tenderloin, raw",13,2019-04-01,,1.5
-173988,sr_legacy_food,"Steak, tenderloin, raw",13,2019-04-01,,1.5
-169539,sr_legacy_food,"Steak, top loin",13,2019-04-01,,1.7
-171733,sr_legacy_food,"Steak, top loin, grass-fed, raw",13,2019-04-01,,1.6
-174714,sr_legacy_food,"Steak, top loin, lip-on",13,2019-04-01,,1.8
-171775,sr_legacy_food,"Steak, top loin, lip-on, raw",13,2019-04-01,,1.7
-169538,sr_legacy_food,"Steak, top loin, raw",13,2019-04-01,,1.7
-169531,sr_legacy_food,"Steak, top round",13,2019-04-01,,2.2
-173977,sr_legacy_food,"Steak, top round, grass-fed, raw",13,2019-04-01,,2
-169529,sr_legacy_food,"Steak, top round, raw",13,2019-04-01,,2
-173061,sr_legacy_food,"Steak, top sirloin cap",13,2019-04-01,,1.8
-174706,sr_legacy_food,"Steak, top sirloin cap, raw",13,2019-04-01,,1.7
-171739,sr_legacy_food,"Steak, top sirloin, grass-fed, raw",13,2019-04-01,,1.7
-174024,sr_legacy_food,"Steak, tri-tip",13,2019-04-01,,2.2
-171217,sr_legacy_food,"Steak, under blade",13,2019-04-01,,3
-171740,sr_legacy_food,"Steak, wagyu ribeye, raw",13,2019-04-01,,1.7
-171732,sr_legacy_food,"Steak, wagyu tenderloin, raw",13,2019-04-01,,1.5
-173978,sr_legacy_food,"Steak, wagyu top loin, raw",13,2019-04-01,,1.6
-172151,sr_legacy_food,"Steak/roast, ribeye, bone-in, lip-on, raw",13,2019-04-01,,1.8
-172156,sr_legacy_food,"Steak/roast, ribeye, boneless, lip-on, raw",13,2019-04-01,,1.7
-171203,sr_legacy_food,Stew beef,13,2019-04-01,,3
-171206,sr_legacy_food,"Stew beef, raw",13,2019-04-01,,2.5
-169544,sr_legacy_food,Tenderloin roast,13,2019-04-01,,1.6
-173991,sr_legacy_food,Tenderloin roast,13,2019-04-01,,1.6
-173987,sr_legacy_food,"Tenderloin roast, raw",13,2019-04-01,,1.5
-169526,sr_legacy_food,Tip round roast,13,2019-04-01,,2.3
-169470,sr_legacy_food,Tip round roast (raw),13,2019-04-01,,2
-169525,sr_legacy_food,"Tip round roast, raw",13,2019-04-01,,2
-173063,sr_legacy_food,Top loin filet,13,2019-04-01,,1.7
-174708,sr_legacy_food,Top loin petite roast,13,2019-04-01,,1.7
-174711,sr_legacy_food,"Top loin petite roast/filet, raw",13,2019-04-01,,1.6
-169530,sr_legacy_food,"Top round, braised",13,2019-04-01,,2.3
-169558,sr_legacy_food,Tri-tip,13,2019-04-01,,2.3
-168734,sr_legacy_food,"Tri-tip, raw",13,2019-04-01,,2
+171222,sr_legacy_food,"Beef, short ribs, boneless",13,2019-04-01,,4.5
+170826,sr_legacy_food,"Beef, short ribs, boneless, raw",13,2019-04-01,,3.8
+171224,sr_legacy_food,"Beef, shoulder pot roast",13,2019-04-01,,2.8
+173349,sr_legacy_food,"Beef, shoulder pot roast/steak, raw",13,2019-04-01,,2.5
+173366,sr_legacy_food,"Beef, shoulder tender (petite tender) medallions",13,2019-04-01,,2.2
+173365,sr_legacy_food,"Beef, shoulder tender (petite tender) medallions, raw",13,2019-04-01,,2
+168727,sr_legacy_food,"Beef, steak",13,2019-04-01,,1.8
+169520,sr_legacy_food,"Beef, bottom round steak",13,2019-04-01,,2.3
+169519,sr_legacy_food,"Beef, bottom round steak, raw",13,2019-04-01,,2
+171228,sr_legacy_food,"Beef, chuck eye steak",13,2019-04-01,,2.5
+171231,sr_legacy_food,"Beef, chuck eye steak, raw",13,2019-04-01,,2.2
+170816,sr_legacy_food,"Beef, denver steak",13,2019-04-01,,2.3
+171213,sr_legacy_food,"Beef, denver steak, raw",13,2019-04-01,,2
+173993,sr_legacy_food,"Beef, eye of round steak",13,2019-04-01,,2.2
+173984,sr_legacy_food,"Beef, eye of round steak, raw",13,2019-04-01,,2
+168733,sr_legacy_food,"Beef, flank steak",13,2019-04-01,,2
+169563,sr_legacy_food,"Beef, flank steak, raw",13,2019-04-01,,1.8
+173368,sr_legacy_food,"Beef, flat iron steak",13,2019-04-01,,2.5
+172134,sr_legacy_food,"Beef, flat iron steak, raw",13,2019-04-01,,2.2
+173395,sr_legacy_food,"Beef, inside skirt steak",13,2019-04-01,,2.8
+171787,sr_legacy_food,"Beef, inside skirt steak, broiled",13,2019-04-01,,2.8
+172158,sr_legacy_food,"Beef, inside skirt steak, raw",13,2019-04-01,,2.4
+173370,sr_legacy_food,"Beef, knuckle tip center steak",13,2019-04-01,,2.1
+173369,sr_legacy_food,"Beef, knuckle tip center steak, raw",13,2019-04-01,,2
+172131,sr_legacy_food,"Beef, knuckle tip side steak",13,2019-04-01,,2.1
+173367,sr_legacy_food,"Beef, knuckle tip side steak, raw",13,2019-04-01,,2
+170821,sr_legacy_food,"Beef, mock tender steak",13,2019-04-01,,2.2
+174025,sr_legacy_food,"Beef, mock tender steak",13,2019-04-01,,2.2
+170824,sr_legacy_food,"Beef, mock tender steak, raw",13,2019-04-01,,2
+172135,sr_legacy_food,"Beef, outside round steak",13,2019-04-01,,2.2
+173371,sr_legacy_food,"Beef, outside round steak, raw",13,2019-04-01,,2
+173397,sr_legacy_food,"Beef, outside skirt steak",13,2019-04-01,,2.8
+171788,sr_legacy_food,"Beef, outside skirt steak, broiled",13,2019-04-01,,2.8
+173400,sr_legacy_food,"Beef, outside skirt steak, raw",13,2019-04-01,,2.4
+169550,sr_legacy_food,"Beef, steak, pan-fried",13,2019-04-01,,1.8
+172115,sr_legacy_food,"Beef, porterhouse steak",13,2019-04-01,,1.8
+173350,sr_legacy_food,"Beef, porterhouse steak, raw",13,2019-04-01,,1.7
+168726,sr_legacy_food,"Beef, steak, raw",13,2019-04-01,,1.7
+172164,sr_legacy_food,"Beef, ribeye steak, bone-in, lip-off",13,2019-04-01,,1.8
+173402,sr_legacy_food,"Beef, ribeye steak, bone-in, lip-off, raw",13,2019-04-01,,1.7
+173387,sr_legacy_food,"Beef, ribeye steak, bone-in, lip-on",13,2019-04-01,,2
+173392,sr_legacy_food,"Beef, ribeye steak, boneless, lip-on",13,2019-04-01,,2
+173975,sr_legacy_food,"Beef, ribeye steak, grass-fed, raw",13,2019-04-01,,1.8
+171789,sr_legacy_food,"Beef, shoulder steak",13,2019-04-01,,2.4
+169479,sr_legacy_food,"Beef, shoulder top blade steak",13,2019-04-01,,2.5
+168693,sr_legacy_food,"Beef, shoulder top blade steak, raw",13,2019-04-01,,2.2
+172133,sr_legacy_food,"Beef, shoulder top/center steak",13,2019-04-01,,2.3
+172132,sr_legacy_food,"Beef, shoulder top/center steak, raw",13,2019-04-01,,2
+173351,sr_legacy_food,"Beef, t-bone steak",13,2019-04-01,,1.8
+172118,sr_legacy_food,"Beef, t-bone steak, raw",13,2019-04-01,,1.7
+169543,sr_legacy_food,"Beef, tenderloin steak",13,2019-04-01,,1.6
+170237,sr_legacy_food,"Beef, tenderloin steak",13,2019-04-01,,1.6
+173969,sr_legacy_food,"Beef, tenderloin steak, grass-fed, raw",13,2019-04-01,,1.5
+169542,sr_legacy_food,"Beef, tenderloin steak, raw",13,2019-04-01,,1.5
+173988,sr_legacy_food,"Beef, tenderloin steak, raw",13,2019-04-01,,1.5
+169539,sr_legacy_food,"Beef, top loin steak",13,2019-04-01,,1.7
+171733,sr_legacy_food,"Beef, top loin steak, grass-fed, raw",13,2019-04-01,,1.6
+174714,sr_legacy_food,"Beef, top loin steak, lip-on",13,2019-04-01,,1.8
+171775,sr_legacy_food,"Beef, top loin steak, lip-on, raw",13,2019-04-01,,1.7
+169538,sr_legacy_food,"Beef, top loin steak, raw",13,2019-04-01,,1.7
+169531,sr_legacy_food,"Beef, top round steak",13,2019-04-01,,2.2
+173977,sr_legacy_food,"Beef, top round steak, grass-fed, raw",13,2019-04-01,,2
+169529,sr_legacy_food,"Beef, top round steak, raw",13,2019-04-01,,2
+173061,sr_legacy_food,"Beef, top sirloin cap steak",13,2019-04-01,,1.8
+174706,sr_legacy_food,"Beef, top sirloin cap steak, raw",13,2019-04-01,,1.7
+171739,sr_legacy_food,"Beef, top sirloin steak, grass-fed, raw",13,2019-04-01,,1.7
+174024,sr_legacy_food,"Beef, tri-tip steak",13,2019-04-01,,2.2
+171217,sr_legacy_food,"Beef, under blade steak",13,2019-04-01,,3
+171740,sr_legacy_food,"Beef, wagyu ribeye steak, raw",13,2019-04-01,,1.7
+171732,sr_legacy_food,"Beef, wagyu tenderloin steak, raw",13,2019-04-01,,1.5
+173978,sr_legacy_food,"Beef, wagyu top loin steak, raw",13,2019-04-01,,1.6
+172151,sr_legacy_food,"Beef, ribeye steak/roast, bone-in, lip-on, raw",13,2019-04-01,,1.8
+172156,sr_legacy_food,"Beef, ribeye steak/roast, boneless, lip-on, raw",13,2019-04-01,,1.7
+171203,sr_legacy_food,"Beef, stew beef",13,2019-04-01,,3
+171206,sr_legacy_food,"Beef, stew beef, raw",13,2019-04-01,,2.5
+169544,sr_legacy_food,"Beef, tenderloin roast",13,2019-04-01,,1.6
+173991,sr_legacy_food,"Beef, tenderloin roast",13,2019-04-01,,1.6
+173987,sr_legacy_food,"Beef, tenderloin roast, raw",13,2019-04-01,,1.5
+169526,sr_legacy_food,"Beef, tip round roast",13,2019-04-01,,2.3
+169470,sr_legacy_food,"Beef, tip round roast (raw)",13,2019-04-01,,2
+169525,sr_legacy_food,"Beef, tip round roast, raw",13,2019-04-01,,2
+173063,sr_legacy_food,"Beef, top loin filet",13,2019-04-01,,1.7
+174708,sr_legacy_food,"Beef, top loin petite roast",13,2019-04-01,,1.7
+174711,sr_legacy_food,"Beef, top loin petite roast/filet, raw",13,2019-04-01,,1.6
+169530,sr_legacy_food,"Beef, top round, braised",13,2019-04-01,,2.3
+169558,sr_legacy_food,"Beef, tri-tip",13,2019-04-01,,2.3
+168734,sr_legacy_food,"Beef, tri-tip, raw",13,2019-04-01,,2
 174832,sr_legacy_food,Almond milk,14,2019-04-01,,
 174820,sr_legacy_food,"Almond milk, chocolate",14,2019-04-01,,
 174131,sr_legacy_food,Aloe Vera Juice,14,2019-04-01,,
