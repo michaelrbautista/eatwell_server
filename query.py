@@ -18,32 +18,42 @@ def normalize_text(text):
     return text
 
 def reorder_modifiers(term: str) -> str:
-    modifiers = {
-        "grilled", "fried", "baked", "roasted", "boiled", "steamed", "shredded", "smoked", "poached", "seared", "broiled", "sliced", "minced", "chopped", "pulled", "scrambled"
+    # Cooking methods that should be preserved and reordered
+    cooking_modifiers = {
+        "grilled", "fried", "baked", "roasted", "boiled", "steamed", 
+        "smoked", "poached", "seared", "broiled", "scrambled"
+    }
+
+    # Form descriptors to remove completely
+    form_descriptors = {
+        "sliced", "slices", "diced", "chopped", "cubed", "minced",
+        "pieces", "chunks", "wedges", "halves", "quarters", "shredded",
+        "whole", "peeled", "fresh"
     }
 
     words = term.lower().replace(",", "").split()
 
-    # Find which words are modifiers
-    mod_words = [w for w in words if w in modifiers]
-    base_words = [w for w in words if w not in modifiers]
+    # Separate cooking modifiers, form descriptors, and base words
+    cooking_mods = [w for w in words if w in cooking_modifiers]
+    base_words = [w for w in words if w not in cooking_modifiers and w not in form_descriptors]
 
     if not base_words:
         return term.lower().strip()
 
     # Format to match USDA naming: "food, modifier"
     reordered = " ".join(base_words)
-    if mod_words:
-        reordered += ", " + " ".join(mod_words)
+    if cooking_mods:
+        reordered += ", " + " ".join(cooking_mods)
 
     return reordered.strip()
 
 def search_food(term: str, quantity: float):
     conn = sqlite3.connect(DB_PATH)
+
     reordered_term = reorder_modifiers(term)
     normalized_term = normalize_text(reordered_term)
-    candidates = get_candidates(normalized_term, conn)
 
+    candidates = get_candidates(normalized_term, conn)
     top_candidates = rerank_with_embeddings(normalized_term, candidates, conn, top_k=5)
 
     if not top_candidates:
@@ -109,7 +119,7 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "Steak pieces"
+        "Ribeye steak"
     ]
 
     valid_results = []
@@ -125,11 +135,6 @@ if __name__ == "__main__":
     # for result in valid_results:
     #     print(result.description)
     #     print(result.fdc_id)
-    # print()
-
-    # print("-------------------- INVALID --------------------")
-    # for result in invalid_results:
-    #     print(result)
     # print()
 
     # print(json.dumps(valid_results, indent=4))
