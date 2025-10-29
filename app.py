@@ -50,10 +50,11 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             "type": "text",
                             "text": """
                             Analyze this image and follow these steps:
+                            Analyze this image and follow these steps:
                             1. Identify all visible foods in the image.
-                            2. If one of the identified foods is a processed or composite food made of multiple ingredients (e.g. muffin, pizza, burger, sandwich, smoothie, soup, burrito, etc), ignore all other foods and return only that food’s **name** and **nutrients** in the format below.
-                            3. If no composite food is visible, and the meal is composed of **distinct, separable foods** (grilled chicken, white rice, broccoli, etc.), treat each as an ingredient.
-                                - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
+                            2. If the meal consists of distinct, separable foods, return each ingredient.
+                                - - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
+                            3. If the meal is a composite food made of multiple ingredients (e.g. muffin, pizza, sandwich, smoothie, pasta, burrito, soup, etc), return that food’s **name** and **nutrients** in the format below.
                             4. Output format:
                                 - **If the meal has distinct ingredients:**
                                 {
