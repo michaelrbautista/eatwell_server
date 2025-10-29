@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
 from fastapi import HTTPException
-from db.search_service import fts_search, fuzzy_search
+from query_service import fts_search, fuzzy_search
 from query import search_food
 from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium
 from models.meal_analysis import AnalysisIngredient, InvalidIngredients, AnalysisMeal
@@ -50,11 +50,10 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             "text": """
                             Analyze this image and follow these steps:
                             1. Identify all visible foods in the image.
-                            2. If there's a single, composite food made of multiple ingredients (e.g. muffin, pizza, sandwich, smoothie, burrito, etc), return that food’s **name** and **nutrients** in the format below.
-                            3. If no composite food is visible, and the meal is composed of **distinct, separable foods** (grilled chicken, white rice, broccoli, etc.), treat each as an ingredient.
-                                - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
-                            4. If there are single ingredient foods and composite foods, list the single ingredient foods and the ingredients that make up the composite food.
-                            5. Output format:
+                            2. If the meal consists of distinct, separable foods, return each ingredient.
+                                - - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
+                            3. If the meal is a composite food made of multiple ingredients (e.g. muffin, pizza, sandwich, smoothie, pasta, burrito, soup, etc), return that food’s **name** and **nutrients** in the format below.
+                            4. Output format:
                                 - **If the meal has distinct ingredients:**
                                 {
                                     "name": "Chicken and rice",
@@ -81,12 +80,12 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                     "vitamin_e_in_milligrams": 0.5,
                                     "selenium_in_micrograms": 9.0
                                 }
-                            6. If no food is visible, return exactly:
+                            5. If no food is visible, return exactly:
                                 {
                                     "name": "Unknown",
                                     "ingredients": []
                                 }
-                            7. All numeric values must be floats. Return only valid JSON — no extra text or explanations.
+                            6. All numeric values must be floats. Return only valid JSON — no extra text or explanations.
                             """
                         },
                         {
@@ -112,9 +111,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     # for food in analysis["ingredients"]:
     #     print(food)
 
-    return analysis
-    
     # return analysis
+    
     meal_name = analysis["name"]
 
     is_composite = "protein_in_grams" in analysis

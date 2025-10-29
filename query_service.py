@@ -131,6 +131,13 @@ def fuzzy_search(term, conn, limit=20):
 # ----------------------------------------
 
 def fts_search(term, conn, limit=20):
+    fts_term = term.replace(",", " ").strip()
+    fts_term = re.sub(r'[^\w\s]', ' ', fts_term)
+    fts_term = re.sub(r'\s+', ' ', fts_term).strip()
+    
+    if not fts_term:
+        return []
+    
     cursor = conn.cursor()
     cursor.execute("""
         WITH fts_results AS (
@@ -145,5 +152,5 @@ def fts_search(term, conn, limit=20):
             SELECT fdc_id, 'sr_legacy_food' AS data_type, description FROM sr_legacy_food
         ) AS f ON f.fdc_id = fts_results.fdc_id
         ORDER BY fts_results.score;
-    """, (term, limit))
+    """, (fts_term, limit))
     return cursor.fetchall()

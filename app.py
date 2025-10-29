@@ -8,7 +8,7 @@ import json
 from fastapi import HTTPException
 import sqlite3
 from helper import get_nutrients, map_nutrients, get_portions, map_portions
-from db.search_service import fuzzy_search, fts_search
+from query_service import fuzzy_search, fts_search
 from models.meal_analysis import AnalysisIngredient, InvalidIngredients, AnalysisMeal
 from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium
 from query import search_food
