@@ -21,7 +21,8 @@ def reorder_modifiers(term: str) -> str:
     # Cooking methods that should be preserved and reordered
     cooking_modifiers = {
         "grilled", "fried", "baked", "roasted", "boiled", "steamed", 
-        "smoked", "poached", "seared", "broiled", "scrambled"
+        "smoked", "poached", "seared", "broiled", "scrambled", "green",
+        "red", "orange", "yellow"
     }
 
     # Form descriptors to remove completely
@@ -166,6 +167,8 @@ def build_ingredient(best_match: dict, quantity: float, conn):
     return ingredient
 
 
+
+
 def search_food(term: str, quantity: float):
     conn = sqlite3.connect(DB_PATH)
     
@@ -212,7 +215,7 @@ def search_food(term: str, quantity: float):
 
 if __name__ == "__main__":
     ingredients = [
-        "Apple slices"
+        "Green apple slices"
     ]
 
     valid_results = []

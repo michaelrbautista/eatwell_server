@@ -50,7 +50,6 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             "type": "text",
                             "text": """
                             Analyze this image and follow these steps:
-                            Analyze this image and follow these steps:
                             1. Identify all visible foods in the image.
                             2. If the meal consists of distinct, separable foods, return each ingredient.
                                 - - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
@@ -109,6 +108,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
         analysis = json.loads(analysis_string)
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
+
+    # return analysis
     
     meal_name = analysis["name"]
 
@@ -138,54 +139,28 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
         ingredients = analysis["ingredients"]
 
         valid_results = []
-        invalid_results = []
         for food in ingredients:
             result = search_food(food["name"], food["quantity_in_grams"])
             if isinstance(result, AnalysisIngredient):
                 valid_results.append(result)
-            else:
-                invalid_results.append(result)
-
-        custom_foods: InvalidIngredients = InvalidIngredients(ingredients=[])
-
-        if len(invalid_results) > 0:
-            # Create custom foods for foods not in database
-            try:
-                chat_completion = client.beta.chat.completions.parse(
-                    model="gpt-4o",
-                    messages=[
-                        {
-                            "role": "user",
-                            "content": f"Given these foods: {invalid_results}, give me a list of foods like the USDA Food Central database. For each food, set 'fdc_id' to 1 and the 'amount' field to the provided quantity_in_grams. Include one portion where id = 0, gram_weight = 1.0, amount is 1.0, and modifier = 'grams'. Set the ingredient amount to the food's quantity_in_grams. Provide nutrient values per 100 grams of that food."
-                        }
-                    ],
-                    response_format=InvalidIngredients
-                )
-            except Exception as e:
-                print(e)
-                raise HTTPException(status_code=500, detail=f"Nutrient analysis failed: {str(e)}")
-            
-            custom_foods = chat_completion.choices[0].message.parsed
-
-        database_results = valid_results + custom_foods.ingredients
 
         return AnalysisMeal(
             name=meal_name,
-            ingredients_new=database_results,
-            protein_float=calculate_protein(database_results),
-            leucine_float=calculate_leucine(database_results),
-            carbohydrates_float=calculate_carbohydrates(database_results),
-            omega3s_float=calculate_omega3s(database_results),
-            fat_float=calculate_fat(database_results),
-            iron_float=calculate_iron(database_results),
-            zinc_float=calculate_zinc(database_results),
-            fermented_food_servings_float=calculate_fermented_food_servings(database_results),
-            fiber_float=calculate_fiber(database_results),
-            collagen_float=calculate_collagen(database_results),
-            vitamin_c_float=calculate_vitamin_c(database_results),
-            vitamin_a_float=calculate_vitamin_a(database_results),
-            vitamin_e_float=calculate_vitamin_e(database_results),
-            selenium_float=calculate_selenium(database_results)
+            ingredients_new=valid_results,
+            protein_float=calculate_protein(valid_results),
+            leucine_float=calculate_leucine(valid_results),
+            carbohydrates_float=calculate_carbohydrates(valid_results),
+            omega3s_float=calculate_omega3s(valid_results),
+            fat_float=calculate_fat(valid_results),
+            iron_float=calculate_iron(valid_results),
+            zinc_float=calculate_zinc(valid_results),
+            fermented_food_servings_float=calculate_fermented_food_servings(valid_results),
+            fiber_float=calculate_fiber(valid_results),
+            collagen_float=calculate_collagen(valid_results),
+            vitamin_c_float=calculate_vitamin_c(valid_results),
+            vitamin_a_float=calculate_vitamin_a(valid_results),
+            vitamin_e_float=calculate_vitamin_e(valid_results),
+            selenium_float=calculate_selenium(valid_results)
         )
 
 # Helper function
