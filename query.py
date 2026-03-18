@@ -133,7 +133,12 @@ def try_exact_match(term: str, conn):
 def build_ingredient(best_match: dict, quantity: float, conn):
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT fdc_id, data_type, description, fermented_food_serving_size, CAST(collagen AS REAL) AS collagen
+        SELECT fdc_id, data_type, description,
+               fermented_food_serving_size,
+               CAST(collagen AS REAL) AS collagen,
+               CAST(processing_score AS REAL) AS processing_score,
+               CAST(bioavailability_score AS REAL) AS bioavailability_score,
+               CAST(quality_score AS REAL) AS quality_score
         FROM sr_legacy_food
         WHERE fdc_id = ?
     """, (best_match["fdc_id"],))
@@ -161,7 +166,10 @@ def build_ingredient(best_match: dict, quantity: float, conn):
         amount=round(quantity / selected_gram_weight, 2),
         selected_portion_id=selected_portion_id,
         portions=portions,
-        nutrients=mapped_nutrients
+        nutrients=mapped_nutrients,
+        processing_score=food_data.get("processing_score"),
+        bioavailability_score=food_data.get("bioavailability_score"),
+        quality_score=food_data.get("quality_score")
     )
     
     return ingredient

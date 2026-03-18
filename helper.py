@@ -113,6 +113,13 @@ def calculate_selenium(ingredients: list[AnalysisIngredient]) -> float:
         selenium += (scale * ingredient.amount * ingredient.nutrients.selenium_in_micrograms)
     return round(selenium, 2)
 
+def calculate_quality_score(ingredients: list[AnalysisIngredient]) -> float | None:
+    scores = [ing.quality_score for ing in ingredients if ing.quality_score is not None]
+    if not scores:
+        return None
+    average = sum(scores) / len(scores)
+    return round(average, 2)
+
 def get_selected_portion(ingredient: AnalysisIngredient) -> FoodPortion:
     for portion in ingredient.portions:
         if portion.id == ingredient.selected_portion_id:

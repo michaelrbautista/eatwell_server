@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 class FoodPortion(BaseModel):
     id: int
@@ -29,6 +29,9 @@ class AnalysisIngredient(BaseModel):
     selected_portion_id: int
     portions: list[FoodPortion]
     nutrients: AllNutrients
+    processing_score: float | None = None
+    bioavailability_score: float | None = None
+    quality_score: float | None = None
 
 class AnalysisMeal(BaseModel):
     id: str = ""
@@ -53,6 +56,10 @@ class AnalysisMeal(BaseModel):
     vitamin_a_float: float
     vitamin_e_float: float
     selenium_float: float
+    quality_score: float
+
+    class Config:
+        validate_by_name = True
 
 class InvalidIngredients(BaseModel):
     ingredients: list[AnalysisIngredient]

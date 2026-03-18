@@ -6,6 +6,14 @@ import re
 
 DB_PATH = "../food.db"
 
+# How do create updated database
+# 1. Download .csv from Google Sheets
+# 2. Put .csv in Food Database/Prod folder
+# 3. Run clean_sr_legacy.py
+# 4. Put cleaned data into /data folder
+# 5. Run database.py
+# 6. Run embeddings.py
+
 # Upload food.db to Render
 # cd /var/data
 # curl -L -o food.db "https://dropboxlink.com"

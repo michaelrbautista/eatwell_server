@@ -8,7 +8,7 @@ import json
 from fastapi import HTTPException
 from query_service import fts_search, fuzzy_search
 from query import search_food
-from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium
+from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_quality_score
 from models.meal_analysis import AnalysisIngredient, InvalidIngredients, AnalysisMeal
 import sqlite3
 
@@ -52,7 +52,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             1. Identify all visible foods in the image.
                             2. If the meal consists of distinct, separable foods, return each ingredient.
                                 - - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
-                            3. If the meal is a composite food made of multiple ingredients (e.g. muffin, pizza, sandwich, smoothie, pasta, burrito, soup, etc), return that food’s **name** and **nutrients** in the format below.
+                            3. If the meal is a composite food made of multiple ingredients (e.g. muffin, pizza, sandwich, smoothie, pasta, burrito, soup, etc), return that food’s **name** and **nutrients** in the format below. Base the quality_score from 0 to 100 based on how processed the food is and the bioavailabiltity of its nutrients.
                             4. Output format:
                                 - **If the meal has distinct ingredients:**
                                 {
@@ -78,7 +78,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                     "vitamin_c_in_milligrams": 0.0,
                                     "vitamin_a_in_micrograms": 21.0,
                                     "vitamin_e_in_milligrams": 0.5,
-                                    "selenium_in_micrograms": 9.0
+                                    "selenium_in_micrograms": 9.0,
+                                    "quality_score": 30.0
                                 }
                             5. If no food is visible, return exactly:
                                 {
@@ -108,8 +109,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
 
-    return analysis
-    
+    # return analysis
     meal_name = analysis["name"]
 
     is_composite = "protein_in_grams" in analysis
@@ -131,7 +131,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             vitamin_c_float=analysis["vitamin_c_in_milligrams"],
             vitamin_a_float=analysis["vitamin_a_in_micrograms"],
             vitamin_e_float=analysis["vitamin_e_in_milligrams"],
-            selenium_float=analysis["selenium_in_micrograms"]
+            selenium_float=analysis["selenium_in_micrograms"],
+            quality_score=analysis["quality_score"]
         )
     else:
         # Query database
@@ -159,7 +160,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             vitamin_c_float=calculate_vitamin_c(valid_results),
             vitamin_a_float=calculate_vitamin_a(valid_results),
             vitamin_e_float=calculate_vitamin_e(valid_results),
-            selenium_float=calculate_selenium(valid_results)
+            selenium_float=calculate_selenium(valid_results),
+            quality_score=calculate_quality_score(valid_results)
         )
 
 # Helper function
@@ -208,7 +210,12 @@ async def food_details(fdc_id: int):
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     cursor.execute("""
-        SELECT fdc_id, data_type, description, fermented_food_serving_size, CAST(collagen AS REAL) AS collagen
+        SELECT fdc_id, data_type, description,
+               fermented_food_serving_size,
+               CAST(collagen AS REAL) AS collagen,
+               CAST(processing_score AS REAL) AS processing_score,
+               CAST(bioavailability_score AS REAL) AS bioavailability_score,
+               CAST(quality_score AS REAL) AS quality_score
         FROM sr_legacy_food
         WHERE fdc_id = ?
     """, (fdc_id,))
@@ -246,7 +253,10 @@ async def food_details(fdc_id: int):
         amount=1.0,
         selected_portion_id=selected_portion_id,
         portions=mapped_portions,
-        nutrients=mapped_nutrients
+        nutrients=mapped_nutrients,
+        processing_score=food_data.get("processing_score"),
+        bioavailability_score=food_data.get("bioavailability_score"),
+        quality_score=food_data.get("quality_score")
     )
 
     conn.close()
@@ -271,9 +281,31 @@ async def search_foods(term: str):
         if key not in seen:
             candidates.append({"fdc_id": fdc_id, "data_type": data_type, "description": description})
             seen.add(key)
-    
+
+    cursor = conn.cursor()
+    foods = []
+    for candidate in candidates:
+        cursor.execute("""
+            SELECT
+                CAST(processing_score AS REAL) AS processing_score,
+                CAST(bioavailability_score AS REAL) AS bioavailability_score,
+                CAST(quality_score AS REAL) AS quality_score
+            FROM sr_legacy_food
+            WHERE fdc_id = ?
+        """, (candidate["fdc_id"],))
+        row = cursor.fetchone()
+        foods.append({
+            "fdc_id": candidate["fdc_id"],
+            "data_type": candidate["data_type"],
+            "description": candidate["description"],
+            "processing_score": row[0] if row else None,
+            "bioavailability_score": row[1] if row else None,
+            "quality_score": row[2] if row else None,
+        })
+
+    conn.close()
     return {
-        "foods": candidates
+        "foods": foods
     }
 
 if __name__ == "__main__":
