@@ -188,7 +188,7 @@ async def custom_food(name: str, amount: float, modifier: str):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Give me a food object for {name} like the USDA Food Central database. Set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of {name}."
+                    "content": f"Give me a food object for {name} like the USDA Food Central database. Set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of {name}. Base the quality_score from 0 to 100 based on how processed the food is and the bioavailabiltity of its nutrients."
                 }
             ],
             response_format=AnalysisIngredient
