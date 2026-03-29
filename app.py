@@ -1,16 +1,17 @@
-from fastapi import FastAPI
 from openai import OpenAI
 import uvicorn
 import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
-from fastapi import HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from query_service import fts_search, fuzzy_search
 from query import search_food
 from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_quality_score
 from models.meal_analysis import AnalysisIngredient, InvalidIngredients, AnalysisMeal
 import sqlite3
+import re
+from rapidfuzz import fuzz
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
