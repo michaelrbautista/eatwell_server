@@ -1,16 +1,17 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException, Query
 from openai import OpenAI
 import uvicorn
 import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
-from fastapi import HTTPException
 from query_service import fts_search, fuzzy_search
 from query import search_food
 from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_quality_score
-from models.meal_analysis import AnalysisIngredient, InvalidIngredients, AnalysisMeal
+from models.meal_analysis import AnalysisIngredient, AnalysisMeal
 import sqlite3
+import re
+from rapidfuzz import fuzz
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -188,7 +189,7 @@ async def custom_food(name: str, amount: float, modifier: str):
             messages=[
                 {
                     "role": "user",
-                    "content": f"Give me a food object for {name} like the USDA Food Central database. Set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of {name}."
+                    "content": f"Give me a food object for {name} like the USDA Food Central database. Set 'fdc_id' to 1 and the 'amount' field to 1.0. Create one portion for {amount} {modifier} with the appropriate gram_weight for that portion size. Provide nutrient values per 100 grams of {name}. Base the quality_score from 0 to 100 based on how processed the food is and the bioavailabiltity of its nutrients."
                 }
             ],
             response_format=AnalysisIngredient
@@ -263,7 +264,7 @@ async def food_details(fdc_id: int):
     return ingredient
 
 # --------------------------------------------------------------------------------
-# Search for food
+# Search for food (analysis)
 # --------------------------------------------------------------------------------
 
 @app.post("/search-foods")
@@ -307,6 +308,92 @@ async def search_foods(term: str):
     return {
         "foods": foods
     }
+
+# --------------------------------------------------------------------------------
+# Search for food (database)
+# --------------------------------------------------------------------------------
+
+@app.post("/search-database")
+async def search_database(term: str, limit: int = Query(10, ge=1, le=50)):
+    if not term or not term.strip():
+        return {"foods": []}
+
+    db_path = os.getenv("DB_PATH", "food.db")
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT fdc_id, 'sr_legacy_food' AS data_type, description
+        FROM sr_legacy_food
+        WHERE LOWER(description) = ?
+        LIMIT 5
+    """, (term.lower().strip(),))
+    exact_matches = cursor.fetchall()
+    combined_results = exact_matches + fts_search(term, conn, limit=limit) + fuzzy_search(term, conn, limit=limit)
+    candidates = _dedupe_candidates(combined_results)
+    ranked = _rank_candidates(term, candidates, limit)
+    foods = _score_candidates(conn, ranked)
+    conn.close()
+    return {"foods": foods}
+
+def _normalize_search_text(value: str) -> str:
+    cleaned = value.lower()
+    cleaned = re.sub(r"[^a-z0-9\s]", " ", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    return cleaned
+
+def _dedupe_candidates(results: list[tuple[int, str, str]]) -> list[dict]:
+    seen = set()
+    candidates = []
+    for fdc_id, data_type, description in results:
+        key = (fdc_id, data_type)
+        if key not in seen:
+            candidates.append({"fdc_id": fdc_id, "data_type": data_type, "description": description})
+            seen.add(key)
+    return candidates
+
+def _rank_candidates(term: str, candidates: list[dict], limit: int) -> list[dict]:
+    normalized_term = _normalize_search_text(term)
+    term_tokens = set(normalized_term.split()) if normalized_term else set()
+
+    scored = []
+    for candidate in candidates:
+        desc_norm = _normalize_search_text(candidate["description"])
+        score = 0.0
+        if normalized_term and desc_norm == normalized_term:
+            score += 50
+        if normalized_term and desc_norm.startswith(normalized_term):
+            score += 30
+        if term_tokens and term_tokens.issubset(set(desc_norm.split())):
+            score += 20
+        ratio = fuzz.token_sort_ratio(normalized_term, desc_norm) / 100 if normalized_term else 0
+        score += ratio * 10
+        scored.append({**candidate, "rank_score": score})
+
+    scored.sort(key=lambda c: c["rank_score"], reverse=True)
+    return scored[:limit]
+
+def _score_candidates(conn: sqlite3.Connection, candidates: list[dict]) -> list[dict]:
+    cursor = conn.cursor()
+    foods = []
+    for candidate in candidates:
+        cursor.execute("""
+            SELECT
+                CAST(processing_score AS REAL) AS processing_score,
+                CAST(bioavailability_score AS REAL) AS bioavailability_score,
+                CAST(quality_score AS REAL) AS quality_score
+            FROM sr_legacy_food
+            WHERE fdc_id = ?
+        """, (candidate["fdc_id"],))
+        row = cursor.fetchone()
+        foods.append({
+            "fdc_id": candidate["fdc_id"],
+            "data_type": candidate["data_type"],
+            "description": candidate["description"],
+            "processing_score": row[0] if row else None,
+            "bioavailability_score": row[1] if row else None,
+            "quality_score": row[2] if row else None,
+        })
+    return foods
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 10000))
