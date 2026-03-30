@@ -29,7 +29,7 @@ def reorder_modifiers(term: str) -> str:
     form_descriptors = {
         "sliced", "slices", "diced", "chopped", "cubed", "minced",
         "pieces", "chunks", "wedges", "halves", "quarters", "shredded",
-        "whole", "peeled", "fresh"
+        "whole", "peeled", "fresh", "cherry"
     }
 
     words = term.lower().replace(",", "").split()
