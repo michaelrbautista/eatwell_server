@@ -22,7 +22,6 @@ class AllNutrients(BaseModel):
     vitamin_e_in_milligrams: float
     selenium_in_micrograms: float
     vitamin_b12_in_micrograms: float
-    iodine_in_micrograms: float
     vitamin_b6_in_milligrams: float
     copper_in_milligrams: float
     folate_in_micrograms: float
@@ -73,7 +72,6 @@ class AnalysisMeal(BaseModel):
     vitamin_e_float: float
     selenium_float: float
     vitamin_b12_float: float = 0.0
-    iodine_float: float = 0.0
     vitamin_b6_float: float = 0.0
     copper_float: float = 0.0
     folate_float: float = 0.0

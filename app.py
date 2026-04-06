@@ -7,7 +7,7 @@ from pydantic import BaseModel
 import json
 from query_service import fts_search, fuzzy_search
 from query import search_food
-from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_vitamin_b12, calculate_iodine, calculate_vitamin_b6, calculate_copper, calculate_folate, calculate_sodium, calculate_potassium, calculate_magnesium, calculate_vitamin_b1, calculate_vitamin_b2, calculate_vitamin_b3, calculate_vitamin_b5, calculate_vitamin_k, calculate_calcium, calculate_manganese, calculate_phosphorus, calculate_quality_score
+from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_vitamin_b12, calculate_vitamin_b6, calculate_copper, calculate_folate, calculate_sodium, calculate_potassium, calculate_magnesium, calculate_vitamin_b1, calculate_vitamin_b2, calculate_vitamin_b3, calculate_vitamin_b5, calculate_vitamin_k, calculate_calcium, calculate_manganese, calculate_phosphorus, calculate_quality_score
 from models.meal_analysis import AnalysisIngredient, AnalysisMeal
 import sqlite3
 import re
@@ -81,7 +81,6 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                     "vitamin_e_in_milligrams": 0.5,
                                     "selenium_in_micrograms": 9.0,
                                     "vitamin_b12_float": 0.0,
-                                    "iodine_float": 0.0,
                                     "vitamin_b6_float": 0.0,
                                     "copper_float": 0.0,
                                     "folate_float": 0.0,
@@ -150,7 +149,6 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             vitamin_e_float=analysis["vitamin_e_in_milligrams"],
             selenium_float=analysis["selenium_in_micrograms"],
             vitamin_b12_float=analysis["vitamin_b12_in_milligrams"],
-            iodine_float=analysis["iodine_in_micrograms"],
             vitamin_b6_float=analysis["vitamin_b6_in_milligrams"],
             copper_float=analysis["copper_in_milligrams"],
             folate_float=analysis["folate_in_micrograms"],
@@ -196,7 +194,6 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             selenium_float=calculate_selenium(valid_results),
 
             vitamin_b12_float=calculate_vitamin_b12(valid_results),
-            iodine_float=calculate_iodine(valid_results),
             vitamin_b6_float=calculate_vitamin_b6(valid_results),
             copper_float=calculate_copper(valid_results),
             folate_float=calculate_folate(valid_results),

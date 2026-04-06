@@ -124,9 +124,6 @@ def _calculate_scaled_nutrient(ingredients: list[AnalysisIngredient], attr_name:
 def calculate_vitamin_b12(ingredients: list[AnalysisIngredient]) -> float:
     return _calculate_scaled_nutrient(ingredients, "vitamin_b12_in_micrograms")
 
-def calculate_iodine(ingredients: list[AnalysisIngredient]) -> float:
-    return _calculate_scaled_nutrient(ingredients, "iodine_in_micrograms")
-
 def calculate_vitamin_b6(ingredients: list[AnalysisIngredient]) -> float:
     return _calculate_scaled_nutrient(ingredients, "vitamin_b6_in_milligrams")
 
@@ -280,7 +277,6 @@ def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
         vitamin_e_in_milligrams=0.0,
         selenium_in_micrograms=0.0,
         vitamin_b12_in_micrograms=0.0,
-        iodine_in_micrograms=0.0,
         vitamin_b6_in_milligrams=0.0,
         copper_in_milligrams=0.0,
         folate_in_micrograms=0.0,
@@ -331,8 +327,6 @@ def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
             nutrient_values.selenium_in_micrograms = amount
         elif num in (418, 578, 588):
             nutrient_values.vitamin_b12_in_micrograms += amount
-        elif num == 314:
-            nutrient_values.iodine_in_micrograms += amount
         elif num == 415:
             nutrient_values.vitamin_b6_in_milligrams += amount
         elif num == 312:
@@ -379,7 +373,7 @@ def get_nutrients(conn, fdc_id: str):
             AND CAST(n.nutrient_nbr AS INTEGER) IN (
                 203, 204, 205, 291, 303, 309,
                 401, 320, 323, 317, 504,
-                851, 629, 621, 314, 304, 305,
+                851, 629, 621, 304, 305,
                 306, 301, 315, 312, 418,
                 578, 588, 417, 415, 404,
                 574, 584, 405, 575, 585,
@@ -433,7 +427,6 @@ if __name__ == "__main__":
                 selenium_in_micrograms=0.5,
                 
                 vitamin_b12_in_micrograms=0.0,
-                iodine_in_micrograms=0.0,
                 vitamin_b6_in_milligrams=0.0,
                 copper_in_milligrams=0.0,
                 folate_in_micrograms=0.0,
