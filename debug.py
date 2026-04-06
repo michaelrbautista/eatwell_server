@@ -204,7 +204,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             potassium_float=calculate_potassium(valid_results),
             magnesium_float=calculate_magnesium(valid_results),
             vitamin_b1_float=calculate_vitamin_b1(valid_results),
-            vitamim_b2_float=calculate_vitamin_b2(valid_results),
+            vitamin_b2_float=calculate_vitamin_b2(valid_results),
             vitamin_b3_float=calculate_vitamin_b3(valid_results),
             vitamin_b5_float=calculate_vitamin_b5(valid_results),
             vitamin_k_float=calculate_vitamin_k(valid_results),

@@ -1,14 +1,14 @@
+from fastapi import FastAPI, HTTPException, Query
 from openai import OpenAI
 import uvicorn
 import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
-from fastapi import FastAPI, HTTPException, Query
 from query_service import fts_search, fuzzy_search
 from query import search_food
-from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_quality_score
-from models.meal_analysis import AnalysisIngredient, InvalidIngredients, AnalysisMeal
+from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_vitamin_b12, calculate_iodine, calculate_vitamin_b6, calculate_copper, calculate_folate, calculate_sodium, calculate_potassium, calculate_magnesium, calculate_vitamin_b1, calculate_vitamin_b2, calculate_vitamin_b3, calculate_vitamin_b5, calculate_vitamin_k, calculate_calcium, calculate_manganese, calculate_phosphorus, calculate_quality_score
+from models.meal_analysis import AnalysisIngredient, AnalysisMeal
 import sqlite3
 import re
 from rapidfuzz import fuzz
@@ -20,7 +20,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 app = FastAPI()
 
 # source venv/bin/activate
-# uvicorn debug:app --reload
+# uvicorn app:app --reload
 
 
 
@@ -37,7 +37,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     # Get list of ingredients
     try:
         vision_completion = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "system",
@@ -80,6 +80,22 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                     "vitamin_a_in_micrograms": 21.0,
                                     "vitamin_e_in_milligrams": 0.5,
                                     "selenium_in_micrograms": 9.0,
+                                    "vitamin_b12_float": 0.0,
+                                    "iodine_float": 0.0,
+                                    "vitamin_b6_float": 0.0,
+                                    "copper_float": 0.0,
+                                    "folate_float": 0.0,
+                                    "sodium_float": 0.0,
+                                    "potassium_float": 0.0,
+                                    "magnesium_float": 0.0,
+                                    "vitamin_b1_float": 0.0,
+                                    "vitamin_b2_float": 0.0,
+                                    "vitamin_b3_float": 0.0,
+                                    "vitamin_b5_float": 0.0,
+                                    "vitamin_k_float": 0.0,
+                                    "calcium_float": 0.0,
+                                    "manganese_float": 0.0,
+                                    "phosphorus_float": 0.0,
                                     "quality_score": 30.0
                                 }
                             5. If no food is visible, return exactly:
@@ -133,13 +149,27 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             vitamin_a_float=analysis["vitamin_a_in_micrograms"],
             vitamin_e_float=analysis["vitamin_e_in_milligrams"],
             selenium_float=analysis["selenium_in_micrograms"],
+            vitamin_b12_float=analysis["vitamin_b12_in_milligrams"],
+            iodine_float=analysis["iodine_in_micrograms"],
+            vitamin_b6_float=analysis["vitamin_b6_in_milligrams"],
+            copper_float=analysis["copper_in_milligrams"],
+            folate_float=analysis["folate_in_micrograms"],
+            sodium_float=analysis["sodium_in_milligrams"],
+            potassium_float=analysis["potassium_in_milligrams"],
+            magnesium_float=analysis["magnesium_in_milligrams"],
+            vitamin_b1_float=analysis["vitamin_b1_in_milligrams"],
+            vitamin_b2_float=analysis["vitamin_b2_in_milligrams"],
+            vitamin_b3_float=analysis["vitamin_b3_in_milligrams"],
+            vitamin_b5_float=analysis["vitamin_b5_in_milligrams"],
+            vitamin_k_float=analysis["vitamin_k_in_micrograms"],
+            calcium_float=analysis["calcium_in_milligrams"],
+            manganese_float=analysis["manganese_in_milligrams"],
+            phosphorus_float=analysis["phosphorus_in_milligrams"],
             quality_score=analysis["quality_score"]
         )
     else:
         # Query database
         ingredients = analysis["ingredients"]
-
-        print(ingredients)
 
         valid_results = []
         for food in ingredients:
@@ -164,6 +194,24 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
             vitamin_a_float=calculate_vitamin_a(valid_results),
             vitamin_e_float=calculate_vitamin_e(valid_results),
             selenium_float=calculate_selenium(valid_results),
+
+            vitamin_b12_float=calculate_vitamin_b12(valid_results),
+            iodine_float=calculate_iodine(valid_results),
+            vitamin_b6_float=calculate_vitamin_b6(valid_results),
+            copper_float=calculate_copper(valid_results),
+            folate_float=calculate_folate(valid_results),
+            sodium_float=calculate_sodium(valid_results),
+            potassium_float=calculate_potassium(valid_results),
+            magnesium_float=calculate_magnesium(valid_results),
+            vitamin_b1_float=calculate_vitamin_b1(valid_results),
+            vitamin_b2_float=calculate_vitamin_b2(valid_results),
+            vitamin_b3_float=calculate_vitamin_b3(valid_results),
+            vitamin_b5_float=calculate_vitamin_b5(valid_results),
+            vitamin_k_float=calculate_vitamin_k(valid_results),
+            calcium_float=calculate_calcium(valid_results),
+            manganese_float=calculate_manganese(valid_results),
+            phosphorus_float=calculate_phosphorus(valid_results),
+
             quality_score=calculate_quality_score(valid_results)
         )
 
@@ -187,7 +235,7 @@ def extract_json_from_code_block(text: str) -> str:
 async def custom_food(name: str, amount: float, modifier: str):
     try:
         chat_completion = client.beta.chat.completions.parse(
-            model="gpt-4o",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "user",
