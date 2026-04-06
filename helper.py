@@ -113,6 +113,62 @@ def calculate_selenium(ingredients: list[AnalysisIngredient]) -> float:
         selenium += (scale * ingredient.amount * ingredient.nutrients.selenium_in_micrograms)
     return round(selenium, 2)
 
+def _calculate_scaled_nutrient(ingredients: list[AnalysisIngredient], attr_name: str) -> float:
+    total = 0.0
+    for ingredient in ingredients:
+        portion = get_selected_portion(ingredient)
+        scale = portion.gram_weight / 100.0
+        total += scale * ingredient.amount * getattr(ingredient.nutrients, attr_name, 0.0)
+    return round(total, 2)
+
+def calculate_vitamin_b12(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "vitamin_b12_in_micrograms")
+
+def calculate_iodine(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "iodine_in_micrograms")
+
+def calculate_vitamin_b6(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "vitamin_b6_in_milligrams")
+
+def calculate_copper(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "copper_in_milligrams")
+
+def calculate_folate(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "folate_in_micrograms")
+
+def calculate_sodium(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "sodium_in_milligrams")
+
+def calculate_potassium(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "potassium_in_milligrams")
+
+def calculate_magnesium(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "magnesium_in_milligrams")
+
+def calculate_vitamin_b1(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "vitamin_b1_in_milligrams")
+
+def calculate_vitamin_b2(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "vitamin_b2_in_milligrams")
+
+def calculate_vitamin_b3(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "vitamin_b3_in_milligrams")
+
+def calculate_vitamin_b5(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "vitamin_b5_in_milligrams")
+
+def calculate_vitamin_k(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "vitamin_k_in_micrograms")
+
+def calculate_calcium(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "calcium_in_milligrams")
+
+def calculate_manganese(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "manganese_in_milligrams")
+
+def calculate_phosphorus(ingredients: list[AnalysisIngredient]) -> float:
+    return _calculate_scaled_nutrient(ingredients, "phosphorus_in_milligrams")
+
 def calculate_quality_score(ingredients: list[AnalysisIngredient]) -> float | None:
     scores = [ing.quality_score for ing in ingredients if ing.quality_score is not None]
     if not scores:
@@ -209,7 +265,36 @@ def get_portions(conn, fdc_id: str):
 def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
     # Start with all zeros
     nutrient_values = AllNutrients(
-        protein_in_grams=0.0,leucine_in_grams=0.0,carbohydrates_in_grams=0.0,omega3s_in_grams=0.0,fat_in_grams=0.0,iron_in_milligrams=0.0,zinc_in_milligrams=0.0,fermented_food_servings=0.0,fiber_in_grams=0.0,collagen_in_grams=0.0,vitamin_c_in_milligrams=0.0,vitamin_a_in_micrograms=0.0,vitamin_e_in_milligrams=0.0,selenium_in_micrograms=0.0
+        protein_in_grams=0.0,
+        leucine_in_grams=0.0,
+        carbohydrates_in_grams=0.0,
+        omega3s_in_grams=0.0,
+        fat_in_grams=0.0,
+        iron_in_milligrams=0.0,
+        zinc_in_milligrams=0.0,
+        fermented_food_servings=0.0,
+        fiber_in_grams=0.0,
+        collagen_in_grams=0.0,
+        vitamin_c_in_milligrams=0.0,
+        vitamin_a_in_micrograms=0.0,
+        vitamin_e_in_milligrams=0.0,
+        selenium_in_micrograms=0.0,
+        vitamin_b12_in_micrograms=0.0,
+        iodine_in_micrograms=0.0,
+        vitamin_b6_in_milligrams=0.0,
+        copper_in_milligrams=0.0,
+        folate_in_micrograms=0.0,
+        sodium_in_milligrams=0.0,
+        potassium_in_milligrams=0.0,
+        magnesium_in_milligrams=0.0,
+        vitamin_b1_in_milligrams=0.0,
+        vitamin_b2_in_milligrams=0.0,
+        vitamin_b3_in_milligrams=0.0,
+        vitamin_b5_in_milligrams=0.0,
+        vitamin_k_in_micrograms=0.0,
+        calcium_in_milligrams=0.0,
+        manganese_in_milligrams=0.0,
+        phosphorus_in_milligrams=0.0
     )
 
     for n in nutrient_list:
@@ -244,6 +329,38 @@ def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
             nutrient_values.vitamin_e_in_milligrams = amount
         elif num == 317:
             nutrient_values.selenium_in_micrograms = amount
+        elif num in (418, 578, 588):
+            nutrient_values.vitamin_b12_in_micrograms += amount
+        elif num == 314:
+            nutrient_values.iodine_in_micrograms += amount
+        elif num == 415:
+            nutrient_values.vitamin_b6_in_milligrams += amount
+        elif num == 312:
+            nutrient_values.copper_in_milligrams += amount
+        elif num == 417:
+            nutrient_values.folate_in_micrograms += amount
+        elif num == 307:
+            nutrient_values.sodium_in_milligrams += amount
+        elif num == 306:
+            nutrient_values.potassium_in_milligrams += amount
+        elif num == 304:
+            nutrient_values.magnesium_in_milligrams += amount
+        elif num in (404, 574, 584):
+            nutrient_values.vitamin_b1_in_milligrams += amount
+        elif num in (405, 575, 585):
+            nutrient_values.vitamin_b2_in_milligrams += amount
+        elif num in (406, 576, 586):
+            nutrient_values.vitamin_b3_in_milligrams += amount
+        elif num == 410:
+            nutrient_values.vitamin_b5_in_milligrams += amount
+        elif num in (428, 429, 430):
+            nutrient_values.vitamin_k_in_micrograms += amount
+        elif num in (301, 551, 561):
+            nutrient_values.calcium_in_milligrams += amount
+        elif num == 315:
+            nutrient_values.manganese_in_milligrams += amount
+        elif num == 305:
+            nutrient_values.phosphorus_in_milligrams += amount
 
     # Collagen & fermented servings are in the food table
     nutrient_values.fermented_food_servings = 0.0 if food["fermented_food_serving_size"] == None else round(100 / food["fermented_food_serving_size"], 2)
@@ -262,7 +379,12 @@ def get_nutrients(conn, fdc_id: str):
             AND CAST(n.nutrient_nbr AS INTEGER) IN (
                 203, 204, 205, 291, 303, 309,
                 401, 320, 323, 317, 504,
-                851, 629, 621
+                851, 629, 621, 314, 304, 305,
+                306, 301, 315, 312, 418,
+                578, 588, 417, 415, 404,
+                574, 584, 405, 575, 585,
+                406, 576, 586, 410, 428,
+                429, 430, 551, 561, 307
             )
     """, (fdc_id,))
     nutrients = []
@@ -294,23 +416,37 @@ if __name__ == "__main__":
                 modifier="cup"
             )
         ],
-        nutrients=AllNutrients(
-            protein_in_grams=1.1,
-            leucine_in_grams=0.0,
-            carbohydrates_in_grams=2.4,
-            omega3s_in_grams=0.0,
-            fat_in_grams=0.5,
-            iron_in_milligrams=2.5,
-            zinc_in_milligrams=0.22,
-            fermented_food_servings=3.33,
-            fiber_in_grams=1.6,
-            collagen_in_grams=0.0,
-            vitamin_c_in_milligrams=0.0,
-            vitamin_a_in_micrograms=5.0,
-            vitamin_e_in_milligrams=0.11,
-            selenium_in_micrograms=0.5
-        )
+            nutrients=AllNutrients(
+                protein_in_grams=1.1,
+                leucine_in_grams=0.0,
+                carbohydrates_in_grams=2.4,
+                omega3s_in_grams=0.0,
+                fat_in_grams=0.5,
+                iron_in_milligrams=2.5,
+                zinc_in_milligrams=0.22,
+                fermented_food_servings=3.33,
+                fiber_in_grams=1.6,
+                collagen_in_grams=0.0,
+                vitamin_c_in_milligrams=0.0,
+                vitamin_a_in_micrograms=5.0,
+                vitamin_e_in_milligrams=0.11,
+                selenium_in_micrograms=0.5,
+                
+                vitamin_b12_in_micrograms=0.0,
+                iodine_in_micrograms=0.0,
+                vitamin_b6_in_milligrams=0.0,
+                copper_in_milligrams=0.0,
+                folate_in_micrograms=0.0,
+                sodium_in_milligrams=0.0,
+                potassium_in_milligrams=0.0,
+                magnesium_in_milligrams=0.0,
+                vitamin_b1_in_milligrams=0.0,
+                vitamin_b2_in_milligrams=0.0,
+                vitamin_b3_in_milligrams=0.0,
+                vitamin_b5_in_milligrams=0.0,
+                vitamin_k_in_micrograms=0.0,
+                calcium_in_milligrams=0.0,
+                manganese_in_milligrams=0.0,
+                phosphorus_in_milligrams=0.0
+            )
     )
-
-    protein = calculate_fermented_food_servings([ingredient])
-    print(protein)
