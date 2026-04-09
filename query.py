@@ -27,7 +27,7 @@ def reorder_modifiers(term: str) -> str:
 
     # Form descriptors to remove completely
     form_descriptors = {
-        "sliced", "slices", "diced", "chopped", "cubed", "minced",
+        "cooked", "sliced", "slices", "diced", "chopped", "cubed", "minced",
         "pieces", "chunks", "wedges", "halves", "quarters", "shredded",
         "whole", "peeled", "fresh", "cherry"
     }

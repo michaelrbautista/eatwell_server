@@ -50,7 +50,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                             "type": "text",
                             "text": """
                             Analyze this image and follow these steps:
-                            1. Identify all visible foods in the image, using the most natural, specific food names you would give to a person (e.g. call diced steak simply "steak" instead of "beef cubes").
+                            1. Identify all visible foods in the image, using natural food names ("steak", "white rice", "avocado", "boiled eggs", etc).
                             2. If the meal consists of distinct, separable foods, return each ingredient.
                                 - - If a visible item is a simple combination of distinct ingredients (e.g. avocado toast → toast + avocado, bread with butter → bread + butter), list the individual ingredients instead of the combined food name.
                             3. If the meal is a composite food made of multiple ingredients (e.g. muffin, pizza, sandwich, smoothie, pasta, burrito, soup, etc), return that food’s **name** and **nutrients** in the format below. Base the quality_score from 0 to 100 based on how processed the food is and the bioavailabiltity of its nutrients.
@@ -59,7 +59,7 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                 {
                                     "name": "Chicken and rice",
                                     "ingredients": [
-                                        {"name": "Grilled chicken thigh", "quantity_in_grams": 100.0},
+                                        {"name": "Chicken thigh", "quantity_in_grams": 100.0},
                                         {"name": "White rice", "quantity_in_grams": 80.0}
                                     ]
                                 }
@@ -168,6 +168,8 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     else:
         # Query database
         ingredients = analysis["ingredients"]
+
+        print(ingredients)
 
         valid_results = []
         for food in ingredients:
