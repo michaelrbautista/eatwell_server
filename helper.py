@@ -247,16 +247,6 @@ def get_portions(conn, fdc_id: str):
             )
         )
 
-    # if len(portions) < 1:
-    #     portions = [
-    #         FoodPortion(
-    #             id = 1,
-    #             gram_weight = 100.0,
-    #             amount = 100.0,
-    #             modifier = "grams"
-    #         )
-    #     ]
-
     return portions
 
 def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:

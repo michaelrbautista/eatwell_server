@@ -45,7 +45,6 @@ class AnalysisIngredient(BaseModel):
     portions: list[FoodPortion]
     nutrients: AllNutrients
     processing_score: float | None = None
-    bioavailability_score: float | None = None
     quality_score: float | None = None
 
 class AnalysisMeal(BaseModel):
@@ -86,6 +85,7 @@ class AnalysisMeal(BaseModel):
     calcium_float: float = 0.0
     manganese_float: float = 0.0
     phosphorus_float: float = 0.0
+    
     quality_score: float
 
     class Config:

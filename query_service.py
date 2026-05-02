@@ -11,6 +11,13 @@ DB_PATH = os.getenv("DB_PATH", "../food.db")
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+def normalize_text(text):
+    text = text.lower()
+    text = text.replace("-", " ")  # 🔹 convert hyphens to spaces
+    text = re.sub(r"[^a-z0-9\s]", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
 # --------------------------------------------------------------------------------
 # Rank based on embeddings
 # --------------------------------------------------------------------------------
@@ -101,56 +108,59 @@ def get_candidates(term, conn):
 
     return candidates
 
-# --------------------------------------------------------------------------------
-# Fuzzy search
-# --------------------------------------------------------------------------------
-
-def fuzzy_search(term, conn, limit=20):
-    cursor = conn.cursor()
-    cursor.execute("SELECT fdc_id, normalized_description, 'sr_legacy_food' AS data_type FROM sr_legacy_food WHERE normalized_description IS NOT NULL")
-    sr_legacy_rows = cursor.fetchall()
-
-    all_rows = sr_legacy_rows
-    choices = {row[0]: row[1] for row in all_rows if row[1]}
-
-    results = process.extract(term, choices, scorer=fuzz.token_sort_ratio, limit=limit)
-
-    output = []
-    for desc, score, rowid in results:
-        cursor.execute("""
-            SELECT fdc_id, 'sr_legacy_food' AS data_type, description FROM sr_legacy_food WHERE fdc_id = ?
-        """, (rowid,))
-        row = cursor.fetchone()
-        if row:
-            output.append(row)
-
-    return output
-
 # ----------------------------------------
 # Full text search
 # ----------------------------------------
 
-def fts_search(term, conn, limit=20):
-    fts_term = term.replace(",", " ").strip()
-    fts_term = re.sub(r'[^\w\s]', ' ', fts_term)
+def fts_search(term: str, conn, limit: int = 20) -> list[tuple]:
+    fts_term = re.sub(r'[^\w\s]', ' ', term)
     fts_term = re.sub(r'\s+', ' ', fts_term).strip()
-    
     if not fts_term:
         return []
-    
+
+    # Try prefix match first ("chicken b" → "chicken breast"), fall back to plain match
+    prefix_term = " ".join(f'"{word}"*' for word in fts_term.split())
+
     cursor = conn.cursor()
-    cursor.execute("""
-        WITH fts_results AS (
-            SELECT rowid AS fdc_id, bm25(food_search) AS score
-            FROM food_search
-            WHERE food_search MATCH ?
-            LIMIT ?
-        )
-        SELECT fts_results.fdc_id, f.data_type, f.description
-        FROM fts_results
-        JOIN (
-            SELECT fdc_id, 'sr_legacy_food' AS data_type, description FROM sr_legacy_food
-        ) AS f ON f.fdc_id = fts_results.fdc_id
-        ORDER BY fts_results.score;
-    """, (fts_term, limit))
-    return cursor.fetchall()
+    for query_term in [prefix_term, fts_term]:
+        try:
+            cursor.execute("""
+                SELECT f.fdc_id, 'sr_legacy_food' AS data_type, f.description
+                FROM food_search
+                JOIN sr_legacy_food f ON f.fdc_id = food_search.rowid
+                WHERE food_search MATCH ?
+                ORDER BY bm25(food_search)
+                LIMIT ?
+            """, (query_term, limit))
+            rows = cursor.fetchall()
+            if rows:
+                return rows
+        except Exception:
+            continue
+
+    return []
+
+# --------------------------------------------------------------------------------
+# Fuzzy search
+# --------------------------------------------------------------------------------
+
+def fuzzy_search(term: str, conn, limit: int = 20) -> list[tuple]:
+    """
+    Full table scan — only called when FTS undershoots.
+    Consider caching `choices` at startup if DB is static.
+    """
+    cursor = conn.cursor()
+    cursor.execute(
+        "SELECT fdc_id, normalized_description, description FROM sr_legacy_food WHERE normalized_description IS NOT NULL"
+    )
+    rows = cursor.fetchall()
+
+    choices = {row[0]: row[1] for row in rows}
+    matches = process.extract(term, choices, scorer=fuzz.token_sort_ratio, limit=limit)
+
+    fdc_id_to_desc = {row[0]: row[2] for row in rows}
+    return [
+        (fdc_id, "sr_legacy_food", fdc_id_to_desc[fdc_id])
+        for _, score, fdc_id in matches
+        if score >= 60  # drop low-confidence fuzzy matches
+    ]

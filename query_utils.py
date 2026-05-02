@@ -1,10 +1,10 @@
 import sqlite3
-import json
-from query_service import get_candidates, rerank_with_embeddings
+from query_service import get_candidates
 from helper import get_nutrients, map_nutrients, get_portions
 from models.meal_analysis import AnalysisIngredient
 import os
 import re
+from rapidfuzz import fuzz, process
 
 # source venv/bin/activate
 
@@ -16,6 +16,12 @@ def normalize_text(text):
     text = re.sub(r"[^a-z0-9\s]", "", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
+
+def _normalize_search_text(value: str) -> str:
+    cleaned = value.lower()
+    cleaned = re.sub(r"[^a-z0-9\s]", " ", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip()
+    return cleaned
 
 def reorder_modifiers(term: str) -> str:
     # Cooking methods that should be preserved and reordered
@@ -130,100 +136,120 @@ def try_exact_match(term: str, conn):
     return None
 
 
-def build_ingredient(best_match: dict, quantity: float, conn):
+def _fetch_candidates(conn: sqlite3.Connection, candidates: list[dict]) -> list[dict]:
+    if not candidates:
+        return []
+
+    fdc_ids = [c["fdc_id"] for c in candidates]
+    placeholders = ",".join("?" * len(fdc_ids))
     cursor = conn.cursor()
-    cursor.execute("""
-        SELECT fdc_id, data_type, description,
-               fermented_food_serving_size,
-               CAST(collagen AS REAL) AS collagen,
-               CAST(processing_score AS REAL) AS processing_score,
-               CAST(bioavailability_score AS REAL) AS bioavailability_score,
-               CAST(quality_score AS REAL) AS quality_score
+    cursor.execute(f"""
+        SELECT
+            fdc_id,
+            data_type,
+            description,
+            fermented_food_serving_size,
+            CAST(collagen AS REAL) AS collagen,
+            CAST(processing_score AS REAL) AS processing_score
         FROM sr_legacy_food
-        WHERE fdc_id = ?
-    """, (best_match["fdc_id"],))
-    
-    food_row = cursor.fetchone()
-    if not food_row:
-        return None
-    
-    colnames = [desc[0] for desc in cursor.description]
-    food_data = dict(zip(colnames, food_row))
-    
-    # Get nutrient data
+        WHERE fdc_id IN ({placeholders})
+    """, fdc_ids)
+
+    rows = {row[0]: dict(zip([d[0] for d in cursor.description], row)) for row in cursor.fetchall()}
+
+    # Preserve candidate ordering from ranking
+    return [rows[c["fdc_id"]] for c in candidates if c["fdc_id"] in rows]
+
+
+def build_ingredient(food_data: dict, quantity: float, conn):
     nutrients = get_nutrients(conn, food_data["fdc_id"])
     mapped_nutrients = map_nutrients(nutrients, food_data)
-    
-    # Get portion data
     portions = get_portions(conn, food_data["fdc_id"])
-    
-    selected_portion_id = 0
-    selected_gram_weight = 1.0
-    
-    ingredient = AnalysisIngredient(
+
+    return AnalysisIngredient(
         fdc_id=food_data["fdc_id"],
         description=food_data["description"],
-        amount=round(quantity / selected_gram_weight, 2),
-        selected_portion_id=selected_portion_id,
+        amount=round(quantity / 1.0, 2),
+        selected_portion_id=0,
         portions=portions,
         nutrients=mapped_nutrients,
         processing_score=food_data.get("processing_score"),
-        bioavailability_score=food_data.get("bioavailability_score"),
-        quality_score=food_data.get("quality_score")
+        quality_score=food_data.get("processing_score")
     )
-    
-    return ingredient
-
-
 
 
 def search_food(term: str, quantity: float):
     conn = sqlite3.connect(DB_PATH)
-    
+
     normalized_term = normalize_text(term)
     reordered_term = reorder_modifiers(normalized_term)
-    
-    # 🚀 FAST PATH: Try exact match first (no embedding call needed)
+
+    # Fast path: exact match
     exact_match = try_exact_match(reordered_term, conn)
     if exact_match and exact_match["similarity"] >= 0.95:
-        result = build_ingredient(exact_match, quantity, conn)
-        conn.close()
-        return result
-    
-    # SLOW PATH: No exact match, use embeddings
+        food_data = _fetch_candidates(conn, [exact_match])
+        if food_data:
+            result = build_ingredient(food_data[0], quantity, conn)
+            conn.close()
+            return result
+
+    # Slow path: rank then fetch in one batch
     candidates = get_candidates(reordered_term, conn)
-    
-    top_candidates = rerank_with_embeddings(reordered_term, candidates, conn, top_k=5)
-    
-    if not top_candidates:
+    if not candidates:
         conn.close()
         return None
-    
-    # print()
-    # for f in top_candidates:
-    #     print({
-    #         "fdc_id": f["fdc_id"],
-    #         "food": f["description"],
-    #         "similarity": f["similarity"]
-    #     })
-    # print()
-    
-    best = top_candidates[0]
-    if best["similarity"] < 0.5:
+
+    ranked = _rank_candidates(reordered_term, candidates, limit=10)
+    fetched = _fetch_candidates(conn, ranked)
+
+    if not fetched:
         conn.close()
-        return {
-            "is_valid": False,
-            "name": term,
-            "quantity_in_grams": quantity
-        }
-    
+        return None
+
+    best = fetched[0]
     result = build_ingredient(best, quantity, conn)
     conn.close()
     return result
 
+def _rank_candidates(term: str, candidates: list[dict], limit: int) -> list[dict]:
+    normalized_term = _normalize_search_text(term)
+    term_tokens = set(normalized_term.split()) if normalized_term else set()
+
+    scored = []
+    for candidate in candidates:
+        desc_norm = _normalize_search_text(candidate["description"])
+        desc_tokens = set(desc_norm.split())
+        score = 0.0
+
+        if normalized_term and desc_norm == normalized_term:
+            score += 50
+        if normalized_term and desc_norm.startswith(normalized_term):
+            score += 30
+        if term_tokens and term_tokens.issubset(desc_tokens):
+            score += 20
+
+        # Penalize extra tokens — "salmon" should rank above "salmon oil" and "salmon oil, canned"
+        if term_tokens:
+            extra_tokens = len(desc_tokens - term_tokens)
+            score -= extra_tokens * 2
+
+        ratio = fuzz.token_sort_ratio(normalized_term, desc_norm) / 100 if normalized_term else 0
+        score += ratio * 10
+
+        scored.append({**candidate, "rank_score": score})
+
+    scored.sort(key=lambda c: c["rank_score"], reverse=True)
+    return scored[:limit]
+
 if __name__ == "__main__":
     ingredients = [
-        "Green apple slices"
+        "Steak",
+        "Yogurt",
+        "Blueberries",
+        "Raspberries",
+        "Turkey bacon",
+        "Kiwi",
+        "Boiled eggs"
     ]
 
     valid_results = []

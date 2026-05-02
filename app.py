@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
 from query_service import fts_search, fuzzy_search
-from query import search_food
+from query_utils import search_food
 from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_vitamin_b12, calculate_vitamin_b6, calculate_copper, calculate_folate, calculate_sodium, calculate_potassium, calculate_magnesium, calculate_vitamin_b1, calculate_vitamin_b2, calculate_vitamin_b3, calculate_vitamin_b5, calculate_vitamin_k, calculate_calcium, calculate_manganese, calculate_phosphorus, calculate_quality_score
 from models.meal_analysis import AnalysisIngredient, AnalysisMeal
 import sqlite3
@@ -261,9 +261,7 @@ async def food_details(fdc_id: int):
         SELECT fdc_id, data_type, description,
                fermented_food_serving_size,
                CAST(collagen AS REAL) AS collagen,
-               CAST(processing_score AS REAL) AS processing_score,
-               CAST(bioavailability_score AS REAL) AS bioavailability_score,
-               CAST(quality_score AS REAL) AS quality_score
+               CAST(processing_score AS REAL) AS processing_score
         FROM sr_legacy_food
         WHERE fdc_id = ?
     """, (fdc_id,))
@@ -303,8 +301,7 @@ async def food_details(fdc_id: int):
         portions=mapped_portions,
         nutrients=mapped_nutrients,
         processing_score=food_data.get("processing_score"),
-        bioavailability_score=food_data.get("bioavailability_score"),
-        quality_score=food_data.get("quality_score")
+        quality_score=food_data.get("processing_score")
     )
 
     conn.close()
@@ -335,9 +332,7 @@ async def search_foods(term: str):
     for candidate in candidates:
         cursor.execute("""
             SELECT
-                CAST(processing_score AS REAL) AS processing_score,
-                CAST(bioavailability_score AS REAL) AS bioavailability_score,
-                CAST(quality_score AS REAL) AS quality_score
+                CAST(processing_score AS REAL) AS processing_score
             FROM sr_legacy_food
             WHERE fdc_id = ?
         """, (candidate["fdc_id"],))
@@ -347,8 +342,7 @@ async def search_foods(term: str):
             "data_type": candidate["data_type"],
             "description": candidate["description"],
             "processing_score": row[0] if row else None,
-            "bioavailability_score": row[1] if row else None,
-            "quality_score": row[2] if row else None,
+            "quality_score": row[0] if row else None,
         })
 
     conn.close()
@@ -425,9 +419,7 @@ def _score_candidates(conn: sqlite3.Connection, candidates: list[dict]) -> list[
     for candidate in candidates:
         cursor.execute("""
             SELECT
-                CAST(processing_score AS REAL) AS processing_score,
-                CAST(bioavailability_score AS REAL) AS bioavailability_score,
-                CAST(quality_score AS REAL) AS quality_score
+                CAST(processing_score AS REAL) AS processing_score
             FROM sr_legacy_food
             WHERE fdc_id = ?
         """, (candidate["fdc_id"],))
@@ -437,8 +429,7 @@ def _score_candidates(conn: sqlite3.Connection, candidates: list[dict]) -> list[
             "data_type": candidate["data_type"],
             "description": candidate["description"],
             "processing_score": row[0] if row else None,
-            "bioavailability_score": row[1] if row else None,
-            "quality_score": row[2] if row else None,
+            "quality_score": row[0] if row else None,
         })
     return foods
     

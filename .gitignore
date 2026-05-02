@@ -32,3 +32,5 @@ dist/
 
 # Database
 *.db
+food.parquet
+food_us.parquet
