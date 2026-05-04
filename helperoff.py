@@ -38,14 +38,12 @@ def get_off_nutrients(food: dict) -> AllNutrients:
     def micronutrient_value(key):
         raw = food.get(key)
         if raw is None:
-            return -1.0
+            return 0.0
 
         try:
-            value = float(raw)
+            return float(raw)
         except (TypeError, ValueError):
-            return -1.0
-
-        return -1.0 if value == 0.0 else value
+            return 0.0
 
     return AllNutrients(
         protein_in_grams=v("protein_100g"),
