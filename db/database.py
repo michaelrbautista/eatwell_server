@@ -18,6 +18,7 @@ OFF_PARQUET_PATH = "../food_us.parquet"
 
 # Upload food.db to Render
 # cd /var/data
+# change end of dropbox url to dl=1
 # curl -L -o food.db "https://dropboxlink.com"
 
 # --- Normalization helper ---
