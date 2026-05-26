@@ -2470,7 +2470,8 @@ fdc_id,data_type,description,food_category_id,publication_date,fermented_food_se
 175040,sr_legacy_food,Baking soda,18,2019-04-01,,,90
 174906,sr_legacy_food,"Banana bread, made with margarine",18,2019-04-01,,,40
 172670,sr_legacy_food,Biscuits,18,2019-04-01,,,50
-172675,sr_legacy_food,Bread (includes sourdough),18,2019-04-01,,,60
+172675,sr_legacy_food,Bread,18,2019-04-01,,,60
+175305,sr_legacy_food,"Bread, sourdough",18,2019-04-01,,,60
 171844,sr_legacy_food,"Bread, chapati or roti",18,2019-04-01,,,70
 174075,sr_legacy_food,"Bread, chapati or roti, whole wheat",18,2019-04-01,,,80
 167944,sr_legacy_food,"Bread, cheese",18,2019-04-01,,,50

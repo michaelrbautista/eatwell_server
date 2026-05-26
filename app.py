@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
 from query_service import fts_search, fuzzy_search
-from query_utils import search_food, _rank_candidates
+from query_utils import search_food, _rank_candidates, _build_nonempty_choices
 from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_vitamin_b12, calculate_vitamin_b6, calculate_copper, calculate_folate, calculate_sodium, calculate_potassium, calculate_magnesium, calculate_vitamin_b1, calculate_vitamin_b2, calculate_vitamin_b3, calculate_vitamin_b5, calculate_vitamin_k, calculate_calcium, calculate_manganese, calculate_phosphorus, calculate_quality_score
 from models.meal_analysis import AnalysisIngredient, AnalysisMeal, AllNutrients
 import sqlite3
@@ -565,10 +565,13 @@ def _search_off_foods(term: str, conn, limit: int = 20) -> list[dict]:
     if len(foods_by_key) < limit:
         try:
             cursor.execute("""
-                SELECT rowid, product_name || ' ' || COALESCE(brands, '') AS combined
-                FROM off_food_search
-                WHERE off_food_search MATCH ?
-                ORDER BY bm25(off_food_search)
+                SELECT
+                    s.rowid,
+                    COALESCE(f.product_name, '') || ' ' || COALESCE(f.brands, '') AS combined
+                FROM off_food_search s
+                JOIN off_food f ON f.rowid = s.rowid
+                WHERE s.off_food_search MATCH ?
+                ORDER BY bm25(s.off_food_search)
                 LIMIT 200
             """, (normalized_term,))
             candidates = cursor.fetchall()
@@ -576,7 +579,7 @@ def _search_off_foods(term: str, conn, limit: int = 20) -> list[dict]:
             candidates = []
 
         if candidates:
-            choices = {rowid: combined for rowid, combined in candidates if combined.strip()}
+            choices = _build_nonempty_choices(candidates)
             matches = process.extract(
                 normalized_term, choices,
                 scorer=fuzz.token_sort_ratio,

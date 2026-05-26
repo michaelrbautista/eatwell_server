@@ -12,9 +12,10 @@ OFF_PARQUET_PATH = "../food_us.parquet"
 # 1. Download .csv from Google Sheets
 # 2. Put .csv in Food Database/Prod folder
 # 3. Run python clean_sr_legacy.py
-# 4. Put cleaned data into /data folder
-# 5. Run python filteroff.py to generate food_us.parquet
-# 6. Run python database.py
+# 4. Run score_foods.py
+# 5. Put cleaned data into /data folder
+# 6. Run python filteroff.py to generate food_us.parquet
+# 7. Run python database.py
 
 # Upload food.db to Render
 # cd /var/data

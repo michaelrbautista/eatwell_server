@@ -23,6 +23,14 @@ def _normalize_search_text(value: str) -> str:
     cleaned = re.sub(r"\s+", " ", cleaned).strip()
     return cleaned
 
+
+def _build_nonempty_choices(candidates):
+    return {
+        rowid: combined
+        for rowid, combined in candidates
+        if combined and combined.strip()
+    }
+
 def reorder_modifiers(term: str) -> str:
     # Cooking methods that should be preserved and reordered
     cooking_modifiers = {
