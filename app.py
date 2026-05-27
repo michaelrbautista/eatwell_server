@@ -7,13 +7,19 @@ from pydantic import BaseModel
 import json
 from query_service import fts_search, fuzzy_search
 from query_utils import search_food, _rank_candidates, _build_nonempty_choices
-from helper import get_nutrients, map_nutrients, get_portions, map_portions, calculate_protein, calculate_leucine, calculate_carbohydrates, calculate_omega3s, calculate_fat, calculate_iron, calculate_zinc, calculate_fermented_food_servings, calculate_fiber, calculate_collagen, calculate_vitamin_c, calculate_vitamin_a, calculate_vitamin_e, calculate_selenium, calculate_vitamin_b12, calculate_vitamin_b6, calculate_copper, calculate_folate, calculate_sodium, calculate_potassium, calculate_magnesium, calculate_vitamin_b1, calculate_vitamin_b2, calculate_vitamin_b3, calculate_vitamin_b5, calculate_vitamin_k, calculate_calcium, calculate_manganese, calculate_phosphorus, calculate_quality_score
-from models.meal_analysis import AnalysisIngredient, AnalysisMeal, AllNutrients
+from helper import get_nutrients, map_nutrients, get_portions, map_portions
+from models.meal_analysis import AnalysisIngredient, AnalysisMeal
 import sqlite3
 import re
 import json
 from rapidfuzz import fuzz, process
 from helperoff import get_off_nutrients, get_off_portions
+from meal_analysis_service import (
+    TextMealAnalysisRequest,
+    analyze_text_meal_description,
+    build_analysis_meal,
+    extract_json_from_code_block,
+)
 
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -82,21 +88,21 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
                                     "vitamin_a_in_micrograms": 21.0,
                                     "vitamin_e_in_milligrams": 0.5,
                                     "selenium_in_micrograms": 9.0,
-                                    "vitamin_b12_float": 0.0,
-                                    "vitamin_b6_float": 0.0,
-                                    "copper_float": 0.0,
-                                    "folate_float": 0.0,
-                                    "sodium_float": 0.0,
-                                    "potassium_float": 0.0,
-                                    "magnesium_float": 0.0,
-                                    "vitamin_b1_float": 0.0,
-                                    "vitamin_b2_float": 0.0,
-                                    "vitamin_b3_float": 0.0,
-                                    "vitamin_b5_float": 0.0,
-                                    "vitamin_k_float": 0.0,
-                                    "calcium_float": 0.0,
-                                    "manganese_float": 0.0,
-                                    "phosphorus_float": 0.0,
+                                    "vitamin_b12_in_micrograms": 0.0,
+                                    "vitamin_b6_in_milligrams": 0.0,
+                                    "copper_in_milligrams": 0.0,
+                                    "folate_in_micrograms": 0.0,
+                                    "sodium_in_milligrams": 0.0,
+                                    "potassium_in_milligrams": 0.0,
+                                    "magnesium_in_milligrams": 0.0,
+                                    "vitamin_b1_in_milligrams": 0.0,
+                                    "vitamin_b2_in_milligrams": 0.0,
+                                    "vitamin_b3_in_milligrams": 0.0,
+                                    "vitamin_b5_in_milligrams": 0.0,
+                                    "vitamin_k_in_micrograms": 0.0,
+                                    "calcium_in_milligrams": 0.0,
+                                    "manganese_in_milligrams": 0.0,
+                                    "phosphorus_in_milligrams": 0.0,
                                     "quality_score": 30.0
                                 }
                             5. If no food is visible, return exactly:
@@ -127,108 +133,16 @@ async def analyze_meal_updated(payload: AnalyzeImageRequest):
     except json.JSONDecodeError as e:
         raise HTTPException(status_code=400, detail=f"Failed to parse vision response: {e}")
 
-    # return analysis
-    meal_name = analysis["name"]
+    return build_analysis_meal(analysis, search_food_fn=search_food)
 
-    is_composite = "protein_in_grams" in analysis
 
-    if is_composite:
-        return AnalysisMeal(
-            name=meal_name,
-            ingredients_new=[],
-            protein_float=analysis["protein_in_grams"],
-            leucine_float=analysis["leucine_in_grams"],
-            carbohydrates_float=analysis["carbohydrates_in_grams"],
-            omega3s_float=analysis["omega3s_in_grams"],
-            fat_float=analysis["fat_in_grams"],
-            iron_float=analysis["iron_in_milligrams"],
-            zinc_float=analysis["zinc_in_milligrams"],
-            fermented_food_servings_float=analysis["fermented_food_servings"],
-            fiber_float=analysis["fiber_in_grams"],
-            collagen_float=analysis["collagen_in_grams"],
-            vitamin_c_float=analysis["vitamin_c_in_milligrams"],
-            vitamin_a_float=analysis["vitamin_a_in_micrograms"],
-            vitamin_e_float=analysis["vitamin_e_in_milligrams"],
-            selenium_float=analysis["selenium_in_micrograms"],
-            vitamin_b12_float=analysis["vitamin_b12_in_milligrams"],
-            vitamin_b6_float=analysis["vitamin_b6_in_milligrams"],
-            copper_float=analysis["copper_in_milligrams"],
-            folate_float=analysis["folate_in_micrograms"],
-            sodium_float=analysis["sodium_in_milligrams"],
-            potassium_float=analysis["potassium_in_milligrams"],
-            magnesium_float=analysis["magnesium_in_milligrams"],
-            vitamin_b1_float=analysis["vitamin_b1_in_milligrams"],
-            vitamin_b2_float=analysis["vitamin_b2_in_milligrams"],
-            vitamin_b3_float=analysis["vitamin_b3_in_milligrams"],
-            vitamin_b5_float=analysis["vitamin_b5_in_milligrams"],
-            vitamin_k_float=analysis["vitamin_k_in_micrograms"],
-            calcium_float=analysis["calcium_in_milligrams"],
-            manganese_float=analysis["manganese_in_milligrams"],
-            phosphorus_float=analysis["phosphorus_in_milligrams"],
-            quality_score=analysis["quality_score"]
-        )
-    else:
-        # Query database
-        ingredients = analysis["ingredients"]
+@app.post("/meal-description")
+async def analyze_meal_description(payload: TextMealAnalysisRequest):
+    description = payload.description.strip()
+    if not description:
+        raise HTTPException(status_code=400, detail="Description cannot be empty.")
 
-        valid_results = []
-        for food in ingredients:
-            result = search_food(food["name"], food["quantity_in_grams"])
-            if isinstance(result, AnalysisIngredient):
-                valid_results.append(result)
-
-        for food in valid_results:
-            print(food)
-            print()
-
-        return AnalysisMeal(
-            name=meal_name,
-            ingredients_new=valid_results,
-            protein_float=calculate_protein(valid_results),
-            leucine_float=calculate_leucine(valid_results),
-            carbohydrates_float=calculate_carbohydrates(valid_results),
-            omega3s_float=calculate_omega3s(valid_results),
-            fat_float=calculate_fat(valid_results),
-            iron_float=calculate_iron(valid_results),
-            zinc_float=calculate_zinc(valid_results),
-            fermented_food_servings_float=calculate_fermented_food_servings(valid_results),
-            fiber_float=calculate_fiber(valid_results),
-            collagen_float=calculate_collagen(valid_results),
-            vitamin_c_float=calculate_vitamin_c(valid_results),
-            vitamin_a_float=calculate_vitamin_a(valid_results),
-            vitamin_e_float=calculate_vitamin_e(valid_results),
-            selenium_float=calculate_selenium(valid_results),
-
-            vitamin_b12_float=calculate_vitamin_b12(valid_results),
-            vitamin_b6_float=calculate_vitamin_b6(valid_results),
-            copper_float=calculate_copper(valid_results),
-            folate_float=calculate_folate(valid_results),
-            sodium_float=calculate_sodium(valid_results),
-            potassium_float=calculate_potassium(valid_results),
-            magnesium_float=calculate_magnesium(valid_results),
-            vitamin_b1_float=calculate_vitamin_b1(valid_results),
-            vitamin_b2_float=calculate_vitamin_b2(valid_results),
-            vitamin_b3_float=calculate_vitamin_b3(valid_results),
-            vitamin_b5_float=calculate_vitamin_b5(valid_results),
-            vitamin_k_float=calculate_vitamin_k(valid_results),
-            calcium_float=calculate_calcium(valid_results),
-            manganese_float=calculate_manganese(valid_results),
-            phosphorus_float=calculate_phosphorus(valid_results),
-
-            quality_score=calculate_quality_score(valid_results)
-        )
-
-# Helper function
-def extract_json_from_code_block(text: str) -> str:
-    """
-    Extracts raw JSON from a markdown-formatted code block (e.g. ```json\n...\n```)
-    """
-    if text.startswith("```json") or text.startswith("```"):
-        # Remove the triple backticks and optional 'json' language label
-        lines = text.strip().split('\n')
-        if len(lines) >= 3:
-            return '\n'.join(lines[1:-1])  # Remove first and last line
-    return text.strip()
+    return analyze_text_meal_description(client, description, search_food_fn=search_food)
 
 # --------------------------------------------------------------------------------
 # Custom food
@@ -663,7 +577,7 @@ def _score_candidates(conn: sqlite3.Connection, candidates: list[dict]) -> list[
         }
         for c in candidates
     ]
-    
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 10000))
     uvicorn.run(app, host="0.0.0.0", port=port)
