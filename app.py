@@ -181,7 +181,8 @@ async def food_details(fdc_id: int):
         SELECT fdc_id, data_type, description,
                fermented_food_serving_size,
                CAST(collagen AS REAL) AS collagen,
-               CAST(processing_score AS REAL) AS processing_score
+               CAST(processing_score AS REAL) AS processing_score,
+               CAST(bioavailability_score AS REAL) AS bioavailability_score
         FROM sr_legacy_food
         WHERE fdc_id = ?
     """, (fdc_id,))
@@ -221,6 +222,7 @@ async def food_details(fdc_id: int):
         portions=mapped_portions,
         nutrients=mapped_nutrients,
         processing_score=food_data.get("processing_score"),
+        bioavailability_score=food_data.get("bioavailability_score"),
         quality_score=food_data.get("processing_score")
     )
 
@@ -254,6 +256,7 @@ async def off_food_details(code: str):
         portions=portions,
         nutrients=nutrients,
         processing_score=None,
+        bioavailability_score=None,
         quality_score=None
     )
 
@@ -282,7 +285,8 @@ async def search_foods(term: str):
     for candidate in candidates:
         cursor.execute("""
             SELECT
-                CAST(processing_score AS REAL) AS processing_score
+                CAST(processing_score AS REAL) AS processing_score,
+                CAST(bioavailability_score AS REAL) AS bioavailability_score
             FROM sr_legacy_food
             WHERE fdc_id = ?
         """, (candidate["fdc_id"],))
@@ -292,6 +296,7 @@ async def search_foods(term: str):
             "data_type": candidate["data_type"],
             "description": candidate["description"],
             "processing_score": row[0] if row else None,
+            "bioavailability_score": row[1] if row else None,
             "quality_score": row[0] if row else None,
         })
 
@@ -353,16 +358,24 @@ def _search_usda_foods(term: str, conn, limit: int = 20) -> list[dict]:
     placeholders = ",".join("?" * len(fdc_ids))
     cursor = conn.cursor()
     cursor.execute(
-        f"SELECT fdc_id, CAST(processing_score AS REAL) FROM sr_legacy_food WHERE fdc_id IN ({placeholders})",
+        f"""
+        SELECT
+            fdc_id,
+            CAST(processing_score AS REAL) AS processing_score,
+            CAST(bioavailability_score AS REAL) AS bioavailability_score
+        FROM sr_legacy_food
+        WHERE fdc_id IN ({placeholders})
+        """,
         fdc_ids,
     )
-    scores = {row[0]: row[1] for row in cursor.fetchall()}
+    scores = {row[0]: (row[1], row[2]) for row in cursor.fetchall()}
 
     return [
         {
             **c,
-            "processing_score": scores.get(c["fdc_id"]),
-            "quality_score": scores.get(c["fdc_id"]),
+            "processing_score": scores.get(c["fdc_id"], (None, None))[0],
+            "bioavailability_score": scores.get(c["fdc_id"], (None, None))[1],
+            "quality_score": scores.get(c["fdc_id"], (None, None))[0],
         }
         for c in candidates
     ][:limit]

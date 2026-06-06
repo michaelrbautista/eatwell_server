@@ -158,7 +158,8 @@ def _fetch_candidates(conn: sqlite3.Connection, candidates: list[dict]) -> list[
             description,
             fermented_food_serving_size,
             CAST(collagen AS REAL) AS collagen,
-            CAST(processing_score AS REAL) AS processing_score
+            CAST(processing_score AS REAL) AS processing_score,
+            CAST(bioavailability_score AS REAL) AS bioavailability_score
         FROM sr_legacy_food
         WHERE fdc_id IN ({placeholders})
     """, fdc_ids)
@@ -182,6 +183,7 @@ def build_ingredient(food_data: dict, quantity: float, conn):
         portions=portions,
         nutrients=mapped_nutrients,
         processing_score=food_data.get("processing_score"),
+        bioavailability_score=food_data.get("bioavailability_score"),
         quality_score=food_data.get("processing_score")
     )
 

@@ -8,6 +8,8 @@ import pyarrow.parquet as pq
 DB_PATH = "../food.db"
 OFF_PARQUET_PATH = "../food_us.parquet"
 
+# NEED TO DOWNLOAD OFF PARQUET FILE BEFORE EDITING OFF DATA
+
 # How to create updated database
 # 1. Download .csv from Google Sheets
 # 2. Put .csv in Food Database/Prod folder
@@ -16,6 +18,8 @@ OFF_PARQUET_PATH = "../food_us.parquet"
 # 5. Put cleaned data into /data folder
 # 6. Run python filteroff.py to generate food_us.parquet
 # 7. Run python database.py
+
+# source venv/bin/activate
 
 # Upload food.db to Render
 # cd /var/data

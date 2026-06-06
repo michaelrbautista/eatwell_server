@@ -45,6 +45,7 @@ class AnalysisIngredient(BaseModel):
     portions: list[FoodPortion]
     nutrients: AllNutrients
     processing_score: float | None = None
+    bioavailability_score: float | None = None
     quality_score: float | None = None
 
 class AnalysisMeal(BaseModel):
