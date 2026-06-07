@@ -83,6 +83,21 @@ class FoodDetailsAndSearchScoreTests(unittest.TestCase):
             """,
             (123, "SR Legacy", "Test Food", 25.0, 1.5, 42.0, 88.5),
         )
+        cursor.executemany(
+            """
+            INSERT INTO sr_legacy_food (
+                fdc_id, data_type, description, fermented_food_serving_size,
+                collagen, processing_score, bioavailability_score
+            ) VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            [
+                (124, "SR Legacy", "Bread", 25.0, 0.0, 10.0, 20.0),
+                (125, "SR Legacy", "Bread, whole wheat", 25.0, 0.0, 11.0, 21.0),
+                (126, "SR Legacy", "Bread, white", 25.0, 0.0, 12.0, 22.0),
+                (127, "SR Legacy", "Breadfruit", 25.0, 0.0, 13.0, 23.0),
+                (128, "SR Legacy", "Breadsticks", 25.0, 0.0, 14.0, 24.0),
+            ],
+        )
         cursor.execute(
             """
             INSERT INTO sr_legacy_food_portion (id, fdc_id, gram_weight, amount, modifier)
@@ -119,6 +134,40 @@ class FoodDetailsAndSearchScoreTests(unittest.TestCase):
         self.assertEqual(data["bioavailability_score"], 88.5)
         self.assertEqual(data["quality_score"], 42.0)
 
+    def test_usda_search_places_bread_and_bread_comma_rows_first(self):
+        def assert_order(payload, key):
+            descriptions = [food["description"] for food in payload[key]]
+            self.assertEqual(
+                descriptions,
+                [
+                    "Bread",
+                    "Bread, white",
+                    "Bread, whole wheat",
+                    "Breadfruit",
+                    "Breadsticks",
+                ],
+            )
+
+        with patch.dict(os.environ, {"DB_PATH": self.db_path}, clear=False), patch(
+            "query_service.fts_search",
+            return_value=[
+                (127, "sr_legacy_food", "Breadfruit"),
+                (128, "sr_legacy_food", "Breadsticks"),
+            ],
+        ), patch("query_service.fuzzy_search", return_value=[]):
+            client = TestClient(app_module.app)
+            search_foods_response = client.post("/search-foods", params={"term": "Bread"})
+            search_database_response = client.post("/search-database", params={"term": "Bread"})
+            search_database_v2_response = client.post("/search-database-v2", params={"term": "Bread"})
+
+        self.assertEqual(search_foods_response.status_code, 200)
+        self.assertEqual(search_database_response.status_code, 200)
+        self.assertEqual(search_database_v2_response.status_code, 200)
+
+        assert_order(search_foods_response.json(), "foods")
+        assert_order(search_database_response.json(), "foods")
+        assert_order(search_database_v2_response.json(), "usda_foods")
+
     def test_search_food_returns_bioavailability_score(self):
         with patch.object(query_utils, "DB_PATH", self.db_path), patch.object(
             query_utils,
@@ -138,11 +187,10 @@ class FoodDetailsAndSearchScoreTests(unittest.TestCase):
         self.assertEqual(ingredient.quality_score, 42.0)
 
     def test_search_foods_endpoint_returns_bioavailability_score(self):
-        with patch.dict(os.environ, {"DB_PATH": self.db_path}, clear=False), patch.object(
-            app_module,
-            "fts_search",
+        with patch.dict(os.environ, {"DB_PATH": self.db_path}, clear=False), patch(
+            "query_service.fts_search",
             return_value=[(123, "SR Legacy", "Test Food")],
-        ), patch.object(app_module, "fuzzy_search", return_value=[]):
+        ), patch("query_service.fuzzy_search", return_value=[]):
             client = TestClient(app_module.app)
             response = client.post("/search-foods", params={"term": "Test Food"})
 
@@ -155,11 +203,10 @@ class FoodDetailsAndSearchScoreTests(unittest.TestCase):
         self.assertEqual(food["quality_score"], 42.0)
 
     def test_search_database_v2_returns_bioavailability_score_for_usda_foods(self):
-        with patch.dict(os.environ, {"DB_PATH": self.db_path}, clear=False), patch.object(
-            app_module,
-            "fts_search",
+        with patch.dict(os.environ, {"DB_PATH": self.db_path}, clear=False), patch(
+            "query_service.fts_search",
             return_value=[(123, "SR Legacy", "Test Food")],
-        ), patch.object(app_module, "fuzzy_search", return_value=[]), patch.object(
+        ), patch("query_service.fuzzy_search", return_value=[]), patch.object(
             app_module,
             "_search_off_foods",
             return_value=[],

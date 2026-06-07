@@ -164,3 +164,66 @@ def fuzzy_search(term: str, conn, limit: int = 20) -> list[tuple]:
         for _, score, fdc_id in matches
         if score >= 60  # drop low-confidence fuzzy matches
     ]
+
+
+def _normalize_usda_search_term(term: str) -> str:
+    return re.sub(r"\s+", " ", term.lower().strip())
+
+
+def get_usda_search_candidates(term: str, conn, limit: int = 20) -> list[tuple]:
+    """
+    Return USDA candidates ordered so literal and USDA-style prefix matches
+    come before broader FTS/fuzzy matches.
+    """
+    normalized_term = _normalize_usda_search_term(term)
+    if not normalized_term:
+        return []
+
+    cursor = conn.cursor()
+    candidates: list[tuple] = []
+    seen: set[tuple[int, str]] = set()
+
+    def add_rows(rows: list[tuple]):
+        for row in rows:
+            key = (row[0], row[1])
+            if key not in seen:
+                candidates.append(row)
+                seen.add(key)
+
+    cursor.execute(
+        """
+        SELECT fdc_id, 'sr_legacy_food' AS data_type, description
+        FROM sr_legacy_food
+        WHERE LOWER(description) = ?
+           OR LOWER(description) LIKE ? || ',%'
+           OR LOWER(description) LIKE ? || ' %'
+        ORDER BY
+            CASE
+                WHEN LOWER(description) = ? THEN 0
+                WHEN LOWER(description) LIKE ? || ',%' THEN 1
+                WHEN LOWER(description) LIKE ? || ' %' THEN 2
+                ELSE 3
+            END,
+            LOWER(description),
+            fdc_id
+        LIMIT ?
+        """,
+        (
+            normalized_term,
+            normalized_term,
+            normalized_term,
+            normalized_term,
+            normalized_term,
+            normalized_term,
+            limit,
+        ),
+    )
+    add_rows(cursor.fetchall())
+
+    if len(candidates) < limit:
+        add_rows(fts_search(term, conn, limit=limit))
+
+    if len(candidates) < limit:
+        add_rows(fuzzy_search(term, conn, limit=limit))
+
+    return candidates[:limit]

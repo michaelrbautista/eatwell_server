@@ -5,8 +5,8 @@ import os
 from dotenv import load_dotenv
 from pydantic import BaseModel
 import json
-from query_service import fts_search, fuzzy_search
-from query_utils import search_food, _rank_candidates, _build_nonempty_choices
+from query_service import get_usda_search_candidates
+from query_utils import search_food, _build_nonempty_choices
 from helper import get_nutrients, map_nutrients, get_portions, map_portions
 from models.meal_analysis import AnalysisIngredient, AnalysisMeal
 import sqlite3
@@ -269,12 +269,11 @@ async def search_foods(term: str):
     DB_PATH = os.getenv("DB_PATH", "food.db")
     
     conn = sqlite3.connect(DB_PATH)
-    fts_results = fts_search(term, conn, limit=10)
-    fuzzy_results = fuzzy_search(term, conn, limit=10)
+    usda_results = get_usda_search_candidates(term, conn, limit=10)
 
     seen = set()
     candidates = []
-    for fdc_id, data_type, description in fts_results + fuzzy_results:
+    for fdc_id, data_type, description in usda_results:
         key = (fdc_id, data_type)
         if key not in seen:
             candidates.append({"fdc_id": fdc_id, "data_type": data_type, "description": description})
@@ -326,25 +325,20 @@ async def search_foods_split(term: str):
 def _search_usda_foods(term: str, conn, limit: int = 20) -> list[dict]:
     """
     Search strategy:
-    1. FTS (BM25) — fast, handles exact/prefix matches well
-    2. Fuzzy — only runs if FTS returns fewer than `limit` results
-    3. Dedup, fetch processing_score in one batch query
+    1. Exact and USDA-style prefix matches first
+    2. FTS (BM25)
+    3. Fuzzy fallback
+    4. Dedup, fetch processing_score in one batch query
     """
     term = term.strip()
     if not term:
         return []
 
-    fts_results = fts_search(term, conn, limit=limit)
-
-    # Only run fuzzy if FTS didn't fill the quota — avoids full table scan on good queries
-    if len(fts_results) < limit:
-        fuzzy_results = fuzzy_search(term, conn, limit=limit)
-    else:
-        fuzzy_results = []
+    usda_results = get_usda_search_candidates(term, conn, limit=limit)
 
     seen = set()
     candidates = []
-    for row in fts_results + fuzzy_results:
+    for row in usda_results:
         fdc_id = row[0]
         if fdc_id not in seen:
             candidates.append({"fdc_id": fdc_id, "data_type": row[1], "description": row[2]})
@@ -542,18 +536,9 @@ async def search_database(term: str, limit: int = Query(20, ge=1, le=50)):
 
     db_path = os.getenv("DB_PATH", "food.db")
     conn = sqlite3.connect(db_path)
-    cursor = conn.cursor()
-    cursor.execute("""
-        SELECT fdc_id, 'sr_legacy_food' AS data_type, description
-        FROM sr_legacy_food
-        WHERE LOWER(description) = ?
-        LIMIT 5
-    """, (term.lower().strip(),))
-    exact_matches = cursor.fetchall()
-    combined_results = exact_matches + fts_search(term, conn, limit=limit) + fuzzy_search(term, conn, limit=limit)
-    candidates = _dedupe_candidates(combined_results)
-    ranked = _rank_candidates(term, candidates, limit)
-    foods = _score_candidates(conn, ranked)
+    usda_results = get_usda_search_candidates(term, conn, limit=limit)
+    candidates = _dedupe_candidates(usda_results)
+    foods = _score_candidates(conn, candidates)
     conn.close()
     return {"foods": foods}
 
