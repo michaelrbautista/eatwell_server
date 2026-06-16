@@ -105,6 +105,14 @@ def calculate_vitamin_e(ingredients: list[AnalysisIngredient]) -> float:
         vitamin_e += (scale * ingredient.amount * ingredient.nutrients.vitamin_e_in_milligrams)
     return round(vitamin_e, 2)
 
+def calculate_vitamin_d(ingredients: list[AnalysisIngredient]) -> float:
+    vitamin_d = 0.0
+    for ingredient in ingredients:
+        portion = get_selected_portion(ingredient)
+        scale = portion.gram_weight / 100.0
+        vitamin_d += (scale * ingredient.amount * ingredient.nutrients.vitamin_d_in_micrograms)
+    return round(vitamin_d, 2)
+
 def calculate_selenium(ingredients: list[AnalysisIngredient]) -> float:
     selenium = 0.0
     for ingredient in ingredients:
@@ -265,6 +273,7 @@ def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
         vitamin_c_in_milligrams=0.0,
         vitamin_a_in_micrograms=0.0,
         vitamin_e_in_milligrams=0.0,
+        vitamin_d_in_micrograms=0.0,
         selenium_in_micrograms=0.0,
         vitamin_b12_in_micrograms=0.0,
         vitamin_b6_in_milligrams=0.0,
@@ -282,6 +291,10 @@ def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
         manganese_in_milligrams=0.0,
         phosphorus_in_milligrams=0.0
     )
+
+    vitamin_d_iu = None
+    vitamin_d_micrograms = None
+    vitamin_d_alt_micrograms = []
 
     for n in nutrient_list:
         num = n["nutrient"]["number"]
@@ -313,6 +326,14 @@ def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
             nutrient_values.vitamin_a_in_micrograms = amount
         elif num == 323:
             nutrient_values.vitamin_e_in_milligrams = amount
+        elif num == 324:
+            vitamin_d_iu = amount
+        elif num == 325:
+            vitamin_d_alt_micrograms.append(amount)
+        elif num == 326:
+            vitamin_d_alt_micrograms.append(amount)
+        elif num == 328:
+            vitamin_d_micrograms = amount
         elif num == 317:
             nutrient_values.selenium_in_micrograms = amount
         elif num in (418, 578, 588):
@@ -346,6 +367,13 @@ def map_nutrients(nutrient_list: list[dict], food: dict) -> AllNutrients:
         elif num == 305:
             nutrient_values.phosphorus_in_milligrams += amount
 
+    if vitamin_d_micrograms is not None:
+        nutrient_values.vitamin_d_in_micrograms = vitamin_d_micrograms
+    elif vitamin_d_alt_micrograms:
+        nutrient_values.vitamin_d_in_micrograms = sum(vitamin_d_alt_micrograms)
+    elif vitamin_d_iu is not None:
+        nutrient_values.vitamin_d_in_micrograms = vitamin_d_iu / 40.0
+
     # Collagen & fermented servings are in the food table
     nutrient_values.fermented_food_servings = 0.0 if food["fermented_food_serving_size"] == None else round(100 / food["fermented_food_serving_size"], 2)
     nutrient_values.collagen_in_grams = 0.0 if food["collagen"] == None else food["collagen"] 
@@ -369,6 +397,7 @@ def get_nutrients(conn, fdc_id: str):
                 574, 584, 405, 575, 585,
                 406, 576, 586, 410, 428,
                 429, 430, 551, 561, 307
+                ,324, 325, 326, 328
             )
     """, (fdc_id,))
     nutrients = []

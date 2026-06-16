@@ -58,6 +58,7 @@ def make_ingredient(description: str, quantity: float, protein_per_100g: float, 
             vitamin_c_in_milligrams=0.0,
             vitamin_a_in_micrograms=0.0,
             vitamin_e_in_milligrams=0.0,
+            vitamin_d_in_micrograms=0.0,
             selenium_in_micrograms=0.0,
             vitamin_b12_in_micrograms=0.0,
             vitamin_b6_in_milligrams=0.0,
@@ -193,6 +194,7 @@ class MealDescriptionEndpointTests(unittest.TestCase):
           "vitamin_c_in_milligrams": 0.0,
           "vitamin_a_in_micrograms": 21.0,
           "vitamin_e_in_milligrams": 0.5,
+          "vitamin_d_in_micrograms": 0.0,
           "selenium_in_micrograms": 9.0,
           "vitamin_b12_in_micrograms": 0.0,
           "vitamin_b6_in_milligrams": 0.0,
@@ -224,6 +226,7 @@ class MealDescriptionEndpointTests(unittest.TestCase):
         self.assertEqual(data["name"], "Muffin")
         self.assertEqual(data["ingredients_new"], [])
         self.assertAlmostEqual(data["protein_float"], 7.2, places=2)
+        self.assertAlmostEqual(data["vitamin_d_float"], 0.0, places=2)
         self.assertAlmostEqual(data["quality_score"], 30.0, places=2)
 
     def test_blank_description_is_rejected(self):

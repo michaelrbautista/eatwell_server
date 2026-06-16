@@ -55,6 +55,7 @@ def get_off_nutrients(food: dict) -> AllNutrients:
         vitamin_c_in_milligrams=micronutrient_value("vitamin_c_100g"),
         vitamin_a_in_micrograms=micronutrient_value("vitamin_a_100g"),
         vitamin_e_in_milligrams=micronutrient_value("vitamin_e_100g"),
+        vitamin_d_in_micrograms=micronutrient_value("vitamin_d_100g"),
         vitamin_k_in_micrograms=micronutrient_value("vitamin_k_100g"),
         vitamin_b6_in_milligrams=micronutrient_value("vitamin_b6_100g"),
         vitamin_b12_in_micrograms=micronutrient_value("vitamin_b12_100g"),

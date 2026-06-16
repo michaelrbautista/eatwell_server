@@ -73,6 +73,15 @@ class FoodDetailsAndSearchScoreTests(unittest.TestCase):
             )
             """
         )
+        cursor.execute(
+            """
+            CREATE TABLE off_food (
+                code TEXT PRIMARY KEY,
+                product_name TEXT,
+                vitamin_d_100g REAL
+            )
+            """
+        )
 
         cursor.execute(
             """
@@ -112,12 +121,39 @@ class FoodDetailsAndSearchScoreTests(unittest.TestCase):
             """,
             (1, "203", "Protein", "g"),
         )
+        cursor.executemany(
+            """
+            INSERT INTO sr_legacy_nutrient (id, nutrient_nbr, name, unit_name)
+            VALUES (?, ?, ?, ?)
+            """,
+            [
+                (2, "324", "Vitamin D (D2 + D3), International Units", "IU"),
+                (3, "328", "Vitamin D (D2 + D3)", "UG"),
+            ],
+        )
         cursor.execute(
             """
             INSERT INTO sr_legacy_food_nutrient (id, fdc_id, nutrient_id, amount)
             VALUES (?, ?, ?, ?)
             """,
             (1, 123, 1, 10.0),
+        )
+        cursor.executemany(
+            """
+            INSERT INTO sr_legacy_food_nutrient (id, fdc_id, nutrient_id, amount)
+            VALUES (?, ?, ?, ?)
+            """,
+            [
+                (2, 123, 2, 40.0),
+                (3, 123, 3, 2.5),
+            ],
+        )
+        cursor.execute(
+            """
+            INSERT INTO off_food (code, product_name, vitamin_d_100g)
+            VALUES (?, ?, ?)
+            """,
+            ("OFF123", "Off Test Food", 4.2),
         )
 
         conn.commit()
@@ -133,6 +169,25 @@ class FoodDetailsAndSearchScoreTests(unittest.TestCase):
         self.assertEqual(data["processing_score"], 42.0)
         self.assertEqual(data["bioavailability_score"], 88.5)
         self.assertEqual(data["quality_score"], 42.0)
+
+    def test_food_details_returns_vitamin_d(self):
+        with patch.dict(os.environ, {"DB_PATH": self.db_path}, clear=False):
+            client = TestClient(app_module.app)
+            response = client.get("/food/123")
+
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data["nutrients"]["vitamin_d_in_micrograms"], 2.5)
+
+    def test_off_food_details_returns_vitamin_d(self):
+        with patch.dict(os.environ, {"DB_PATH": self.db_path}, clear=False):
+            client = TestClient(app_module.app)
+            response = client.get("/food/off/OFF123")
+
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data["description"], "Off Test Food")
+        self.assertEqual(data["nutrients"]["vitamin_d_in_micrograms"], 4.2)
 
     def test_usda_search_places_bread_and_bread_comma_rows_first(self):
         def assert_order(payload, key):

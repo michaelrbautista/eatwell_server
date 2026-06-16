@@ -71,6 +71,7 @@ OFF_NUTRIENT_MAP = {
     "vitamin-c": ("vitamin_c_100g", "mg"),
     "vitamin-a": ("vitamin_a_100g", "ug"),
     "vitamin-e": ("vitamin_e_100g", "mg"),
+    "vitamin-d": ("vitamin_d_100g", "ug"),
     "vitamin-k": ("vitamin_k_100g", "ug"),
     "vitamin-b6": ("vitamin_b6_100g", "mg"),
     "vitamin-b12": ("vitamin_b12_100g", "ug"),
@@ -268,6 +269,7 @@ cursor.execute("""
         vitamin_c_100g REAL,
         vitamin_a_100g REAL,
         vitamin_e_100g REAL,
+        vitamin_d_100g REAL,
         vitamin_k_100g REAL,
         vitamin_b6_100g REAL,
         vitamin_b12_100g REAL,
@@ -315,7 +317,7 @@ def _flush_off_rows(rows):
             code, product_name, normalized_product_name, brands, normalized_brands, brand_product_name,
             categories, nova_group, nutriscore_grade, ingredients_text, serving_size, serving_quantity,
             protein_100g, leucine_100g, carbohydrates_100g, fat_100g, fiber_100g, sodium_100g,
-            vitamin_c_100g, vitamin_a_100g, vitamin_e_100g, vitamin_k_100g,
+            vitamin_c_100g, vitamin_a_100g, vitamin_e_100g, vitamin_d_100g, vitamin_k_100g,
             vitamin_b6_100g, vitamin_b12_100g, vitamin_b1_100g, vitamin_b2_100g,
             vitamin_b3_100g, vitamin_b5_100g, folate_100g, calcium_100g, iron_100g,
             magnesium_100g, phosphorus_100g, potassium_100g, zinc_100g, copper_100g,
@@ -324,7 +326,7 @@ def _flush_off_rows(rows):
             ?,?,?,?,?,?,?,?,?,?,
             ?,?,?,?,?,?,?,?,?,?,
             ?,?,?,?,?,?,?,?,?,?,
-            ?,?,?,?,?,?,?,?,?
+            ?,?,?,?,?,?,?,?,?,?
         )
     """, rows)
 
@@ -384,6 +386,7 @@ for batch in off_parquet.iter_batches(columns=off_columns, batch_size=5000):
             nutrients["vitamin_c_100g"],
             nutrients["vitamin_a_100g"],
             nutrients["vitamin_e_100g"],
+            nutrients["vitamin_d_100g"],
             nutrients["vitamin_k_100g"],
             nutrients["vitamin_b6_100g"],
             nutrients["vitamin_b12_100g"],

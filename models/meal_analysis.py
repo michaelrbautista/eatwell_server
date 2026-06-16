@@ -20,6 +20,7 @@ class AllNutrients(BaseModel):
     vitamin_c_in_milligrams: float
     vitamin_a_in_micrograms: float
     vitamin_e_in_milligrams: float
+    vitamin_d_in_micrograms: float = 0.0
     selenium_in_micrograms: float
     vitamin_b12_in_micrograms: float
     vitamin_b6_in_milligrams: float
@@ -70,6 +71,7 @@ class AnalysisMeal(BaseModel):
     vitamin_c_float: float
     vitamin_a_float: float
     vitamin_e_float: float
+    vitamin_d_float: float = 0.0
     selenium_float: float
     vitamin_b12_float: float = 0.0
     vitamin_b6_float: float = 0.0

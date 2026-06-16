@@ -24,6 +24,7 @@ from helper import (
     calculate_sodium,
     calculate_potassium,
     calculate_vitamin_a,
+    calculate_vitamin_d,
     calculate_vitamin_b1,
     calculate_vitamin_b2,
     calculate_vitamin_b3,
@@ -133,6 +134,9 @@ def build_analysis_meal(analysis: dict, *, search_food_fn=search_food) -> Analys
             vitamin_e_float=_analysis_value(
                 analysis, "vitamin_e_in_milligrams", "vitamin_e_float"
             ),
+            vitamin_d_float=_analysis_value(
+                analysis, "vitamin_d_in_micrograms", "vitamin_d_float"
+            ),
             selenium_float=_analysis_value(
                 analysis, "selenium_in_micrograms", "selenium_float"
             ),
@@ -203,6 +207,7 @@ def build_analysis_meal(analysis: dict, *, search_food_fn=search_food) -> Analys
         vitamin_c_float=calculate_vitamin_c(valid_results),
         vitamin_a_float=calculate_vitamin_a(valid_results),
         vitamin_e_float=calculate_vitamin_e(valid_results),
+        vitamin_d_float=calculate_vitamin_d(valid_results),
         selenium_float=calculate_selenium(valid_results),
         vitamin_b12_float=calculate_vitamin_b12(valid_results),
         vitamin_b6_float=calculate_vitamin_b6(valid_results),
@@ -256,6 +261,7 @@ Analyze this meal description and follow these steps:
        "vitamin_c_in_milligrams": 0.0,
        "vitamin_a_in_micrograms": 21.0,
        "vitamin_e_in_milligrams": 0.5,
+       "vitamin_d_in_micrograms": 0.0,
        "selenium_in_micrograms": 9.0,
        "vitamin_b12_in_micrograms": 0.0,
        "vitamin_b6_in_milligrams": 0.0,
